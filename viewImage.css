@@ -1,0 +1,10 @@
+﻿@charset "utf-8";
+/*просмотр картинок*/
+.de-img-pre, .de-img-full{border: medium none; cursor: pointer; display: block; margin: 2px 6px; outline: medium none}
+.de-img-thumb{cursor:move}.commInfo .imgL .de-img-pre,.commInfo .lnk .de-img-pre{margin: 4px 0;display:none}.commInfo .imgL:hover .de-img-pre,.commInfo .lnk:hover .de-img-pre{display:inline}
+.content ._noAddOwnView,.html_format img.de-img-full,.html_format img.de-img-pre,.post .content img.de-img-full,.post .content img.de-img-pre{max-width: none!important; max-height: none!important}.de-img-pre{background-color: rgba(230,230,230,0.6)}
+.de-img-full{float: left}
+.de-img-center{background-color: rgba(244,244,244,0.9); border: 1px solid black; position: fixed; z-index: 9999}
+.de-menu{position: absolute; z-index: 10; display: inline-block; padding:3px 6px; background:rgba(238,238,238,0.76); border-radius: 4px}
+.de-menu a{display:block}.de-menu a:hover{background:#ddd}
+.de-menu a img{height:16px; vertical-align:middle}
