@@ -1,0 +1,30 @@
+﻿@charset "utf-8";
+/* CSS for spmbt.kodingen.com */
+/* CSS Reset v1.0 | 20080212 http://meyerweb.com/eric/tools/css/reset/index.html */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, big, em, font, img, q, s, small, strong, sub, sup, tt, b, u, i, center, dl, dt, dd, ol, ul, li, form, label, table, tbody, tfoot, thead, tr, th, td{
+	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
+applet, abbr, acronym, address, cite, code, del, dfn, ins, kbd, samp, strike, var, fieldset, legend, caption{
+	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
+body, .wraprre{line-height: 1.2; font-family: Arial, Helvetica, Tahoma; color: #000; background-color: #fff; font-size: 13px;}/*changed*/
+ol, ul{list-style: none;}
+blockquote, q{quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none;}
+:focus{outline: 0;}/* remember to define focus styles! */
+ins{text-decoration: none;}del{text-decoration: line-through;}/* remember to highlight inserts somehow!*/
+table{border-collapse: collapse; border-spacing: 0;}/* tables still need'cellspacing="0"' in the markup*/
+
+.wraprre{margin: 0 3px 0 6px;}
+h1{font-size: 27px; color: #965;}
+h2{font-size: 24px; color: #965;}
+h3{font-size: 19px; color: #485; text-decoration: underline;}
+h4{font-size: 16px; border-bottom: 1px dotted #999; display: inline-block;}
+h3 a{color: inherit;}
+
+.b-pageTop >.def{margin: 0 24px; font-style: italic;}
+.b-h2Block{margin: 24px 0;}
+.b-h2Block >.def{margin: 0 24px;}
+
+.b-h3Block{margin: 0 0 0 12px;}
+.b-h3Block >.def, .b-h3Block >.descr{margin: 0 24px; text-indent: 2ex}
+.para{text-indent: 2ex}
+.article{max-width: 970px; margin: 1em 0}
