@@ -4,7 +4,7 @@
 
 [===== Устанавливать последнюю версию 128 от 2014-05-30 здесь =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/habrajax@githubcomspmbt.user.js)
 
-Последняя версия (номер 128) учитывает последние изменения вёрстки на сайте от 15 мая 2014 и содержит новую версию 4.05 [стилей ZenComment](), преобразующих внешний вид сайта, как описано в [ZenComment и преодоление «бешеной плитки» на χ·е](http://habrahabr.ru/post/223555/). Предпочтительнее устанавливать стили ZenComment отдельно, с использованием аддона [Stylish для Firefox](https://addons.mozilla.org/ru/firefox/addon/stylish/) или [для Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru) или без него для Старой Оперы.
+Последняя версия (номер 128) учитывает последние изменения вёрстки на сайте от 15 мая 2014 и содержит новую версию 4.05 [стилей ZenComment](http://userstyles.org/styles/101697/habr-zencomment-4), преобразующих внешний вид сайта, как описано в [ZenComment и преодоление «бешеной плитки» на χ·е](http://habrahabr.ru/post/223555/). Предпочтительнее устанавливать стили ZenComment отдельно, с использованием аддона [Stylish для Firefox](https://addons.mozilla.org/ru/firefox/addon/stylish/) или [для Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru) или без него для Старой Оперы.
 
 HabrAjax для Chrome или Старой Оперы устанавливается без вспомогательных программ. Для Firefox предпочтительно использовать [Scriptish](https://addons.mozilla.org/ru/firefox/addon/scriptish/versions/?page=1#version-0.1.12), но возможно и [Greasemonkey](https://addons.mozilla.org/ru/firefox/addon/greasemonkey/versions/).
 
