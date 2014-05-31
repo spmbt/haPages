@@ -1,6 +1,7 @@
 // ==UserScript==
+// @id HabrPercentageRing
 // @name Habr Percentage Ring
-// @version 9.2014.5.29
+// @version 9.2014.5.31
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Percentage Rings around numbers which show grades (for with userstyles)
@@ -46,7 +47,8 @@ writePercRound = function(aP, aM, oX){
 	return c;
 };
 //.comments_list .comment_item .info .voting .mark
-var win = typeof unsafeWindow !='undefined'? unsafeWindow: window;
+var win = typeof unsafeWindow !='undefined'? unsafeWindow: window
+	,$q = function(q, f){return (f||document).querySelector(q)};
 (win.habrPercentageRing = function(blck){
 var marks = blck && blck.childNodes && blck.querySelectorAll('.mark')
 	, r2 =14
@@ -62,31 +64,31 @@ for(var i in marks){
 		oP.style.marginRight ='14px';
 		oP.style.marginTop ='2px';}
 	var oX = getPositionCenter(o)
-		, oXS = o.querySelector('span');
+		, oXS = $q('span', o);
 	if(oXS && oXS.getAttribute('title')){
 		var oXSt = oXS.getAttribute('title').match(/[\d\.]+/g);
-		var oC = o.querySelector('canvas');
+		var oC = $q('canvas', o);
 		if(oC) oC.parentNode.removeChild(oC);
-		if(oXSt && oXSt.length && !o.querySelector('canvas')){
+		if(oXSt && oXSt.length && !$q('canvas', o)){
 			var aP = oXSt[1], aM = oXSt[2]
 				, c = writePercRound(aP, aM, oX)
-				, oPM = oP.querySelector('.minus')
-				, oPP = oP.querySelector('.plus')
+				, oPM = $q('.minus', oP)
+				, oPP = $q('.plus', oP)
 				, oPPI = /infopanel/.test(oP.parentNode.className);
 			if(oPM && (-aP - aM))
 				oPM.style.left =(oPPI?46:26 +6*(Math.abs(aP - aM) >9))+'px';
 			oXS.style.left ='-1px';
 			if(oPPI){//new layout
 				c.style.left = (Math.abs(aP - aM) >99 ? -r2 +17 : (aP == aM ? -r2 +3 : -r2 +11 -4*(Math.abs(aP - aM) <=9))) +'px';
-				c.style.top ='-7px';
+				c.style.top ='-5px';
 			}else if(oP.parentNode.parentNode.className =='entry-info vote_holder'){//old layout
 				c.style.left = (Math.abs(aP - aM) >99 ? -r2 +56 : (aP == aM ? -r2 +43 : -r2 +46 +4*(Math.abs(aP - aM) >9))) +'px';
 				c.style.top =isC2 ?'-6px':'-4px';
 			}else{//comments
 				c.style.left = (Math.abs(aP - aM) >99 ? -r2 +18 : (aP == aM ? -r2 +8 : -r2 +9 +4*(Math.abs(aP - aM) >9))) -(isC2 && !isQa ?3:0) +'px';
 				oXS.style.top =0;
-				oXS.style.left =(aP == aM ?5:-1)+'px';
-				c.style.top =isC2 ?'-5px':'-2px';
+				oXS.style.left =(aP == aM ?7:-1)+'px';
+				c.style.top =isC2 ?'-8px':'-6px';
 			}
 			oXS.style.position ='relative';
 			o.insertBefore(c, oXS);
