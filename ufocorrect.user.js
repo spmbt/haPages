@@ -1,7 +1,7 @@
-// ==UserScript==
+п»ї// ==UserScript==
 // @id             ufoCorrect
 // @name           ufoCorrect
-// @version        1.1
+// @version        11.2014.6.1
 // @namespace      github.com/spmbt
 // @author         spmbt0
 // @description    Correct Long Tall design in 5 sites: habrastorage.org, toster, tmtm, freelansim, habrahabr
@@ -43,6 +43,6 @@ for(var url in css)
 	+'.n_content .slide_column.column .slide img[src*=slide_3]{visibility: hidden}'
 	
 	,'freelansim.ru':'.layout__navbar .logo_wrap .logo{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAIAAAD+THXTAAAABmJLR0QA/wD/AP+gvaeTAAAED0lEQVR42u3Zz1MaVxwAcP6ptwvuyI81tx50ppdMMt7b8dSZHvoX+BYQJBKlMm2NtJYYiJ0xB2dMGrrLIgFFW0lFLWJGLSRUQGGXDSC7OaCdqOwmEhai877zjjtv+fB9v75vNbyfvGFNg0iIhEiIhEiIhEiIhEiIhEiIhEiIpGbLe43XlXTyJiY1iyAFMh79jSLREKinaj+pvHD3LfNtJWavxt0il25KSgWcqYAz/nAo9/Sbz5RUnu+vxt0n+3+IlaJ09ajnt6qbXuH3r9oyxzSfnpNa6onUphAKB8dhazdJlZi9tbQoRyW9Up7v7wKpjcm5HCelf8sLdztKqsTskspRPdxsLVea1uaP1JHgXs50iKTqkLsQ2bnbqpPK8/3KP6L2emX3KVx9MEhDkN+NyG21EdfAxm/fpdfmlHvbD09fdUfWtHcWlZdtURtOQ8BAEDSDQiosR6IhYCAWNOPRyS9LmYTCsn7Vc4amjaNO+MsdtWGMGcTs2uRkz/4DQyEZUCAVZ02vfzFkZ4whBynk9+S6jbgGWAq8+VmvFknu2Fbn0lEbTlNYfEx39nBffnNRgVTykZyP5Pzk3+O65KJVjrTuHQpSWNypU4sk9+J01ENDELLg54qI1JIC6f0nX4yaRLEudyAMUmDtnrbTpFTASUOwMnruxQrLwwXSn2M9NeFIoWfWgnWHtGzHuZZI25NEJf9KEkW5ni88306S3KEuvTZHQ8BSWO5XYwuk5PQXbw+TUrOxpzpJbnmoCUUaApoCW+PE8SPjx5A432mfiXFiZ3FYrFclSWy6PKhLUljEG39nyIzt/2jg/ST/uE+ZlJggeD+5bNeyI3qhkFFYxGkIwlYt7zd1YavdeX6PpkDUhicmCN7/AVKjxX66k09FpbrsVktDwEA87tRxfkN3DkRC4SD1fOyl9+ugGVMgxaYGtxeGs4lnUtPRdhZ74enGFH3l7s15TTfh2BpxDTAQhKzgvxm9usWFGsWsXIpCFvDP90Rx9vqXgKVMIjRK0hAs27UdKtSrcbfKnj7ajLMWfGOC4Dp2nXIcttaE9o/AbOLZkuMWTWlpCj+Y0h/OGLlOXnpl525nPlTGXSk5jY2VgThjBluTvd25msx49GEH2ViRW0taKZPYC0/HpgbPSkMQseFHD43FWVPXblszHn2QOt06I66Bde/Q9sJwKuAUCgcKF8jr3qH/GY0WsuLsCNi4T+S8hu7fiWc8epYCDATMez/xY04PjcZSYNXRs/tDL+8ned/ndM2/7tStODDWfDp+cjtLYr0mXioZaAgYCvAqfLZQ+WOMj1wyY2G7IWghLqflxQh+Lb8vHc2aNiZ0qw4dS2Hn5owF33IR6FstIiESIiESIiESIiESIiESIiESIn1aewdJwjiB6ixeBQAAAABJRU5ErkJggg==)!important'
-	//вид пути важен (ниже) для совместимости с HabrAjax (менее приор.)
+	//РІРёРґ РїСѓС‚Рё РІР°Р¶РµРЅ (РЅРёР¶Рµ) РґР»СЏ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё СЃ HabrAjax (РјРµРЅРµРµ РїСЂРёРѕСЂ.)
 	,'habrahabr.ru':'#navbar .logo{width:71px!important;height:71px!important; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABHBAMAAACnnkcsAAAAJFBMVEWgws6fwc2ev8v///+WtcCgwc6OqrSgws2dv8qSr7qfwc6fws4aIfWTAAAAAWJLR0QDEQxM8gAAAH9JREFUeNpjYBgFo2AIAG4FQiqYjY2NHUAMIG2CT1EKVJGZAx5FaU5QRSn4FCVAFaWNKqKPIhgYnoqmpQEBwXCiniKMEGcdTXQwsAFCbcaniJsbQquAQhukyA3EwFX2uEEVseBTxAJVBFaNSxHTUC3EsQtvwMvFqpc4k0YBHQAAdUBiN7R54fkAAAAASUVORK5CYII=)!important; background-position: 0 0!important; background-size: 71px 71px!important}'
 },'','undefined');

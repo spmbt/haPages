@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @id HabrPercentageRing
 // @name Habr Percentage Ring
 // @version 9.2014.5.31
