@@ -15,7 +15,9 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 #### Другие скрипты в формате "*описание: ссылка на установку*"
 
 * [habrPercentageRing](http://userscripts.org:8080/scripts/show/129371): [===== установить (прямая ссылка) от 2014-05-30 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/habrpercentagering@githubcomspmbt.user.js)
-* [ufoCorrect](http://userscripts.org:8080/scripts/show/397762): [===== установить (прямая ссылка) от 2014-05-31 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.js)
+* [ufoCorrect](http://userscripts.org:8080/scripts/show/397762): [===== установить (прямая ссылка) от 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.js)
+
+* юзерстили [ufoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.css)
 
 <br>
 
