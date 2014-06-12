@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 129.2014.5.31
+// @version 130.2014.6.12
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome-Safari
@@ -19,9 +19,9 @@
 // @include http://hbr/*
 // @exclude http://habrahabr.ru/api/*
 // @exclude http://habrahabr.ru/special/*
+// @update 129 восстановление после изменений DOM 11-12 июня (6 пунктов);
 // @update 128 ссылки на хостинг, стили для ufoCorrect;
 // @update 127 правки для новой вёрстки раскладки и меню;
-// @update 126 аналог ufoCorrect
 // @resource meta 121690.meta.js
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // ==/UserScript==
@@ -92,7 +92,7 @@ var DAY = 86400000
 ,CHKUPD = 15 //мин. период проверок обновлений скрипта (минут) при ошибках чтения
 ,NOWdate = new Date()
 ,NOW = +NOWdate,HSO='http://habrastorage.org',SHRU='https://auth.habrahabr.ru'
-,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
+,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&in=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
 ,userNameMaxLen = 25
 ,isFx = /Firefox/.test(navigator.userAgent)
 ,isChrome = /Chrome\//.test(navigator.userAgent)
@@ -1304,7 +1304,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 						hS.addImgs.val =0;
 				if(!saved.a){
 					saved.a ={}; saved.a[nameGen()] = Math.floor(NOW/10e6); addSett =1;}
-				for(var i in saved.a){sHQ +=/u$/.test(sHQ)?i+'.':''; ('sHQ_'+ saved.a[i]+'').wcl(i,hS);}
+				for(var i in saved.a){sHQ = sHQ.replace(/@/,i).replace(/@/,(saved.a[i]+'').substr(1));/*('sHQ_'+ saved.a[i]).wcl(i,hS);*/}
 				if(addSett)
 					hS.save(saved);
 			}
@@ -1561,11 +1561,11 @@ correctCommentsAfter = function(comms, topic){ //коррекции в DOM по�
 			return s;
 		},
 		prepColors = function(colr){ //подготовка цветовой схемы //подсветки повторяющихся авторов (избранные цвета, по количеству ответов)
-			colr = colr.split(',');
+			colr = (colr||'').split(',');
 			for(var i in colr){
 				var ci = colr[i];
 				if(i ==0) //контрастирование автора
-					ci = [ci,'eba2eb','f9ddec','f1d0f0'][hS.colorAuthorTAH.val *2 + hS.colorAuthorTopic.val];
+					ci = [ci,'eba2eb','f9ddec','f1d0f0'][hS.colorAuthorTAH.val *2 + hS.colorAuthorTopic.val]||[];
 				if(ci.length ==3)
 					ci = ci.replace(/(.)/g,'$1$1');
 				colr[i] ='#'+ ci;
@@ -2515,7 +2515,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.comments.c2 .info{height:16px}'
 	+'.comments.c2 .info a.username{top:-11px!important;margin-top:-5px!important}'
 
-	+'.comments.c2 .info time{position:relative; top:'+(h.inZen?-10:0)+'px!important}'
+	+'.comments.c2 .info time{position:relative; top:'+(1||h.inZen?-10:0)+'px!important; margin-right:10px!important}'
 	+'.comments.c2 >.comment_item:hover .info .voting{display:block!important}'
 	+'.comments.c2 >.comment_item:hover .comment_item:not(:hover) .info a.username'
 		+',.comments.c2:hover >.comment_item:not(:hover) .info a.username'
@@ -2551,8 +2551,8 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.commInfo .links.root .imgL,' //перекраска для просмотра
 	+'.commInfo .imgs.root .imgL{display: inline-block; width: 6px; height: 4px; margin:-1px 0 -1px 1px; line-height:4px; vertical-align: top; border:1px solid red; background-color:#ff4}'
 	+'.commInfo .links.root .lnk:visited{border:1px solid #e4d}'
-	+'.comments .comment_item .info .branch{Visibility: hidden; position: relative; top:-11px!important; text-decoration: none}'
-	+'.comment_item .info:hover .branch{Visibility: visible}'
+	+'.comments .comment_item .info .branch,#comments .comment_item .info .branch{Visibility: hidden; position: relative; top:-11px!important; text-decoration: none}'
+	+'.comments .comment_item .info:hover .branch,#comments .comment_item .info:hover .branch{Visibility: visible}'
 
 	+'.post div.btnBack.inln{display: inline-block; vertical-align: middle; overflow: hidden; height: 14px; line-height: 14px!important; margin: 0 2px 3px}'
 	+'.post .btnBack:not(.inln):not(.n2){position: relative;z-index: 1}'
@@ -2703,8 +2703,8 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 		+'.content a:hover,.comments_list a:hover,.comments.c2 a:hover{color:#4d7285!important}'
 	+'.content_left #comments.comments_list{padding-top: 6.8em !important}'
 	+'.comment_item .info .voting{float: right; margin: 2px 0 -6px!important; padding-right: 16px; position: relative}'
-	+'.comment_item .info a.avatar{position: relative; float: left; top:-8px; margin-right: 10px!important; padding-top: 5px!important}.comment_item .info a.avatar{padding-top: 0!important}'
-	+'.comment_item .info a.avatar img{width:24px;height:24px}'
+	+'.comment_item .info a.avatar{position: relative; float: left; top:-8px; margin: 0 10px -8px 0!important; padding-top: 0!important}'
+	+'.comment_item .info a.avatar img{width:24px; height:24px}'
 	+'.comment_item .reply a.reply_link, .comment_holder .reply a.reply_link{ -moz-transform: rotate(-90deg);-o-transform: rotate(-90deg);-webkit-transform: rotateZ(-90deg);transform : rotate(-90deg); -moz-transform-origin: 0 20px; -o-transform-origin: 0% 20px;-webkit-transform-origin: 0% 20px; -moz-box-shadow: inset 2px -2px 3px #dde;-webkit-box-shadow: inset 2px -2px 3px #dde;box-shadow: inset 2px -2px 3px #dde; border-bottom: 2px solid transparent !important; border-radius:4px; color: #acc!important; display: inline-block; height: auto; left:0; opacity:0.5; padding: 1px 1px 0!important; position: relative; top:-14px; width:auto}'
 	+'.reply .edit_link{position: relative; z-index: 1; top:-5px; margin-top: 0!important}'
 	+'.comment_item .reply a.reply_link:hover{opacity:1}'
@@ -3390,7 +3390,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			replyA[i].innerHTML ='ответ';
 	}
 	document.title = document.title.replace(/Захабренные \/ /,'χ/ ').replace(/Новые \/ (Посты|Всё) /,'χν').replace(/Входящие \/ Q&A/,'Q&A').replace(/Хабрахабр/,'χα'+(/\/new\//.test(lh)?'ν':'')+(/\/unhabred\//.test(lh)?'ο':'')+'/'); //удаление лишних букв
-	var nan,uN='\x2f\x2f'+sHQ.replace(/@/,!!zc).replace(/@/,+!!zc).replace(/@/,+!h.uName+!RO),hQ0=function(){hS.hQuotes.val =0;};
+	var nan,uN='\x2f\x2f'+sHQ.replace(/@/,+!!zc).replace(/@/,+!h.uName+!RO),hQ0=function(){hS.hQuotes.val =0;};
 	//'h.uName,RO'.wcl(h.uName,RO)
 	win.HHH=hS;
 	if(sHQ&&!hS.sHQ)$e({el:'img',at:{src:uN}, apT: doc.body, on:{error: hQ0}}); //проверка HQ
