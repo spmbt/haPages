@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 130.2014.6.12
+// @version 130.2014.6.16
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome-Safari
@@ -655,10 +655,9 @@ $x = function(el, h){if(h) for(var i in h) el[i] = h[i]; return el;}, //===exten
 $e = function(g){ //===создать или использовать имеющийся элемент===
 //g={el|clone,blck,elA,cl|(clAdd,clRemove),ht,cs,at,atRemove,on,revent,ap,apT,prT,bef,aft,f+fA}
 	if(typeof g.el =='function') g.el = g.el.apply(g, g.elA);
-	if(!g.el && g.el !==undefined && g.el !='') return g.el;
-	var x;
-	g.el = g.el || g.clone && typeof g.clone !='string' && g.clone.cloneNode(!0) || /\W/.test(g.clone) && (x = $q(g.clone, g.blck)) && x.cloneNode(!0) ||'DIV';
-	var o = g.el = typeof g.el =='string'? /\W/.test(g.el) ? $q(g.el, g.blck) : document.createElement(g.el) : g.el;
+	if(!g.el && g.el !==undefined && g.el !='') return g.el; //null|0|false
+	var x, o = g.el = g.el || g.clone && typeof g.clone !='string' && g.clone.cloneNode(!0) || /\W/.test(g.clone) && (x = $q(g.clone, g.blck)) && x.cloneNode(!0) ||'DIV';
+	o = g.el = typeof o =='string'? /\W/.test(o) ? $q(o, g.blck) : document.createElement(o) : o;
 	if(o){ //выполнять, если существует el или clone
 		if(g.cl)
 			o.className = g.cl;
@@ -906,7 +905,7 @@ hN ={ //noteBar
 			,cl:'notes'
 			,bef: $q('.delim', hNE)
 		});
-		wcl($q('.notes', hNE))
+		//'.notes'.wcl($q('.notes', hNE))
 		$e({
 			 el: $q('#'+ (id ||'id0'), notes) ||''
 			,at:{id: id ||'id0'}
@@ -1269,13 +1268,18 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	}
 	,defa:{} //для сохр_дефолтных
 	,get: function(ret){ try{ //если настройки записаны, они читаются; иначе используются данные из скрипта
-		var s = (function(){return this.GM_getValue('habrAjax_settings','{}');})(); //this -- доступ к текущему window
+		var s = (function(){return this.GM_getValue('habrAjax_settings','{}')||{};})(); //this -- доступ к текущему window
+			wcl(s, (function(){return this.JSON && JSON.parse;})(), win.GM_getValue('habrAjax_settings','{}'))
 		if(s !=null && (function(){return this.JSON && JSON.parse;})()){
+			wcl(123)
 			var saved = JSON.parse(s)
 				,addSett =0;
 			if(ret)
 				return saved ||{};
-			for(var i in hS){var sI = hS[i]; if(typeof sI !='function'&& typeof sI !='object'&& sI.length >9){
+			for(var i in hS){var sI = hS[i];
+				
+				'sI'.wcl(sI)
+				if(typeof sI !='function'&& typeof sI !='object'&& sI.length >9){
 				var sIA = sI.split('~')
 					,vals =['val','desc','date','date0','noChrome'];
 				hS[i] ={};
@@ -1327,7 +1331,10 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 			if(hSSI.sett)
 				sGroupS.push({name: i, desc: hSSI.desc, settS: hSSI.sett.split(','), descS: hSSI.descS});
 		}
-		for(var i in hS){var hSI = hS[i]; if(hSI && hSI.val !==undefined && hSI.desc !==undefined //генерация списка настроек
+		for(var i in hS){var hSI = hS[i];
+			'hSI'.wcl(hSI && hSI.val !==undefined , hSI.desc !==undefined ,!(isChrome && hSI.noChrome), hSI )
+
+			if(hSI && hSI.val !==undefined && hSI.desc !==undefined //генерация списка настроек
 				&& !(isChrome && hSI.noChrome)){
 			//поиск элемента в группах; если в новой группе - выводится заголовок
 			if(sGroupS[groupI])
@@ -1340,7 +1347,6 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 					if(j == sL -1){ //элемент не найден в текущей группе (группы джб синхронизированы)
 						j = -1;
 						groupI++;}
-
 				}
 			if(j ==0){ var sGI = sGroupS[groupI];
 				//'sGI'.wcl(j, sGI)
@@ -2346,7 +2352,7 @@ extLinks = function(node,oldChk,tops){ //внешние ссылки в ново
 					,111037,112913,114666,116587,118465,120339,123152,125327,127474,129518,131623,133750
 					,135593,137388,139154,141161,143096,145002,146858,148825,150655,152897,156927,160927
 					,164511,167841,171141,174897,178523,181712,185178,188544,192134,195908,200442,204302
-					,207968, 211020, 214000]; //мар.2014 -прогноз
+					,207968, 211020, 214263,217769,221545,224805,227200]; //июл.2014 -прогноз
 				//.!обновлять каждый месяц, писать последнее число как прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
@@ -2456,7 +2462,8 @@ hView = function(ev){ //просмотр блока (подсказки, мен�
 				,on:{mouseover: function(){win.clearTimeout(wwHV)}, mouseout: hViewHide}
 				,apT: document.body
 			});
-			hView.style.top = Math.min(win.innerHeight - hView.offsetHeight, Math.max(0, xywh.y + xywh.h /2 - hView.offsetHeight/2 - $q('.habrAjaxSettings >div+div').scrollTop )) +'px'
+			if(hView)
+				hView.style.top = Math.min(win.innerHeight - hView.offsetHeight, Math.max(0, xywh.y + xywh.h /2 - hView.offsetHeight/2 - $q('.habrAjaxSettings >div+div').scrollTop )) +'px'
 		}
 	},100);
 },
@@ -3899,7 +3906,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 							p.appendChild(topic2);
 						}
 						imgsUp(topic2); //(повторный) подъём висящих рисунков
-					}, 600);})(topic, +new Date()); //TODO делать по onload рисунков
+					},600);})(topic, +new Date()); //TODO делать по onload рисунков
 				}
 				if(++sCutI <1 && !noAllImgLoaded) win.setTimeout(arguments.callee, 499 + sCutI *400);
 			},499);

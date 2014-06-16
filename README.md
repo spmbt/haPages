@@ -4,6 +4,8 @@
 
 * [===== Установить (прямая ссылка) последнюю версию 129 от 2014-05-31 здесь =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/habrajax.user.js)
 
+Замечание для пользователей ***Firefox 30*** и ***Scriptish***: нужно использовать [последнюю ночную сборку от 11 мая или около того, 0.1.12 и новее](https://github.com/scriptish/scriptish-nightlies/tags) Scriptish для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое).
+
 Последняя версия (номер 129) учитывает последние изменения вёрстки на сайте от 15 мая 2014 и содержит новую версию 4.06 [стилей ZenComment](http://userstyles.org/styles/101697/habr-zencomment-4), преобразующих внешний вид сайта, как описано в [ZenComment и преодоление «бешеной плитки» на χ·е](http://habrahabr.ru/post/223555/). Предпочтительнее устанавливать стили ZenComment отдельно (нет "рывка" от перестилизации в 1-ю секунду), с использованием аддона [Stylish для Firefox](https://addons.mozilla.org/ru/firefox/addon/stylish/) или [для Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru) или без него для Старой Оперы.
 
 HabrAjax для Chrome или Старой [Оперы устанавливается](http://f-lite.ru/lfp/s015.radikal.ru/i332/1010/ed/7bd2820ccbf6.png/htm) без вспомогательных программ. Для Firefox предпочтительно использовать [Scriptish](https://addons.mozilla.org/ru/firefox/addon/scriptish/versions/?page=1#version-0.1.12), но возможно и [Greasemonkey](https://addons.mozilla.org/ru/firefox/addon/greasemonkey/versions/).
