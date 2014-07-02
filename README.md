@@ -22,6 +22,8 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 
 * юзерстили [ufoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.css)
 
+* юзерскрипты [feedlyCtrlF5](https://github.com/spmbt/haPages/blob/gh-pages/feedlyctrlf5.user.js) - смотреть код; [===== прямая ссылка на код user.js  2014-07-02 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/feedlyctrlf5.user.js) - делает обновление фидов по клавише "R" в любой национальной раскладке и то же - для Ctrl+F5 или Shift+F5 и делают удобнее стили, как в стилях [https://userstyles.org/styles/102580/feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact).
+
 <br>
 
 ---

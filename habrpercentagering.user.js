@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @id HabrPercentageRing
 // @name Habr Percentage Ring
-// @version 9.2014.5.31
+// @version 10.2014.6.24
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Percentage Rings around numbers which show grades (for with userstyles)
@@ -12,48 +12,13 @@
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 // работает автономно или как модуль для HabrAjax
-getPositionCenter = function(obj){
-	var x=0, y=0, w2 = Math.floor(obj.offsetWidth /2), h2 = Math.floor(obj.offsetHeight /2);
-	while(obj) { x += obj.offsetLeft; y += obj.offsetTop; obj = obj.offsetParent; }
-	return {x: x, y: y, w2: w2, h2: h2};
-};
-writePercRound = function(aP, aM, oX){
-	var aPM = Number(aP) + Number(aM);
-	if(aPM ==0) return document.createElement('div');
-	var c = document.createElement('canvas')
-		, pi = Math.PI, r2 = 14, ell = 1-1/3.6;
-	c.width
-		= c.height = r2 *2;
-	c.style.backgroundColor ='transparent';
-	c.style.position ='absolute';
-	c.style.left = (-r2 +12) +'px';
-	c.style.top = (-r2 +1 +8) +'px';
-	var q = c.getContext("2d")
-		, log = Math.log(aPM)/1.6 +1;
-	c.style.opacity = 0.25 + log *0.1;
-	c.style.zIndex = 1;
-	q.beginPath();
-	q.lineWidth = log;
-	q.strokeStyle ='#1b1';
-	var perc = (0.5- aM/aPM)* pi
-		, perc2 = (0.5+ aM/aPM)* pi;
-	q.scale(1, ell);
-	q.arc(r2, r2 /ell, r2 -1, perc, perc2 +2*(perc == perc2 && aP !=0)*pi, aP ==0 || aM !=0);
-	q.stroke();
-	q.beginPath();
-	q.strokeStyle ='#a24';
-	q.arc(r2, r2/ell, r2 -1, perc, perc2 +2*(perc == perc2 && aM !=0)*pi, !1);
-	q.stroke();
-	return c;
-};
-//.comments_list .comment_item .info .voting .mark
-var win = typeof unsafeWindow !='undefined'? unsafeWindow: window
-	,$q = function(q, f){return (f||document).querySelector(q)};
+var win = typeof unsafeWindow !='undefined'? unsafeWindow: window;
 (win.habrPercentageRing = function(blck){
 var marks = blck && blck.childNodes && blck.querySelectorAll('.mark')
-	, r2 =14
-	, isC2 = blck && / c2/.test(blck.className)
-	, isQa = /\/qa\//.test(location.href);
+	,r2 = 14
+	,isC2 = blck && / c2/.test(blck.className)
+	,isQa = /\/qa\//.test(location.href)
+	,$q = function(q, f){return (f||document).querySelector(q)};
 if(!marks) return;
 for(var i in marks){
 	var o = marks[i]
@@ -63,15 +28,48 @@ for(var i in marks){
 	if(/\/users\//.test(location.href) ){
 		oP.style.marginRight ='14px';
 		oP.style.marginTop ='2px';}
-	var oX = getPositionCenter(o)
-		, oXS = $q('span', o);
+	var oXS = $q('span', o);
 	if(oXS && oXS.getAttribute('title')){
-		var oXSt = oXS.getAttribute('title').match(/[\d\.]+/g);
-		var oC = $q('canvas', o);
+		var oXSt = oXS.getAttribute('title').match(/[\d\.]+/g)
+			,oC = $q('canvas', o);
 		if(oC) oC.parentNode.removeChild(oC);
 		if(oXSt && oXSt.length && !$q('canvas', o)){
 			var aP = oXSt[1], aM = oXSt[2]
-				, c = writePercRound(aP, aM, oX)
+				, c = (function(aP, aM){ //writePercRound
+					var aPM = Number(aP) + Number(aM);
+					if(aPM ==0) return document.createElement('div');
+					var c = document.createElement('canvas')
+						, pi = Math.PI, r2 = 14, ell = 1-1/3.6;
+					c.width
+						= c.height = r2 *2;
+					c.style.backgroundColor ='transparent';
+					c.style.position ='absolute';
+					c.style.left = (-r2 +12) +'px';
+					c.style.top = (-r2 +1 +8) +'px';
+					var q = c.getContext("2d")
+						, log = Math.log(aPM)/1.6 +1;
+					c.style.opacity = 0.25 + log *0.1;
+					c.style.zIndex = 1;
+					q.beginPath();
+					q.lineWidth = log;
+					q.strokeStyle ='#1b1';
+					var perc = (0.5- aM/aPM)* pi
+						, perc2 = (0.5+ aM/aPM)* pi;
+					q.scale(1, ell);
+					q.arc(r2, r2 /ell, r2 -1, perc, perc2 +2*(perc == perc2 && aP !=0)*pi, aP ==0 || aM !=0);
+					q.stroke();
+					q.beginPath();
+					q.strokeStyle ='#a24';
+					q.arc(r2, r2/ell, r2 -1, perc, perc2 +2*(perc == perc2 && aM !=0)*pi, !1);
+					q.stroke();
+					return c;
+				})(aP, aM, (function(obj){ //getPositionCenter
+					var x=0, y=0
+						,w2 = Math.floor(obj.offsetWidth /2)
+						,h2 = Math.floor(obj.offsetHeight /2);
+					while(obj){ x += obj.offsetLeft; y += obj.offsetTop; obj = obj.offsetParent;}
+					return {x: x, y: y, w2: w2, h2: h2};
+				})(o))
 				, oPM = $q('.minus', oP)
 				, oPP = $q('.plus', oP)
 				, oPPI = /infopanel/.test(oP.parentNode.className);
