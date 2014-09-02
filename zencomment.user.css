@@ -1,9 +1,9 @@
-﻿/** Habr Zen-Comment v4.07_2014-06-13, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+﻿/** Habr Zen-Comment v4.10_2014-09-03, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/101697/habr-zencomment-4
  * Author: http://spmbt.habr.ru/
- * LastUpdatesDescription: +меню для неавторизованных и "Спецпр."
+ * LastUpdatesDescription: +My list"
  */
-@namespace url(http://www.w3.org/1999/xhtml);@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://auth.habrahabr.ru/settings/"),domain("hbr"),domain("webcache.googleusercontent.com"){
+@namespace url(http://www.w3.org/1999/xhtml);@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://auth.habrahabr.ru/settings/"),domain("hbr"),url-prefix("https://sohabr.ru/"),domain("webcache.googleusercontent.com"){
 
 /*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
@@ -35,7 +35,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	min-width: 314px!important;
 	margin:0;
 	padding:5px 0 0!important}
-	#header .userpanel,#header .user_panel{
+#header .userpanel,#header .user_panel{
 	position: fixed!important;
 	top: 0!important;
 	right: 0;
@@ -50,6 +50,9 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	border-left: 2px solid #666!important;border-bottom-left-radius:5px;
 	background-color: #ccc;
 	opacity: 0.5;filter: alpha(opacity=50)}
+.page_head{line-height: 0}
+.page_head h2.title{font-size: 13px!important; position: relative; top: 1.8em; left: 1ex}
+.page_head .controls{position: absolute; left: 5px; top: 2.8em}
 #header .user_panel{font: 12px/14px Arial,Helvetica,sans-serif!important}
 #header .userpanel:hover,#header .user_panel:hover{background-color: #fff;
 	opacity: 1;filter: none}
@@ -251,12 +254,14 @@ form#search_form{width: 245px!important;height:21px}
 	left: auto!important; 
 	right: 88px;
 	margin-top:-6px!important}
+#navbar #print_tab{display: none}
 #navbar a.tab_user:hover ~ a.tab_add_post, #navbar a.tab_add_post:hover{visibility: visible}
   #navbar a.tab_add_post:hover + a.tab_settings, #navbar a.tab_settings:hover,
-  #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu{display: block!important}
+  #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu, #navbar a.tab_settings:hover + #print_tab, #navbar #print_tab:hover{display: block!important}
   #navbar a.logo + a.tab_menu{left: 32px!important}
 #navbar .nav_panel .tab.open:not(:hover){background: transparent!important}
 #navbar .nav_panel .tab.open:before{width:0!important}
+#navbar .nav_panel #print_tab{top:-22px; right:129px}
 #navbar a.tab:after{
 	position:relative!important;
 	float:right;
@@ -283,7 +288,7 @@ form#search_form{width: 245px!important;height:21px}
 	bottom: auto;}
 #navbar_overlay{background: none repeat scroll 0 0 rgba(0, 0, 0, 0.17)!important}
 #navbar #menu_tab .title{padding-left: 80px!important}
-#navbar #menu_tab .line +.title,#navbar #menu_tab .line +.title +.menu{display: none!important}
+#navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important}
 
 #js-addFan, #js-addWorker{margin: 6px 0 0!important}
 .profile-karma-holder{margin: -10px 8px!important}
@@ -995,6 +1000,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 @media (min-width: 1520px){
 	#layout,.rotated_posts, #footer{margin-right:0!important}
 	#navbar .nav_panel .logo{margin-left: -7px;border-bottom-left-radius:3px}
+	#navbar a.logo + a.tab_menu{left: 22px!important}
 	#navbar_overlay, #navbar .tab_user, #navbar .tab_tracker, #navbar .tab_tracker, #navbar a.tab_add_post:hover +a.tab_settings{display: none!important}
 	#navbar a.tab_add_post{visibility: visible; right:auto; left:-114px!important; background-color: #ccc}
 	#navbar .nav_tabs_content{
@@ -1044,7 +1050,7 @@ body >a,
 /*FF*/
 .content_left .peoples_list,
 .content_left .hubs_list .hub{margin-left: 24px!important}
-#layout .wrapper .inner{/*background: transparent;*/ border-radius:0;padding: 0!important}
+#layout .wrapper .inner,#layout .inner{/*background: transparent;*/ border-radius:0;padding: 0!important}
 .buttons a.button, .buttons input:disabled:active, .buttons input{padding:0 10px!important}
 .post .content .buttons{display:inline-block!important;padding:0!important}
 .post .content .buttons a.button,.post .content .buttons input[type="button"]{position: relative;top:-2px;padding:0 2px 1px!important;border:0!important;border-radius:2px!important;background:transparent!important;color:#6da3bd!important;box-shadow: 0 0 2px rgba(255,255,255,0.4) inset, 0 0 2px rgba(0,0,0,0.2)!important}

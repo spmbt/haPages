@@ -5,7 +5,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
 applet, abbr, acronym, address, cite, code, del, dfn, ins, kbd, samp, strike, var, fieldset, legend, caption{
 	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
-body, .wraprre{line-height: 1.2; font-family: Arial, Helvetica, Tahoma; color: #000; background-color: #fff; font-size: 13px;}/*changed*/
+body, .wraprre{line-height: 1.2; font-family: Arial, Helvetica, Tahoma, sans-serif; color: #000; background-color: #fff; font-size: 13px;}/*changed*/
 ol, ul{list-style: none;}
 blockquote, q{quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none;}
