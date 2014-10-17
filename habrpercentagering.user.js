@@ -9,6 +9,8 @@
 // @update 0.81 bug + подгонка эллипсов
 // @include http://*.habrahabr.ru/*
 // @include http://habrahabr.ru/*
+// @include http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*
+// @include http://geektimes.ru/*
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 // работает автономно или как модуль для HabrAjax
