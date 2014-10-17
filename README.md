@@ -4,31 +4,37 @@ _Для просмотра файлов и актуального описани
 
 HabrAjax ([старый (не работает!) адрес](http://userscripts-mirror.org/scripts/show/121690), архив версий и описание, [новый адрес](https://greasyfork.org/scripts/1970-habrajax)) - это юзерскрипт для сайта habr.ru с поддержкой 3 основных браузеров, имеющий более 60 функций для улучшения подачи информации на страницах сайта.
 
-* [===== Установить (прямая ссылка) последнюю версию 132 от 2014-10-17 здесь =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/habrajax.user.js)
+* [===== Установить (прямая ссылка) последнюю версию 132 от 2014-10-17 здесь =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrajax/habrajax.user.js)
 
 Замечание для пользователей ***Firefox 30*** и ***Scriptish***: нужно использовать [последнюю ночную сборку от 11 мая или около того, 0.1.12 и новее](https://github.com/scriptish/scriptish-nightlies/tags) Scriptish для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое).
 
-Последняя версия (номер 132) учитывает последние изменения вёрстки на сайте от 17 октября 2014, добавляет сайт [geektimes.ru](http://geektimes.ru) и содержит новую версию 4.12 [стилей ZenComment](http://userstyles.org/styles/101697/habr-zencomment-4), преобразующих внешний вид сайта, как описано в [ZenComment и преодоление «бешеной плитки» на χ·е](http://habrahabr.ru/post/223555/). Предпочтительнее устанавливать стили ZenComment отдельно (нет "рывка" от перестилизации в 1-ю секунду), с использованием аддона [Stylish для Firefox](https://addons.mozilla.org/ru/firefox/addon/stylish/) или [для Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru) или без него для Старой Оперы.
+Последняя версия (номер 132) учитывает последние изменения вёрстки на сайте от 17 октября 2014, добавляет сайт [geektimes.ru](http://geektimes.ru) и содержит новую версию 4.12 [стилей ZenComment](http://userstyles.org/styles/101697/habr-zencomment-4), (или здесь)[https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrajax/zencomment.user.css], преобразующих внешний вид сайта, как описано в [ZenComment и преодоление «бешеной плитки» на χ·е](http://habrahabr.ru/post/223555/). Предпочтительнее устанавливать стили ZenComment отдельно (нет "рывка" от перестилизации в 1-ю секунду), с использованием аддона [Stylish для Firefox](https://addons.mozilla.org/ru/firefox/addon/stylish/) или [для Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru) или без него для Старой Оперы.
 
 HabrAjax для Chrome или Старой [Оперы устанавливается](http://f-lite.ru/lfp/s015.radikal.ru/i332/1010/ed/7bd2820ccbf6.png/htm) без вспомогательных программ. Для Firefox предпочтительно использовать [Scriptish](https://addons.mozilla.org/ru/firefox/addon/scriptish/versions/?page=1#version-0.1.12), но возможно и [Greasemonkey](https://addons.mozilla.org/ru/firefox/addon/greasemonkey/versions/).
+
+Для загрузки скрипта в Хром как распакованного расширения полезно иметь [файл манифеста](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrAjax/manifest.json). Для других скриптов - пишутся аналогичные или другим способом достигается [разрешение скриптов в Хроме](http://habrahabr.ru/post/226063/).
 
 ---
 
 С 30 мая 2014 года новые версии HabrAjax и других скриптов, относящихся к Хабру, стали размещаться на [github.com/spmbt/haPages](https://github.com/spmbt/haPages/tree/gh-pages) из-за невозможности обновления версий на прежнем традиционнном хостинге.
 
-#### Другие скрипты в формате "*описание: ссылка на установку*"
+#### Другие скрипты в формате "*название: ссылка на установку. Описание*"
 (*обратите внимание*, что ссылки на установку со страниц описания на userscripts.org - УСТАРЕВШИЕ и не могут быть там обновлены. **Устанавливать - только с Github**)
 
-* [habrPercentageRing](http://userscripts-mirror.org/scripts/show/129371): [===== установить (прямая ссылка, не работает) от 2014-05-30 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/habrpercentagering.user.js)
-* [ufoCorrect](http://userscripts-mirror.org/scripts/show/397762): [===== установить (прямая ссылка, не работает) от 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.js)
+* [habrPercentageRing](http://userscripts-mirror.org/scripts/show/129371): [===== установить, от 2014-10-17 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrpercentagering/habrpercentagering.user.js). Показ соотношения положительных и отрицательных оценок к комментарию или статье кольцевой диаграммой вокруг суммарной оценки.
 
-* юзерстили [ufoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/ufocorrect.user.css)
+* [ufoCorrect](http://userscripts-mirror.org/scripts/show/397762): [===== установить,  от 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/ufocorrect/ufocorrect.user.js). Удаление дизайнерского эффекта "длинных теней" на логотипах сайтов (заменой нескольких картинок).
 
-* юзерскрипты [feedlyCtrlF5](https://github.com/spmbt/haPages/blob/gh-pages/feedlyctrlf5.user.js) - смотреть код; [===== прямая ссылка на код user.js  2014-07-02 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/feedlyctrlf5.user.js) - делает обновление фидов по клавише "R" в любой национальной раскладке и то же - для Ctrl+F5 или Shift+F5 и делают удобнее стили, как в стилях [https://userstyles.org/styles/102580/feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact).
+* [habrActivity](http://userscripts-mirror.org/scripts/show/162360): [===== установить, от 2014-10-17 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habractivity/habractivity.user.js). Просмотр активности пользователей в комментариях в виде диаграммы наподобие Contributions в Github. (Скриншот)[http://img89.imageshack.us/img89/4424/habractivity03.png].
+
+* [habraKarmaView](http://userscripts-mirror.org/scripts/show/132273.html): [===== установить, от 2014-10-18 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrakarmaview/habrakarmaview.user.js). Подсказка кармы по наведению на любой ник на странице, кроссбраузерно, для habr и geektimes.
+
+* юзерстили [ufoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/ufocorrect/ufocorrect.user.css). Делает то же, что скрипт ufoCorrect.
+
+* юзерскрипты [feedlyCtrlF5](https://github.com/spmbt/haPages/blob/gh-pages/userscript/feedlyctrlf5/feedlyctrlf5.user.js) - смотреть код; [===== прямая ссылка на код user.js  2014-07-02 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/feedlyctrlf5.user.js) - делает обновление фидов по клавише "R" в любой национальной раскладке и то же - для Ctrl+F5 или Shift+F5 и делают удобнее стили, как в стилях [https://userstyles.org/styles/102580/feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact).
 
 <br>
 
 ---
 
 Пример страницы `haPages` для описания функций: [Перенос сообщений из "прямого эфира" в "Лучшие"](http://spmbt.github.io/haPages/sidebarLive2Dailybest.htm).
-
