@@ -77,4 +77,5 @@ if(CSS_ON)
   +'.u0Entry .condensedTools img {padding:0!important}'
   +'.u0Entry .condensedTools a:first-child{margin: 0 -5px 0 6px}'
   +'.u0Entry .lastModified{padding-left: 2px!important}'
-  +'.inlineFrame .u100entry .title{font-size:17px!important}'
+  +'.inlineFrame .u100entry .title{font-size:17px!important}')
+

@@ -1,9 +1,9 @@
-﻿/** Habr Zen-Comment v4.10_2014-09-03, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+﻿/** Habr Zen-Comment v4.12_2014-10-17, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/101697/habr-zencomment-4
  * Author: http://spmbt.habr.ru/
- * LastUpdatesDescription: +My list"
+ * LastUpdatesDescription: +menu Geektimes"
  */
-@namespace url(http://www.w3.org/1999/xhtml);@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://auth.habrahabr.ru/settings/"),domain("hbr"),url-prefix("https://sohabr.ru/"),domain("webcache.googleusercontent.com"){
+@namespace url(http://www.w3.org/1999/xhtml);@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://habrahabr.ru/auth/settings/"),domain("hbr"),url-prefix("https://sohabr.ru/"),domain("webcache.googleusercontent.com"),domain("geektimes.ru"){
 
 /*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
@@ -53,6 +53,12 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 .page_head{line-height: 0}
 .page_head h2.title{font-size: 13px!important; position: relative; top: 1.8em; left: 1ex}
 .page_head .controls{position: absolute; left: 5px; top: 2.8em}
+#TMpanel{left: 105px!important; right:auto!important;  width:auto!important; min-width:0!important; height: 18px!important; border: 0!important; text-align: left!important; background: transparent!important}
+#TMpanel .container{min-width:0!important;}
+#TMpanel .menu{line-height: normal!important}
+#TMpanel .menu a{margin: 0 6px!important; padding: 0 4px!important; background-color: #eee; color: transparent!important; opacity: 0.5}
+#TMpanel .menu a.current{display: none!important}
+#TMpanel .menu:hover a{text-decoration: none!important; color: #000!important; opacity: 1}
 #header .user_panel{font: 12px/14px Arial,Helvetica,sans-serif!important}
 #header .userpanel:hover,#header .user_panel:hover{background-color: #fff;
 	opacity: 1;filter: none}
@@ -238,7 +244,7 @@ form#search_form{width: 245px!important;height:21px}
 	border-radius: 0 0 4px 4px!important;}
 #navbar .nav_panel{opacity:0.5}
 #navbar .nav_panel:hover{opacity:1}
-#navbar .nav_panel .tab{}
+#navbar .nav_panel .tab{line-height: normal!important}
 #navbar a.tab_tracker{height: 25px!important; left: 31px!important; margin-top:-5px!important; padding-left:9px!important}
 #navbar a.tab_menu{display: none!important; position: absolute; left: 74px!important; height: 18px!important; padding:2px 13px 1px!important}
 #navbar a.tab_add_post{
@@ -254,11 +260,13 @@ form#search_form{width: 245px!important;height:21px}
 	left: auto!important; 
 	right: 88px;
 	margin-top:-6px!important}
-#navbar #print_tab{display: none}
+#navbar #print_tab{display: none!important}
 #navbar a.tab_user:hover ~ a.tab_add_post, #navbar a.tab_add_post:hover{visibility: visible}
   #navbar a.tab_add_post:hover + a.tab_settings, #navbar a.tab_settings:hover,
-  #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu, #navbar a.tab_settings:hover + #print_tab, #navbar #print_tab:hover{display: block!important}
+  #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu{display: block!important}
   #navbar a.logo + a.tab_menu{left: 32px!important}
+	.g-icon-alarm:before{position: relative; top: -4px}
+	.g-icon-burger:before{position: relative; top: -8px}
 #navbar .nav_panel .tab.open:not(:hover){background: transparent!important}
 #navbar .nav_panel .tab.open:before{width:0!important}
 #navbar .nav_panel #print_tab{top:-22px; right:129px}
@@ -835,21 +843,39 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	line-height:18px;
 	padding: 0 6px!important;
 	text-decoration: none!important;
-	margin: 0!important;border-radius:5px}
+	margin: 0 -2px!important; border-radius:5px}
 .editor .panel .spanned,
-.editor .panel >div >a{position:relative;float: left;z-index:11}
+.editor .panel .wysiwyg_wrapper .btn{
+display: inline-block!important;
+	position:relative;
+	float: left;
+	z-index: 11;
+	height: 20px!important;
+	line-height: 22px!important}
+.editor .panel .wysiwyg_wrapper .btn.btn-dropdown{float: none!important}
+.editor .panel >div >b >a{position:relative; top:-2px}
+
 .editor .panel >a:first-child,
-.editor .panel >div >a:first-of-type{margin-left: 3px!important}
+.editor .panel .wysiwyg_wrapper .btn:first-of-type{margin-left: 3px!important}
 
 .editor .panel .spanned{padding: 0!important}
 #js-topic-form-holder .editor .panel .spanned a >font{top:0!important}
+.editor .panel >.wysiwyg_wrapper >.btn:hover,
 .editor .panel >.wysiwyg_wrapper >a:hover,
 .editor .panel >div >b >a:hover,
 .comment_item .reply .editor .panel >div >a:hover,
 .content_left #comments_form .editor .panel a:hover{background:#fff}
 .editor .panel .with-title{margin: 1px 6px 0 3px!important}
 
-.editor .panel .can_use_html{right:-8px;position:absolute;z-index:10;white-space:nowrap;color:#999!important}
+.editor .panel .can_use_html{
+	position: absolute;
+	right:-8px;
+	top: 0;
+	z-index: 10;
+	height: 20px!important;
+	line-height: 22px!important;
+	white-space: nowrap;
+	color: #999!important}
 .editor .panel .can_use_html a{
 	position:relative;
 	display: inline;
