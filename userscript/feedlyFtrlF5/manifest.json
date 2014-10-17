@@ -1,0 +1,14 @@
+﻿{
+   "content_scripts": [ {
+      "exclude_matches": [  ],
+      "include_globs": [ "http://feedly.com/*" ],
+      "js": [ "feedlyctrlf5.user.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "Add refresh by Ctrl-F5, Shift-F5 and "R" in any national keyboard layout",
+   "name": "feedlyCtrlF5Fx",
+   "version": "1.2014.5.19",
+   "manifest_version": 2
+}

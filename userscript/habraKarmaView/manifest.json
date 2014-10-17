@@ -1,0 +1,15 @@
+﻿{
+   "content_scripts": [ {
+      "exclude_globs": [ "http://habrahabr.ru/api/*" ],
+      "exclude_matches": [  ],
+      "include_globs": [ "http://habrahabr.ru/*", http://geektimes.ru/*" ],
+      "js": [ "habrakarmaview.user.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "Подсказка кармы по наведению на ник, кроссбраузерно",
+   "name": "HabraKarmaViewFx",
+   "version": "4.2014.10.17",
+   "manifest_version": 2
+}

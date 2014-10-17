@@ -1,4 +1,6 @@
+.gitignore
 00
 *.rar
 *.zip
 --*.rtf
+.idea/

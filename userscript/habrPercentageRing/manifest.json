@@ -1,0 +1,15 @@
+﻿{
+   "content_scripts": [ {
+      "exclude_globs": [ "http://habrahabr.ru/api/*" ],
+      "exclude_matches": [  ],
+      "include_globs": [ "http://habrahabr.ru/*", "http://*.habrahabr.ru/*", "http://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*" ],
+      "js": [ "habrpercentagering.user.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "Percentage Rings around numbers which show grades",
+   "name": "HabrPercentageRingFx",
+   "version": "10.2014.6.24",
+   "manifest_version": 2
+}

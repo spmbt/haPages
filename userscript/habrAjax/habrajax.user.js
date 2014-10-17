@@ -8,11 +8,11 @@
 // @version 132.2014.10.17
 // @namespace github.com/spmbt
 // @author spmbt0
-// @description Cumulative script with over 60 functions for Fx-Opera-Chrome-Safari
+// @description Cumulative script with over 60 functions for Fx-Opera-Chrome
 // @include http://habrahabr.ru/*
 // @include https://habrahabr.ru/auth/settings*
 // @include https://plusone.google.com/*
-// @include http://userscripts.org:8080/scripts/source/*
+// @include http://userscripts-mirror.org/scripts/source/*
 // @include http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
@@ -94,6 +94,7 @@ var DAY = 86400000
 ,NOWdate = new Date()
 ,NOW = +NOWdate,HSO='http://habrastorage.org',SHRU='https://habrahabr.ru/auth'
 ,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&in=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
+,ROOT = location.protocol +'//'+ location.host
 ,userNameMaxLen = 25
 ,isFx = /Firefox/.test(navigator.userAgent)
 ,isChrome = /Chrome\//.test(navigator.userAgent)
@@ -107,6 +108,37 @@ var DAY = 86400000
 String.prototype.wcl = wcl;
 String.prototype.trim = function(s){var s = this ||s;
 	return s.replace(/(^\s+|\s+$)/g,'')};
+if(win.opera || typeof GM_xmlhttpRequest ==u)
+	GM_xmlhttpRequest = function(h){
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			var responseState ={
+				responseXML: xhr.readyState==4 ? xhr.responseXML :''
+				,responseText: xhr.readyState==4 ? xhr.responseText :''
+				,readyState: xhr.readyState
+				,responseHeaders: xhr.readyState==4 ? xhr.getAllResponseHeaders() :''
+				,status: xhr.readyState==4 ? xhr.status : 0
+				,statusText: xhr.readyState==4 ? xhr.statusText :''
+			}
+			h.onreadystatechange && h.onreadystatechange(responseState);
+			if(xhr.readyState==4){
+				if(h.onload && xhr.status>=200 && xhr.status<300)
+					h.onload(responseState);
+				if(h.onerror && (xhr.status<200 || xhr.status>=300))
+					h.onerror(responseState);
+		}};
+		try{//cannot do cross domain
+			xhr.open(h.method, h.url);
+		}catch(er){
+			if(h.onerror) //simulate a real error
+				h.onerror({responseXML:'',responseText:'',readyState:4,responseHeaders:'',status:403,statusText:'Forbidden'});
+			return;
+		}
+		if(h.headers)
+			for(var prop in h.headers)
+				xhr.setRequestHeader(prop, h.headers[prop]);
+		xhr.send((typeof(h.data) !=u) ? h.data : null);
+	};
 try{ //для оповещения об ошибках в Fx
 var metaD = readMeta(metaTx, isFxScr) //metaTx == false ||'false'(строка) - если Fx|| строки метаданных
 	,gPlusFrame = alienFrame && /plusone/.test(location.host);
@@ -226,7 +258,7 @@ if(gPlusFrame){
 		var dd = document.querySelector('pre')
 			,s = dd && dd.innerHTML;
 		if(s && win.parent && win.parent.postMessage)
-			win.parent.postMessage(s +'\noperaEmbedMeta', HRU);
+			win.parent.postMessage(s +'\noperaEmbedMeta', ROOT);
 	},!1);
 } //(далее выполняется, если не в alienFrame)
 if(alienFrame) return;
@@ -856,7 +888,7 @@ if(/habrastorage\.org/.test(lh)){
 						$e({el:'#divStatus', ht:'Загружено: '+ ++uploadsCount, cs:{display:'block'} });
 						'message_0from_storage'.wcl(ev.data, win.parent,'<img src="'+ answer.url +'"/>');
 						if(isChrome){ win = window;
-						win.parent.postMessage('<img src="'+ answer.url +'"/>', HRU);
+						win.parent.postMessage('<img src="'+ answer.url +'"/>', ROOT);
 						}else{
 							wcl(answer.url)
 							try{
@@ -2728,7 +2760,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.info a.username,.comments >.comment_item span.username a{color: #569!important;letter-spacing: 1px}'
 	+'.info a.username{line-height: 11px!important;'+(ZenNCh?'margin:6px 8px 0 2px !important;':'')+'padding:0 3px 1px 4px!important;border-radius:4px;text-decoration: none!important;font-size: 10px!important;font-weight:normal!important}'
 	+'#wrapper .comments.c2 .info{position: relative}'
-	+'.comments.c2 .comment_item >span.info{background:url("'+HRU+'/i/bg-user2.gif") no-repeat 1px 7px!important; font-size: 11px; font-weight: bold; padding-left: 14px;}'
+	+'.comments.c2 .comment_item >span.info{background:url("'+ROOT+'/i/bg-user2.gif") no-repeat 1px 7px!important; font-size: 11px; font-weight: bold; padding-left: 14px;}'
 	+'.comments .comment_item >span.info a{padding:0 3px 1px 4px; border-radius:3px; color:#666!important}'
 	+'.userpanel .count,.user_panel .count,.userpanel .bottom a.newmail,.user_panel .bottom a.newmail{display: inline-block!important; margin: 0 4px!important; background-color: #eee!important; background-position: 3px 3px!important; padding: 0 4px 1px!important; font-weight: bold!important; color: #d63!important; border: 1px solid #999!important;border-radius:5px}.userpanel .count[href*=tracker],.user_panel .count[href*=tracker]{color: #68a!important}.userpanel:hover .count,.user_panel:hover .count{border: 1px solid #999!important}.userpanel .count:empty,.user_panel .count:empty{display: none!important}'
 	+'.panel-personal dd a.habrAjaxSettButt, #header .userpanel a.habrAjaxSettButt, #header .user_panel a.habrAjaxSettButt{display: none}'
@@ -3164,7 +3196,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			)&& $q(doc.body) && $q(doc.body).childNodes.length >=4 ||!doc.body)
 		return; //отказ второй загрузки; (нелогично, но работает)
 	if($q('body >.stars') && $q('body >.stars +script')) //если 404-я
-		location.href = HRU +'/i/#  '+ lh;
+		location.href = ROOT +'/i/#  '+ lh;
 	var nginxMsg = $q('body[bgcolor="white"] >center');
 	$e({el: function(){return nginxMsg}, ht:'<link href="/styles/system/404.css" rel="stylesheet" media="all" /><div class="h"></div><div class="stars"><div class="page404"><div class="title"><div class="label_top">404</div>Страница не найдена<div class="label_bottom"></div></div><div class="state">слетайте на другие наши планеты</div><div id="habr_center_universe"><a href="/" class="habr"></a><div class="planet brainstorage"><a href="http://brainstorage.ru/" class="name">Мозгохранилище</a><a href="http://brainstorage.ru/" class="picture"></a></div><div class="planet hantim"><a href="http://hantim.ru/" class="picture"></a><a href="http://hantim.ru/" class="name">Хантим</a></div><div class="planet freelansim"><a href="http://freelansim.ru/" class="picture"></a><a href="http://freelansim.ru/" class="name">Фрилансим</a></div></div><div class="button"><a href="/">На главную</a></div></div></div>'.replace(/>404</,/\/#(%20%20|  )/.test(lh)?'>404<':' style="width:auto; position: static; margin:-24px 0 -10px">'+ (nginxMsg && nginxMsg.innerHTML) +'<')
 	});
@@ -3337,7 +3369,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 					+ win.location +'" style=font-size:18px>Google search cache</a> * '
 				+'<a target=_blank href="'
 					+ (win.location +'').replace(/http:\/\//,'http://so') +'" style=font-size:18px>sohabr</a> *<br>'
-				+'(<a class=pLink href='+ HRU +'/post/'+ postNumb +'/>'+ postNumb
+				+'(<a class=pLink href='+ ROOT +'/post/'+ postNumb +'/>'+ postNumb
 					+'</a>) <a target=_blank href="'
 				+'http://savepearlharbor.com/?p='+ win.location.toString().replace(/[^\d]/g,'')
 					+'">хранение полных RSS статей на savepearlharbor</a>, <font color=#cc6666>с 17.10.2012</font> *<br> <a href="'
@@ -4230,7 +4262,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 		,ht: getHourMins().replace(/(\d\d):/,'$1') +'<br>'+ getDay([0,NOWdate.getDate(),0,NOWdate.getFullYear()], NOWdate.getMonth())});
 	if(menuA && menuA[0] && hS.postsLinkNew.val || hS.allFeed.val){
 		if(menuA[0].href)
-			menuA[0].href = HRU + (/(\/feed\/)/.test(menuA[0].href) ?'/feed/'
+			menuA[0].href = ROOT + (/(\/feed\/)/.test(menuA[0].href) ?'/feed/'
 				+ (hS.allFeed.val ?'/posts/':''): (h.uName ?'':'/posts') + (hS.allFeed.val && hS.postsLinkNew.val ?'/corporative/':'/collective/') );
 		if(hS.postsLinkNew.val && menuA[0].href)
 			menuA[0].href +='new/'; //ссылки 'Лента", "Посты" - на "новые"
@@ -4599,7 +4631,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 					});
 					//'sel'.wcl(sel);
 					if(sel.articleId)
-						sel.url = HRU +(sel.artiElemBottom && parents('( qa$|^qa_view$)', sel.artiElemBottom)
+						sel.url = ROOT +(sel.artiElemBottom && parents('( qa$|^qa_view$)', sel.artiElemBottom)
 							?'/qa/':'/post/')+ sel.articleId +'/';
 					if(sel.commElemBottom)
 						sel.commId = sel.commElemBottom.id.replace(/\D+/,'');
@@ -4815,7 +4847,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 					GM_xmlhttpRequest({ //отправка данных для публикации
 						url: 'http://habraquotes.ru/api/2.0/quotes/add'
 						,method:'post'
-						,data:'link='+ HRU +'/post/'+ s.articleId +'/#'+ itemId +'&count='+ s.commCount +'&is_habrajax=1'
+						,data:'link='+ ROOT +'/post/'+ s.articleId +'/#'+ itemId +'&count='+ s.commCount +'&is_habrajax=1'
 						,headers:{"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8", "X-Requested-With":"XMLHttpRequest"}
 						,onload: function(dat2){
 							if(/"url":/.test(dat2.responseText) && !/"error":/i.test(dat2.responseText) ||/{"state":"ok"}/i.test(dat2.responseText) ){
@@ -5021,9 +5053,9 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 				fillLetter();
 				return;}
 			if((ev.ctrlKey || ev.cmdKey) ^ ev.shiftKey)
-				win.open(HRU +'http://habrahabr.ru/topic/edit/'+ s.articleId +'/','_blank');
+				win.open(ROOT +'/topic/edit/'+ s.articleId +'/','_blank');
 			else
-				openInFrame({clientY: ev.clientY},{href: HRU +'/topic/edit/'+ s.articleId +'/'});
+				openInFrame({clientY: ev.clientY},{href: ROOT +'/topic/edit/'+ s.articleId +'/'});
 			$sp(ev);
 		},
 		mis: function(s){ //оформление ошибки
@@ -5063,7 +5095,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 				,commAuthor: s.commAuthor}) );
 			var timeStmp = (+new Date()+'').replace(/(^\d{3}|\d{3}$)/g,'')
 				,hrf = (!isComm
-					? HRU +'/conversations/'+(receiver?receiver+'/':'')
+					? ROOT +'/conversations/'+(receiver?receiver+'/':'')
 					: s.url
 				)+'?time33='+ timeStmp
 				+(isComm ?'&cmd=insertComm':'')
