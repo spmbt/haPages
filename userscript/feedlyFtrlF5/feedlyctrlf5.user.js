@@ -1,15 +1,23 @@
 // ==UserScript==
 // @id          feedlyCtrlF5
-// @name        feedlyCtrlF5
-// @version     1.2014.5.19
-// @description Add refresh by Ctrl-F5, Shift-F5 and "R" in any national keyboard layout
-// @namespace   https://github.com/spmbt/
+// @name        Feedly: partial refresh by "R" in any keyboard layout
+// @name:ru     Feedly: обновление списка по "R" в любом регистре
+// @version     2.2014.10.20
+// @description Refresh by "R" in any national keyboard layout, add styles, date of refresh and floating title of opened article
+// @description:ru Обновляет по "R", исправляет стили, добавляет время обновления и висячий заголовок открытой статьи 
+// @namespace   github.com/spmbt
 // @include     http://feedly.com/*
+// @update 1 show date+time of load page or refresh; floating author+title of opened line
 // ==/UserScript==
 
 //(en) In the site feedly.com there are many keyboard shortcuts, for example, "R" - is "Refresh" of part of page, renewing of list of records. Unfortunately, there is bug in any national keyboard layout. It catch keyboard letter, but not key code. Script fix it and add such partial refresh by Ctrl-F5 or Shift-F5.
 
 //Userstyles added to script as bonus. Styles make table more compact and remove unneeded buttons such as Twitter etc. It may to disable userstyles by CSS_ON =0.
+
+// Additions of 20, Oct 2014:
+// * show date-time of page loading or partial refresh by "R").
+// * author and title in floating block on top;
+// * styles fixing
 
 //(ru) На сайте  feedly.com есть много клавиатурных сокращений, в частности, R - это "Refresh" части страницы, а именно - обновление списка записей. К сожалению, есть недоработка: в иной национальной раскладке клавиша перестаёт действовать. Ловится клавиша не по ней самой, а по символу на ней. Расширение исправляет недоработку. И добавляет возможность частичного обновления по Ctrl-F5 или Shift-F5. конечно, не мешало бы добавить и исправление этого недостатка для других клавиш, если ими пользуются.
 
@@ -18,9 +26,9 @@
 (function(css){
 	var CSS_ON =1; //user CSS enable
 
-var win = typeof unsafeWindow !='undefined'? unsafeWindow : window
+var win = typeof unsafeWindow !='undefined'? unsafeWindow : (function(){return this})()
 	,wcl = win.console.log
-	,$q = function(q, el){return (document||el).querySelector(q)}
+	,$q = function(q, el){return (el||document).querySelector(q)}
 	,ff
 	,Tout = function(h){
 		var th = this;
@@ -28,11 +36,11 @@ var win = typeof unsafeWindow !='undefined'? unsafeWindow : window
 			if((h.dat = h.check(h.t) )) //wait of positive result, then occcurense
 				h.occur();
 			else if(h.i-- >0) //next slower step
-				th.ww = window.setTimeout(arguments.callee, (h.t *= h.m) );
+				win.setTimeout(arguments.callee, (h.t *= h.m) );
 		})();
-	};
+	}, tOuttime;
 new Tout({t:320, i:6, m: 1.6
-	,check: function(t){
+	,check: function(){
 		return document && $q('#pageActionRefresh');
 	}
 	,occur: function(){
@@ -42,9 +50,36 @@ new Tout({t:320, i:6, m: 1.6
 			//wcl(4, ev.keyCode, ev.which, ev.type)
 			if(key ==82 || key ==116 && (ev.ctrlKey || ev.shiftKey) ){
 				refroButt.click();
+				win.setTimeout(function(){new Tout(tOuttime)}, 900);
 				ev.preventDefault(); ev.stopPropagation();}
 		},!1);
+		new Tout(tOuttime = {t:520, i:6, m: 1.6
+			,check: function(){
+				return $q('#section0 .label >div');
+			},occur: function(){
+				var NOW = new Date(), NOWmins = NOW.getMinutes();
+				this.dat.style.cssText ='text-align: right; font-size: 11px; font-style: italic; color: #a3a3a2';
+				this.dat.innerHTML = NOW.getFullYear() +'-'+ (NOW.getMonth() +1) +'-'+ NOW.getDate() +', '+ NOW.getHours() +':'+ (NOWmins>9?'':0) + NOWmins;
+			}
+		});
 		document.addEventListener('keyup',ff);
+		var $flBar = $q('#floatingBar');
+		if($flBar){
+			var $lineTitleFloat = document.createElement('div');
+			$lineTitleFloat.className ='lineTitleFloat';
+			$flBar.appendChild($lineTitleFloat);
+			$lineTitleFloat.innerHTML ='<span class=author title=""></span> <b class=title></b>';
+		}
+		setInterval(function(){
+			var $inFrm = $q('.inlineFrame');
+			if($inFrm && $lineTitleFloat){
+				var author = $q('.metadata .sourceTitle', $inFrm)
+					,title = $q('.entryHeader .entryTitle', $inFrm);
+				$q('.author', $lineTitleFloat).innerHTML = author && author.innerHTML;
+				$q('.author', $lineTitleFloat).title = author && author.innerHTML;
+				$q('.title', $lineTitleFloat).innerHTML = title && title.innerHTML;
+			}
+		}, 999);
 	}
 });
 
@@ -77,5 +112,11 @@ if(CSS_ON)
   +'.u0Entry .condensedTools img {padding:0!important}'
   +'.u0Entry .condensedTools a:first-child{margin: 0 -5px 0 6px}'
   +'.u0Entry .lastModified{padding-left: 2px!important}'
-  +'.inlineFrame .u100entry .title{font-size:17px!important}')
-
+  +'.u0EntryList{margin-top: 0!important}'
+  +'#floatingBar,.floatingBar{padding-top:0!important; background: #f8f8f8}'
+  +'.pageActionBar{height: 18px!important}'
+  +'#floatingBar .pageactionbar{padding-right: 180px}'
+  +'#section0 .label >div{height: 1.3em!important}'
+  +'.lineTitleFloat{height: 15px; line-height: 15px; margin: -15px -30px 0; padding-left: 3px; overflow: hidden; border-bottom: 2px solid #f8f8f8; background: #eee}'
+  +'.lineTitleFloat .author{display: inline-block; float: left; width: 127px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}'
+);

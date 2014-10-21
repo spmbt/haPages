@@ -29,13 +29,14 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 
 * юзерстили [ufoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/ufocorrect/ufocorrect.user.css). Делает то же, что скрипт ufoCorrect.
 
-* юзерскрипты [feedlyCtrlF5](https://github.com/spmbt/haPages/blob/gh-pages/userscript/feedlyctrlf5/feedlyctrlf5.user.js) - смотреть код; [===== прямая ссылка на код user.js  2014-07-02 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/feedlyctrlf5.user.js) - делает обновление фидов по клавише "R" в любой национальной раскладке и то же - для Ctrl+F5 или Shift+F5 и делают удобнее стили, как в стилях [https://userstyles.org/styles/102580/feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact).
+* юзерскрипты [feedlyCtrlF5](https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout); [===== прямая ссылка на код user.js  2014-07-02 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/feedlyctrlf5.user.js) - обновляет фиды по клавише "R" в любой национальной раскладке, дополняет стили, как в [стилях feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact), выводит автора и название читаемой статьи в плавающем блоке вверху.
+
 
 <br>
 
 ---
 
-Пример страницы `haPages` для описания функций: [Перенос сообщений из "прямого эфира" в "Лучшие"](http://spmbt.github.io/haPages/sidebarLive2Dailybest.htm).
+Пример страницы `haPages` для описания функций: [Перенос сообщений из "прямого эфира" в "Лучшие"](http://spmbt.github.io/haPages/doc/habrAjax/sidebarLive2Dailybest.htm).
 
 
 

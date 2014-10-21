@@ -3,13 +3,12 @@
       "exclude_globs": [ "http://habrahabr.ru/api/*", "http://habrahabr.ru/special/*" ],
       "exclude_matches": [  ],
       "include_globs": [ "http://habrahabr.ru/*","http://geektimes.ru/*", "https://habrahabr.ru/auth/settings*", "https://plusone.google.com/*", "http://userscripts-mirror.org/scripts/source/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://habrastorage.org/", "http://legacy.habrastorage.org/", "http://hbr/*"  ],
-      "js": [ "habractivity.user.js" ],
+      "js": [ "habrajax.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
    } ],
    "converted_from_user_script": true,
    "description": "Cumulative script with over 60 functions for Fx-Opera-Chrome",
-   "id": "HabrAjax",
    "name": "HabrAjax",
    "version": "132.2014.10.17",
    "manifest_version": 2

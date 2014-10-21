@@ -1,18 +1,18 @@
-(function(win, u){var alienFrame = /(plusone\.google\.com|userscripts\.org)/.test(location.host)
+(function(win, u){var alienFrame = /(plusone\.google\.com|greasyfork\.org)/.test(location.host)
 	,metaTx = !alienFrame && function(s){return(s=
 //если Firefox+GreaseMonkey, требуется удалить "/*" перед "<!", чтобы читались многострочные данные!
 /*<![CDATA[*//*
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 132.2014.10.17
+// @version 134.2014.10.20
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
 // @include http://habrahabr.ru/*
 // @include https://habrahabr.ru/auth/settings*
 // @include https://plusone.google.com/*
-// @include http://userscripts-mirror.org/scripts/source/*
+// @include http://greasyfork.org/scripts/source/*
 // @include http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
@@ -20,10 +20,10 @@
 // @include http://hbr/*
 // @exclude http://habrahabr.ru/api/*
 // @exclude http://habrahabr.ru/special/*
-// @update 131 +geektimes; кнопки над полем ввода;
+// @update 133 восст. подсказки в настройках; возврат счётчика qa (toster.ru);
+// @update 132 ,131 +geektimes; кнопки над полем ввода;
 // @update 130 восст. от конца августа, sohabr в 404;
-// @update 129 восстановление после изменений DOM 11-12 июня (6 пунктов);
-// @resource meta 121690.meta.js
+// @resource meta habrajax.meta.js
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // ==/UserScript==
 */s//]]>
@@ -65,7 +65,7 @@
 extMeta = function(m, callback, callErr){ //или (url, callback, callErr)//получение внешних метаданных
 	if(typeof m =='string')
 		var shortNum = (/^\d+(\.meta\.js)?$/.test(m) ? m :'') + (/^\d+$/.test(m) ?'meta.js':'')
-			,xUrl = shortNum ?'http://userscripts.org:8080/scripts/source/'+ shortNum : m ;
+			,xUrl = shortNum ? URLSCR + HAJAX +'/code'+ shortNum : m ;
 	//wcl(m, shortNum, xUrl)
 	if(typeof GM_xmlhttpRequest !=u){
 		GM_xmlhttpRequest({
@@ -95,6 +95,8 @@ var DAY = 86400000
 ,NOW = +NOWdate,HSO='http://habrastorage.org',SHRU='https://habrahabr.ru/auth'
 ,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&in=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
 ,ROOT = location.protocol +'//'+ location.host
+,URLSCR ='https://greasyfork.org/scripts/'
+,HAJAX ='1970-habrajax/'
 ,userNameMaxLen = 25
 ,isFx = /Firefox/.test(navigator.userAgent)
 ,isChrome = /Chrome\//.test(navigator.userAgent)
@@ -253,7 +255,7 @@ if(gPlusFrame){
 			}catch(er){wcl(er)}
 		}
 	});
-}else if(alienFrame){ // для Оперы (только) в фрейме userscripts.org - отправка метаданных
+}else if(alienFrame){ // для Оперы (только) в фрейме greasyfork.org - отправка метаданных
 	document.addEventListener('DOMContentLoaded',function(){
 		var dd = document.querySelector('pre')
 			,s = dd && dd.innerHTML;
@@ -552,7 +554,7 @@ handlImgViews = function(el, selector){ //обработчики просмот�
 						,x2 = hS.viewX2.val && fullW *2 < win.innerHeight -3 ? 2:1; //признак "x2" - удваивать масштаб
 					t.title = (x2 ==2 ?'/':'')+ fullW +'x'+ fullH;
 					//'on:{load'.wcl(t.title, lastLink)
-					if(lastLink.firstChild.tagName =='BUTTON'){var evt = document.createEvent('Event');evt.initEvent('loadImg',!0,!0); evt.data = t.title; win.dispatchEvent(evt);}
+					if(lastLink.firstChild && lastLink.firstChild.tagName =='BUTTON'){var evt = document.createEvent('Event');evt.initEvent('loadImg',!0,!0); evt.data = t.title; win.dispatchEvent(evt);}
 					t.style.cursor = x2 ?'ne-resize':'move';
 					if(/^imgL$/.test(t.parentNode.className)|| t.parentNode.className =='lnk'){ //включить видимость копий, выключить - оригиналы ссылок
 						t.parentNode.style.display ='inline-block';
@@ -848,7 +850,7 @@ if(/habrastorage\.org/.test(lh)){
 			}else
 			$pdsp(ev);
 				doc.body.style.backgroundColor ='#fff';
-			if(isChrome) win = window;
+			if(isChrome) win = (function(){return this})();
 				'drop2'.wcl(win.user, win.userKey,win, win.unsafeWindow && unsafeWindow)
 			if(win.user && win.user.length >0){
 				var xhr = new XMLHttpRequest()
@@ -887,7 +889,7 @@ if(/habrastorage\.org/.test(lh)){
 						upF.style.display ='block';
 						$e({el:'#divStatus', ht:'Загружено: '+ ++uploadsCount, cs:{display:'block'} });
 						'message_0from_storage'.wcl(ev.data, win.parent,'<img src="'+ answer.url +'"/>');
-						if(isChrome){ win = window;
+						if(isChrome){ win = (function(){return this})();
 						win.parent.postMessage('<img src="'+ answer.url +'"/>', ROOT);
 						}else{
 							wcl(answer.url)
@@ -1000,7 +1002,7 @@ addTaButtons = function(comms){ //добавление тегов в поле в
 		,topicAdd = $q('.topic_add') || $q('.qa_add');
 	//'addTaButtons/comms,panels=='.wcl(comms, panels)
 	if(panels && panels.length){
-		var win = (typeof unsafeWindow !=u)? unsafeWindow: window;
+		var win = (typeof unsafeWindow !=u)? unsafeWindow: (function(){return this})();
 		//в Хроме window не видно, => прих-ся переписывать или вызывать через DOM
 		if(!win.habraWYG) win.habraWYG ={};
 		win.habraWYG.insertTag = function(link, startTag, endTag){
@@ -1210,7 +1212,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	,underFooter:'1~прибитый к низу футер~2012-09-07'
 	,stru:{ //структурирование настроек и дописывание описаний
 
-	'Настройки скрипта <a href="https://github.com/spmbt/haPages/tree/gh-pages" style="color:#36a" target="_blank">HabrAjax</a> (<a href="//userscripts.org:8080/scripts/show/121690" target="_blank" title="на описание функций">что это</a>)':{sett:'version,chkUpdate,chkUpdNoMinor,noConsole,zenPresent'
+	'Настройки скрипта <a href="https://github.com/spmbt/haPages/tree/gh-pages" style="color:#36a" target="_blank">HabrAjax</a> (<a href="https://greasyfork.org/scripts/1970-habrajax/" target="_blank" title="на описание функций">что это</a>)':{sett:'version,chkUpdate,chkUpdNoMinor,noConsole,zenPresent'
 		,desc:'Скрипт с рядом функций для сайта <b>habr.ru</b> и его оформления.<br><br>Есть отключаемые функции (настройки) и неотключаемые &mdash; элементы, отсутствие которых неудобно, а присутствие &mdash; не мешает.<br><br><b>Пример</b>: логотип скрипта (32x32) справа вверху каждой страницы вызывает данные настройки, помогает перейти на страницу хостинга скрипта и стилей и не отключается.<br><br><b>Пример 2</b>: если статьи на сайте не обнаружилось, пустая страница заполняется <a href="'+HRU+'/post/146200/"target=_blank>ссылками на сохранённые копии статей</a>. Точнее, на те места, где они могут быть. Гугл чаще всего сохраняет копии, поэтому страница <b>Гугл-кеша</b> по ссылке <i>тоже обрабатывается скриптом</i> HabrAjax и стилями ZenComment. Всё это неотключаемо, но никак не мешает остальным функциям просмотра сайта, потому что работает совсем на других страницах.<br><br><b>Пример 3</b>: в скрипте заложены 2 стиля оформления: HabrAjax <a href="'+HRU+'/post/135686/"target=_blank>со стилями ZenComment</a> (используется автором скрипта при просмотре сайта) и <a href="'+HRU+'/post/154923/"target=_blank>без</a> них. Но не имеется режима с полным отсутствием стилевых модификаций.'
 		,descS:['Версии скрипта пишутся и обновляются, если на сайте произошло обновление, конфликтующее со скриптами, или если появилась новая функция в арсенале скрипта. В среднем получается, что обновляются версии довольно часто &mdash; раз в 5-15 дней.<br><br>Следить за обновлениями можно несколькими способами. Браузеры поддерживают <u>автообновление</u> и ручную проверку обновлений всех скриптов по кнопке.<br><br>HabrAjax имеет встроенную в скрипт <u>проверку обновлений</u>. 1 раз в сутки или реже, в 5 утра или позже он сравнивает версию в браузере с версией на сайте и сообщает, какие изменения произошли &mdash; причины обновления поясняются в специальном комментарии на 1-2 строчки.'
 		,'Слежение скрипта за обновлениями на сайте. Не чаще раза в сутки, но если чтение не удалось, следующая попытка &mdash; через 15 минут. Кликом по ссылке &mdash; ручная проверка обновлений в любое время.'
@@ -1437,7 +1439,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 			+'<div class="hlp"><b>1)</b> Чтобы стали отображаться <i><b>кнопки Google Plus</b> с количеством "лайков"</i> над кнопками, нужно прописать этот юзерскрипт (папку, в которой он расположен у вас на компьютере) <u>в настройках браузера</u> для сайта plusone.google.com:</div>'
 			+'<div class="hlp"><b>1:А)</b> Открыть "Инструменты &mdash; Общие настройки &mdash; Расширенные - Содержимое - Настройки для сайтов - Добавить - Сайт - (ввести: "plusone.google.com") - Скрипты - Папка пользовательских файлов Javascript - (установить: каталог, в котором расположен скрипт HabrAjax) - ОК - Закрыть - ОК;</div>'
 			+'<div class="hlp"><b>1:Б)</b> открыть настройки <a target="_blank" href="opera:config#User%20Prefs" title="в новом окне">opera: config  #User Prefs</a> - User JavaScript on HTTPS - (выбрать чекбокс) - кнопка "Сохранить внизу раздела(!); Проще - ввести "HTTPS" в поле "Найти" (фильтр на странице). После этого количества "лайков" в кнопках Google Plus начнут отображаться. К сожалению, после этого браузер будет периодически (при первом посещении любой страницы https:) спрашивать, разрешается работа юзерскриптов в защищённых страницах, даже если кнопок "лайков" на них не будет.</div>'
-			+'<div class="hlp"><b>2.</b> Чтобы работали автообновления и просмотр мета-директив с сайта-хостера userscripts.org в Опере, нужно такие же действия, как в пункте <b>1:А</b>, сделать для сайта <b>userscripts.org</b>. <i>(Включения HTTPS по п. 1:Б для данной функциональности не требуется.)</i></div><div>&nbsp;</div>'
+			+'<div class="hlp"><b>2.</b> Чтобы работали автообновления и <a href='+ URLSCR + HAJAX +'code/habrajax.meta.js>просмотр мета-директив с сайта-хостера</a> в Опере, нужно такие же действия, как в пункте <b>1:А</b>, сделать для сайта <b>'+ URLSCR +'</b>. <i>(Включения HTTPS по п. 1:Б для данной функциональности не требуется.)</i></div><div>&nbsp;</div>'
 			+'&nbsp; &nbsp; Инструкция <a href="'+HRU+'/post/140643/">по установке юзерскриптов в Оперу</a>','*');
 			hNE.style.opacity =1;
 		},!1); }
@@ -1445,7 +1447,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	},
 	edit: function(ev){ //показать список настроек
 		if(ev.ctrlKey ^ ev.shiftKey){
-			window.open('http://userscripts.org:8080/scripts/show/121690','_blank');return;}
+			window.open(URLSCR + HAJAX,'_blank');return;}
 		var sett = $q('.habrAjaxSettings');
 		sett.style.display = sett.style.display !='block'?'block':'none';
 		$q('.habrAjaxSettings>div+div').style.maxHeight = win.innerHeight - 50 - 25 +'px';
@@ -2011,7 +2013,7 @@ authorClicks = function(blck){ //расст.обраб.кликов по ссы�
 			if(linx[i].href)
 				openInFrmHndl(blck, linx[i]);
 	}
-	if(win.opera || /Firefox\/[345]/.test(navigator.userAgent)){
+	if(win.opera || /Firefox\/[345]\./.test(navigator.userAgent)){
 		if(win.addKarmEvent) //показ кармы, если установлен HabraKarmaView.user.js
 			win.addKarmEvent(blck);
 		if(win.habrPercentageRing)
@@ -2408,6 +2410,22 @@ extLinks = function(node,oldChk,tops){ //внешние ссылки в ново
 						lsiP.parentNode.removeChild(lsiP);
 				}}
 			}
+		}else if(/\.ru\/q\/\d+\//.test(lH) && !/habracut/.test(LI.className)){ //вопросы-даты
+			var postNum = (lH.match(/\/q\/(\d+)\//) )[1]
+				,postYM =[0,0,0,0,0,0,0,0,1,983,1804,2711 //по 12 чисел с янв 2010
+					,3525,4389,5295,6332,7178,8084,9057,9979,10931,11992,13072,14030
+					,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
+					,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
+					,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,145299]; //ноя.2014 qa -прогноз
+			for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
+				if(postNum >= postYM[j]){
+					var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
+			if(!oldChk)
+				LI.title = LI.title && txt +'; '+ LI.title || txt;
+			else if((j < postYM.length -3 || j == postYM.length -3 && NOWdate.getDate() >5)
+					&& LI.className =='post_name'){
+				LI.title = LI.title && txt +'; '+ LI.title || txt;
+				LI.style.backgroundColor ='#f2fbf6';}
 		}
 	}}
 },
@@ -2941,11 +2959,11 @@ var dSettings = hS.init() //элементы DOM для настроек
 			}
 		}
 		if(mD['uso:installs'])
-			s += '<a href="//userscripts.org:8080/tags/habrahabr" target="_blank">installs</a>: '+ mD['uso:installs'];
+			s += '<a href="'+ URLSCR + HAJAX +'stats" target="_blank">installs</a>: '+ mD['uso:installs'];
 		if(mD['uso:reviews'] || mD['uso:discussions'] )
-			s += ', <a href="//userscripts.org:8080/scripts/discuss/121690" target="_blank">talks</a>: '+ ((Number(mD['uso:reviews'])||0) + (Number(mD['uso:discussions'])||0) );
+			s += ', <a href="'+ URLSCR + HAJAX +'feedback" target="_blank">talks</a>: '+ ((Number(mD['uso:reviews'])||0) + (Number(mD['uso:discussions'])||0) );
 		if(mD['uso:script'])
-			s += ', '+ '<a href="//userscripts.org:8080/scripts/versions/'+ mD['uso:script'] +'" target="_blank"><b>версии</b></a>.';
+			s += ', '+ '<a href="'+ URLSCR + HAJAX +'versions'+ mD['uso:script'] +'" target="_blank"><b>версии</b></a>.';
 		return s;
 	};
 //document.body && document.body.appendChild(hNE) || document.documentElement && document.documentElement.appendChild(hNE);
@@ -2968,7 +2986,7 @@ var linksBug = 'Сообщить об ошибке в скрипте или ид
 			if(a[i].replace(/ .*/,'') =='meta'){
 				url = a[i].replace(/[^ ]* /,''); break;}
 	}
-	if(url){
+	if(url){ //TODO подогнать обновление к хостингу (имя файла)
 		//способы задания важности обновл_: 1) явно в метаданных: severity  minor | major | critical;
 		// 2) номером версии: если минорный номер кратен 10, то critical; если нет, то minor
 		if(!hS.chkUpdate.val)
@@ -3098,7 +3116,7 @@ function addJs(url, inner, sObject, callback, callbackName){ //подгрузк�
 }
 function execCallback(t, sObject, callback){ //выполнение коллбека при обнаружении целевого объекта в window
 	if(!t) t =200;//период попыток обнаружить window.sObject
-	var win = (typeof unsafeWindow !='undefined')? unsafeWindow: window
+	var win = (typeof unsafeWindow !='undefined')? unsafeWindow: (function(){return this})()
 		,wcl = function(){if(win.console) return win.console.log.apply(console, arguments)};
 	//''.wcl(sObject+'_timeShift==', t, window[sObject]);
 	//wcl(t)
@@ -3446,13 +3464,13 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 					,topicTitle = topic && $q('h1.title .post_title', topic);
 				var topicTitleVal = topicTitle && ('"'+ topicTitle.innerHTML.replace(/"/g,'&quot;').replace(/&nbsp;/g,' ') +'"');
 				var tValue = $q('input[name="q"]', ev.target.parentNode).value
-					,valEmpt = tValue=="" || tValue=="поиск по сайту"
+					,valEmpt = tValue=='' || tValue =='поиск по сайту'
 					,t = srch
 						+ (valEmpt ? topicTitleVal : tValue)
 						+"+site%3Ahabrahabr.ru"+ (valEmpt ?'/users':'')
-						+ (valEmpt ?"+inurl%3Afavorites":"");
+						+ (valEmpt ?'+inurl%3Afavorites':'');
 				if(ev.ctrlKey ^ ev.shiftKey)
-					window.open(t,"_blank");
+					window.open(t,'_blank');
 				else
 					location.href = t;
 				$pd(ev);
@@ -3803,7 +3821,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			if(rating)
 				rating.innerHTML = Math.round(parseFloat(rating.innerHTML.replace(/,/,'.').replace(/–/,'-') ));
 			if(content) //обработчики контента (вызов событием)
-			if(win.opera || /Firefox\/[345]/.test(navigator.userAgent)){
+			if(win.opera || /Firefox\/[345]\./.test(navigator.userAgent)){
 				if(win.addKarmEvent) //показ кармы, если установлен HabraKarmaView.user.js
 					win.addKarmEvent(content);
 				if(win.habrPercentageRing)
@@ -5172,4 +5190,4 @@ if(typeof habrAjax !=u && (!habrAjax.wasLoad||/(Chrome\/|Opera\/)/.test(navigato
 	readyLoad();
 }catch(er){
 	wcl('~~ER_global: '+ er +' (line '+(er.lineNumber||'')+')')}; //для оповещения об ошибках в Fx
-})(typeof unsafeWindow !='undefined'? unsafeWindow: window,'undefined')
+})(typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})(),'undefined')

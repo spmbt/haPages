@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head>
+	<title>Публикация комментариев на habraQuotes.ru&mdash;HabrAjax</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link href="../main.css" rel="stylesheet" media="all" />
+	<link rel="stylesheet" href="../viewImage.css">
+	<script src="../viewImage.js"></script>
+</head><body>
+<div class="wraprre" style="line-height: 1.4; max-width: 900px">
+	<div class="b-pageTop">
+		<div class="" style="float: right;">last update 23:00 12.1.2013</div>
+		<h1><a href="https://github.com/spmbt/haPages/tree/gh-pages">haPages bay</a></h1>
+
+		<div class="def">Разработки скриптописателя <a href="https://greasyfork.org/ru/users/2323-spmbt">spmbt</a></div>
+	</div>
+	<a href="https://github.com/spmbt/haPages/doc/habrAjax/"><h2>Функции HabrAjax</h2></a>
+		<div class="b-h2Block">
+			<h3>Поддержка публикации комментариев на сервисе <a href="http://habraquotes.ru/" target="_blank">habraQuotes.ru</a><br>
+				в скрипте <a href="https://greasyfork.org/ru/scripts/1970-habrajax">HabrAjax</a><br/>
+			</h3>
+			<div class="b-h3Block">
+			<br>
+
+			<div class="descr" style="max-width: 760px">
+				Юзерскрипт HabrAjax способен работать в браузерах Firefox 3.6-18+, Chrome16-22+, Opera10-12+ и работает
+				на страницах сайта <a href="//habrahabr.ru" target="_blank"><i>habrahabr.ru</i></a>. Для Firefox
+				требуется установить аддон (расширение) <a target=_blank href=https://addons.mozilla.org/ru/firefox/addon/scriptish/?src=ss>Scriptish</a>
+				или (<i title="Потому что GreaseMonkey хуже поддерживает чтение собственных метаданных из юзерскрипта">менее
+				желательно</i>) <a target=_blank href=https://addons.mozilla.org/ru/firefox/addon/greasemonkey/?src=search>GreaseMonkey</a>.
+			</div>
+			<br>
+
+			<div class="descr"
+				 style="max-width: 760px; border: 0 solid #ddd; border-left-width: 4px; padding-left: 12px;">
+				<b><i>Кратко.</i></b><br>
+				Для быстрой публикации ссылок на интересные комментарии в HabrAjax имеется контекстная кнопка "<b>HQ</b>".
+				Достаточно выделить любой текст в комментарии или охватить выделением текст из группы комментариев,
+				навести мышь на контекстную кнопку "
+				&lt;_>", и появится несколько других кнопок, выполняющих разные функции. Если в настройках HabrAjax была
+					установлена функция "<b>Выделять и отправлять на HabraQuotes</b>", среди них будет кнопка "<b>HQ</b>".
+					По умолчанию, функция установлена. Нажатие "HQ" приведёт к выводу сообщений вверху страницы, при
+					которых, если они будут сообщать об успешной отправке, на сервис HabraQuotes.ru отправится ссылка на
+					выделенный комментарий.<br>
+			</div>
+			<br>
+
+			<div class="descr" style="max-width: 760px; vertical-align: bottom; line-height: 46px;">
+				Узнать о скрипте больше - <a class="install-button" target=_blank href=https://greasyfork.org/ru/scripts/1970-habrajax>страница хостинга HabrAjax&nbsp;</a>
+				&nbsp;для работы с сайтом <a target=_blank href=//habrahabr.ru>Habrahabr.ru</a>.
+			</div>
+			<div class="descr" style="max-width: 760px">
+				На ней кнопка "<b>Install</b>" - установить скрипт.
+			</div>
+			<br>
+
+			<div class="descr" style="max-width: 760px">
+				<b><i>Подробнее.</i></b><br>
+				<b>1.</b> Если функция публикации в настройках HabrAjax не включена, установить выбор настройки для
+				функции "<i>Выделять и отправлять на HabraQuotes</i>".<br>
+				<img src="http://imageshack.us/a/img203/4816/snaphq201301123.png" alt="" style="margin-left:35px"/><br>
+				Настройки юзерскрипта на странице сайта<br>
+				После изменения настроек - нажать "Сохранить".<br>
+				<b>2.</b> Перезагрузить страницу или открыть другую, чтобы настройка начала действовать.<br>
+				<b>3.</b> Выделить любой текст в комментарии или в группе комментариев. Под текстом появится едва
+				заметная кнопка "
+				&lt;_>" - ворота для различных контекстных операций.<br>
+					<img src="http://imageshack.us/a/img17/6463/snaphq201301121.png" alt="" style="margin-left:35px"/><br>
+					При наведении мыши на неё откроются все остальные кнопки (команды операций).<br>
+					<b>4.</b> Выбираем кнопку "HQ", чтобы начать отправку ссылки на комментарий и делаем клик по кнопке.<br>
+				<a href="http://imageshack.us/a/img217/6134/snaphq20130112.png"><img src="http://imageshack.us/scaled/thumb/217/snaphq20130112.png" alt="" style="margin-left:35px; border: 2px solid #AFA56A"/></a><br>
+					В баре цитат и напоминаний вверху окна появится знак ожидания ответа от сервиса HabraQuotes
+					(крутящиеся стрелки). Они не будут мешать дальнейшей работе с сайтом.<br>
+					<b>5.</b> Результат может быть как успешным, если сервис <i>habraquotes.ru</i> работает
+					нормально,<br>
+					<img src="http://imageshack.us/a/img210/7467/snaphq201301125.png" alt="" style="margin-left:35px"/><br>
+					так и неуспешным по разным причинам, которые не детализируются:<br>
+					<img src="http://imageshack.us/a/img845/8817/snaphq201301124.png" alt="" style="margin-left:35px"/><br>
+					Чтобы попытаться зайти на сайт <i>habraquotes.ru</i> и отправить комментарий с него, нужно нажать ссылку в сообщении об ошибке.
+			</div>
+			<div class="descr" style="max-width: 760px">
+				<i>Возможные ошибки:</i><br>
+				*) комментарий или их группа уже опубликованы ранее;<br>
+				*) страница оказалась слишком большой и сложной для парсера;<br>
+				*) сервис не работает;<br>
+				*) сервис перешёл на другой протокол работы;<br>
+				*) связь с интернетом, сервисом или Хабром разорвалась.
+			</div>
+			<div class="descr" style="max-width: 760px">
+				<br>
+				При успешной публикации на адресе <a target=_blank href=http://habraquotes.ru/fresh/>http://habraquotes.ru/fresh/</a>
+				обнаружится такая группа сообщений:<br>
+				<br>
+				<a href="http://img441.imageshack.us/img441/1346/snaphq201301126.png"><img src="http://imageshack.us/scaled/thumb/441/snaphq201301126.png" alt="" style="margin-left:35px; border: 2px solid #AFA56A"/></a><br>
+			</div>
+			<div class="descr" style="max-width: 760px">
+				Публикация - анонимная; имя пользователя не отправляется на сервис (<i
+				title="потому что невозможно подтвердить имя пользователя">и не будет</i>), даже если имя отправителя
+				присутствует на странице.
+			</div>
+		</div>
+		<br>
+
+		<div class="descr" style="max-width: 760px">
+			<b>Как начать пользоваться?</b>
+			<br><br>
+		</div>
+		<div class="b-h3Block">
+			<div class="descr" style="max-width: 760px">
+				1. Установить <a target=_blank href=https://addons.mozilla.org/ru/firefox/addon/scriptish/?src=ss>аддон
+				Scriptish</a> для юзерскриптов (Firefox); для Chrome и Opera аддонов не требуется, имеется своя
+				процедура установки юзерскрипта - <a target=_blank href=http://habrahabr.ru/post/150693/>для Chrome</a>,
+				<a target=_blank href=http://habrahabr.ru/post/140643/>для Opera</a>.
+			</div>
+			<div class="descr" style="max-width: 760px; vertical-align: bottom; line-height: 46px;">
+				2. Установить <a class="install-button" target=_blank href=https://greasyfork.org/ru/scripts/1970-habrajax>юзерскрипт
+				HabrAjax</a> для работы с сайтом <a target=_blank href=//habrahabr.ru>Habrahabr.ru</a> .
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
+</body></html>
+
+
+
+
+
+
+
+
+
