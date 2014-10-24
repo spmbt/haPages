@@ -1,7 +1,7 @@
-﻿/** Habr Zen-Comment v4.12_2014-10-17, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+﻿/** Habr Zen-Comment v4.16_2014-10-24, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/101697/habr-zencomment-4
  * Author: http://spmbt.habr.ru/
- * LastUpdatesDescription: +menu Geektimes"
+ * LastUpdatesDescription: +menu Geektimes; no hidden layout"
  */
 @namespace url(http://www.w3.org/1999/xhtml);@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://habrahabr.ru/auth/settings/"),domain("hbr"),url-prefix("https://sohabr.ru/"),domain("webcache.googleusercontent.com"),domain("geektimes.ru"){
 
@@ -11,8 +11,9 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 #layout{width:auto!important;
 	min-width: 314px!important;
 	max-width: 1420px!important;
+	height: auto!important;
 	margin-right:auto!important;margin-left:auto!important;
-	overflow: hidden;/*Chrome need it <=no break-word*/
+	/*overflow: hidden;Chrome need it <=no break-word*/
 	padding-top: 0!important;padding-right: 0!important;padding-left: 0!important}
 #layout .inner{margin: 0!important; padding-bottom:30px!important}
 #wrapper{margin: -15px 0 1px!important; width: auto!important; padding: 20px 0 4px 6px!important; overflow: hidden; min-width: 314px!important}
@@ -53,12 +54,21 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 .page_head{line-height: 0}
 .page_head h2.title{font-size: 13px!important; position: relative; top: 1.8em; left: 1ex}
 .page_head .controls{position: absolute; left: 5px; top: 2.8em}
-#TMpanel{left: 105px!important; right:auto!important;  width:auto!important; min-width:0!important; height: 18px!important; border: 0!important; text-align: left!important; background: transparent!important}
+#TMpanel{left: 140px!important;
+	right: auto!important;
+	z-index: 99992!important;
+	width:auto!important;
+	min-width: 0!important;
+	height: 18px!important;
+	
+	border: 0!important;
+	text-align: left!important;
+	background: transparent!important}
 #TMpanel .container{min-width:0!important;}
-#TMpanel .menu{line-height: normal!important}
+#TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
 #TMpanel .menu a{margin: 0 6px!important; padding: 0 4px!important; background-color: #eee; color: transparent!important; opacity: 0.5}
 #TMpanel .menu a.current{display: none!important}
-#TMpanel .menu:hover a{text-decoration: none!important; color: #000!important; opacity: 1}
+#TMpanel .menu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
 #header .user_panel{font: 12px/14px Arial,Helvetica,sans-serif!important}
 #header .userpanel:hover,#header .user_panel:hover{background-color: #fff;
 	opacity: 1;filter: none}
@@ -235,6 +245,7 @@ form#search_form{width: 245px!important;height:21px}
 	right:0;
 	padding: 0 6px!important;
 	border-bottom:0!important;border-radius: 0 0 6px 6px}
+#navbar a.tab:hover{background-color: #eaeffd!important}
 #navbar a.tab_user{left: auto!important}
 #navbar a.tab_user,#navbar a.tab_settings{float:right}
 #navbar a.tab_user img{
@@ -265,8 +276,12 @@ form#search_form{width: 245px!important;height:21px}
   #navbar a.tab_add_post:hover + a.tab_settings, #navbar a.tab_settings:hover,
   #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu{display: block!important}
   #navbar a.logo + a.tab_menu{left: 32px!important}
-	.g-icon-alarm:before{position: relative; top: -4px}
-	.g-icon-burger:before{position: relative; top: -8px}
+	.g-icon-alarm:before{position: relative; top: -4px; color: rgba(153, 153, 153, 0.25)}
+	.g-icon-alarm:hover:before{color: rgba(85, 153, 216, 0.24)}
+	.g-icon-burger:before{position: relative; top: -8px; color: rgba(85, 153, 216, 0.25)}
+	.g-icon-burger:hover:before{color: rgba(85, 153, 216, 0.37)}
+	.g-icon-write:before{color: rgba(85, 153, 216, 0.43)}
+	.g-icon-gear:before{color: rgba(85, 153, 216, 0.35)}
 #navbar .nav_panel .tab.open:not(:hover){background: transparent!important}
 #navbar .nav_panel .tab.open:before{width:0!important}
 #navbar .nav_panel #print_tab{top:-22px; right:129px}
@@ -283,6 +298,7 @@ form#search_form{width: 245px!important;height:21px}
 #navbar .open #tracker_tab{top:11px!important; left: 3px!important}
 #navbar .open #settings_tab{left: auto!important;right:70px!important}
 #navbar .nav_tabs_content .nav_tab .title{padding-top: 5px!important}
+#navbar .menu a{font: 14px Arial,Helvetica,sans-serif; color: #3b73af!important}
 #navbar .nav_tabs_content .nav_tab .menu a.exit {
 	position: static!important;
 	bottom: auto!important;
@@ -982,7 +998,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .rotated_posts .rotated_post a,.content_left .similar_posts .title{display:block;padding:0 3px 2px!important;text-decoration:none!important;font-size: 13px!important;line-height:1.1!important;background:#f8f8f8}
 .content_left .similar_posts .title,.content_left .similar_posts .post_item .when{padding-bottom:0!important;font: 12px Arial,Helvetica,sans-serif!important}
 .content_left .similar_posts .posts_list{display:none;max-width:1540px;margin:-6px 4px 0!important;padding: 0 12px 2px!important}.content_left .similar_posts .posts_list{margin-top:14px!important}
-.content_left .similar_posts{margin-top:-4px!important}
+.content_left .similar_posts{margin-top:-4px!important; padding: 0 !important}
 .content_left .similar_posts .title{float:right;height:1.2em;margin: -3px 24px 0 12px!important;padding:2px 5px 4px!important;border-radius:5px}
 .content_left .similar_posts >.title,.content_left .similar_posts .post_item, .content_left .similar_posts .post_item .when{margin-bottom:0!important}
 .content_left .similar_posts .post_item .when{font-size: 12px!important;color:#777}
@@ -1025,6 +1041,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	.content_left{width: 240px;} }
 @media (min-width: 1520px){
 	#layout,.rotated_posts, #footer{margin-right:0!important}
+	#TMpanel{left: 205px !important}
 	#navbar .nav_panel .logo{margin-left: -7px;border-bottom-left-radius:3px}
 	#navbar a.logo + a.tab_menu{left: 22px!important}
 	#navbar_overlay, #navbar .tab_user, #navbar .tab_tracker, #navbar .tab_tracker, #navbar a.tab_add_post:hover +a.tab_settings{display: none!important}
@@ -1043,7 +1060,6 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	#navbar .nav_tabs_content .nav_tab .global_search_form{margin: 0!important}
 	#navbar .nav_tabs_content .nav_tab .menu a.new_window:after{top: 4px!important; right: 100px!important}
 	#navbar .nav_tabs_content .nav_tab .title{font: 12px Arial,Helvetica,sans-serif bold}
-	#navbar .menu a{font: 14px Arial,Helvetica,sans-serif; color: #3b73af!important}
 	#navbar .menu a,#navbar .nav_tab .global_search_form, #navbar .nav_tab .text{background-color: #f2f2f2}
 }
 @media (min-width: 1574px){#layout,.rotated_posts, #footer{margin-right:26px!important}}
@@ -1051,7 +1067,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 
 /*no pasaran*/
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
-#header .main_menu .banner_special,
+#header .main_menu .banner_special,#TMpanel .menu.special,.special_navbar_image,
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img{display:none!important}
 .sidebar_right .block[class*="htmlblock"],
 body >a,
