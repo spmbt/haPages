@@ -1,4 +1,4 @@
-﻿/** Habr Zen-Comment v4.16_2014-10-24, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+﻿/** Habr Zen-Comment v4.17_2014-10-24, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/101697/habr-zencomment-4
  * Author: http://spmbt.habr.ru/
  * LastUpdatesDescription: +menu Geektimes; no hidden layout"
@@ -60,7 +60,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	width:auto!important;
 	min-width: 0!important;
 	height: 18px!important;
-	
+
 	border: 0!important;
 	text-align: left!important;
 	background: transparent!important}
@@ -125,7 +125,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	border: 1px solid #999!important;border-radius:3px;
 	text-align: right;
 	font-size: 9px;
-	font-family: Tahoma,Arial;
+	font-family: Tahoma,Arial,sans-serif;
 	color: #59d!important;
 	opacity: 0.5!important}
 #header .userpanel:hover .charge,#header .user_panel:hover .charge{
@@ -204,7 +204,7 @@ form#search_form{width: 245px!important;height:21px}
 	font-size: 18px!important;
 	background-color: #ccc;
 	opacity: 0.5;filter: alpha(opacity=50)}
-#header .main_menu:hover{width: auto;
+#header .main_menu:hover{
 	overflow: visible;
 	width: auto!important;
 	background-color: #fff;
@@ -268,7 +268,7 @@ form#search_form{width: 245px!important;height:21px}
 	display: none!important;
 	position: absolute;
 	height: 26px!important;
-	left: auto!important; 
+	left: auto!important;
 	right: 88px;
 	margin-top:-6px!important}
 #navbar #print_tab{display: none!important}
@@ -298,7 +298,7 @@ form#search_form{width: 245px!important;height:21px}
 #navbar .open #tracker_tab{top:11px!important; left: 3px!important}
 #navbar .open #settings_tab{left: auto!important;right:70px!important}
 #navbar .nav_tabs_content .nav_tab .title{padding-top: 5px!important}
-#navbar .menu a{font: 14px Arial,Helvetica,sans-serif; color: #3b73af!important}
+#navbar .menu a{font-family: 14px Arial,Helvetica,sans-serif; color: #3b73af!important}
 #navbar .nav_tabs_content .nav_tab .menu a.exit {
 	position: static!important;
 	bottom: auto!important;
@@ -389,7 +389,7 @@ h1{letter-spacing:0!important}
 	font-size: 16px;
 	text-decoration: none!important;
 	color: #257!important}
-.post h1.title .locked{background-position: 2px 0px!important}
+.post h1.title .locked{background-position: 2px 0!important}
 .content_left .post h1.title .post_title:visited{color: #977!important}
 
 .content_left .company_post h1.title .post_title{font-size: 18px!important;font-weight: normal}
@@ -535,7 +535,7 @@ ul.tags li a{text-decoration:none!important}
 	margin: -1px!important;
 	padding: 3px 26px!important;
 	border: 1px solid #8ab!important;
-	background:#C5DAE5!important}
+	background:#c5dae5!important}
 .content_left .post #edit_tags_form {margin:0 0 -6px!important; padding: 5px!important}
 
 .content_left .comments_list{
@@ -621,7 +621,7 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	width:16px!important;
 	height:16px!important;
 	left:-20px;
-	top:0px;
+	top:0;
 	border:1px solid transparent!important;
 	z-index: 3;
 	opacity: 0;filter: alpha(opacity=0)}
@@ -1006,6 +1006,8 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .content_left .similar_posts:hover .posts_list,.content_left .similar_posts .posts_list:hover{position:absolute;z-index:12;display:block}
 .content_left .similar_posts .post_item .when, .content_left .similar_posts .post_item .post_name{display:inline;text-decoration:none!important}
 .content_left .similar_posts .post_item{display:inline-block;vertical-align: middle!important;width:24%!important;margin-right:0%!important;padding-bottom:1px!important;line-height:1.14!important;text-indent:0}
+.posts_list .sort_menu{margin: 10px 0 -12px!important}
+.search_results, .comment_item_plain:first-child{margin-top: 17px}
 
 #footer{width: auto!important;min-width: 314px!important;overflow: visible!important;margin-bottom:0!important;padding: 6px 0 0 0!important}
 #footer:before{position:relative;display:block;float:right;height:0;top:-4px;right:2px;white-space:nowrap;margin-top:-4px!important;font-size: 9px;color:#888;content:"ZenComment by spmbt"}
@@ -1068,9 +1070,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 /*no pasaran*/
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,#TMpanel .menu.special,.special_navbar_image,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img{display:none!important}
-.sidebar_right .block[class*="htmlblock"],
-body >a,
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,
 .sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags),.sidebar_right .company_widgets,.sidebar_right div[class*=banner]{display:none!important}
 #header_mouse_activity,.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 .sidebar_right .block.daily_best_posts .posts_list .post_item a.user_name{color:#ddd!important}

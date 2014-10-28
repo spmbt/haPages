@@ -7,8 +7,8 @@
       "run_at": "document_idle"
    } ],
    "converted_from_user_script": true,
-   "description": "Add refresh by Ctrl-F5, Shift-F5 and "R" in any national keyboard layout",
+   "description": "Add refresh by R in any national keyboard layout",
    "name": "feedlyCtrlF5Fx",
-   "version": "1.2014.5.19",
+   "version": "5.2014.10.28",
    "manifest_version": 2
 }

@@ -2,7 +2,7 @@
 // @id          feedlyCtrlF5
 // @name        Feedly: partial refresh by R in any keyboard layout
 // @name:ru     Feedly: обновление списка по R в любом регистре
-// @version     5.2014.10.22
+// @version     5.2014.10.28
 // @description Refresh by "R" in any national keyboard layout, add styles, date of refresh and floating title of opened article
 // @description:ru Обновляет по "R", исправляет стили, добавляет время обновления и висячий заголовок открытой статьи 
 // @namespace   github.com/spmbt
