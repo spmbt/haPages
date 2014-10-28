@@ -71,7 +71,7 @@ iframe:hover, object:hover{
 input[type="text"],
 .chzn-container-multi .chzn-choices,
 .chzn-container .chzn-drop{
-	background: rgba(98, 98, 98, 0.33)!important;
+	background: #444!important;
 	color: #fff!important;
 	border-color: #555!important}
 textarea{resize: vertical!important}
