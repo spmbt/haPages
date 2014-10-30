@@ -5,7 +5,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
 applet, abbr, acronym, address, cite, code, del, dfn, ins, kbd, samp, strike, var, fieldset, legend, caption{
 	margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: top;/*changed*/ background: transparent;}
-body, .wraprre{line-height: 1.2; font-family: Arial, Helvetica, Tahoma, sans-serif; color: #000; background-color: #fff; font-size: 13px;}/*changed*/
+body, .wraprre{line-height: 1.2; font-family: Arial, Helvetica, Tahoma, sans-serif; color: #000; font-size: 13px;}/*changed*/
 ol, ul{list-style: none;}
 blockquote, q{quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none;}
@@ -16,9 +16,26 @@ table{border-collapse: collapse; border-spacing: 0;}/* tables still need'cellspa
 .wraprre{margin: 0 3px 0 6px;}
 h1{font-size: 27px; color: #965;}
 h2{font-size: 24px; color: #965;}
-h3{font-size: 19px; color: #485; text-decoration: underline;}
-h4{font-size: 16px; border-bottom: 1px dotted #999; display: inline-block;}
-h3 a{color: inherit;}
+h3{display: inline-block; font-size: 19px; border-bottom: 1px dashed #485; color: #485;}
+h4{display: inline-block; font-size: 16px; border-bottom: 1px dotted #999;}
+h2 a{text-decoration-color: inherit;-moz-text-decoration-color: inherit;}
+a h2:hover, h2 a:hover{background-color: rgba(99,99,200,0.4)}
+h3 a{color: #27619c;}
+
+/* "fork me" в углу страницы */
+body.forkGithub{background: url(forkMeOnGithubGray.jpg) #fff no-repeat}
+h1.forkGithub{display: inline-block; margin-left: 50px}
+a.forkGithub{
+	position: relative;
+	display: block;
+	float: left;
+	z-index: 1;
+	width: 81px;
+	height: 57px;
+	margin: 0 -50px -10px -6px;
+	border-bottom-right-radius: 26px}
+h1.forkGithub:hover, h1 +.def a:hover,
+a.forkGithub:hover, a.forkGithub:hover +h1.forkGithub{background-color: rgba(99,99,200,0.4);}
 
 .b-pageTop >.def{margin: 0 24px; font-style: italic;}
 .b-h2Block{margin: 24px 0;}

@@ -1,11 +1,11 @@
-/** Habr ZenComment DarkAge v4.17_2014-10-28, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.18_2014-10-29, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
- * Author: http://spmbt.habr.ru/
- * LastUpdatesDescription: dark theme, 15 updates
+ * Author: github.com/WaveCutz, github.com/spmbt
+ * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr
  */
-@-moz-document regexp("http://habrahabr.ru/(?!special/).*"),url-prefix("https://habrahabr.ru/auth/"),domain("hbr"),domain("webcache.googleusercontent.com"),domain("geektimes.ru"){
+@-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
-body{background-color: #555!important; color: #bbb}
+body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #555!important; color: #bbb}
 body:after{
 	content: '';
 	display: block;
@@ -18,26 +18,25 @@ body:after{
 	background: rgba(0,0,0,0.6)}
 #layout{background-color: transparent}
 #layout,
+#layout >.layout,
 #xpanel, .to_top{z-index: 99990}
-#logo,
-.inner .page_head,
-#reg-wrapper{z-index: 99990; position: relative; margin-top: 18px} /* Доступ к публикации закрыт */
-#logo{-webkit-filter: invert(0.87); filter: invert(0.87)}
-#reg-wrapper{border-color: transparent}
 #layout #navbar,
 #layout .inner{background: #333!important}
 	#navbar .scroll_to_up{opacity: 0.5}
 #layout >.inner{
-	margin: 0 0 0 71px!important;
-	padding: 12px 24px 30px 25px!important}
+	margin: 0 0 70px 71px!important;
+	padding: 12px 24px 4.5em 25px!important}
 .company_header,
 .user_header,
 .content_left,
 .sidebar_right,
 .rotated_posts,
+#layout >.layout, /*apps/*/
 .bottom_promo_blocks{z-index: 99990; position: relative}
+#layout >section.layout{overflow: inherit!important}
 #navbar_overlay{z-index: 99991!important}
 #navbar, .nav_panel, #navbar .nav_tabs_content{width: 1px}
+#reg-wrapper{border-color: transparent}
 
 /* глобальные элементы */
 a:hover{text-decoration: none!important}
@@ -47,7 +46,8 @@ a:hover{text-decoration: none!important}
 .top_banner img,
 .announce img,
 .mobile_applications img /* страницы компаний */,
-.user_profile .summary img{
+.user_profile .summary img,
+#content .empty_block img{
 	-webkit-filter: grayscale(0.8); filter: grayscale(0.8);
 	transition: all 300ms;
 	opacity: 0.6}
@@ -56,7 +56,8 @@ a:hover{text-decoration: none!important}
 .top_banner img:hover,
 .announce img:hover,
 .mobile_applications img:hover /* страницы компаний */,
-.user_profile .summary img:hover{
+.user_profile .summary img:hover,
+#content .empty_block img:hover{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	opacity: .99}
 iframe, object{
@@ -75,6 +76,7 @@ input[type="text"],
 	color: #fff!important;
 	border-color: #555!important}
 textarea{resize: vertical!important}
+.global_search_form input[type="text"]{background: rgba(98, 98, 98, 0.33)!important}
 
 .buttons a.button.habracut,
 .buttons button,
@@ -153,25 +155,31 @@ body .buttons a.button:hover,
 	margin: 0 6px!important;
 	padding: 0 4px!important;
 	border-radius: 0 0 5px 5px;
+	text-decoration: none!important;
 	background-image: linear-gradient(rgba(30, 53, 99, 0.85) 30%, rgba(35, 59, 99, 0.5) 80%)!important;
 	color: transparent!important;
-	opacity: 0.42}
+	opacity: 0.42;
+	transition: all 80ms}
 #TMpanel .menu:hover a{
-	text-decoration: none!important;
 	color: #93b2d0 !important;
 	opacity: .99}
 
 /* левое меню */
-#navbar{position: fixed; bottom:0!important}
+#navbar{position: fixed!important; bottom:0!important}
+body >#logo,
+#layout #header >.logo,
 #navbar .nav_panel .logo{
 	background-position: 0 0;
+	background-repeat: no-repeat;
 	background-size: 71px 71px!important;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAACOBAMAAAAV0y07AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABJQTFRFhYWF////hYWFhYWFhYWFhYWFHuRy9gAAAAV0Uk5TAAACFUJuiBR3AAAAkUlEQVRo3u3Y3QnCMBgF0JsRtAt0BcEFgl3B/VfxwR+wEmhrBNFz33IhJ3n6AsmuT8LhcDgcDofD4SxxkiQZy/M6Keuc8zWnMivGbc50aMLrnNqE33Qqh8PhcDgfc17C4XC6OdMjX+KYhxwOh/OTzr7XfY6356Y2i2XOMN82bHPu59d24b+Ow+FwOBwOh/N3zgVFUdpKqdTnuQAAAABJRU5ErkJggg==)!important}
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAABlUlEQVR42u3doW7DMBRAUcvY8mcUbKjM/1IWUFQ+0iS/PjZQ5mfJSbRjXf4kH5bYctq3VRcq2QJgAiZgwARMwIAJmIABEzABAyZgAgZMwAQMmIAJGDABEzBgAiZgwOwCMAETMGACptOBLa/34/nT1fjQ3onL6w0sDpZSmgx2+76XUoDFwWqtk8FSSq01YEGwQbMYWM75cLMLg42YxcDOYHZtsLBZN9jX/W/isWbAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGBnBZsfMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAGb+rU+toABAwYMGLBT/HEOLGCOCAADBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAHrr5QSPnQdfkIsPBHYum9ray3nPBNs39ZaK7DZZoOPYQbMgA2ZDYIFzIB9mvVeRRkf2jsRmIABEzABAyZgAgZMwAQMmIAJGDABEzABAyZgAgZMwAQMmIAJGDABEzBgAiZgwARMwP5Jv1lyJlCGuCEMAAAAAElFTkSuQmCC)!important;
+	transition: all 70ms}
+#navbar .nav_panel .logo[href*=geektimes]{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAAD8UlEQVR42u3cwUvbYBjH8eDB7SDyIg4KgogMdMVBZaCF0QnaIOpGh6xrhmDpDgZBJuthoujGDoPdPOzg3aMnj/4TO+yyv2eHbCFL2rxv37xJmvoNv2NJ2ufT9036Jk+tL58vSIFiUQLACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDAqAJgBDACGGAEMAIYYAQwAhhgBDACGGAEMAIYYASwaDpH552j872Dk5h4rzk+/Q5YPvn567cUKd4vfv/ae9bLKIPd3N6ZKtP+4enl1XXuYM32B8uyRhMsyajql9b7bnSqzB4sVTOr0AOrZ8ls284dLD2zrMEur64zKFnQLC+wlMysUdLaOzipv3znFcs3yxJsY6dl/b8VGCzVmbBnyTwzwDQz6CcvV6qlmbnQ5y9XquVKVb1ktm0Dlu41Ya3emJouWbJtdn5xY6elWDLp3iYmRfy7ajiupbUVEkx9MpydXxyoHKWZua3dtsp3HDDzk2F0AlTcgpNkzKQEmMnhNejYig61ZvtYehYBzMzZa7W2Kf3kQgjHcUI7F0IIIfyib+y0pKd9wJLOh8328fiDhzGf2XVd6VFs205SMuk0EAUbzdV6lflweWWtX61Di0zSOI4DWKK4H79KwfpdxEcnQMWMjY0Bppn9w1PpfGhkbIWysLAAWConsFq9kdK5utvtAmYerFypRrXOzs6G7Y4PYH/z+Eklg0thwIyBRVc3vIv4JEv7gGUKlvxejEY1AcsZbNCCAqYKFlpCFEKYAhuopoBpXnQsLS0ZBFMvK2CqYKF1KX91wxQYv8PS/eEM2LCDhZamAMsZTOVmWHDxN7iE6K8thbbV2iZgeT6IGLx76V90xJgBlv8NzIlJ0a8QUTPA0j2A9A5LaJDFrLsDlgXYxbcfKlcK/g+y+HslgGVx4Fanq24mfYKDq8SLIRlk/twIWP6PaisOMq8069tvAMsZ7Ob2bu/gk0b/crQRFrCMjvSq2cmmhQQwY1nffgtYwVpmX9ivAStYU/rTZ8+9xgXACvO3D1OPSrV6Y3h6IAFTOHCvdjztbO22y5Vqz6YKwEyaWZY1NV1aXlnTc/JanpM3/ACmmvHx8WCTlgfQb9g1HNd7gRRJo7L9br9l1vhVmD8HCzYupLFpPI4PmOFvd3pDQf2d3GuwmHY87U0IoddUoWgG2L8eQNdNguQ/ipr2iAesR9WCPecxQkaQihL+8xcwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwqgAYAYwABhgBjAAGGAGMAAYYAYwABhgBjAAGGAGMAHYP8gcwWWSqNNsPcwAAAABJRU5ErkJggg==)!important}
 #navbar .nav_panel .logo:hover{background-color: #444}
 #navbar .nav_panel .tab {
 	left: 36px!important;
 	width: 36px!important;
-}
+	transition: all 350ms, background-color 70ms, box-shadow 70ms}
 #navbar .nav_panel .tab.open,
 #navbar .nav_panel .tab:hover,
 #navbar .nav_tabs_content.open .nav_tab{background: rgba(80, 80, 80, 0.66)}
@@ -182,10 +190,6 @@ body .buttons a.button:hover,
 #navbar .nav_panel .tab.tab_settings:hover,
 #navbar .nav_panel .tab:hover{background-position: 0 0}
 
-#navbar .nav_panel .tab[class^=tab]:after,
-#navbar .nav_panel .tab[class^=tab]:hover:after,
-#navbar .nav_panel .tab[class^=tab].open:after,
-#navbar .nav_panel .tab[class^=tab].open:hover:after,
 #navbar .nav_panel .scroll_to_up:after,
 #navbar .nav_panel .scroll_to_up:hover:after{
 	width: 30px;
@@ -196,31 +200,27 @@ body .buttons a.button:hover,
 	background-position: 0 0}
 #navbar .nav_panel .tab.tab_menu:after{
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBpZD0ic3ZnXzIiIGQ9Im0yMy4zODUwMSwwbDUuNzE5OTcsMGMwLjgyMDAxLDEuMTYgMS40NCwyLjQ0IDEuMTcwMDEsMy45MWMtMi42OSwwLjE4IC01LjM4LDAuMTggLTguMDYsMGMtMC4yOCwtMS40NiAwLjM1MDAxLC0yLjc1IDEuMTcwMDEsLTMuOTF6IiBmaWxsPSIjNjI2MjYyIi8+DQogIDxwYXRoIGlkPSJzdmdfOCIgZD0ibTE5LjY3NDk5LDUuNDFjNS44MzAwMiwtMC42NyAxMi4yOCwtMS4yNSAxNy42MTAwMiwxLjhjNi4xNDk5OSwzLjAxIDEwLjQ4OTk5LDkuMDcgMTEuOTEsMTUuNzFjMC4xMzk5OCw3LjY5IDAsMTUuMzkgMC4wNDk5OSwyMy4wOGMtMTUuMzI5OTksMCAtMzAuNjcwMDEsMCAtNDYsMGMwLjA0OTk5LC03LjcgLTAuMTAwMDEsLTE1LjQgMC4wNiwtMjMuMDljMS42NDk5OSwtOC4zMSA4LjE3OTk5LC0xNS4yOSAxNi4zNywtMTcuNXoiIGZpbGw9IiM2MjYyNjIiLz4NCiAgPHBhdGggaWQ9InN2Z18xMyIgZD0ibTEuNTk1LDQ4LjE0YzE1Ljg3LC0wLjMzIDMxLjc4LC0wLjA1IDQ3LjY2OTk4LC0wLjE0YzQuMzkwMDEsLTAuNzMgNC4zOTAwMSw4LjczIDAsOGMtMTUuODg5OTgsLTAuMDggLTMxLjc5OTk5LDAuMTcgLTQ3LjY3OTk5LC0wLjEzYy0yLjEwOTk5LC0xLjU5IC0yLjEyLC02LjE3IDAuMDEwMDEsLTcuNzN6IiBmaWxsPSIjNjI2MjYyIi8+DQogIDxwYXRoIGlkPSJzdmdfMTQiIGQ9Im0xNy45NTQ5OSw1OC4wM2M1LjUzLC0wLjA1IDExLjA1MDAyLC0wLjA1IDE2LjU4MDAyLC0wLjAxYy0yLjE3MDAxLDguMTQgLTE0LjM5OTk5LDguMTEgLTE2LjU4MDAyLDAuMDF6IiBmaWxsPSIjNjI2MjYyIi8+DQo8L3N2Zz4=)}
-#navbar .tab_user img{
-	top: 16px!important;
-    left: -17px!important;
-}
+#navbar .nav_panel .tab.tab_user img{
+	top: 16px;
+	left: -19px;
+	opacity: 0.21;
+	transition: all 200ms}
 #navbar .tab.open:before{width: 0!important}
 #navbar .tab.open{}
-#navbar .tab .g-icon-alarm:before,
-#navbar .tab .g-icon-burger:before,
-#navbar .tab .g-icon-write:before,
-#navbar .tab .g-icon-gear:before{
+#navbar .tab .g-icon:before{
 	position: relative;
     display: block;
 	top: 18px;
     left: -18px;
 	border-radius: 15px;
-}
-#navbar .tab:hover .g-icon-alarm:before,
-#navbar .tab:hover .g-icon-burger:before,
-#navbar .tab:hover .g-icon-write:before,
-#navbar .tab:hover .g-icon-gear:before{background-color: rgba(80, 80, 80, 0.5); box-shadow: 0 0 2px 0 #444}
+	transition: all 200ms, background-color 70ms}
+#navbar .tab:hover .g-icon:before{background-color: rgba(80, 80, 80, 0.5); box-shadow: 0 0 2px 0 #444}
 #navbar .tab_user:hover,
 #navbar .tab_tracker:hover,
 #navbar .tab_menu:hover,
 #navbar .tab_add_post:hover,
-#navbar .tab_settings:hover{box-shadow: -2px 0 2px 0 #444}
+#navbar .tab_settings:hover,
+#navbar .tab_login:hover{box-shadow: -2px 0 2px 0 #444}
 
 #navbar .nav_panel .tab.tab_tracker:after{
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDkiIGhlaWdodD0iMzciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8ZyBpZD0idHJhY2tlciI+DQogICA8cGF0aCBpZD0ic3ZnXzEiIGQ9Im0wLDEuNTJjMi4wNCwtMS41MiA0LjY0LC0xLjAxIDcsLTEuMDhjMTMuMjMsMC4xNiAyNi40OCwtMC4yIDM5LjY5LDAuMTZjMi4zLDEuNzggMi4zMyw4LjMgLTEuNjQsNy44NWMtMTMuNjksMC4wNCAtMjcuMzgsLTAuMDIgLTQxLjA2LDAuMDNjLTEuNDYsMC4xNCAtMi44NiwtMC4yNSAtMy45OSwtMS4xOGwwLC01Ljc4eiIgZmlsbD0iIzYyNjI2MiIvPg0KICAgPHBhdGggaWQ9InN2Z18yIiBkPSJtMCwxNS41OWMxLjYyLC0xLjU2IDMuOTcsLTEuMDUgNiwtMS4xNmMxMy41NiwwLjE2IDI3LjE0LC0wLjE4IDQwLjY5LDAuMTdjMi4zMSwxLjc3IDIuMzMsOC4zMiAtMS42Niw3Ljg2Yy0xMy42OCwwLjAzIC0yNy4zNiwtMC4wMyAtNDEuMDQsMC4wMmMtMS40NiwwLjE0IC0yLjg2LC0wLjI1IC0zLjk5LC0xLjE4bDAsLTUuNzF6IiBmaWxsPSIjNjI2MjYyIi8+DQogICA8cGF0aCBpZD0ic3ZnXzMiIGQ9Im0wLDI5LjU3YzIsLTEuNjEgNC42MywtMS4wNCA2Ljk5LC0xLjEzYzEzLjI0LDAuMTUgMjYuNDksLTAuMiAzOS43MSwwLjE2YzIuMjksMS43OSAyLjMxLDguMzIgLTEuNjYsNy44NmMtMTMuNjksMC4wMiAtMjcuMzgsLTAuMDMgLTQxLjA2LDAuMDJjLTEuNDYsMC4xNSAtMi44NCwtMC4yNiAtMy45OCwtMS4xOGwwLC01LjczeiIgZmlsbD0iIzYyNjI2MiIvPg0KPC9nPg0KPC9zdmc+)}
@@ -256,6 +256,10 @@ body .buttons a.button:hover,
 	color: #4684b2 !important}
 
 /* под-шапка */
+body >#logo,
+body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
+.inner .page_head{z-index: 99990; position: relative; margin-top: 18px}
+
 .page_head h2.title{font: 16px Courier,Consolas,serif!important}
 .content_left table.menu tr td.active a,
 .content_left table.menu tr td a,
@@ -391,6 +395,7 @@ code .diff .change{background: #385570}
 	background-image: url(data:image/gif;base64,R0lGODlhDAAPANQRAGZmZlJSUk5OTlpaWoaGhr6+vm5uboKCgmpqaqKioo6OjnJyclZWVrKyspKSkjIyMjY2NsrKyp6enoqKijo6Oj4+Pnp6enZ2dkZGRq6urkJCQpaWlgAAAAAAAAAAAAAAACH5BAEAABwALAAAAAAMAA8AAAVzICdagSAEg6heU+EWgKImV5EcSpAMhDg0DccDEpE4ABZERpKYUCoNy2SBwRQcEwtzcrFYqpnDwWIAGBZojYYWaLsNBvVmAa/XK5WNwcQXIBAVFA4Gf4WFFIIIfSYAABAQE42Sk48TlpcEmQRDjw+en54QIQA7)!important}
 .post .tags li a:hover{background-color:#fffcf8;color:#333!important}
 .post .content .poll table.result tr td.percent{max-width: 100px}
+.post .content .poll table.answer tr td.input{opacity: 0.6}
 
 /* данные под статьёй */
 .post .infopanel .voting{margin-top: 6px!important}
@@ -461,7 +466,6 @@ h2.title .subscribe_comments{color: #854 !important}
 h2.title .subscribe_comments label input{opacity: 0.6}
 
 /* Комментарии */
-#navbar .nav_panel .tab.tab_user img,
 .comments_list .comment_item .info a.avatar img,
 .conversation_page .messages .message .info a.avatar img{
 	-webkit-filter: grayscale(1); filter: grayscale(1);
@@ -693,9 +697,21 @@ ul.sort_menu li.current a{border-radius: 2px; background-color: #b6751a!importan
 .hantim_vacanies,
 .twitter_stream{padding: 5px}
 
+/* для блогов компаний */
+#header_mouse_activity #header{background: #333}
+#header_mouse_activity .main_menu a.active{color: #949494}
+#header_mouse_activity .user_panel a.username{color: #ccc}
+#header_mouse_activity .user_panel a{color: #8d8d8d}
+#header_mouse_activity .search_panel form input[type="submit"]{-webkit-filter: invert(0.74); filter: invert(0.74)}
+.company_header .name a{color: #888}
+#box .title{color: #739db6} #box .text{color: #bbbfc5}/*"Профилактические работы"*/
+body >#logo{background-size: 54px 54px !important}
+body >#logo >img{opacity: 0.16}
+
 /* подготовка статьи */
+.for_users_only_msg,
 #global_notify .inner_notice,
-.global_notify .inner_notice{background: #667c5a}
+.global_notify .inner_notice{background: #667c5a; color: #fee}
 
 .post_type_selector h1.title{color: #b9c5cf!important}
 .post_type_selector.can_select .title_list ul{
@@ -729,16 +745,16 @@ ul.sort_menu li.current a{border-radius: 2px; background-color: #b6751a!importan
 	background-image: linear-gradient(#3e4247 20%, #35383a 90%);
 	background-color: #35383e}
 
-/* для корпоративных блогов */
-#header_mouse_activity #header{background: #333}
-#header_mouse_activity .main_menu a.active{color: #949494}
-#header_mouse_activity .user_panel a.username{color: #ccc}
-#header_mouse_activity .user_panel a{color: #8d8d8d}
-#header_mouse_activity .search_panel form input[type="submit"]{-webkit-filter: invert(0.74); filter: invert(0.74)}
-.company_header .name a{color: #888}
-
 /* кнопки номеров страниц в лентах, вытащены на левую панель */
 .page-nav{position: fixed; bottom: 0; width: 0}
+.page-nav #nav-pages{
+	position: relative;
+	left: -100px;
+	bottom: 48px;
+	width: 32px;
+	margin: 6px 0 6px 2px!important;
+	opacity: 0.25;
+	transition: all 80ms,bottom 350ms}
 .page-nav #nav-pages,.page-nav{
 	margin: 0 4px 0!important;
 	padding: 0 0 1px 1px!important}
@@ -751,13 +767,6 @@ ul.sort_menu li.current a{border-radius: 2px; background-color: #b6751a!importan
 	opacity: 0.35;
 	font-size: 12px;
 	color: #333}
-.page-nav #nav-pages{
-	position: relative;
-	left: -100px;
-	bottom: 48px;
-	width: 32px;
-	margin: 6px 0 6px 2px!important;
-	opacity: 0.25}
 .page-nav .next-prev li:hover,
 .page-nav #nav-pages:hover{opacity: 0.52}
 .page-nav #nav-pages li{width: 32px; float: none!important; margin: 0!important}
@@ -791,18 +800,103 @@ ul.sort_menu li.current a{border-radius: 2px; background-color: #b6751a!importan
 .bottom_promo_blocks .block .all,
 .block.freelansim .tasks .all{text-align: right}
 
+.rotated_posts{
+	display: table;
+	margin-top: 10px!important;
+	margin-bottom: 0!important;
+	padding-top: 0!important;
+	border-top: 1px solid #666!important;
+	border-bottom: 1px solid #666!important;
+	background: #444}
+.rotated_posts .rotated_post{
+	display: table-cell;
+	float: none;
+	width: auto!important;
+	padding: 1px!important;
+}
+.rotated_posts .rotated_post:nth-child(2n){background: #4c4c4c}
+.rotated_posts .rotated_post a{
+	display:block;
+	padding: 0 12px 4px!important;
+	text-align: center;
+	text-decoration: none!important;
+	font-size: 13px!important;
+	line-height: 1.1!important}
+.rotated_posts .rotated_post a:hover{background: #555}
+.bottom_promo_blocks{padding-top: 15px}
+
 div.footer_panel:before{
 	content: '';
 	display: block;
 	position: absolute;
 	z-index: 0;
-	top: -1000px;
+	top: -10px;
 	right: 0;
 	bottom: 0;
 	left: -25px;
 	background: #333}
-#footer{position: relative; z-index: 99991}
-.social_accounts{opacity: 0.35}
+#footer{position: relative; z-index: 99991; width: auto!important;min-width: 314px!important;overflow: visible!important;margin-bottom:0!important;padding: 6px 0 0 0!important; border-top: 1px solid #666!important}
+#footer:before{position:relative;display:block;float:right;height:0;top:-4px;right:2px;white-space:nowrap;margin-top:-4px!important;font-size: 9px;color:#888;content:"HabraDarkAge by spmbt"}
+#footer .bottom_menu{width: 100%!important}
+#footer	a{text-decoration: none!important}
+#footer	dl{width: 50%!important; float:right}
+#footer dl:last-child{display:none}
+#footer	dt{float:left; width: 4em; margin: 0 0 0 2px!important; line-height: 120%!important}
+#footer	dt:after{content:":"}
+#footer	dd:not(:last-child):after{content:","}
+#footer	dd{float:left; margin:0 0 0 6px!important; line-height: 120%!important}
+.footer_panel #footer	.copyright{position: relative; left: 12px; width: auto!important; float: none!important; margin-right: 12px!important}
+#footer .copyright .footer_logo{margin:0!important; position:absolute; left: -21px!important}
+#footer .copyright .about{float:left!important; width: auto!important; vertical-align: middle!important; margin:0 0 0 2px!important}
+#footer .about br,#footer .copyright .about br{display: none}
+#footer .about >a{margin-left: 10px!important}
+#footer .about div,#footer .social_accounts{position: relative; display: inline-block; height: 1.2em!important; top: -7px; left: 8px; opacity: 0.35}
+#footer .social_accounts a{margin-bottom: -8px!important}
+
+/* адаптивное сжатие меню */
+@media (max-height: 535px){
+	#navbar .nav_panel .tab{height: 69px; line-height: 69px}
+	#navbar .nav_panel .tab.tab_user img{top: 15px; left:-18px}
+	#navbar .tab .g-icon:before{top: 17px}
+	#navbar .nav_panel .scroll_to_up{top: 347px}
+	.page-nav #nav-pages{bottom: 45px}}
+@media (max-height: 520px){
+	#navbar .nav_panel .tab{height: 66px; line-height: 66px}
+	#navbar .nav_panel .tab.tab_user img{top: 13px; left:-17px}
+	#navbar .tab .g-icon:before{top: 15px}
+	.page-nav #nav-pages{bottom: 41px}}
+@media (max-height: 505px){
+	#navbar .nav_panel .tab{height: 63px; line-height: 63px}
+	#navbar .nav_panel .tab.tab_user img{top: 12px; left:-16px}
+	#navbar .tab .g-icon:before{top: 14px}
+	.page-nav #nav-pages{bottom: 34px}}
+@media (max-height: 490px){
+	#navbar .nav_panel .tab{height: 60px; line-height: 60px}
+	#navbar .nav_panel .tab.tab_user img{top: 10px; left:-15px}
+	#navbar .tab .g-icon:before{top: 12px}
+	.page-nav #nav-pages{bottom: 28px}}
+@media (max-height: 475px){
+	#navbar .nav_panel .tab{height: 57px; line-height: 57px}
+	#navbar .nav_panel .tab.tab_user img{top: 9px; left:-14px}
+	#navbar .tab .g-icon:before{top: 11px; left:-17px}
+	.page-nav #nav-pages{bottom: 21px}}
+@media (max-height: 460px){
+	#navbar .nav_panel .tab{height: 54px; line-height: 54px}
+	#navbar .nav_panel .tab.tab_user img{top: 7px}
+	#navbar .tab .g-icon:before{top: 9px}
+	.page-nav #nav-pages{bottom: 14px}
+	.page-nav #nav-pages li{margin: -1px 5px -1px 0!important}
+	.page-nav #nav-pages li:hover a{padding: 2px 6px!important}}
+@media (max-height: 445px){
+	#navbar .nav_panel .tab{height: 51px; line-height: 51px}
+	#navbar .nav_panel .tab.tab_user img{top: 6px; left:-13px}
+	#navbar .tab .g-icon:before{top: 8px; left:-16px}
+	.page-nav #nav-pages{bottom: 6px}}
+@media (max-height: 428px){
+	#navbar .nav_panel .tab{height: 47px; line-height: 47px}
+	#navbar .nav_panel .tab.tab_user img{top: 4px; left:-11px}
+	#navbar .tab .g-icon:before{top: 6px; left:-18px}
+	.page-nav #nav-pages{bottom: -7px}}
 
 /*no pasaran*/
 #navbar .nav_tab .line,
@@ -811,7 +905,49 @@ div.footer_panel:before{
 #TMpanel .menu.special,.special_navbar_image,#print_tab,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right .company_widgets,.sidebar_right div[class*=banner]{display:none!important}
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right .company_widgets,.sidebar_right div[class*=banner]{display:none!important}
 	#header_mouse_activity,.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
+
+/*m.habr*/
+#layout >#header, #layout >#footer{background-color: #333!important}
+#layout >#header >.logo{background-size: 54px 54px!important}
+#layout >#content .comments_list .comment_item,
+#layout >#header .title{background: #333}
+#header .toggle_sidebar{border-left: 1px solid #666}
+
+#layout >#content .comments_list .comment_item,
+.list_items .list_item + .list_item{border-top: 1px solid #666}
+
+#sidebar{background: rgba(80, 80, 80, 0.66)}
+#sidebar .head{background: #444}
+#sidebar .head .username{color: #bbb}
+#sidebar .menu >a{color: #4684b2 !important}
+#sidebar .menu >a:hover{background: #555!important; color: #93b2d0!important}
+
+#layout >#content .posts .post{border-bottom: 1px solid #666}
+#layout >#content .posts .post .flag{opacity: 0.6}
+#layout >#content .post_show .text,
+.comments_list .comment_item .text{color: #bbb}
+#layout >#content .text_html a{color: #93b2d0}
+#layout >#content .share_to_social_networks{
+	background-color: #35383e;
+    background-image: linear-gradient(#3e4247 20%, #35383a 90%);
+    border-radius: 6px;
+    box-shadow: 0 0 5px #333 inset}
+.share_to_social_networks .share_buttons{opacity: 0.6}
+
+.comments_list .comment_item .meta .username{font-weight: bold; color: #ddd}
+
+.buttons .btn{
+	background-color: #444 !important;
+    background-image: linear-gradient(#4f5557 20%, #45484a 90%) !important;
+    border-color: #424549 #383a3f #35383e !important;
+	box-shadow: 0 1px 2px #555 inset !important;
+    color: #cde !important;
+    text-shadow: 0 1px 0 #9ab !important;
+    transition: all 0.4s ease 0s !important}
+.buttons .btn:hover{background-image: linear-gradient(#5f6366 20%, #55585b 90%) !important;}
+
+#layout >#footer .copyright{border-top: 1px solid #666}
 
 }
