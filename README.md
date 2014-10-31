@@ -29,7 +29,7 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 
 * юзерскрипты [FeedlyCtrlF5](https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout); [===== прямая ссылка на код user.js  2014-10-22 =====](spmbt.github.io/haPages/userscript/feedlyCtrlF5/feedlyctrlf5.user.js) - обновляет фиды по клавише "R" в любой национальной раскладке, дополняет стили, как в [стилях feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact), выводит автора и название читаемой статьи в плавающем блоке вверху.
 
-* **Новое:**: юзерстили [HabraDarkAge](http://spmbt.github.io/haPages/doc/habrAjax/habraDarkAge.htm); [===== установить =====](http://spmbt.github.io/haPages/userscript/habrAjax/habraDarkAge.user.css) ([описание на хостинге стилей](https://userstyles.org/styles/101697/))- тёмная тема Хабра, повторяющая в основном его дизайн, но в других цветах.
+* **Новое:**: юзерстили [HabraDarkAge](http://spmbt.github.io/haPages/doc/habraDarkAge/); [===== установить =====](http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css) ([описание на хостинге стилей](https://userstyles.org/styles/101697/))- тёмная тема Хабра, повторяющая в основном его дизайн, но в других цветах.
 
 
 <br>
