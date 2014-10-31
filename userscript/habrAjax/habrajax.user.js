@@ -5,21 +5,25 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 134.2014.10.21
+// @version 136.2014.10.31
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
 // @include http://habrahabr.ru/*
-// @include https://habrahabr.ru/auth/settings*
+// @include https://habrahabr.ru/auth/*
 // @include https://plusone.google.com/*
 // @include http://greasyfork.org/scripts/source/*
 // @include http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
 // @include http://geektimes.ru/*
+// @include https://geektimes.ru/auth/*
 // @include http://hbr/*
 // @exclude http://habrahabr.ru/api/*
 // @exclude http://habrahabr.ru/special/*
+// @exclude http://geektimes.ru/special/*
+// @update 135 показ Geektimes в сайдбаре;
+// @update 134 namespaces; ссылка на ZenComment;
 // @update 133 восст. подсказки в настройках, перенос дублей из "Что обсуждают?" в "Лучшие", индикатора старых обсуждений; возврат опред_даты qa (toster.ru); стили в режиме без ZenComment (+без "специал"); дата загрузки стр.в меню;
 // @update 132 ,131 +geektimes; кнопки над полем ввода;
 // @resource meta habrajax.meta.js
@@ -95,6 +99,7 @@ var DAY = 86400000
 ,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&in=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
 ,ROOT = location.protocol +'//'+ location.host
 ,URLSCR ='https://greasyfork.org/scripts/'
+,URLCSS ='http://userstyles.org/styles/33690/'
 ,HAJAX ='1970-habrajax/'
 ,userNameMaxLen = 25
 ,isFx = /Firefox/.test(navigator.userAgent)
@@ -1134,7 +1139,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	,zenPresent:'0~подключены ли ВНЕШНИЕ стили ZenComment в <u>12-й Опере</u> (установить вручную)~2012-10-16'
 //функции и оформление страницы
 	,reformal:'1~<a href="http://habrajax.reformal.ru/" target="_blank" title="открыть в новом окне">идеи и замечания о скрипте</a> (reformal.ru)~2011-07'
-	,inZen:'0~<i style="color:#955" title="встроенная версия стилей &mdash; @">встроенные в скрипт</i> стили <a href="http://userstyles.org/styles/101697/habr-zencomment-4" target="_blank" title="встроенная версия @; актуальная внешняя версия - в новом окне">ZenComment</a>~2011-08'
+	,inZen:'0~<i style="color:#955" title="встроенная версия стилей &mdash; @">встроенные в скрипт</i> стили <a href="'+ URLCSS +'" target="_blank" title="встроенная версия @; актуальная внешняя версия - в новом окне">ZenComment</a>~2011-08'
 	,regimeNoZen:'1~режим комментариев "Компакт"/"Дзен"</i>~2011-11'
 	,postsLinkNew:'1~сменить ссылку "Лента" на "Лента - новые"~2011-07'
 	,allFeed:'0~-""- на "Все посты" (без компаний)~2012-04-25'
@@ -1195,7 +1200,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	,autoGrow:'1~авторост полей ввода textarea~2012-07-20'
 	,contextSelect:'1~контекстные кнопки по выделению текста~2013-04-20'
 	,correctCite:'0~контекстный цитатник-корректор [бета]~2012-04-15~2012-01'
-	,hQuotes:'1~<a target=_blank title="инструкция с иллюстрациями" href=https://github.com/spmbt/haPages/tree/gh-pages>выделять и отправлять</a> на <a target=_blank href="http://habraQuotes.ru/" title="(новое окно)">HabraQuotes</a>~2013-01-03~2012-04-13'
+	,hQuotes:'1~<a target=_blank title="инструкция с иллюстрациями" href=http://spmbt.github.io/haPages/doc/habrAjax/habraQuotes-support.htm>выделять и отправлять</a> на <a target=_blank href="http://habraQuotes.ru/" title="(новое окно)">HabraQuotes</a>~2013-01-03~2012-04-13'
 //сайдбар:
 	,hideBest24:'0~скрыть блок "лучшее за 24"~2011-08'
 	,hideDirectBand:'0~скрыть "прямой эфир"~2011-08'
@@ -1209,7 +1214,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	,underFooter:'1~прибитый к низу футер~2012-09-07'
 	,stru:{ //структурирование настроек и дописывание описаний
 
-	'Настройки скрипта <a href="https://github.com/spmbt/haPages/tree/gh-pages" style="color:#36a" target="_blank">HabrAjax</a> (<a href="http://spmbt.github.io/haPages/doc/habrAjax/" target="_blank" title="на описание функций">что это</a>)':{sett:'version,chkUpdate,chkUpdNoMinor,noConsole,zenPresent'
+	'Настройки скрипта <a href="https://greasyfork.org/en/scripts/1970-habrajax" style="color:#36a" target="_blank">HabrAjax</a> (<a href="http://spmbt.github.io/haPages/doc/habrAjax/" target="_blank" title="на описание функций">что это</a>)':{sett:'version,chkUpdate,chkUpdNoMinor,noConsole,zenPresent'
 		,desc:'Скрипт с рядом функций для сайта <b>habr.ru</b> и его оформления.<br><br>Есть отключаемые функции (настройки) и неотключаемые &mdash; элементы, отсутствие которых неудобно, а присутствие &mdash; не мешает.<br><br><b>Пример</b>: логотип скрипта (32x32) справа вверху каждой страницы вызывает данные настройки, помогает перейти на страницу хостинга скрипта и стилей и не отключается.<br><br><b>Пример 2</b>: если статьи на сайте не обнаружилось, пустая страница заполняется <a href="'+HRU+'/post/146200/"target=_blank>ссылками на сохранённые копии статей</a>. Точнее, на те места, где они могут быть. Гугл чаще всего сохраняет копии, поэтому страница <b>Гугл-кеша</b> по ссылке <i>тоже обрабатывается скриптом</i> HabrAjax и стилями ZenComment. Всё это неотключаемо, но никак не мешает остальным функциям просмотра сайта, потому что работает совсем на других страницах.<br><br><b>Пример 3</b>: в скрипте заложены 2 стиля оформления: HabrAjax <a href="'+HRU+'/post/135686/"target=_blank>со стилями ZenComment</a> (используется автором скрипта при просмотре сайта) и <a href="'+HRU+'/post/154923/"target=_blank>без</a> них. Но не имеется режима с полным отсутствием стилевых модификаций.'
 		,descS:['Версии скрипта пишутся и обновляются, если на сайте произошло обновление, конфликтующее со скриптами, или если появилась новая функция в арсенале скрипта. В среднем получается, что обновляются версии довольно часто &mdash; раз в 5-15 дней.<br><br>Следить за обновлениями можно несколькими способами. Браузеры поддерживают <u>автообновление</u> и ручную проверку обновлений всех скриптов по кнопке.<br><br>HabrAjax имеет встроенную в скрипт <u>проверку обновлений</u>. 1 раз в сутки или реже, в 5 утра или позже он сравнивает версию в браузере с версией на сайте и сообщает, какие изменения произошли &mdash; причины обновления поясняются в специальном комментарии на 1-2 строчки.'
 		,'Слежение скрипта за обновлениями на сайте. Не чаще раза в сутки, но если чтение не удалось, следующая попытка &mdash; через 15 минут. Кликом по ссылке &mdash; ручная проверка обновлений в любое время.'
@@ -1282,7 +1287,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 		,'Быстро публикует копии интересных комментариев на стороннем сервисе, просто по выделению части комментария (опубликуется весь), или группы до 10. Достаточно 1 клика по кнопке "HQ". Успешность сообщается в примечании вверху окна, ссылка на публикацию &mdash; там же.']}
 	,'сайдбар':{sett:'hideBest24,hideDirectBand,hideEmploy,hideFreel,hideEve,sidebarDown,noAlienScripts,noSomeSideBlocks'
 		,desc:'Стилями ZenComment ширина сайдбара несколько уменьшена (до 26%), а настройками его можно вообще убрать или перенести вниз, что могло бы быть удобно на смартфонах и узких окнах менее 1000 пикселей. В зависимости от ширины окна применяется адаптивный дизайн &mdash; уменьшение отступов по краям, начиная с 640 пикс. и меньше. При более 1100 &mdash; наоборот, отступы размещаются несколько свободнее.<br><br>Имеется ненастраиваемая функция заполнения сайдбара блога компании, который обычно пуст, запомненным в прежней странице сайдбаром. Это сохраняет привычный для читателя баланс информации и ссылок справа.<br><br>Чтобы вернуть блок "Похожие посты" в сайдбар, отключают настройку "похожие посты и вопросы" в группе "заголовок комментариев". Сайдбар немного разрастётся, но названия статей будут перед глазами.'
-		,descS:[' Скрывание различных блоков сайдбара. По настройке внизу &mdash; уже скрыты совсем ненужные, остались только 5, которые можно выборочно скрыть.<br><br>Блок "Лучшие за 24 часа" полезен показом ссылок на наиболее популярные статьи за последние сутки. Скрипт в этот блок также <a href="http://spmbt.github.io/haPages/sidebarLive2Dailybest.htm">переносит ссылки ответов на эти статьи</a> из блока "Прямой эфир".'
+		,descS:[' Скрывание различных блоков сайдбара. По настройке внизу &mdash; уже скрыты ненужные, остались 6, но и те можно выборочно скрыть.<br><br>Блок "Лучшее за 24 часа" полезен показом ссылок на наиболее популярные статьи за последние сутки. Скрипт <a href="http://spmbt.github.io/haPages/sidebarLive2Dailybest.htm">удаляет дублирующие ссылки</a> из блока "Что обсуждают", но переносит признак обсуждения (число комментариев) в "Лучшее".'
 		,'Показывает самые последние комментарии и их авторов. Блок показывает активность комментаторов и существование статей, которые ещё не стали "Лучшими" за день, но на них отвечают. Обычно содержимое блока очень часто меняется (каждые несколько минут) и может рассматриваться как список случайных комментируемых статей.<br><br>Если дата статьи старее месяца, фон ссылки делается чуть более тёмным, подсвеченным, а в подсказке <a href="//toster.ru/q/23257/"target=_blank>появляется приблизительная дата</a>, вычисленная по номеру статьи или вопроса. (Каждый месяц данные о дате статей дополняются в скрипте вручную.) Выделение показывает, что ответили на старую статью, что бывает нечасто.'
 		,'Если географическая локализованность предлагаемых работ или их тематика неинтересна читателю, есть смысл скрыть блок "Работа". Обычно в нём встречаются предложения из Москвы, Питера, Минска и намного реже &mdash; из других мест.'
 		,'Если блок предложений по фрилансу неинтересен, он скрывается этой настройкой.'
@@ -2936,7 +2941,7 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 
 	+(h.inZen ?'.comment_item .info a.favorite{left:-3px}':'.entry-info-wrap .btnBack{top:7px}'
 		+'.infopanel >.g-plusone +.likes{margin-top: 5px}')
-	+(hS.noSomeSideBlocks.val && !h.inZen?'.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.similar_questions):not(.daily_best_posts):not(.live_broadcast):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.for_authors_help):not(.for_authors),.sidebar_right .company_widgets,#header .main_menu .banner_special,div[id^="topline"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img{display:none!important}.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.post_name):not(.user_name),iframe[src*="facebook"],.footer_logos{display:none}':''));
+	+(hS.noSomeSideBlocks.val && !h.inZen?'.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.similar_questions):not(.daily_best_posts):not(.geektimes_top):not(.live_broadcast):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.for_authors_help):not(.for_authors),.sidebar_right .company_widgets,#header .main_menu .banner_special,div[id^="topline"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img{display:none!important}.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.post_name):not(.user_name),iframe[src*="facebook"],.footer_logos{display:none}':''));
 if(hS.colorAuthorTAH.val) addRules('.comment_item .info.is_new.is_topicAuthor, .comment_item .comment_head.is_new.is_topicAuthor{background:#F5ECF5!important}');
 h.uFrmWid = h.inZen || win.opera ?'74%':'66%';
 
@@ -3484,13 +3489,13 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		}
 	}
 	var comments = $qA('#comments, #messages')
-		,underCut = hS.underCut.val;
+		,underCut = hS.underCut.val
+		,rotaP = $q('.rotated_posts');
 	if(hS.underFooter.val /*&& !isChrome*/){ //прибитый к низу футер
 		var topL = $q('#topline')
 			,wrp = $q('body .wrapper')
 			,lay = $q('#layout')
 			,footer = $q('#footer')
-			,rotaP = $q('.rotated_posts')
 			,fLogos = $q('.footer_logos');
 		if(topL && lay && lay.firstChild)
 			lay.insertBefore(topL, lay.firstChild);
@@ -3510,7 +3515,6 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		if(rotaP && lay.nextSibling)
 			lay.parentNode.insertBefore(rotaP, lay.nextSibling);
 	}
-	var rotaP = $q('.rotated_posts');
 	if(rotaP){
 		rotaP.style.display ='table';
 		rotaP.style.width ='100%';
@@ -4468,7 +4472,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 		}
 		var habrAjaxSettButt = $e({el:'A'
 				,cl:'habrAjaxSettButt'
-				,at:{href:'http://userstyles.org/styles/101697/habr-zencomment-4', title:'Настройки просмотра сайта'}
+				,at:{href: URLCSS, title:'Настройки просмотра сайта'}
 				,ht:'HAjax'
 				,on:{click: hS.edit} });
 		h.inZen ? $e({el: habrAjaxSettButt, prT: bottom}) : $e({el: habrAjaxSettButt, apT: bottom});

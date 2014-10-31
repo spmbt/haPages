@@ -1,9 +1,9 @@
-/** Habr ZenComment v4.18_2014-10-29, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v4.19_2014-10-31, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: namespaces, side block filter
+ * LastUpdatesDescription: geektime; bottom promo+footer format
  */
-@-moz-document regexp("https?://(h|habrahabr|geektimes).?ru/(?!special/).*"),domain("webcache.googleusercontent.com"){
+@-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
 /*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
@@ -955,8 +955,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .block .event, .new_vacanies .vacancies,.freelansim .tasks{
 	margin-left: -2ex!important;
 	padding-left: 2ex!important;
-	word-wrap:break-word;
-	text-indent:-2ex}
+	word-wrap:break-word}
 .block.live_broadcast .posts_list{margin-left: -1.6ex!important}
 .sidebar_right .block a{margin: 0!important;padding: 0!important;text-decoration: none!important; border-bottom: 1px dotted transparent!important}
 .sidebar_right .block a:hover{padding: 10px;border-bottom: 1px dotted #666!important; color: #333!important}
@@ -964,24 +963,26 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .block >.title{margin: 3px 0 3px 2ex!important;font-size: 18px!important;color: #5699d8!important}
 
 .block .all{position: relative;margin:-2px 2px!important;text-align:right}
-.block >div >div{overflow: inherit!important}
+.block:not(.freelansim):not(.new_vacanies) >div >div{overflow: inherit!important}
 .block.habralenta_settings,.block.habralenta_settings p{margin:0!important;padding:0!important}
 .habralenta_settings .hub.subscription a{margin-left:20px!important}
 .block .category-list .category{margin-bottom:3px!important}
 .block .category-list .category .blogs{padding-top:4px!important}
 .block .category-list .category .blogs .blog{margin-bottom:3px!important; padding-left:18px!important}
 .block .category-list .category .blogs .blog .checkbox{margin:0!important}
-.block.daily_best_posts h1 sup{vertical-align: baseline!important}
-.block.daily_best_posts .posts_list .post_item{margin: 0!important}
+.block.daily_best_posts h1 sup, .block.geektimes_top h1 sup{vertical-align: baseline!important}
+.block.daily_best_posts .posts_list .post_item, .block.geektimes_top .posts_list .post_item{margin: 0!important}
 .block .posts_list .post_item a.user_name{padding-left:2.5ex!important}
 .block.new_vacanies h1,
 .block.new_vacanies .title{display: none}
 .vacancies .job_item,.tasks .task{padding-left: 4px!important; text-indent: -1.6ex!important}
-.block.freelansim .task,.block.new_vacanies .job_item{margin:0 0 0 -0.5ex!important}
+.block.freelansim .task, .block.new_vacanies .job_item{margin:0!important}
 .best_company +.block.new_vacanies .vacancies .job_item{display: block}
 .block .vacancies .job_item >div{float: none!important;background-color:transparent!important;color:#666}
 .block .vacancies .job_item .title a{font: inherit!important}
 .block .vacancies .job_item .pay{font: inherit!important;font-style: italic!important;color:#84b18a!important}
+.bottom_promo_blocks{padding-top: 15px!important}
+.block.freelansim .title{margin: 9px 0 10px!important}
 .block .events_items .event_item{margin:0 0 2px -2.5ex!important;overflow:hidden}
 .block.similar_events .title{margin-left:15px!important}
 .block.similar_events .date{
@@ -994,7 +995,9 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .content_left .topic_add{margin-left: 10px!important}
 .content_left .similar_posts,.content_left .similar_posts .posts_list,
 .rotated_posts{margin-top:0!important;margin-bottom:0!important;padding-top:0!important;border-top:1px solid #eee!important;background:#f8f8f8}
+.footer_panel{height: 0.6em}
 .rotated_posts,#footer{max-width: 1420px;margin-left: auto !important;margin-right: auto !important}
+.rotated_posts .rotated_post{margin-bottom: 0!important}
 .rotated_posts .rotated_post a,.content_left .similar_posts .title{display:block;padding:0 3px 2px!important;text-decoration:none!important;font-size: 13px!important;line-height:1.1!important;background:#f8f8f8}
 .content_left .similar_posts .title,.content_left .similar_posts .post_item .when{padding-bottom:0!important;font: 12px Arial,Helvetica,sans-serif!important}
 .content_left .similar_posts .posts_list{display:none;max-width:1540px;margin:-6px 4px 0!important;padding: 0 12px 2px!important}.content_left .similar_posts .posts_list{margin-top:14px!important}
@@ -1009,8 +1012,8 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .posts_list .sort_menu{margin: 10px 0 -12px!important}
 .search_results, .comment_item_plain:first-child{margin-top: 17px}
 
-#footer{width: auto!important;min-width: 314px!important;overflow: visible!important;margin-bottom:0!important;padding: 6px 0 0 0!important}
-#footer:before{position:relative;display:block;float:right;height:0;top:-4px;right:2px;white-space:nowrap;margin-top:-4px!important;font-size: 9px;color:#888;content:"ZenComment by spmbt"}
+#footer{width: auto!important; min-width: 314px!important; overflow: visible!important;margin-bottom: 0!important; padding: 7px 0 0 0!important}
+#footer:before{position:relative; display:block; float:right; height:0; top:-5px; right:2px; white-space:nowrap; margin-top:-4px!important; font-size: 9px; color:#888; content:"ZenComment by spmbt"}
 #footer .bottom_menu{width: 100%!important}
 #footer	a{text-decoration: none!important}
 #footer	dl{width: 50%!important; float:right}
@@ -1034,11 +1037,11 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	.content_left .post .content,.content_left.post .content{padding-left: 10px!important}
 	.content_left{width: 240px!important;} }
 @media (max-width: 640px){
-	.content_left .post .content,.content_left.post .content{padding-left: 0px!important}
-	.daily_best_posts .posts_list{margin-left: -12px!important}
-	.daily_best_posts .post_item{text-indent: -1ex!important}
+	.content_left .post .content,.content_left.post .content{padding-left: 0!important}
+	.daily_best_posts .posts_list, .geektimes_top .posts_list{margin-left:-12px!important}
+	.daily_best_posts .post_item, .geektimes_top .post_item{text-indent:-1ex!important}
 	.sidebar_right .block .post_item,.vacancies .job_item,.tasks .task{margin-left: 0.2ex!important}
-	.vacancies .job_item,.tasks .task{padding-left: 0px!important; text-indent: -1.6ex!important}
+	.vacancies .job_item,.tasks .task{padding-left: 0!important}
 	.content_left .post .infopanel{margin-left: 2px!important}
 	.content_left{width: 240px;} }
 @media (min-width: 1520px){
@@ -1067,10 +1070,10 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 @media (min-width: 1574px){#layout,.rotated_posts, #footer{margin-right:26px!important}}
 @media (min-width: 1650px){#layout,.rotated_posts, #footer{margin-right:auto!important}}
 
-.sidebar_right .block.daily_best_posts .posts_list .post_item a.user_name{color:#ddd!important}
-.sidebar_right .block.daily_best_posts .posts_list .post_item:hover a.user_name{color:#999!important}
-.sidebar_right .block.freelansim .title,.sidebar_right .block.new_vacanies .title{opacity:0.3}
-.sidebar_right .block.freelansim .tasks .task a, .sidebar_right .block.new_vacanies .vacancies .job_item a{font-size: 12px!important}
+.block.daily_best_posts .posts_list .post_item a.user_name, .block.geektimes_top .posts_list .post_item a.user_name{color:#ddd!important}
+.block.daily_best_posts .posts_list .post_item:hover a.user_name, .block.geektimes_top .posts_list .post_item:hover a.user_name{color:#999!important}
+.block.freelansim .title, .block.new_vacanies .title{opacity:0.3}
+.block.freelansim .tasks .task a, .block.new_vacanies .vacancies .job_item a{font-size: 12px!important}
 
 .author_banned,.ufo-was-here{ max-width: 900px; height: 14px; margin: 1px 0 1px 12px!important; font-size: 6px!important; background: #f0f0f0; color: #fff!important; }.author_banned:hover,.ufo-was-here:hover{background: #d8d8d8}.author_banned:before,.ufo-was-here:before{content: "_удалено: `"}
 .i-am-your-father-luke{font: 20px/110% Arial,Helvetica,sans-serif!important;
@@ -1086,7 +1089,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right .company_widgets,.sidebar_right div[class*=banner]{display:none!important}
-#header_mouse_activity,.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
+#header_mouse_activity,.block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 /*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}
 #layout img[align="middle"],#layout img[align="center"]{display:block; margin:0 auto 2px!important}
