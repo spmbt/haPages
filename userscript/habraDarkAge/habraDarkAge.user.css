@@ -1,7 +1,7 @@
-/** HabraDarkAge v4.19_2014-11-02, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.191_2014-11-02, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr
+ * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -297,12 +297,12 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 .post h1.title .flag{opacity: 0.6}
 .post.translation h1.title .post_title{
 	background: url(data:image/gif;base64,R0lGODlhFAAQAPYIAJ6qt5SjsJOhsJGerZGer5CdrY6cq5ikscrKyouaqYeXpYybqsfKyoWUo4mXpsHIycDHyb7FyYKSoYaVpLfByFhqeLrCx4CQnrC7xLzEyVpqebO9w1mPPp2yoVVndnuLm6u4v1JkdLbAxE6FM0yEMVZnd3eJmHyMnbTAxaa2vk5gc7S+xEF8KEB6Jj55JU9hc3aGl3mJmqOyvTZyHTZxHXCCkq+7xZ+vvVNldk1gcytpFI6ll2x+j3KElJ2tvau3xKu4xZmpvWh5i6i2xJWmvGV4iWp9jqW0xGB0hml7jGN2iWBzhl9zhQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAFAAQAAAHzoAAAYMBAoUCA4mKigYHAgiQkZKTkQkDlJiTCgYIDJ6foKGeEw4MD6cRp6oPqa2nEgoPFBq0Gha3FLcWtRYUFxIPGBHDGhsbHB0rGx7ExjEXFCDSONEgIyPSHtnSzxQpKS8i3yksLS4pIi8vHt8wMRQyLxgy9DIzM/PyGCX0NTA2N3Coe3Hjho4dBT0UxFGQRw+APyL+KDiRosUbPGoACcKxo8ePHIXw+EGkpMmTKEsKMTKkpUuXP1rGfIkkiZCbQpTo1LkEyZKfS5gIRRIIADs=) no-repeat 0 7px!important}
-.posts .post h1.title .edit{
+.post h1.title .edit{
 	display: inline-block;
 	width: 17px;
 	height: 17px;
 	background: url(http://habrastorage.org/files/05d/716/e76/05d716e767d648a4bd56895f4261f782.png) 0 2px no-repeat!important}
-.posts .post h1.title .edit img{display: none}
+.post h1.title .edit img{display: none}
 .post .hubs{
 	background-image: url(http://habrastorage.org/files/51e/ac0/f4f/51eac0f4fa5e415997500ab0002d4b2e.png)!important}
 
@@ -571,7 +571,6 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 /* общие расцветки */
 .content_left table.menu tr td span.count_new,
 .sidebar_right .block.habralenta_settings .category-list .category .new,
-.post .hubs a.subscribed,
 .comments_list .comment_item .info .voting .mark.positive span{color: #6e4!important}
 
 .comments_list .comment_item .info a.username,
@@ -688,6 +687,9 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 	background: url(http://habrastorage.org/files/c95/c7a/b12/c95c7ab1234f4327af496b3332008ee4.png)}
 .hubs_list ul li{
 	background-image: url(http://habrastorage.org/files/e97/b37/862/e97b378624ea4d0a8ab1154304249ae4.png)}
+.post .hubs a{color: #596}
+.post .hubs a.subscribed{color: #6c4!important}
+
 .comments_list .comment_item_plain{overflow: visible!important}
 .comments_list .comment_item_plain .post_info{font-size: 12px!important}
 .comments_list .comment_item .info a.favorite{height: 15px; margin-top: 1px} /*список коммент. польз.*/
