@@ -1,7 +1,7 @@
-/** HabraDarkAge v4.191_2014-11-02, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.192_2014-11-02, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image
+ * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image, tracker avatars
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -83,7 +83,7 @@ input[type="text"],
 	color: #fff!important;
 	border-color: #555!important}
 textarea{resize: vertical!important}
-#comments_form textarea{height: 4.6em!important}
+#comments_form textarea{min-height: 4.6em}
 .global_search_form input[type="text"]{background: rgba(98, 98, 98, 0.33)!important}
 
 .buttons a.button.habracut,
@@ -191,6 +191,7 @@ body >#logo,
 #navbar .nav_panel .tab.open,
 #navbar .nav_panel .tab:hover,
 #navbar .nav_tabs_content.open .nav_tab{background: rgba(80, 80, 80, 0.66)}
+#navbar .nav_panel .tab.open:not(.tab_add_post):not(:hover){background: transparent}
 
 #navbar .nav_panel .tab.tab_settings,
 #navbar .nav_panel .tab{border: none}
@@ -269,18 +270,20 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 .inner .page_head{z-index: 99990; position: relative; margin-top: 18px}
 
 .page_head h2.title{font: 16px Courier,Consolas,serif!important}
+.content_left table.menu tr td,
+.content_left table.menu tr td.active{border-color: transparent}
 .content_left table.menu tr td.active a,
 .content_left table.menu tr td a,
 .content_left .submenu{
 	border: none;
 	background: #555;
-	color: #fff}
-.content_left table.menu tr td,
-.content_left table.menu tr td.active{border-color: transparent}
+	color: #cde}
+.content_left table.menu tr td.active a{background: #666; color: #eff}
 .content_left .submenu .item.active{
 	border: none;
 	background: #444;
 	color: #d3e2f0}
+.content_left table.menu tr td:not(.active) a:hover{background: #666; color: #fff}
 
 /* статья */
 .post_show .post.shortcuts_item{padding-top: 10px!important}
@@ -475,11 +478,14 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 
 /* Комментарии */
 .comments_list .comment_item .info a.avatar img,
+.tracker_page table.tracker_mentions tr td.mention_type img,
 .conversation_page .messages .message .info a.avatar img{
 	-webkit-filter: grayscale(1); filter: grayscale(1);
 	transition: all 200ms 250ms, width 200ms 800ms, height 200ms 800ms, margin 200ms 800ms;
 	opacity: 0.21}
+.tracker_page table.tracker_mentions tr td.mention_type a:first-child{display: inline-block; width: 24px; height: 24px}
 .comments_list .comment_item .info:hover a.avatar img:not([src*=stub-user-small]),
+.tracker_page table.tracker_mentions tr td.mention_type:hover img:not([src*=stub-user-small]),
 .conversation_page .messages .message .info:hover a.avatar img:not([src*=stub-user-small]){
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	width: 48px!important;
@@ -661,6 +667,7 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 .tracker_page  table[class^=tracker] tr td{border-bottom-color: #555}
 
 .tracker_page table.tracker_comments tr td.comment_count a{color: #cf5555}
+.tracker_page table.tracker_folowers tr td .username:before,
 .tracker_page table.tracker_comments tr td input{opacity: 0.6}
 .tracker_page table[class^=tracker] tr.new{background: #444}
 
