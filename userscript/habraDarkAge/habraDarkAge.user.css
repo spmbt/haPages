@@ -1,4 +1,4 @@
-/** HabraDarkAge v4.18_2014-10-29, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.19_2014-11-02, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr
@@ -22,9 +22,9 @@ body:after{
 #xpanel, .to_top{z-index: 99990}
 #layout #navbar,
 #layout .inner{background: #333!important}
-	#navbar .scroll_to_up{opacity: 0.5}
+#navbar .scroll_to_up{opacity: 0.5}
 #layout >.inner{
-	margin: 0 0 70px 71px!important;
+	margin: 0 0 0 71px!important;
 	padding: 12px 24px 4.5em 25px!important}
 .company_header,
 .user_header,
@@ -37,6 +37,7 @@ body:after{
 #navbar_overlay{z-index: 99991!important}
 #navbar, .nav_panel, #navbar .nav_tabs_content{width: 1px}
 #reg-wrapper{border-color: transparent}
+.footer_panel{margin-bottom: 70px}
 
 /* глобальные элементы */
 a:hover{text-decoration: none!important}
@@ -67,6 +68,12 @@ iframe, object{
 iframe:hover, object:hover{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	opacity: .99}
+input[type="checkbox"],input[type="radio"]{opacity: 0.6}
+body >div[id^=AutocompleteContainter]{z-index: 99993!important}
+.autocomplete{border-color: #555!important; background: #444!important; color: #bbb!important}
+.autocomplete >div{color: #bbb!important}
+.autocomplete strong{color: #ddd!important}
+.autocomplete .selected{background: #666!important; color: #ddd!important}
 
 .editor .text-holder textarea,
 input[type="text"],
@@ -76,6 +83,7 @@ input[type="text"],
 	color: #fff!important;
 	border-color: #555!important}
 textarea{resize: vertical!important}
+#comments_form textarea{height: 4.6em!important}
 .global_search_form input[type="text"]{background: rgba(98, 98, 98, 0.33)!important}
 
 .buttons a.button.habracut,
@@ -713,6 +721,7 @@ body >#logo >img{opacity: 0.16}
 #global_notify .inner_notice,
 .global_notify .inner_notice{background: #667c5a; color: #fee}
 
+.chzn-container-active .chzn-choices .search-field input,
 .post_type_selector h1.title{color: #b9c5cf!important}
 .post_type_selector.can_select .title_list ul{
 	border-radius: 5px;
@@ -731,6 +740,7 @@ body >#logo >img{opacity: 0.16}
 	font-weight: bold;
 	letter-spacing: 1px}
 .chzn-container .chzn-results li{color: #adbfc0}
+.chzn-container .chzn-results .no-results,
 .chzn-container .chzn-results .highlighted{
     background-color: #555;
 	background-image: linear-gradient(#4b4f54 20%, #45484e 90%)!important;
@@ -744,6 +754,7 @@ body >#logo >img{opacity: 0.16}
 	box-shadow: 0 0 5px #333 inset;
 	background-image: linear-gradient(#3e4247 20%, #35383a 90%);
 	background-color: #35383e}
+#preview_placeholder{border-color: #666!important}
 
 /* кнопки номеров страниц в лентах, вытащены на левую панель */
 .page-nav{position: fixed; bottom: 0; width: 0}
@@ -802,6 +813,7 @@ body >#logo >img{opacity: 0.16}
 
 .rotated_posts{
 	display: table;
+	width: 100%;
 	margin-top: 10px!important;
 	margin-bottom: 0!important;
 	padding-top: 0!important;
