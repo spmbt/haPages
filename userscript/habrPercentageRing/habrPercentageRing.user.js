@@ -7,7 +7,7 @@
 // @description Percentage Rings around numbers which show grades (for with userstyles)
 // @icon http://habrahabr.ru/favicon.ico
 // @update 0.81 bug + подгонка эллипсов
-// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api)/ /
+// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special|api)/ /
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 // работает автономно или как модуль для HabrAjax

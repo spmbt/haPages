@@ -7,7 +7,7 @@
 // @description Подсказка кармы по наведению на ник, кроссбраузерно
 // @update 2.41 fix GM_...
 // @icon http://habrahabr.ru/favicon.ico
-// @include http://habrahabr.ru/*
+// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special|api)/ /
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 (function(win, u){

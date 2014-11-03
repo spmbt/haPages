@@ -2,8 +2,8 @@
    "content_scripts": [ {
       "exclude_globs": [ "http://habrahabr.ru/api/*" ],
       "exclude_matches": [  ],
-      "include_globs": [ "http://habrahabr.ru/*", http://geektimes.ru/*" ],
-      "js": [ "habrakarmaview.user.js" ],
+      "include_globs": [ "http://habrahabr.ru/*", "http://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*" ],
+      "js": [ "habraKarmaView.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
    } ],
