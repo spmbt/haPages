@@ -12,8 +12,8 @@
 * **[HabrAjax](http://spmbt.github.io/haPages/doc/habrAjax/)**. Сборный юзерскрипт с поддержкой 3 основных браузеров, имеющий более 60 функций для улучшения подачи информации на страницах сайта. Работает совместно со стилями [ZenComment](https://userstyles.org/styles/36690/), но способен работать отдельно. ([Старый адрес](http://userscripts-mirror.org/scripts/show/121690) (не устанавливать оттуда!), архив версий и описание, [новый адрес](https://greasyfork.org/scripts/1970-habrajax).)<br>
 [== Установить ==](http://spmbt.github.io/haPages/userscript/habrAjax/habrAjax.user.js)<br>
 <br>
-* **[habrPercentageRing](http://userscripts-mirror.org/scripts/show/129371)**. Показ соотношения положительных и отрицательных оценок к комментарию или статье кольцевой диаграммой вокруг суммарной оценки.<br>
-[== установить ==](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrpercentagering/habrpercentagering.user.js)<br>
+* **[habrPercentageRing](https://greasyfork.org/ru/scripts/1966-habr-percentage-ring)**. Показ соотношения положительных и отрицательных оценок к комментарию или статье кольцевой диаграммой вокруг суммарной оценки.<br>
+[== установить ==](http://spmbt.github.io/haPages/userscript/habrPercentageRing/habrPercentageRing.user.js)<br>
 <br>
 * **Новое:**: юзерстили **[HabraDarkAge](http://spmbt.github.io/haPages/doc/habraDarkAge/)**. Тёмная тема Хабра, повторяющая в основном его дизайн, но в других цветах.<br> [== установить ==](http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css) ([описание на хостинге стилей](https://userstyles.org/styles/101697/)).
 

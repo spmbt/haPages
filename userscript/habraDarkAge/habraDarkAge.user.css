@@ -1,7 +1,7 @@
-/** HabraDarkAge v4.192_2014-11-02, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.194_2014-11-02, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image, tracker avatars
+ * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image, tracker avatars, .help_holder, comments header
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -68,6 +68,7 @@ iframe, object{
 iframe:hover, object:hover{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	opacity: .99}
+.post .user_link, .comment_body .user_link{opacity: 0.8}
 input[type="checkbox"],input[type="radio"]{opacity: 0.6}
 body >div[id^=AutocompleteContainter]{z-index: 99993!important}
 .autocomplete{border-color: #555!important; background: #444!important; color: #bbb!important}
@@ -115,7 +116,7 @@ textarea{resize: vertical!important}
 .buttons input:disabled:active,
 .sidebar_right .block.user_info .join button{
 	box-shadow: inset 0 1px 2px #555!important;
-	text-shadow: 0 1px 0 #9ab!important;
+	text-shadow: 0 1px 0 #567!important;
 	border: none!important;
 	background-color: #444!important;
 	background-image: linear-gradient(#3e4247 20%, #35383a 90%)!important;
@@ -467,13 +468,14 @@ body.company .comments_list h2.comments-header,
 .comments_list h2.title{
 	max-width: 1200px;
 	margin:-17px 1px 5px -6px!important;
-	padding: 15px 0 17px 25px!important;
-	border: 1px solid #c1b57a !important;border-radius:8px;
-	background: #998a2e no-repeat 6px 53% !important;
-	color: #965!important}
-.comments_list h2.title,
+	padding: 18px 0 20px 25px!important;
+	border-width: 1px!important; border-style: solid!important; border-radius:8px;
+	border-color: #9c9fa2 #6c7076 #5c6066!important;
+	background-image: linear-gradient(#767b82 20%, #4c5056 90%);
+	color: #9aa!important}
+.comments_list h2.title2,
 .comments_form h2.title{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIZJREFUeNpi/P//v9CGZdl5DMSBLwFRU+cyrl+a1QBkMBALgBYwsKAL4ALIBrPgksAHhqNNjMB4EgDaUIBNIzabgfLdIE3MQDYTELMCFZUhawRpArI7gcx/UDV/gfg/iPEfiP8A8Xeggh4sNoAU/gLJQ+nfTFATYOAryHo0jf+hNAdMACDAAOtwQh5VT82WAAAAAElFTkSuQmCC)!important}
-h2.title .subscribe_comments{color: #854 !important}
+h2.title .subscribe_comments{color: #899!important}
 h2.title .subscribe_comments label input{opacity: 0.6}
 
 /* Комментарии */
@@ -494,10 +496,16 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 	opacity: 0.6}
 .comments_list .comment_item .info a.avatar{overflow: inherit!important}
 .comments_list .comment_item .info.is_new,
-.conversation_page .messages .message.new .info{background: #445}
-.comments_list .comment_item .info.is_topic_starter{background: #454}
+.conversation_page .messages .message.new .info{background: #404046}
+.comments_list .comment_item .info.is_topic_starter{background: #384038}
+.comments_list .comment_item .info.is_topic_starter.is_new{background: #384044}
 .comments_list .comment_item .info.is_author,
-.conversation_page .messages .message.my .info{background: #554}
+.conversation_page .messages .message.my .info{background: #404038}
+.comments_list .comment_item .info.is_new,
+.conversation_page .messages .message.new .info,
+.comments_list .comment_item .info.is_topic_starter,
+.comments_list .comment_item .info.is_author,
+.conversation_page .messages .message.my .info{box-shadow: -1px 0 8px #333 inset}
 
 .comments_list .comment_item .info a.username,
 .comments_list .comment_item .info .comma,
@@ -661,6 +669,9 @@ form .notification_table th{color: #838383!important}
 .tracker_page table[class^=tracker] tr th{border-bottom-color: #777}
 select{background: #555; color: #ccc; border: 1px solid #555!important}
 .editor .panel .wysiwyg_wrapper .btn.btn-dropdown select{background: #555; color: #ccc}
+.editor .panel .wysiwyg_wrapper .help_holder{border: 1px solid #444; background: #333}
+.editor .panel .wysiwyg_wrapper .help_holder dl dt{color: #ddd}
+.editor .panel .wysiwyg_wrapper .help_holder dl dd{color: #bbb}
 
 .notes table tr td,
 .conversations .conversation,
@@ -866,7 +877,7 @@ div.footer_panel:before{
 #footer	dt:after{content:":"}
 #footer	dd:not(:last-child):after{content:","}
 #footer	dd{float:left; margin:0 0 0 6px!important; line-height: 120%!important}
-.footer_panel #footer	.copyright{position: relative; left: 12px; width: auto!important; float: none!important; margin-right: 12px!important}
+.footer_panel #footer .copyright{position: relative; left: 12px; width: auto!important; float: none!important; margin-right: 12px!important}
 #footer .copyright .footer_logo{margin:0!important; position:absolute; left: -21px!important}
 #footer .copyright .about{float:left!important; width: auto!important; vertical-align: middle!important; margin:0 0 0 2px!important}
 #footer .about br,#footer .copyright .about br{display: none}

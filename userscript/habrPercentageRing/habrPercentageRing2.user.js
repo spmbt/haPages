@@ -1,16 +1,13 @@
 ﻿// ==UserScript==
 // @id HabrPercentageRing
 // @name Habr Percentage Ring
-// @version 10.2014.6.24
+// @version 11.2014.11.2
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Percentage Rings around numbers which show grades (for with userstyles)
 // @icon http://habrahabr.ru/favicon.ico
 // @update 0.81 bug + подгонка эллипсов
-// @include http://*.habrahabr.ru/*
-// @include http://habrahabr.ru/*
-// @include http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*
-// @include http://geektimes.ru/*
+// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api)/ /
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 // работает автономно или как модуль для HabrAjax
@@ -42,8 +39,7 @@ for(var i in marks){
 					if(aPM ==0) return document.createElement('div');
 					var c = document.createElement('canvas')
 						, pi = Math.PI, r2 = 14, ell = 1-1/3.6;
-					c.width
-						= c.height = r2 *2;
+					c.width = c.height = r2 *2;
 					c.style.backgroundColor ='transparent';
 					c.style.position ='absolute';
 					c.style.left = (-r2 +12) +'px';
