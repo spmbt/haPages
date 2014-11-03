@@ -2,7 +2,7 @@
    "content_scripts": [ {
       "exclude_matches": [  ],
       "include_globs": [ "http://feedly.com/*" ],
-      "js": [ "feedlyctrlf5.user.js" ],
+      "js": [ "feedlyCtrlF5.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
    } ],

@@ -17,11 +17,11 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 
 * [HabrPercentageRing](http://userscripts-mirror.org/scripts/show/129371): [===== установить, от 2014-11-02 =====](http://spmbt.github.io/haPages/userscript/habrPercentageRing/habrPercentageRing.user.js). 
 
-* [UfoCorrect](http://userscripts-mirror.org/scripts/show/397762): [===== установить,  от 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/ufocorrect/ufocorrect.user.js). Удаление дизайнерского эффекта "длинных теней" на логотипах сайтов (заменой нескольких картинок).
+* [UfoCorrect](http://userscripts-mirror.org/scripts/show/397762): [===== установить,  от 2014-06-01 =====](http://spmbt.github.io/haPages/userscript/ufocorrect/ufocorrect.user.js). Удаление дизайнерского эффекта "длинных теней" на логотипах сайтов (заменой нескольких картинок).
 
 * [HabrActivity](http://userscripts-mirror.org/scripts/show/162360): [===== установить, от 2014-10-17 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habractivity/habractivity.user.js). Просмотр активности пользователей в комментариях в виде диаграммы наподобие Contributions в Github. (Скриншот)[http://img89.imageshack.us/img89/4424/habractivity03.png].
 
-* [HabraKarmaView](http://userscripts-mirror.org/scripts/show/132273.html): [===== установить, от 2014-10-18 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/habrakarmaview/habrakarmaview.user.js). Подсказка кармы по наведению на любой ник на странице, кроссбраузерно, для habr и geektimes.
+* [HabraKarmaView](http://userscripts-mirror.org/scripts/show/132273.html): [===== установить, от 2014-10-18 =====](http://spmbt.github.io/haPages/userscript/habrakarmaview/habrakarmaview.user.js). Подсказка кармы по наведению на любой ник на странице, кроссбраузерно, для habr и geektimes.
 
 * юзерстили [UfoCorrect](http://userstyles.org/styles/98513/ufocorrect) (нормально ставятся и оттуда одним кликом) [===== прямая ссылка на код user.css 2014-06-01 =====](https://raw.githubusercontent.com/spmbt/haPages/gh-pages/userscript/ufocorrect/ufocorrect.user.css). Делает то же, что скрипт ufoCorrect.
 

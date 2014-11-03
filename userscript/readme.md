@@ -20,5 +20,5 @@
 ### <font style="color: #bb3333">Сайт</font> [Feedly.com](http://Feedly.com) ###
 
 * скрипт: **[FeedlyCtrlF5](https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout)**. Обновляет фиды по клавише "R" в любой национальной раскладке, дополняет стили, как в [стилях feedly-com-more-compact](https://userstyles.org/styles/102580/feedly-com-more-compact), выводит автора и название читаемой статьи в плавающем блоке вверху.<br>
- [== установить feedlyсtrlf5.user.js ==](spmbt.github.io/haPages/userscript/feedlyCtrlF5/feedlyctrlf5.user.js)
+ [== установить feedlyсtrlf5.user.js ==](spmbt.github.io/haPages/userscript/feedlyCtrlF5/feedlyCtrlF5.user.js)
 
