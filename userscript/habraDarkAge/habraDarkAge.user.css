@@ -434,6 +434,7 @@ code .diff .change{background: #385570}
 .company_order .tags a, #preview_placeholder .tags a,
 .post .tags li a,
 .post div.tags{color: #596!important}
+.post .tags li a:visited{color: #6c4!important}
 .company_order .tags a:hover, #preview_placeholder .tags a:hover,
 .post .tags li a:hover{
 	background-color: #62676d;
@@ -536,7 +537,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .conversation_page .messages .message.new .info{background: #404046}
 .conversation_page .messages .message .info,
 .comments_list .comment_item .info.is_topic_starter{background: #384038}
-.comments_list .comment_item .info.is_topic_starter.is_new{background: #384044}
+.comments_list .comment_item .info.is_topic_starter.is_new{background: #384040}
 .comments_list .comment_item .info.is_author,
 .conversation_page .messages .message.my .info{background: #404038}
 .comments_list .comment_item .info.is_new,
@@ -673,7 +674,6 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .block_after_post .block.similar_posts .posts_list .post_item a.post_name{color: #93b2d0}
 
 .post h1.title a.post_title:visited,
-.post .tags li a:visited,
 .sidebar_right .block.best_company .company_info p a:visited,
 .html_format.message a:visited,
 .post .content a:visited,
@@ -692,7 +692,7 @@ a.grey{color: #738290!important}
 
 .sidebar_right .block .posts_list .post_item a.post_name:visited,
 .bottom_promo_blocks .block.new_vacanies .vacancies .job_item a:visited,
-.bottom_promo_blocks .block.freelansim .tasks .task a:visited{color: #787588}
+.bottom_promo_blocks .block.freelansim .tasks .task a:visited{color: #738290}
 
 .sidebar_right .block .all a,
 .bottom_promo_blocks .block .all a,
@@ -881,6 +881,9 @@ body >#logo >img{opacity: 0.16}
 .sidebar_right .block .all,
 .bottom_promo_blocks .block .all,
 .block.freelansim .tasks .all{text-align: right}
+
+.block.new_vacanies .vacancies .job_item ,
+.block.freelansim .tasks .task{line-height: 1.5; margin-bottom: 0!important}
 
 .rotated_posts{
 	display: table;
