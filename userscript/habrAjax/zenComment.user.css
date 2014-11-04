@@ -1,7 +1,7 @@
-/** Habr ZenComment v4.19_2014-10-31, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v4.20_2014-11-04, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: geektime; bottom promo+footer format
+ * LastUpdatesDescription: geektime logo
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -238,6 +238,11 @@ form#search_form{width: 245px!important;height:21px}
 	background-image: url(http://habrahabr.ru/images/navbar.sprite.v2.x1.png)!important;
 	background-size: 500px 200px!important;
 	background-position: -426px -25px!important}
+#navbar a.logo[href*=geektimes]{
+	width: 30px!important;
+	background-image: url(http://geektimes.ru/images/logo.svg)!important;
+	background-size: 100px 60px !important;
+	background-position:-22px -19px!important}
 #navbar a.tab{
 	position: absolute!important;
 	width: 32px!important;
