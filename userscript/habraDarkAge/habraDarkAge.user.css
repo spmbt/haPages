@@ -1,7 +1,7 @@
-/** HabraDarkAge v4.195_2014-11-03, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.20_2014-11-04, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: dark theme, namespaces, logos; #navbar 530px height bugfix, compact footer, m.habr; +hubs color, "edit post" image, tracker avatars, .help_holder, comments header, sidebar corporate
+ * LastUpdatesDescription: selections, tags hover, green right dates,hubs,tags
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -41,6 +41,8 @@ body:after{
 
 /* глобальные элементы */
 a:hover{text-decoration: none!important}
+::-moz-selection{background-color: #bbb; color: #335}
+::selection{background-color: #bbb; color: #335}
 
 .post .content img,
 .comments_list .html_format.message img,
@@ -52,6 +54,7 @@ a:hover{text-decoration: none!important}
 	-webkit-filter: grayscale(0.8); filter: grayscale(0.8);
 	transition: all 300ms;
 	opacity: 0.6}
+#people-tags li a[class],
 img[src*="images/tags/"]{opacity: 0.6}
 .post .content img:hover,
 .comments_list .html_format.message img:hover,
@@ -283,18 +286,24 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	border: none;
 	background: #555;
 	color: #cde}
-.content_left table.menu tr td.active a{background: #666; color: #eff}
+.content_left table.menu tr td.active a, .content_left .submenu .item.active, .content_left .submenu .item.active a{background: #666; color: #eff}
 .content_left .submenu .item.active{
 	border: none;
-	background: #444;
 	color: #d3e2f0}
 .content_left table.menu tr td:not(.active) a:hover{background: #666; color: #fff}
 
 /* статья */
+.posts .post{margin-bottom: 30px}
 .post_show .post.shortcuts_item{padding-top: 10px!important}
+.company_order .date, #preview_placeholder .date,
+.post .published{float: right;
+	margin-top: 8px; margin-left: 12px;
+	font-weight: bold;
+	color: #5a4}
 .post h1.title a.post_title,
 .post h1.title,
 .page_head h2.title,
+.company_order >.title, #preview_placeholder >.title,
 .html_format h1,
 .html_format h2,
 .html_format h3,
@@ -311,9 +320,14 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	height: 17px;
 	background: url(http://habrastorage.org/files/05d/716/e76/05d716e767d648a4bd56895f4261f782.png) 0 2px no-repeat!important}
 .post h1.title .edit img{display: none}
+.company_order .meta .company_name, #preview_placeholder .meta .company_name,
 .post .hubs{
 	background-image: url(http://habrastorage.org/files/51e/ac0/f4f/51eac0f4fa5e415997500ab0002d4b2e.png)!important}
+.post .hubs{float: right; margin: -4px 0 4px}
 
+.post .hubs a{color: #596}
+.post .hubs a.subscribed{color: #6c4!important}
+.post .content{clear: both}
 .post .content >.buttons{padding: 7px 0 3px!important}
 .post .content >br +br +.buttons{margin-top: -0.75em!important}
 .content_left .post .content br+br
@@ -325,6 +339,11 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 
 .html_format pre code{background: #bbb; border: none}
 .html_format .spoiler .spoiler_text{background: #444; border: none}
+
+.content::-moz-selection,.content li::-moz-selection{background-color: #cde; color: #339}
+.content::selection,.content li::selection{background-color: #cde; color: #339}
+.content *::-moz-selection{background-color: #9db3cd; color: #336}
+.content *::selection{background-color: #9da3bd; color: #336}
 
 /* разметка кода */
 .html_format code, .text_html code, .text_html pre code,
@@ -407,9 +426,19 @@ code .addition{background: #294436}
 code .deletion{background: #484a4a}
 code .diff .change{background: #385570}
 
+.company_order .tags, #preview_placeholder .tags,
 .post .tags{
+	float: right;
+	margin: -5px 0 10px 16px!important;
 	background-image: url(data:image/gif;base64,R0lGODlhDAAPANQRAGZmZlJSUk5OTlpaWoaGhr6+vm5uboKCgmpqaqKioo6OjnJyclZWVrKyspKSkjIyMjY2NsrKyp6enoqKijo6Oj4+Pnp6enZ2dkZGRq6urkJCQpaWlgAAAAAAAAAAAAAAACH5BAEAABwALAAAAAAMAA8AAAVzICdagSAEg6heU+EWgKImV5EcSpAMhDg0DccDEpE4ABZERpKYUCoNy2SBwRQcEwtzcrFYqpnDwWIAGBZojYYWaLsNBvVmAa/XK5WNwcQXIBAVFA4Gf4WFFIIIfSYAABAQE42Sk48TlpcEmQRDjw+en54QIQA7)!important}
-.post .tags li a:hover{background-color:#fffcf8;color:#333!important}
+.company_order .tags a, #preview_placeholder .tags a,
+.post .tags li a,
+.post div.tags{color: #596!important}
+.company_order .tags a:hover, #preview_placeholder .tags a:hover,
+.post .tags li a:hover{
+	background-color: #62676d;
+	box-shadow: 0 2px 2px #383f44 inset;
+	color:#4b6!important}
 .post .content .poll table.result tr td.percent{max-width: 100px}
 .post .content .poll table.answer tr td.input{opacity: 0.6}
 
@@ -426,6 +455,7 @@ code .diff .change{background: #385570}
 .comments_list .comment_item .info .voting span.plus,
 .comments_list .comment_item .info .voting span.minus{
 	background-image: url(data:image/gif;base64,R0lGODlhJAAgAOZ0AICAgIaGho6OjmZmZm53eomJiWRkZHB6e4qOjoGBgYOIiJGRkYSEhHd3d4iIiCdEImFqbkFMUUVPVHBwcGNENlprR1xcXFZgZHV1dYqKimxsbGpqaktVWk9ZXlNbYHqAg3qAgWdHQGt1eYuLi4+QkENOU09jOwcrCXNzc2A5M25US1cvIFtkaXN7fHuDg25ubl40LmRDORQ1Elw7KwAbABw6AX6Dhn5+fkdcNBI0ADBLK4CFhmNjYy47QICEhW5aTJCQkIaKimE8NVRmQx86ATRARVkqJHZpXjdQM2l0d2VKPG9XTzxJTh88G2pPRj9VJlRmQDxVNmpTRSQ+AjBJFXNjVmVscFQnG1cuIYSIiXtxZomMjHp+gFsvKTZOGmZxdmtra1QkG1oxJT9KT1o1JVs1J0VcPEdRVmFwUFUhHGVzVX9/f2pxdWlwdD9ZN291eVRmT2M5NklcMTdESf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAHQALAAAAAAkACAAAAf/gHSCgnCDhoJLKopLh4YYjYZmamaQdEtaR0dOlRgjj5BRamhobpAqWlVVm42dAiMNjVEVsxVDSI0qRz8/IawFAsAjKIZRQ1BQJsk4OodOVVJSvYYoAQXW1gETgkhDtDjfyMyDIT9KSjGGEw7AAgEB6wUadEgPDzomT0/19obkFBRC0mnQMGEEAwYbEsob9EAOFSoPIMWQMmNGCkgaMgAAsAHSgydTpjTpl6LkDDJkYKgMOCjjRgOQmnipUUOGoRRKZqzYubMMBRiGwBRIkABmI5k0bRrqQqHMladYKHQ5JJSo0UMyqOTIcaKREQpiwkQ10mhAgRs3eECSMWVrV68x/8TECAPJgAO0FiCdIMKXRqU0QtJUsuvAQd5GJ2gofgspTiU6FiJHfky5suVBbx5bgcAZAqQGoEFXYkOiTSUrC1Kz+Jx6wbBGEBAsIGEFEoTZJFY3arAACJDXhiBkQUA8iO7gJBBsuQAJAxBg2gyx8KGgenUQzKUjqO4BEgoBGTK8MHTBB3EELlzs2OKj+6ALQdJ3gDRBQOHx7zt0gN+iBYf/872nQH8c0JfBQR014oECBxxwBiQe7NCgBJC8kAFRA0DSQRYEEFCCIR5IUIIELTRYQgQRFPjCACwygKEBBiQoCAc7dBiBIRFwAUKHPB4AAoUGMBDARkQmEECGg5yxg10IIjBxSAQ+MikCAT8OEuSQRB55iAQ+JJHEHI0wwcUHSRDwwYeG8CDkGgBo+aQNX3xRBCQlfGDnjWW5E8BVhoxhw589VDLGAU5WoqZakBTRw6JzVkIhZUheJullgQAAOw==)!important}
+.company_order .meta, #preview_placeholder .meta,
 .post .infopanel{width: 99%; margin-left: -6px; background: #444; border: none!important; border-radius: 6px}
 .post .infopanel .pageviews,
 .post .infopanel .favorite a,
@@ -477,12 +507,15 @@ body.company .comments_list h2.comments-header,
 	border-color: #9c9fa2 #6c7076 #5c6066!important;
 	background-image: linear-gradient(#767b82 20%, #4c5056 90%);
 	color: #9aa!important}
+.company_order .meta .replies .total, #preview_placeholder .meta .replies .total,
+.company_order .responses .responses_head .title, #preview_placeholder .responses .responses_head .title,
 .comments_list h2.title2,
 .comments_form h2.title{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIZJREFUeNpi/P//v9CGZdl5DMSBLwFRU+cyrl+a1QBkMBALgBYwsKAL4ALIBrPgksAHhqNNjMB4EgDaUIBNIzabgfLdIE3MQDYTELMCFZUhawRpArI7gcx/UDV/gfg/iPEfiP8A8Xeggh4sNoAU/gLJQ+nfTFATYOAryHo0jf+hNAdMACDAAOtwQh5VT82WAAAAAElFTkSuQmCC)!important}
 h2.title .subscribe_comments{color: #899!important}
 h2.title .subscribe_comments label input{opacity: 0.6}
 
 /* Комментарии */
+.comments_list{margin-right: -8px!important}
 .comments_list .comment_item .info a.avatar img,
 .tracker_page table.tracker_mentions tr td.mention_type img,
 .conversation_page .messages .message .info a.avatar img{
@@ -501,6 +534,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .comments_list .comment_item .info a.avatar{overflow: inherit!important}
 .comments_list .comment_item .info.is_new,
 .conversation_page .messages .message.new .info{background: #404046}
+.conversation_page .messages .message .info,
 .comments_list .comment_item .info.is_topic_starter{background: #384038}
 .comments_list .comment_item .info.is_topic_starter.is_new{background: #384044}
 .comments_list .comment_item .info.is_author,
@@ -509,7 +543,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .conversation_page .messages .message.new .info,
 .comments_list .comment_item .info.is_topic_starter,
 .comments_list .comment_item .info.is_author,
-.conversation_page .messages .message.my .info{box-shadow: -1px 0 8px #333 inset}
+.conversation_page .messages .message .info{box-shadow: -1px 0 8px #333 inset}
 
 .comments_list .comment_item .info a.username,
 .comments_list .comment_item .info .comma,
@@ -523,8 +557,15 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .comments_list .comment_item .info .show_tree{position: relative; top: 3px; margin-top: 0!important}
 .comments_list .comment_item .info .show_tree{top: 5px}
 
+.comments_list .comment_item .meta .time,
+.posts .post .meta .time,
+.post_show .meta .time,
+.conversations .conversation .info .time,
 .comments_list .comment_item .info time,
-.conversation_page .messages .message .info .time{font-size: 12px!important; color: #aaa}
+.company_orders .orders .company_order .date,
+.conversation_page .messages .message .info .time{font-size: 12px!important; font-style: italic; color: #5b884f}
+.comments_list .comment_item .info time .time_changed{color: #466243
+}
 
 .comments_list .comment_item .info .voting{/*min-width: 72px;*/ margin-right: 8px!important}
 .comments_list .comment_item .info .voting .mark{
@@ -558,6 +599,11 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 	right: 11px!important;
 	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAAAKklEQVR42r2NsQ0AIBCEfnF1cjgLN7jChISKMGevmnlSAbWJgSTA93PHBQkeoSA160EtAAAAAElFTkSuQmCC)}
 .comments_list .comment_item .message[class*=bad]{background: transparent}
+
+.comment_body .message::-moz-selection,.comment_item .message::-moz-selection,.message .text::-moz-selection{background-color: #b85; color: #533}
+.comment_body .message::-moz-selection,.comment_item .message::-moz-selection,.message .text::selection{background-color: #b85; color: #533}
+.comment_body .message *::-moz-selection,.comment_item .message *::-moz-selection,.message .text *::-moz-selection{background-color: #a74; color: #522}
+.comment_body .message *::selection,.comment_item .message *::selection,.message .text *::selection{background-color: #a74; color: #522}
 
 /* поле ввода */
 .wysiwyg_wrapper > a{
@@ -616,11 +662,9 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .comments_list .comment_item_plain .post_info .count,
 .comments_list .comment_item .info .voting .mark.negative span{color: #c53}
 
-.post .tags li a,
-.post div.tags,
 .sidebar_right .block.best_company .company_info p a,
 .html_format.message a,
-.content_left .submenu .item a,
+.content_left .submenu .item:not(.active) a,
 .post .content a,
 .html_format a,
 .user_header h2.username a,
@@ -632,7 +676,6 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .post .tags li a:visited,
 .sidebar_right .block.best_company .company_info p a:visited,
 .html_format.message a:visited,
-.content_left .submenu .item.active a,
 .post .content a:visited,
 .html_format a:visited,
 .grey a,
@@ -707,10 +750,8 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 	background-image: url(http://habrastorage.org/files/aa4/a81/2af/aa4a812afe4c4512880645296d83c817.png)}
 .user_header .send_mail{
 	background: url(http://habrastorage.org/files/c95/c7a/b12/c95c7ab1234f4327af496b3332008ee4.png)}
-.hubs_list ul li{
-	background-image: url(http://habrastorage.org/files/e97/b37/862/e97b378624ea4d0a8ab1154304249ae4.png)}
-.post .hubs a{color: #596}
-.post .hubs a.subscribed{color: #6c4!important}
+/*.hubs_list ul li{
+	background-image: url(http://habrastorage.org/files/e97/b37/862/e97b378624ea4d0a8ab1154304249ae4.png)}*/
 
 .comments_list .comment_item_plain{overflow: visible!important}
 .comments_list .comment_item_plain .post_info{font-size: 12px!important}
@@ -718,6 +759,7 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 .comments_list .comment_item_plain .comment_item .info{overflow: inherit!important}
 .post .searched-item,
 .comments_list .searched-item{background: #74720e!important}
+ul.sort_menu li a{color: #6c4}
 ul.sort_menu li.current a{border-radius: 2px; background-color: #b6751a!important}
 .post h1.title .double_locked{background-color: transparent!important; opacity: 0.7}
 
