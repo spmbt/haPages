@@ -1,7 +1,7 @@
-/** Habr ZenComment v4.20_2014-11-04, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v4.21_2014-11-09, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: geektime logo
+ * LastUpdatesDescription: geektime logo; sidebar blocks in companies
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -953,8 +953,10 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	color: #ccc!important}
 .sidebar_right .block:not(.blog_info):not(.habralenta_settings){
 	overflow: visible!important;
-	margin: 0 0 0 3px!important;
+	margin: 0 0 0 3px;
 	padding: 0 0 0 2.2ex!important}
+.sidebar_right .block.company_info{margin: 0 0 -1.5em 0!important}
+.sidebar_right .company_widgets{margin: 0 0 0 3px!important; padding-bottom: 0.2ex}
 .posts_list .post_item a,.sidebar_right .links .link, .block .post_item{margin-bottom: 0!important; padding-bottom: 0!important; line-height: 1.1!important;text-indent:-1ex;font-family:Verdana,Helvetica,sans-serif}
 .sidebar_right .block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited{color: #a88!important}
 .block .event, .new_vacanies .vacancies,.freelansim .tasks{
@@ -969,6 +971,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 
 .block .all{position: relative;margin:-2px 2px!important;text-align:right}
 .block:not(.freelansim):not(.new_vacanies) >div >div{overflow: inherit!important}
+.sidebar_right .block.company_info .join{width: 104px}
 .block.habralenta_settings,.block.habralenta_settings p{margin:0!important;padding:0!important}
 .habralenta_settings .hub.subscription a{margin-left:20px!important}
 .block .category-list .category{margin-bottom:3px!important}
@@ -1093,7 +1096,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 #TMpanel .menu.special,.special_navbar_image,#print_tab,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right .company_widgets,.sidebar_right div[class*=banner]{display:none!important}
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner]{display:none!important}
 #header_mouse_activity,.block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 /*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}

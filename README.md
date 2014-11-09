@@ -27,7 +27,9 @@ HabrAjax для Chrome или Старой [Оперы устанавливае�
 
 * юзерскрипты [FeedlyCtrlF5](https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout) - оформление висячих заголовков и обновление по клавише "R" в любом национальном регистре клавиатуры; 
 
-* **Новое:**: юзерстили [HabraDarkAge](http://spmbt.github.io/haPages/doc/habraDarkAge/); [===== установить =====](http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css), описание ([на хостинге стилей](https://userstyles.org/styles/101697/)), вводная статья на Хабре ["Наступают тёмные времена"](http://habrahabr.ru/post/242189/).
+* **Новое:**: юзерстили [HabraDarkAge](http://spmbt.github.io/haPages/doc/habraDarkAge/); [===== установить =====] - тёмная тема habrahabr.ru; (http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css), описание ([на хостинге стилей](https://userstyles.org/styles/101697/)), вводная статья на Хабре ["Наступают тёмные времена"](http://habrahabr.ru/post/242189/).
+
+* юзерстили [OverCompact](http://spmbt.github.io/haPages/doc/overCompact/); [===== установить =====](http://spmbt.github.io/haPages/userscript/overCompact/overCompact.user.css), тема [на хостинге стилей](http://forums.overclockers.ru/viewtopic.php?f=14&t=396030), на форуме ["Наступают тёмные времена"](http://habrahabr.ru/post/242189/).
 
 
 

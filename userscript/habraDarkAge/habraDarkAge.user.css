@@ -1,7 +1,7 @@
-/** HabraDarkAge v4.20_2014-11-04, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v4.21_2014-11-09, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: selections, tags hover, green right dates,hubs,tags
+ * LastUpdatesDescription: edit panel and its buttons; selections in Chrome; author's G+
  */
 @-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
 
@@ -341,9 +341,9 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 .html_format .spoiler .spoiler_text{background: #444; border: none}
 
 .content::-moz-selection,.content li::-moz-selection{background-color: #cde; color: #339}
-.content::selection,.content li::selection{background-color: #cde; color: #339}
-.content *::-moz-selection{background-color: #9db3cd; color: #336}
-.content *::selection{background-color: #9da3bd; color: #336}
+.content::selection,.content li::selection{background-color: #def; color: #237}
+.content ::-moz-selection{background-color: #9db3cd; color: #336}
+.content ::selection{background-color: #cde; color: #236}
 
 /* разметка кода */
 .html_format code, .text_html code, .text_html pre code,
@@ -484,6 +484,8 @@ code .diff .change{background: #385570}
 .post .infopanel .author a{color: #c53}
 .post .infopanel .original-author a{color: #c3823e}
 .post .infopanel .author .rating{margin-left: -3px; font-size: 12px!important; font-weight: normal!important; color: #c9e3e1}
+.post .infopanel .author a.googleplus_profile{color: #866; padding: 0 8px 0 21px}
+.post .infopanel .author a.googleplus_profile:hover{color: #c53}
 .buttons .orange,
 .post .abuse_form{width: 94%!important; margin: -1px 0!important}
 .post .abuse{position: relative; float: right;margin: -22px 9px -2px!important; opacity: 0.35}
@@ -601,17 +603,29 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAAAKklEQVR42r2NsQ0AIBCEfnF1cjgLN7jChISKMGevmnlSAbWJgSTA93PHBQkeoSA160EtAAAAAElFTkSuQmCC)}
 .comments_list .comment_item .message[class*=bad]{background: transparent}
 
-.comment_body .message::-moz-selection,.comment_item .message::-moz-selection,.message .text::-moz-selection{background-color: #b85; color: #533}
-.comment_body .message::-moz-selection,.comment_item .message::-moz-selection,.message .text::selection{background-color: #b85; color: #533}
+.comment_body .message::-moz-selection,.comment_item .message::-moz-selection,.message .text::-moz-selection{background-color: #b85; color: #833}
+.comment_body .message::selection,.comment_item .message::selection,.message .text::selection{background-color: #fc9; color: #cb8}
 .comment_body .message *::-moz-selection,.comment_item .message *::-moz-selection,.message .text *::-moz-selection{background-color: #a74; color: #522}
-.comment_body .message *::selection,.comment_item .message *::selection,.message .text *::selection{background-color: #a74; color: #522}
+.comment_body .message ::selection,.comment_item .message ::selection,.message .text ::selection{background-color: #da9; color: #db9}
 
 /* поле ввода */
 .wysiwyg_wrapper > a{
 	width: 20px;
 	height: 23px;
-	background: no-repeat 6px 6px url(http://habrastorage.org/files/0db/09d/939/0db09d93976e45d0be30cffe7dae1f91.png)!important}
+	border-right: 1px solid #707070!important;
+	background-repeat: no-repeat;
+	background-position: 6px 6px;
+	background-image: url(data:image/png;base64,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)!important}
+.editor .panel{background-image: linear-gradient(#5f6469 10%, #404143 90%)}
+.editor .panel .wysiwyg_wrapper .can_use_html{border-left: 1px solid #707070}
+.editor .panel .wysiwyg_wrapper .can_use_html a:hover{color: #82b9d4}
+.editor .panel .wysiwyg_wrapper .btn{border-right: 1px solid #707070}
 .wysiwyg_wrapper > a > img{display: none}
+.editor .panel .wysiwyg_wrapper .btn:hover{
+	background-color: #666;
+	background-position: 6px 6px;
+	background-repeat: no-repeat}
+.editor .panel .wysiwyg_wrapper .btn:hover span:before{color: #92b9f4}
 .wysiwyg_wrapper a[title="Курсив"]{background-position: 6px -24px!important}
 .wysiwyg_wrapper a[title="Подчёркнутый"]{background-position: 6px -54px!important}
 .wysiwyg_wrapper a[title="Зачёркнутый"]{background-position: 6px -84px!important}
@@ -619,10 +633,10 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .wysiwyg_wrapper a[title="Код - Используйте этот тег для строчных элементов"]{background-position: 6px -114px!important; width: 30px}
 .wysiwyg_wrapper a[title="Хабраюзер"]{background-position: 6px -234px!important}
 .wysiwyg_wrapper a[title="Вставить ссылку"]{background-position: 6px -144px!important}
-.wysiwyg_wrapper a[title="Пользователь"]{background: none!important}
+.wysiwyg_wrapper a[title="Пользователь"]{background-position: 6px -234px!important}
 .wysiwyg_wrapper a[title="Вставить изображение"]{background-position: 6px -204px!important}
 .wysiwyg_wrapper a[title="Вставить видео"]{background-position: 6px -264px!important}
-.wysiwyg_wrapper a[title="Кат"]{background: none!important}
+.wysiwyg_wrapper a[title="Кат"]{background-position: 6px -234px!important}
 .panel .g-icon:not(.g-icon-paragraph):not(.g-icon-list):not(.g-icon-users):not(.g-icon-cut):not(.g-icon-code):before{content:''!important}
 #comment_form #send_msg,
 #post_form #send_msg,
@@ -710,9 +724,8 @@ form .notification_table td,
 form .notification_table th{color: #838383!important}
 .editor .text-holder,
 .conversations .conversation:hover,
-.conversations .conversation.new{background: #444; border-color: #444}
+.conversations .conversation.new{background: #444; border: 1px solid #555}
 
-.editor .panel{background: #ccc}
 .tracker_page table[class^=tracker] tr th{border-bottom-color: #777}
 select{background: #555; color: #ccc; border: 1px solid #555!important}
 .editor .panel .wysiwyg_wrapper .btn.btn-dropdown select{background: #555; color: #ccc}
@@ -935,7 +948,6 @@ div.footer_panel:before{
 #footer .copyright .footer_logo{margin:0!important; position:absolute; left: -21px!important}
 #footer .copyright .about{float:left!important; width: auto!important; vertical-align: middle!important; margin:0 0 0 2px!important}
 #footer .about br,#footer .copyright .about br{display: none}
-#footer .about >a{margin-left: 10px!important}
 #footer .about div,#footer .social_accounts{position: relative; display: inline-block; height: 1.2em!important; top: -7px; left: 8px; opacity: 0.35}
 #footer .social_accounts a{margin-bottom: -8px!important}
 

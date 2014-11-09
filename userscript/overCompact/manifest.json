@@ -1,0 +1,15 @@
+{
+   "content_scripts": [ {
+      "exclude_globs": [ ],
+      "exclude_matches": [  ],
+      "include_globs": [ "http://overclockers.ru/*", "https://*.overclockers.ru/*"  ],
+      "js": [ "overCompact.user.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "more compact forum forums.overclockers.ru",
+   "name": "OverCompact",
+   "version": "11.2014.11.7",
+   "manifest_version": 2
+}
