@@ -1,9 +1,9 @@
-/** Habr ZenComment v4.21_2014-11-09, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v4.21_2014-11-11, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
  * LastUpdatesDescription: geektime logo; sidebar blocks in companies
  */
-@-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
 
 /*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
@@ -955,7 +955,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	overflow: visible!important;
 	margin: 0 0 0 3px;
 	padding: 0 0 0 2.2ex!important}
-.sidebar_right .block.company_info{margin: 0 0 -1.5em 0!important}
+.sidebar_right .block.company_info{margin: 0 0 -0.7em 0!important}
 .sidebar_right .company_widgets{margin: 0 0 0 3px!important; padding-bottom: 0.2ex}
 .posts_list .post_item a,.sidebar_right .links .link, .block .post_item{margin-bottom: 0!important; padding-bottom: 0!important; line-height: 1.1!important;text-indent:-1ex;font-family:Verdana,Helvetica,sans-serif}
 .sidebar_right .block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited{color: #a88!important}

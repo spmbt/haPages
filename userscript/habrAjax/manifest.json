@@ -2,7 +2,19 @@
    "content_scripts": [ {
       "exclude_globs": [ "http://habrahabr.ru/api/*", "http://habrahabr.ru/special/*", "http://geektimes.ru/special/*" ],
       "exclude_matches": [  ],
-      "include_globs": [ "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "https://geektimes.ru/*", "https://plusone.google.com/*", "http://spmbt.github.io/haPages/userscript/habrAjax/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://habrastorage.org/", "http://legacy.habrastorage.org/", "http://haru/*", "http://h.ru/*"  ],
+      "include_globs": [
+		  "http://habrahabr.ru/*"
+		  , "https://habrahabr.ru/*"
+		  , "http://geektimes.ru/*"
+		  , "https://geektimes.ru/*"
+		  , "https://plusone.google.com/*"
+		  , "http://spmbt.github.io/haPages/userscript/habrAjax/*"
+		  , "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*"
+		  , "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*"
+		  , "http://habrastorage.org/"
+		  , "http://legacy.habrastorage.org/"
+		  , "http://haru/*"
+		  , "http://h.ru/*"  ],
       "js": [ "habrAjax.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
@@ -10,6 +22,6 @@
    "converted_from_user_script": true,
    "description": "Cumulative script with over 60 functions for Fx-Opera-Chrome",
    "name": "HabrAjax",
-   "version": "137.2014.10.31",
+   "version": "139.2014.11.11",
    "manifest_version": 2
 }
