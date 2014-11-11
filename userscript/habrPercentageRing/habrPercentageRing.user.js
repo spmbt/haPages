@@ -1,17 +1,18 @@
 ﻿// ==UserScript==
 // @id HabrPercentageRing
 // @name Habr Percentage Ring
-// @version 11.2014.11.2
+// @version 11.2014.11.11
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Percentage Rings around numbers which show grades (for with userstyles)
 // @icon http://habrahabr.ru/favicon.ico
 // @update 0.81 bug + подгонка эллипсов
-// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special|api)/ /
-// @exclude http://habrahabr.ru/api/*
+// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!\/special|\/api)/
+// @include http://habrahabr.ru*
+// @exclude http://habrahabr.ru/api*
 // ==/UserScript==
-// работает автономно или как модуль для HabrAjax
-var win = typeof unsafeWindow !='undefined'? unsafeWindow: window;
+// работает автономно или как модуль для HabrAjax: https://greasyfork.org/en/scripts/1970-habrajax
+var win = typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})();
 (win.habrPercentageRing = function(blck){
 var marks = blck && blck.childNodes && blck.querySelectorAll('.mark')
 	,r2 = 14
