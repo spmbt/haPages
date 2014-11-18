@@ -1,9 +1,9 @@
-/** HabraDarkAge v4.21_2014-11-09, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v422.2014.11.18, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: edit panel and its buttons; selections in Chrome; author's G+
  */
-@-moz-document regexp("https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special/|api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
 
 body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #555!important; color: #bbb}
 body:after{
@@ -37,12 +37,14 @@ body:after{
 #navbar_overlay{z-index: 99991!important}
 #navbar, .nav_panel, #navbar .nav_tabs_content{width: 1px}
 #reg-wrapper{border-color: transparent}
-.footer_panel{margin-bottom: 70px}
+.footer_panel{margin-bottom: 31px}
+.corporation_head{position: relative; z-index: 1}
 
 /* глобальные элементы */
 a:hover{text-decoration: none!important}
 ::-moz-selection{background-color: #bbb; color: #335}
 ::selection{background-color: #bbb; color: #335}
+hr{border-color: #444; color: #ddd}
 
 .post .content img,
 .comments_list .html_format.message img,
@@ -158,7 +160,7 @@ body .buttons a.button:hover,
 /* Geektimes-меню */
 #TMpanel{
 	z-index: 99992!important;
-	width:auto!important;
+	width: auto!important;
 	min-width: 0!important;
 	max-width: 1486px;
 	height: 1px!important;
@@ -222,7 +224,6 @@ body >#logo,
 	opacity: 0.21;
 	transition: all 200ms}
 #navbar .tab.open:before{width: 0!important}
-#navbar .tab.open{}
 #navbar .tab .g-icon:before{
 	position: relative;
     display: block;
@@ -318,11 +319,10 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	display: inline-block;
 	width: 17px;
 	height: 17px;
-	background: url(http://habrastorage.org/files/05d/716/e76/05d716e767d648a4bd56895f4261f782.png) 0 2px no-repeat!important}
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjxJREFUeNpi/P//PwM+sHTdzpZDRw5XMzExMTD+Z2QQEORd1lZTEg2TZ8Knedq85Q2HDx2sVtY3YrAIC2IQlZBg+PjhYxSyGrwGPH7yrF7bwpZBXkuR4dWVWwz3bl9lMDXSd0dWw4LPgHfv3zFIywgxvHr6ieHqyaMMTna2kQlRIbs6J07vv3LzUQELC+MkvC74++8fA8MnZoarxw8w/Pj+nQEYXkbVrb2tV+88KbB19mJgZmXLw+mC6QvWThQQEmFg//OPQUZRk4GXX5hh95EzpTy8fAyKSjoMrBx8DJycPNi9MGPh2ll3Hz5KVTKwYXj/8S3D77+MQA2CDDIKvAx///9lEJaQYfj28QnDm7evgDGDFo1AzX13HjwqVDKwYvjy6R3D10/fgDaxM4iKyzP8+/OHgZGZleHDq9sMJ08cZfBxtKpBMQCouRyouQNZMw8P0GYlbYYTuxYxfPnyheHX718MX798Pe7jYncgKSakCm4AUPNEoOY8bJq3Lutl0NFUqajIS+tE9y4Tks04NWuoKszBphkEmCUUdUOAmmcpG1gANb5j+AbWLISsuaamKKsUV2wxPXn+arWGsRUD09+/DH9/fGfgA0aTnJI6TPNUoOZWfGmF5efvHwzfP7xgOHv6FENAZAbDj59/GLYsnbBeQ03xGVBzDgMBwPL58ycGMTExhrjiIoa7py4wHN23g0FDTWFVdVHWCgYiAIuehlrc9k0bFnHsYmf4+Okzg6KM5LLqomyiNIMAQIABABXyAgeAuAmhAAAAAElFTkSuQmCC) 0 2px no-repeat!important}
 .post h1.title .edit img{display: none}
 .company_order .meta .company_name, #preview_placeholder .meta .company_name,
-.post .hubs{
-	background-image: url(http://habrastorage.org/files/51e/ac0/f4f/51eac0f4fa5e415997500ab0002d4b2e.png)!important}
+.post .hubs{background-image: url(http://habrastorage.org/files/51e/ac0/f4f/51eac0f4fa5e415997500ab0002d4b2e.png)!important}
 .post .hubs{float: right; margin: -4px 0 4px}
 
 .post .hubs a{color: #596}
@@ -934,7 +934,16 @@ div.footer_panel:before{
 	bottom: 0;
 	left: -25px;
 	background: #333}
-#footer{position: relative; z-index: 99991; width: auto!important;min-width: 314px!important;overflow: visible!important;margin-bottom:0!important;padding: 6px 0 0 0!important; border-top: 1px solid #666!important}
+#footer{
+	position: relative;
+	z-index: 99991;
+	overflow: visible!important;
+	width: auto!important;
+	min-width: 314px!important;
+	min-height: 3.5em;
+	margin-bottom:0!important;
+	padding: 6px 0 0 0!important;
+	border-top: 1px solid #666!important}
 #footer:before{position:relative;display:block;float:right;height:0;top:-4px;right:2px;white-space:nowrap;margin-top:-4px!important;font-size: 9px;color:#888;content:"HabraDarkAge by spmbt"}
 #footer .bottom_menu{width: 100%!important}
 #footer	a{text-decoration: none!important}
@@ -945,6 +954,7 @@ div.footer_panel:before{
 #footer	dd:not(:last-child):after{content:","}
 #footer	dd{float:left; margin:0 0 0 6px!important; line-height: 120%!important}
 .footer_panel #footer .copyright{position: relative; left: 12px; width: auto!important; float: none!important; margin-right: 12px!important}
+#footer .copyright{width: auto}
 #footer .copyright .footer_logo{margin:0!important; position:absolute; left: -21px!important}
 #footer .copyright .about{float:left!important; width: auto!important; vertical-align: middle!important; margin:0 0 0 2px!important}
 #footer .about br,#footer .copyright .about br{display: none}

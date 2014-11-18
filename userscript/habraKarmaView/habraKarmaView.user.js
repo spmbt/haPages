@@ -1,19 +1,20 @@
 ﻿// ==UserScript==
 // @id HabraKarmaView
 // @name HabraKarmaView
-// @version 3.2014.10.18
+// @version 4.2014.11.12
 // @author spmbt
 // @namespace github.com/spmbt
 // @description Подсказка кармы по наведению на ник, кроссбраузерно
-// @update 2.41 fix GM_...
+// @update 4 add geektimes, cache:
 // @icon http://habrahabr.ru/favicon.ico
-// @include /^https?://(webcache\.googleusercontent.com\/search\\?q=cache:http://|m\.)?(habrahabr|geektimes|h).ru/(?!special|api)/ /
+// @include http://habrahabr.ru/*
+// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!\/special|\/api)/
 // @exclude http://habrahabr.ru/api/*
 // ==/UserScript==
 (function(win, u){
 
 if(/ru\/api/.test(location.href)) return;
-var urlBase ='http://habrahabr.ru/api/profile/'
+var urlBase ='http://'+ (/habr\.ru/.test(location.href) ?'habrahabr':'geektimes') +'.ru/api/profile/'
 	,$x = function(h, elem){for(var i in h) elem[i] = h[i]; return elem;}
 	,$q = function(q, b){return (b||document).querySelector(q)};
 try{
@@ -136,7 +137,7 @@ removeKarma = function(ev){ //удаление блока кармы (по от�
 	t.ww1 =0;
 },
 addKarmEvent = function(blck){ //расстановка обработчиков на показ кармы
-	var karmElems = blck.querySelectorAll('.infopanel >.author a, .dblAuthor >.author a, .info >.username, .comment_item >span.info a, .post .content .user_link, .comment_item .text .user_link, .comment_item .message .user_link, .comment_head .info a[href*="/users/"]');
+	var karmElems = blck.querySelectorAll('.infopanel >.author a, .dblAuthor >.author a, .info >.username, .comment_item >span.info a, .post .content .user_link, .comment_item .text .user_link, .comment_item .message .user_link, .comment_head .info a[href*="/users/"], .score +.username');
 	for(var i in karmElems){var kEl = karmElems[i]; if(kEl.attributes){
 		if(kEl.parentNode.tagName =='SPAN'&& kEl.parentNode.className =='info')
 			kEl.style.cssText +='position:relative; display: inline-block; text-indent:0';
