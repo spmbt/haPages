@@ -90,7 +90,7 @@
 		<td>
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>Github-doc</a></li>
-				<li><a href=http://userstyles.org/styles/36690/>Userstyles.org</a></li>
+				<li><a href=http://userstyles.org/styles/36690/>Userstyles</a></li>
 				<li>Статья <a href="http://habrahabr.ru/post/223555/">ZenComment и преодоление «бешеной плитки» на χ·е</a></li>
 			</ul>
 		</td>
@@ -100,7 +100,7 @@
 				<li><a href=>Github</a><br>
 				Установить:</li>
 				<li><a href=>Raw</a></li>
-				<li><a href=https://userstyles.org/styles/36690/>Userstyles.org</a></li>
+				<li><a href=https://userstyles.org/styles/36690/>Userstyles</a></li>
 			</ul>Предпочтительно включать через аддон <i>Stylish</i> (<a href="https://addons.mozilla.org/ru/firefox/addon/stylish/">для Firefox</a> или <a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru">Chrome</a> или без него для Старой Оперы; нет "рывка" от перестилизации в 1-ю секунду), но совместно со скриптом <a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a>.
 		</td>
 	</tr>
@@ -141,7 +141,7 @@
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habraDarkAge>Github</a><br>
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css>Raw</a></li>
-				<li><big><a href=https://userstyles.org/styles/101697/>Userstyles.org</a></big></li>
+				<li><big><a href=https://userstyles.org/styles/101697/>Userstyles</a></big></li>
 			</ul>
 		</td>
 	</tr>
@@ -338,7 +338,7 @@
 		<td>
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/overCompact/>Github-doc</a></li>
-				<li><a href=https://userstyles.org/styles/43834/>Userstyles.org (CSS)</a></li>
+				<li><a href=https://userstyles.org/styles/43834/>Userstyles (CSS)</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1963-overcompact>Greasyfork (JS)</a> (включая стили)</li>
 				<li><a href=http://forums.overclockers.ru/viewtopic.php?f=14&t=396030>overclockers.ru</a></li>
 				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавливать оттуда)</li>
@@ -350,7 +350,7 @@
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/overCompact/overCompact.user.css>Raw CSS</a></li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/overCompact/overCompact.user.js>Raw JS</a></li>
-				<li><a href=https://userstyles.org/styles/43834/>Userstyles.org (CSS)</a></li>
+				<li><a href=https://userstyles.org/styles/43834/>Userstyles (CSS)</a></li>
 				<li><a href=https://greasyfork.org/scripts/1963-overcompact/code/OverCompact.user.js>Greasyfork (JS)</a> (включая стили)</li>
 			</ul>
 		</td>
