@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 139.2014.11.1101
+// @version 139.2014.11.12
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -3575,7 +3575,6 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 					var sE8 = simEls[i];
 					if(sE8){
 						var date = $q('.when', sE8);
-						'date'.wcl(date, sE8)
 						if(date)
 							$e({el: date, prT: sE8});
 						else
@@ -4814,11 +4813,13 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 					hN.addNote(this.title +' - требуется авторизация на сайте.');
 				else{ //передвижение или исполнение по кнопке
 					selS.ww && win.clearTimeout(selS.ww);
+					'66'.wcl(hNBs.wasMoved, hN.moveMin)
 					if(hNBs.wasMoved > hN.moveMin){
 						'moved'.wcl(hNBs.wasMoved);
 					}else{
-						'hN.sel0'.wcl(selS, selS.subSelect)
-						if(!selS.subSelect)
+						'661'.wcl(hNBs.wasMoved, hN.moveMin)
+						//'hN.sel0'.wcl(selS)
+						//if(!selS.subSelect)
 							cmd[ selS.cmd ](selS, ev); //=== действие (клик кнопки) ===
 					}
 				}
@@ -4886,6 +4887,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 					, cite: !shortSel ? s.textR : null} );
 		},
 		search: function(s, ev, FFind){
+			'55'.wcl()
 			if(srchBut){
 				if(srchField) srchField.value = s.textR;
 				var evt = document.createEvent("MouseEvents");
