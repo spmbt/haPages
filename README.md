@@ -1,10 +1,9 @@
 #### [HaPages](http://spmbt.github.io/haPages/) - это юзерскрипты, юзерстили для сайтов и их описания, многие из которых сделаны для  _[habrahabr.ru](http://habrahabr.ru)_ 
 
-<style>.markdown-body ul, .markdown-body ol{padding-left: 0.8em;}</style>
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
-			<h2>Скрипты и стили, имеющиеся в разработке и для использования</h2>
+			<h4>Скрипты и стили для разработки и использования</h4>
 		</th>
 	</tr>
 	<tr>
@@ -32,7 +31,6 @@
         <i>(Fx3+, Chr, Op12)</i>
 		</td>
 		<td>Автоматизация сайта (>60 функций с настройками) с подключаемыми <a href=http://userstyles.org/styles/36690/>стилями ZenComment</a>.
-			<ul>
 				<li><b>Подгрузка статей</b> без перезагрузки ленты</li>
 				<li><b>просмотр картинок</b> с увеличением и перемещением</li>
 				<li><b>принудительный кат</b>: все аннотации - не более определённой высоты</li>
@@ -40,7 +38,6 @@
 				<li><b>фильтр</b> по авторам и хабам</li>
 				<li><b>расцветка</b> комментаторов по активности</li>
 				<li><b>примерные даты</b> публикации по номеру в URL, и т.д.</li>
-			</ul>
 		</td>
 		<td>
 			<ul>
@@ -81,13 +78,11 @@
 				<li>исправления ошибок сайта (баг малой высоты окна, нерасширение полей ввода, близкостоящие кнопки и др.).</li>
 			</ul>
 			Основное:
-			<ul>
 				<li>незаметное Geektimes-меню: показ по наведению</li>
 				<li>пара кнопок меню по углам вместо левой кнопочной панели</li>
 				<li>уменьшены: заголовки, межстрочный интервал, поля, зазоры, сайдбар, футер</li>
 				<li>невидимые аватары, кнопки отправки ответов и деакцентирование малозначимых полей</li>
 				<li>нумерация страниц (пагинатор) фиксирована внизу окна</li>
-			</ul>
 		</td>
 		<td>
 			<ul>
@@ -97,8 +92,8 @@
 			</ul>
 		</td>
 		<td>
+			<i>(> 1000 строк)</i>
 			<ul>
-				<i>(> 1000 строк)</i>
 				<li><a href=>Github</a><br>
 				Установить:</li>
 				<li><a href=>Raw</a></li>
@@ -120,7 +115,6 @@
             <i>(Fx30+, Chr35+, Op12?)</i>
 		</td>
 		<td>Тёмная тема Хабрахабра. Дизайн, в основном, исходный, кроме тонов.
-			<ul>
 				<li><b>Приглушенные цвета</b> картинок и блоков сайдбара<br>
 				<li>незаметное Geektimes-меню: показ по наведению</li>
 				<li><b>Кнопки левой панели совмещены</b> с навигацией страниц</li>
@@ -129,7 +123,6 @@
 				<li>Исправление ошибок сайта</li>
 				<li><b>Рост иконок вдвое</b> по наведению мыши на заголовок ответа</li>
 				<li>Некоторые аналогии с ZenComment: компактный футер, деакцентирование элементов в комментариях</li>
-			</ul>
 		</td>
 		<td>
 			<ul>
@@ -139,8 +132,8 @@
 			</ul>
 		</td>
 		<td>
+			<i>(> 1000 строк)</i>
 			<ul>
-				<i>(> 1000 строк)</i>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habraDarkAge>Github</a><br>
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/habraDarkAge/habraDarkAge.user.css>Raw</a></li>
@@ -171,8 +164,8 @@
 			</ul>
 		</td>
 		<td>
+			<i>(100 строк)</i>
 			<ul>
-				<i>(100 строк)</i>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habrPercentageRing>Github</a><br>
 				<li><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring/code>Greasyfork</a><br>
 				Установить:</li>
@@ -235,8 +228,8 @@
 			</ul>
 		</td>
 		<td>
+			<i>(400 строк)</i>
 			<ul>
-				<i>(400 строк)</i>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habrActivity>Github</a><br>
 				Установить:</li>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habrActivity/habractivity.user.js>Raw</a></li>
@@ -264,8 +257,8 @@
 			</ul>
 		</td>
 		<td>
-			<ul>
 			<i>(150 строк)</i>
+			<ul>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habraKarmaView>Github</a><br>
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/habraKarmaView/habraKarmaView.user.js>Raw</a></li>
@@ -317,8 +310,8 @@
 			</ul>
 		</td>
 		<td>
+			<i>(100 строк)</i>
 			<ul>
-				<i>(100 строк)</i>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/feedlyCtrlF5>Github</a><br>
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/feedlyCtrlF5/feedlyCtrlF5.user.js>Raw</a></li>
