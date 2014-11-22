@@ -22,7 +22,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align=center><big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a></b></big><br>
+		<td align=center valign=top><big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a></b></big><br>
 		для сайтов:<br>
 		<a href=http://habrahabr.ru>Habrahabr</a>,<br>
         <a href=http://geektimes.ru>Geektimes</a>,<br>
@@ -65,14 +65,14 @@
 		</td>
 	</tr>
 	<tr>
-		<th>Стили <big><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></big><br>
+		<td align=center valign=top>Стили <big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx3+, Chr, Op12)</i>
-		</th>
+		</td>
 		<td>Переоформление сайта для <ul>
 				<li>лучшей компактности статей и блоков (<i>"читать, а не скроллить"</i>),</li>
 				<li>лучшей сжимаемости окна (до 320px),</li>
@@ -107,7 +107,7 @@
 
 
 	<tr>
-		<th>Стили <big><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></big><br>
+		<td align=center valign=top>Стили <big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://m.habrahabr.ru>m.Habr</a>,<br>
@@ -115,7 +115,7 @@
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx30+, Chr35+, Op12?)</i>
-		</th>
+		</td>
 		<td>Тёмная тема Хабрахабра. Дизайн, в основном, исходный, кроме тонов.
 			<ul>
 				<li><b>Приглушенные цвета</b> картинок и блоков сайдбара<br>
