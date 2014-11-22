@@ -1,4 +1,4 @@
-/** HabraDarkAge v423.2014.11.22, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v423.2014.11.23, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: fixed bg; permanent submenus after 1520px
@@ -1015,7 +1015,9 @@ div.footer_panel:before{
 	#navbar a.logo + a.tab_menu{left: 22px!important}
 	#navbar_overlay, #navbar .tab_user, #navbar .tab_tracker, #navbar .tab_menu, #navbar .tab_settings, #navbar a.tab_add_post:hover +a.tab_settings{display: none!important}
 	#navbar .nav_panel a.tab_add_post{visibility: visible; right:auto; left:-114px!important}
-	#navbar .nav_tabs_content .nav_tab .menu a.open, #navbar .nav_tabs_content .nav_tab .menu a:hover{background-color: rgba(80, 80, 80, 0.72)!important}
+	#navbar .nav_tabs_content .nav_tab .menu a.open,
+	#navbar .nav_tabs_content .nav_tab .menu a:hover{background-color: rgba(80, 80, 80, 0.72)!important}
+	#navbar .nav_tabs_content .nav_tab .menu a .count:not(:empty){z-index: 1; opacity: 0.7}
 	#navbar .nav_tabs_content{
 		position: static!important;
 		overflow: inherit!important;

@@ -1,4 +1,4 @@
-/** Habr ZenComment v423.2014.11.22, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v423.2014.11.23, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
  * LastUpdatesDescription: indent in Freelansim block
@@ -293,7 +293,7 @@ form#search_form{width: 245px!important;height:21px}
 #navbar a.tab:after{
 	position:relative!important;
 	float:right;
-	top: 0!important; left: 4px!important}
+	top: 0!important; right: 4px!important}
 #navbar .tab .count{z-index: 2;}
 #navbar .nav_tabs_content{position:relative!important; width: 100%!important; overflow:inherit!important}
 #navbar .nav_tabs_content .nav_tab{top: 0!important; left: -200px; bottom: auto!important; opacity: 0.75}
@@ -309,12 +309,14 @@ form#search_form{width: 245px!important;height:21px}
 	bottom: auto!important;
 	left: auto!important;
 	padding: 10px 25px!important;
-	right: auto!important;}
-#navbar .nav_panel .tab.tab_settings, #navbar .nav_panel .tab.tab_login {
+	right: auto!important}
+#navbar .nav_panel .tab.tab_settings, #navbar .nav_panel .tab.tab_login{
 	position: relative;
 	border-bottom: 1px solid #EBEAEA;
 	border-top: 0 none;
-	bottom: auto;}
+	bottom: auto}
+#navbar .nav_panel .tab.tab_login{left: auto; right: 0}
+#navbar .nav_panel .tab.tab_login span{position: relative; top:-3px; font-size: 23px}
 #navbar_overlay{background: none repeat scroll 0 0 rgba(0, 0, 0, 0.17)!important}
 #navbar #menu_tab .title{padding-left: 80px!important}
 #navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important}

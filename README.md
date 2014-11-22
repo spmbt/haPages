@@ -31,7 +31,7 @@
         <i>(Fx3+, Chr, Op12)</i>
 		</td>
 		<td>Автоматизация сайта (>60 функций с настройками) с подключаемыми <a href=http://userstyles.org/styles/36690/>стилями ZenComment</a>.
-			<ul>
+			<ul style="margin-left: -1em">
 				<li><b>Подгрузка статей</b> без перезагрузки ленты</li>
 				<li><b>просмотр картинок</b> с увеличением и перемещением</li>
 				<li><b>принудительный кат</b>: все аннотации - не более определённой высоты</li>
@@ -119,7 +119,7 @@
             <i>(Fx30+, Chr35+, Op12?)</i>
 		</td>
 		<td>Тёмная тема Хабрахабра. Дизайн, в основном, исходный, кроме тонов.
-			<ul>
+			<ul style="margin-left: -1em">
 				<li><b>Приглушенные цвета</b> картинок и блоков сайдбара<br>
 				<li>незаметное Geektimes-меню: показ по наведению</li>
 				<li><b>Кнопки левой панели совмещены</b> с навигацией страниц</li>
@@ -165,7 +165,7 @@
 		<td>
 			<ul>
 				<li><big><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>Greasyfork</a></big></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts -mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
 				<li>Статья <a href=http://habrahabr.ru/post/131818/>Диаграмма процентовки «за и против» на canvas</a></li>
 			</ul>
 		</td>
@@ -229,7 +229,7 @@
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1964-habractivity>greasyfork</a></li>
-				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
+				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts -mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
 				<li>описание имеется и в коде самой программы, просматривается после установки по нажатию "Подробности".</li>
 			</ul>
 		</td>
@@ -259,7 +259,7 @@
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>Greasyfork</a></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts -mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
 			</ul>
 		</td>
 		<td>
@@ -343,7 +343,7 @@
 				<li><a href=https://userstyles.org/styles/43834/>Userstyles (CSS)</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1963-overcompact>Greasyfork (JS)</a> (включая стили)</li>
 				<li><a href=http://forums.overclockers.ru/viewtopic.php?f=14&t=396030>overclockers.ru</a></li>
-				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
+				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts -mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
 			</ul>
 		</td>
 		<td>
