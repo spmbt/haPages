@@ -45,7 +45,7 @@
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habrAjax/>Github-doc</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1970-habrajax>Greasyfork.org</a></li>
-				<li><a href=http://userscripts-mirror.org/scripts/show/121690.html>Старое описание на userscripts.org</a> <i>(не устанавли&shy;<br>вать оттуда! - версия устаревшая и неизменяемая)</i></li>
+				<li><a href=http://userscripts-mirror.org/scripts/show/121690.html>Старое описание на userscripts.org</a> <i>(не устанавли-<br>вать оттуда! - версия устаревшая и неизменяемая)</i></li>
 			</ul>
 		</td>
 		<td>
@@ -165,7 +165,7 @@
 		<td>
 			<ul>
 				<li><big><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>Greasyfork</a></big></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
 				<li>Статья <a href=http://habrahabr.ru/post/131818/>Диаграмма процентовки «за и против» на canvas</a></li>
 			</ul>
 		</td>
@@ -229,7 +229,7 @@
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1964-habractivity>greasyfork</a></li>
-				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</li>
+				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
 				<li>описание имеется и в коде самой программы, просматривается после установки по нажатию "Подробности".</li>
 			</ul>
 		</td>
@@ -259,7 +259,7 @@
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>Greasyfork</a></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</i></li>
 			</ul>
 		</td>
 		<td>
@@ -297,7 +297,7 @@
 	</tr-->
 	<tr>
 		<td colspan=4>
-<blockquote> Внимание, ссылки на установку со страниц описаний скриптов на userscripts-mirror.org - УСТАРЕВШИЕ и не могут быть там обновлены. Даны исключительно для документации и просмотра истории. устанавли&shy;<br>вать - с Github или greasyfork.org.</blockquote>
+<blockquote> Внимание, ссылки на установку со страниц описаний скриптов на userscripts-mirror.org - УСТАРЕВШИЕ и не могут быть там обновлены. Даны исключительно для документации и просмотра истории. устанавли-<br>вать - с Github или greasyfork.org.</blockquote>
 		</td>
 	</tr>
 
@@ -343,7 +343,7 @@
 				<li><a href=https://userstyles.org/styles/43834/>Userstyles (CSS)</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1963-overcompact>Greasyfork (JS)</a> (включая стили)</li>
 				<li><a href=http://forums.overclockers.ru/viewtopic.php?f=14&t=396030>overclockers.ru</a></li>
-				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</li>
+				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли-<br>вать оттуда)</li>
 			</ul>
 		</td>
 		<td>
