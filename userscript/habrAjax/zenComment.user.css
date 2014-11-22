@@ -1,7 +1,7 @@
-/** Habr ZenComment v4.21_2014-11-11, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v423.2014.11.22, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: geektime logo; sidebar blocks in companies
+ * LastUpdatesDescription: indent in Freelansim block
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
 
@@ -497,7 +497,7 @@ ul.tags li a{text-decoration:none!important}
 	padding-top:0!important;padding-bottom:0!important;
 	line-height:16px!important;
 	background-position:0 0!important}
-.post .published{float:right;margin:3px 4px -4px!important;font-size: 10px!important}
+.post .published{position: relative; float: right; margin:3px 4px -4px!important; font-size: 10px!important}
 .post .infopanel .comments,
 .post .infopanel .comments a,
 .post .infopanel .voting{margin-right: 7px!important}
@@ -983,7 +983,6 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .block .posts_list .post_item a.user_name{padding-left:2.5ex!important}
 .block.new_vacanies h1,
 .block.new_vacanies .title{display: none}
-.vacancies .job_item,.tasks .task{padding-left: 4px!important; text-indent: -1.6ex!important}
 .block.freelansim .task, .block.new_vacanies .job_item{margin:0!important}
 .best_company +.block.new_vacanies .vacancies .job_item{display: block}
 .block .vacancies .job_item >div{float: none!important;background-color:transparent!important;color:#666}
