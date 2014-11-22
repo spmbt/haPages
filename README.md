@@ -65,7 +65,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td align=center valign=top>Стили <big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></b></big><br>
+		<td align=center valign=top>Стили<br>
+			<big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
@@ -107,7 +108,8 @@
 
 
 	<tr>
-		<td align=center valign=top>Стили <big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
+		<td align=center valign=top>Стили<br>
+			<big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://m.habrahabr.ru>m.Habr</a>,<br>
@@ -201,7 +203,7 @@
 		<td>
 			<ul>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/ufocorrect>Github</a><br>
-				<li><a href=https://userstyles.org/styles/102581/>userstyles.org (CSS)</a></li>
+				<li><a href=https://userstyles.org/styles/102581/>userstyles (CSS)</a></li>
 				Установить:</li>
 				<li><a href=http://spmbt.github.io/haPages/userscript/ufocorrect/ufocorrect.user.js>Raw js</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1962-ufocorrect>Greasyfork</a></li>
