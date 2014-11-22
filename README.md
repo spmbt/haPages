@@ -1,5 +1,6 @@
-### [HaPages](http://spmbt.github.io/haPages/) - это юзерскрипты, юзерстили для сайтов и их описания, многие из которых сделаны для  _[habrahabr.ru](http://habrahabr.ru)_ 
+#### [HaPages](http://spmbt.github.io/haPages/) - это юзерскрипты, юзерстили для сайтов и их описания, многие из которых сделаны для  _[habrahabr.ru](http://habrahabr.ru)_ 
 
+<style>.markdown-body ul, .markdown-body ol{padding-left: 0.8em;}</style>
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
@@ -45,7 +46,7 @@
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habrAjax/>Github-doc</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1970-habrajax>Greasyfork.org</a></li>
-				<li><a href=http://userscripts-mirror.org/scripts/show/121690.html>Старое описание на userscripts.org</a> <i>(не устанавли&shy;вать оттуда! - версия устаревшая и неизменяемая)</i></li>
+				<li><a href=http://userscripts-mirror.org/scripts/show/121690.html>Старое описание на userscripts.org</a> <i>(не устанавли&shy;<br>вать оттуда! - версия устаревшая и неизменяемая)</i></li>
 			</ul>
 		</td>
 		<td>
@@ -150,14 +151,14 @@
 
 
 	<tr>
-		<th><big><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>HabrPercentageRing</a></big><br>
-		для сайтов:<br>
-		<a href=http://habrahabr.ru>Habrahabr</a>,<br>
-		<a href=http://geektimes.ru>Geektimes</a>,<br>
-		<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
-		локальный сайт<br>
-		<i>(Fx3+, Chr, Op10+)</i>
-		</th>
+		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>HabrPercentageRing</a></b></big><br>
+			для сайтов:<br>
+			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
+			<a href=http://geektimes.ru>Geektimes</a>,<br>
+			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
+			локальный сайт<br>
+			<i>(Fx3+, Chr, Op10+)</i>
+		</td>
 		<td>Показывает соотношение положительных и отрицательных оценок к комментарию или статье кольцевой диаграммой вокруг суммарной оценки.<br>
 		<br>
 		<i>Слушает событие 'chgDom' (от HabrAjax, например), чтобы выполниться в подгруженном блоке от другого скрипта.</i>
@@ -165,7 +166,7 @@
 		<td>
 			<ul>
 				<li><big><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>Greasyfork</a></big></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/129371>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</i></li>
 				<li>Статья <a href=http://habrahabr.ru/post/131818/>Диаграмма процентовки «за и против» на canvas</a></li>
 			</ul>
 		</td>
@@ -183,15 +184,15 @@
 
 
 	<tr>
-		<th>Стили и скрипт <big><a href=http://habrahabr.ru/post/213615/>UfoCorrect</a></big><br>
-		для сайтов:<br>
-		<a href=http://habrahabr.ru>Habrahabr</a>,<br>
-		<a href=http://habrastorage.org">habrastorage.org</a>,<br>
-		<a href=http://freelansim.ru">freelansim.ru</a>,<br>
-		<a href=http://toster.ru">toster.ru</a>,<br>
-		<a href=http://tmtm.ru">tmtm.ru</a>,<br>
-		<i>(Fx3+, Chr, Op10+)</i>
-		</th>
+		<td align=center valign=top>Стили и скрипт <big><b><a href=http://habrahabr.ru/post/213615/>UfoCorrect</a></b></big><br>
+			для сайтов:<br>
+			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
+			<a href=http://habrastorage.org">habrastorage.org</a>,<br>
+			<a href=http://freelansim.ru">freelansim.ru</a>,<br>
+			<a href=http://toster.ru">toster.ru</a>,<br>
+			<a href=http://tmtm.ru">tmtm.ru</a>,<br>
+			<i>(Fx3+, Chr, Op10+)</i>
+		</td>
 		<td>Исправляет длинные тени у нескольких рисунков для приведения дизайна к единому реалистичному стилю.
 		</td>
 		<td>
@@ -218,18 +219,18 @@
 
 
 	<tr>
-		<th><big><a href=https://greasyfork.org/ru/scripts/1964-habractivity>HabrActivity</a></big><br>
+		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1964-habractivity>HabrActivity</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
-		</th>
+		</td>
 		<td>Снятие со страниц комментариев данных об активности выбранного пользователя и представление их в виде диаграммы, подобной диаграмме активности "Contributions" на Github. <a href=http://spmbt.github.io/haPages/doc/habractivity03.jpg>Скриншот</a>.
 		</td>
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1964-habractivity>greasyfork</a></li>
-				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;вать оттуда)</li>
+				<li>Старое (подробное) описание <a href=http://userscripts-mirror.org/scripts/show/162360>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</li>
 				<li>описание имеется и в коде самой программы, просматривается после установки по нажатию "Подробности".</li>
 			</ul>
 		</td>
@@ -246,12 +247,12 @@
 
 
 	<tr>
-		<th><big><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>HabraKarmaView</a></big><br>
+		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>HabraKarmaView</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
-		</th>
+		</td>
 		<td>Подсказка кармы и рейтинга по наведению на любой ник на странице, кроссбраузерно.<br>
 		<br>
 		<i>По событию 'chgDom' поддерживается обработка подгруженных блоков в HabrAjax.</i>
@@ -259,7 +260,7 @@
 		<td>
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>Greasyfork</a></li>
-				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;вать оттуда)</i></li>
+				<li>Старое описание <a href=http://userscripts-mirror.org/scripts/show/132273.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</i></li>
 			</ul>
 		</td>
 		<td>
@@ -275,8 +276,8 @@
 
 
 	<!--tr>
-		<th><a href=></a>
-		</th>
+		<td align=center valign=top><a href=></a>
+		</td>
 		<td>
 		</td>
 		<td>
@@ -297,17 +298,17 @@
 	</tr-->
 	<tr>
 		<td colspan=4>
-<blockquote> Внимание, ссылки на установку со страниц описаний скриптов на userscripts-mirror.org - УСТАРЕВШИЕ и не могут быть там обновлены. Даны исключительно для документации и просмотра истории. устанавли&shy;вать - с Github или greasyfork.org.</blockquote>
+<blockquote> Внимание, ссылки на установку со страниц описаний скриптов на userscripts-mirror.org - УСТАРЕВШИЕ и не могут быть там обновлены. Даны исключительно для документации и просмотра истории. устанавли&shy;<br>вать - с Github или greasyfork.org.</blockquote>
 		</td>
 	</tr>
 
 
 	<tr>
-		<th><big><a href=https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout>FeedlyCtrlF5</a></big><br>
+		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout>FeedlyCtrlF5</a></b></big><br>
 			для сайта<br>
 			<a href=http://feedly.com>feedly.com</a><br>
 			<i>(Fx30+, Chr35+, Op12?)</i>
-		</th>
+		</td>
 		<td>Оформление висячих заголовков и обновление по клавише "R" в любом национальном регистре клавиатуры.
 		</td>
 		<td>
@@ -328,11 +329,11 @@
 
 
 	<tr>
-		<th>Стили и скрипт <big><a href=http://spmbt.github.io/haPages/doc/overCompact/>OverCompact</a></big><br>
+		<td align=center valign=top>Стили и скрипт <big><b><a href=http://spmbt.github.io/haPages/doc/overCompact/>OverCompact</a></b></big><br>
 			для сайта и форума<br>
 			<a href=http://overclockers.ru>overclockers.ru</a><br>
 			<i>(Fx15+, Chr20+, Op11+)</i>
-		</th>
+		</td>
 		<td>Модификация вида сайта и форума стилями. Примерно 10% работы делают скрипты - то, что не могут сделать стили.<br>
 		<br>
 		Основное назначение - стилизация, компактность списков форумов, нераспирание страниц сайта (ширина страниц становится допустимой от 600-800 пикс.)..
@@ -343,7 +344,7 @@
 				<li><a href=https://userstyles.org/styles/43834/>Userstyles (CSS)</a></li>
 				<li><a href=https://greasyfork.org/ru/scripts/1963-overcompact>Greasyfork (JS)</a> (включая стили)</li>
 				<li><a href=http://forums.overclockers.ru/viewtopic.php?f=14&t=396030>overclockers.ru</a></li>
-				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;вать оттуда)</li>
+				<li>Старое описание скриптов на <a href=http://userscripts-mirror.org/scripts/show/96460.html>userscripts-mirror.org</a> <i>(не&nbsp;устанавли&shy;<br>вать оттуда)</li>
 			</ul>
 		</td>
 		<td>
