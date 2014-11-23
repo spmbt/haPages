@@ -77,8 +77,8 @@
             <i>(Fx3+, Chr, Op12)</i>
 		</td>
 		<td colspan=2 rowspan=2>Переоформление сайта для <ul>
-				<li>лучшей компактности статей и блоков (<i>"читать, а не скроллить"</i>),</li>
-				<li>лучшей сжимаемости окна (до 320px),</li>
+				<li><b>лучшей компактности</b> статей и блоков (<i>"читать, а не скроллить"</i>),</li>
+				<li><b>лучшей сжимаемости</b> окна (до 320px),</li>
 				<li>исправления ошибок сайта (баг малой высоты окна, нерасширение полей ввода, близкостоящие кнопки и др.).</li>
 			</ul>
 			Основное:
@@ -86,8 +86,10 @@
 				<li><b>незаметное Geektimes</b>-меню: показ по наведению</li>
 				<li><b>меню по углам</b> вместо левой кнопочной панели</li>
 				<li><b>уменьшены</b>: заголовки, межстрочный интервал, поля, зазоры, сайдбар, футер</li>
+				<li>Постоянно видимые подменю для широких страниц <i>(> 1520px)</i></li>
 				<li><b>невидимые</b> аватары, кнопки отправки ответов и деакцентирование малозначимых полей</li>
 				<li><b>нумерация страниц</b> (пагинатор) фиксирована внизу окна</li>
+				<li><b>интегрированы</b> со скриптами <a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a></li>
 			</ul>
 		</td>
 		<td>
@@ -95,7 +97,7 @@
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>Github-doc</a></li>
 				<li><a href=http://userstyles.org/styles/36690/>Userstyles</a></li>
-				<li>Статья <a href="http://habrahabr.ru/post/223555/">ZenComment и преодоление «бешеной плитки» на χ·е</a></li>
+				<li>Статья <a href="http://habrahabr.ru/post/223555/">ZenComment и преодоление «бешеной плитки»</a></li>
 			</ul>
 		</td>
 	</tr>
@@ -108,7 +110,7 @@
 				Установить:</li>
 				<li><a href=>Raw</a></li>
 				<li><a href=https://userstyles.org/styles/36690/>Userstyles</a></li>
-			</ul>Предпочтительно включать через аддон <i>Stylish</i> (<a href="https://addons.mozilla.org/ru/firefox/addon/stylish/">для Firefox</a> или <a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru">Chrome</a> или без него для Старой Оперы; нет "рывка" от перестилизации в 1-ю секунду), но совместно со скриптом <a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a>.
+			</ul>Лучше включать через аддон <i>Stylish</i> (<a href="https://addons.mozilla.org/ru/firefox/addon/stylish/">для Firefox</a> или <a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=ru">Chrome</a> или без него для Старой Оперы), а не из HabrAjax.
 		</td>
 	</tr>
 
@@ -140,7 +142,7 @@
 			<i><b>Документация</b>:</i>
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>Github</a></li>
-				<li><a href=https://userstyles.org/styles/101697/>userstyles.org</a></li>
+				<li><a href=https://userstyles.org/styles/101697/>Userstyles</a></li>
 				<li>Статья <a href=http://habrahabr.ru/post/242189/>Наступают тёмные времена</a></li>
 			</ul>
 		</td>
