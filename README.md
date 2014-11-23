@@ -3,7 +3,7 @@
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
-			<h4>Скрипты и стили для разработки и использования</h4>
+			<h3>Скрипты и стили для разработки и использования</h3>
 		</th>
 	</tr>
 	<tr>
@@ -375,6 +375,10 @@
 #### Другие скрипты и стили ####
 
 * [googleSearchExtraButtons](https://github.com/spmbt/googleSearchExtraButtons): добавление нескольких кнопок на страницу результатов поиска Google (искать PDF; за последний день, неделю, месяц и год). <a href=http://habrahabr.ru/post/179367/>Статья</a> (2013) о причинах выставления этих кнопок.
+
+* [Jira usable](https://userstyles.org/styles/40625/): подкраска блоков Джиры для лучшей читаемости и разделения. Просмотреть эффекты можно на каких-нибудь Atlassian-[страницах](https://jira.atlassian.com/browse/GHS-11516) и [подобных](https://jira.atlassian.com/browse/JRA-38860?filter=-4). Для использования в своём проекте впишите домен проекта вместо слов "writeyourdomain".
+
+* [Coffeescript Title Fix](https://userstyles.org/styles/89070/coffeescript-title-fix): смотреть [coffeescript.org](http://coffeescript.org/) и [его перевод](http://cidocs.ru/coffeescript/) без постоянно съедаемой верхушки окна - всё окно используется для просмотра кодов и статей.
 
 ---
 
