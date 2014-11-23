@@ -1,7 +1,7 @@
-/** HabraDarkAge v423.2014.11.23, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v424.2014.11.23, FF30+, Opera12+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: fixed bg; permanent submenus after 1520px
+ * LastUpdatesDescription: permanent submenus after 1520px; .next-prev is more left;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
 
@@ -339,6 +339,7 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 
 .html_format pre code{background: #bbb; border: none}
 .html_format .spoiler .spoiler_text{background: #444; border: none}
+.content_left .post .content .spoiler +br, .content_left .post .content .spoiler +br +br{display: none!important}
 
 .content::-moz-selection,.content li::-moz-selection{background-color: #cde; color: #339}
 .content::selection,.content li::selection{background-color: #def; color: #237}
@@ -1010,6 +1011,7 @@ div.footer_panel:before{
 /* постоянные подменю */
 @media (min-width: 1520px) and (min-height: 705px){
 	#layout,.rotated_posts, #footer{margin-right: 0!important; transition: margin 0.8s, width 0.8s}
+	#layout >.inner{padding-left: 6px !important}
 	#TMpanel{left: 205px !important}
 	#navbar .nav_panel .logo{margin-left: -7px;border-bottom-left-radius:3px}
 	#navbar a.logo + a.tab_menu{left: 22px!important}
@@ -1033,6 +1035,8 @@ div.footer_panel:before{
 	#navbar .nav_tabs_content .nav_tab .menu a.new_window:after{top: 4px!important; right: 100px!important}
 	#navbar .nav_tabs_content .nav_tab .title{font: 12px Arial,Helvetica,sans-serif bold}
 	#navbar .menu a,#navbar .nav_tab .global_search_form, #navbar .nav_tab .text{background-color: rgba(48, 48, 48, 0.65); color: #5c7481!important}
+	.page-nav .next-prev{left:-91px}
+	.page-nav #nav-pages{left:-95px}
 }
 @media (min-width: 1574px) and (min-height: 705px){#layout,.rotated_posts, #footer{margin-right:26px!important}}
 @media (min-width: 1650px) and (min-height: 705px){#layout,.rotated_posts, #footer{margin-right:auto!important}}

@@ -31,7 +31,7 @@
         <i>(Fx3+, Chr, Op12)</i>
 		</td>
 		<td>Автоматизация сайта (>60 функций с настройками) с подключаемыми <a href=http://userstyles.org/styles/36690/>стилями ZenComment</a>.
-			<ul style="margin-left: -1em">
+			<ul>
 				<li><b>Подгрузка статей</b> без перезагрузки ленты</li>
 				<li><b>просмотр картинок</b> с увеличением и перемещением</li>
 				<li><b>принудительный кат</b>: все аннотации - не более определённой высоты</li>
@@ -64,8 +64,10 @@
 <blockquote> С 30 мая 2014 года новые версии HabrAjax и других скриптов, относящихся к Хабру, стали размещаться на <a href=https://github.com/spmbt/haPages/tree/gh-pages>github.com/spmbt/haPages</a> из-за невозможности обновления версий на прежнем традиционнном хостинге.</blockquote>
 		</td>
 	</tr>
+
+
 	<tr>
-		<td align=center valign=top>Стили<br>
+		<td rowspan=2 align=center valign=top>Стили<br>
 			<big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
@@ -74,29 +76,33 @@
 			локальный сайт<br>
             <i>(Fx3+, Chr, Op12)</i>
 		</td>
-		<td>Переоформление сайта для <ul>
+		<td colspan=2 rowspan=2>Переоформление сайта для <ul>
 				<li>лучшей компактности статей и блоков (<i>"читать, а не скроллить"</i>),</li>
 				<li>лучшей сжимаемости окна (до 320px),</li>
 				<li>исправления ошибок сайта (баг малой высоты окна, нерасширение полей ввода, близкостоящие кнопки и др.).</li>
 			</ul>
 			Основное:
 			<ul>
-				<li>незаметное Geektimes-меню: показ по наведению</li>
-				<li>пара кнопок меню по углам вместо левой кнопочной панели</li>
-				<li>уменьшены: заголовки, межстрочный интервал, поля, зазоры, сайдбар, футер</li>
-				<li>невидимые аватары, кнопки отправки ответов и деакцентирование малозначимых полей</li>
-				<li>нумерация страниц (пагинатор) фиксирована внизу окна</li>
+				<li><b>незаметное Geektimes</b>-меню: показ по наведению</li>
+				<li><b>меню по углам</b> вместо левой кнопочной панели</li>
+				<li><b>уменьшены</b>: заголовки, межстрочный интервал, поля, зазоры, сайдбар, футер</li>
+				<li><b>невидимые</b> аватары, кнопки отправки ответов и деакцентирование малозначимых полей</li>
+				<li><b>нумерация страниц</b> (пагинатор) фиксирована внизу окна</li>
 			</ul>
 		</td>
 		<td>
+			<i><b>Документация</b>:</i>
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>Github-doc</a></li>
 				<li><a href=http://userstyles.org/styles/36690/>Userstyles</a></li>
 				<li>Статья <a href="http://habrahabr.ru/post/223555/">ZenComment и преодоление «бешеной плитки» на χ·е</a></li>
 			</ul>
 		</td>
+	</tr>
+	<tr>
 		<td>
-			<i>(> 1000 строк)</i>
+			<i><b>Код</b>:<br>
+			(> 1000 строк)</i>
 			<ul>
 				<li><a href=>Github</a><br>
 				Установить:</li>
@@ -108,7 +114,7 @@
 
 
 	<tr>
-		<td align=center valign=top>Стили<br>
+		<td rowspan=2 align=center valign=top>Стили<br>
 			<big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
@@ -118,8 +124,8 @@
 			локальный сайт<br>
             <i>(Fx30+, Chr35+, Op12?)</i>
 		</td>
-		<td>Тёмная тема Хабрахабра. Дизайн, в основном, исходный, кроме тонов.
-			<ul style="margin-left: -1em">
+		<td colspan=2 rowspan=2>Тёмная тема Хабрахабра. Дизайн, в основном, исходный, кроме тонов.
+			<ul>
 				<li><b>Приглушенные цвета</b> картинок и блоков сайдбара<br>
 				<li>незаметное Geektimes-меню: показ по наведению</li>
 				<li><b>Кнопки левой панели совмещены</b> с навигацией страниц</li>
@@ -131,14 +137,18 @@
 			</ul>
 		</td>
 		<td>
+			<i><b>Документация</b>:</i>
 			<ul>
 				<li><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>Github</a></li>
 				<li><a href=https://userstyles.org/styles/101697/>userstyles.org</a></li>
 				<li>Статья <a href=http://habrahabr.ru/post/242189/>Наступают тёмные времена</a></li>
 			</ul>
 		</td>
+	</tr>
+	<tr>
 		<td>
-			<i>(> 1000 строк)</i>
+			<i><b>Код</b>:<br>
+			(> 1000 строк)</i>
 			<ul>
 				<li><a href=https://github.com/spmbt/haPages/tree/gh-pages/userscript/habraDarkAge>Github</a><br>
 				Установить:</li>
