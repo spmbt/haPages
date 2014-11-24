@@ -3,6 +3,7 @@
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
+			<div class="" align=right style="float: right; font-weight: normal">(2014-11-23)</div>
 			<h3>Скрипты и стили для разработки и использования</h3>
 		</th>
 	</tr>
@@ -22,7 +23,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align=center valign=top><big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a></b></big><br>
+		<td align=center valign=top>&#10102; <big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/>HabrAjax</a></b></big><br>
 		для сайтов:<br>
 		<a href=http://habrahabr.ru>Habrahabr</a>,<br>
         <a href=http://geektimes.ru>Geektimes</a>,<br>
@@ -67,7 +68,7 @@
 
 
 	<tr>
-		<td rowspan=2 align=center valign=top>Стили<br>
+		<td rowspan=2 align=center valign=top>&#10103; Стили<br>
 			<big><b><a href=http://spmbt.github.io/haPages/doc/habrAjax/zenComment.htm>ZenComment</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
@@ -116,7 +117,7 @@
 
 
 	<tr>
-		<td rowspan=2 align=center valign=top>Стили<br>
+		<td rowspan=2 align=center valign=top>&#10104; Стили<br>
 			<big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
@@ -162,7 +163,7 @@
 
 
 	<tr>
-		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>HabrPercentageRing</a></b></big><br>
+		<td align=center valign=top>&#10105; <big><b><a href=https://greasyfork.org/ru/scripts/1966-habr-percentage-ring>HabrPercentageRing</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
@@ -195,7 +196,7 @@
 
 
 	<tr>
-		<td align=center valign=top>Стили и скрипт <big><b><a href=http://habrahabr.ru/post/213615/>UfoCorrect</a></b></big><br>
+		<td align=center valign=top>&#10106; Стили и скрипт <big><b><a href=http://habrahabr.ru/post/213615/>UfoCorrect</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://habrastorage.org">habrastorage.org</a>,<br>
@@ -230,7 +231,7 @@
 
 
 	<tr>
-		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1964-habractivity>HabrActivity</a></b></big><br>
+		<td align=center valign=top>&#10107; <big><b><a href=https://greasyfork.org/ru/scripts/1964-habractivity>HabrActivity</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
@@ -258,7 +259,7 @@
 
 
 	<tr>
-		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>HabraKarmaView</a></b></big><br>
+		<td align=center valign=top>&#10108; <big><b><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>HabraKarmaView</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
@@ -287,7 +288,7 @@
 
 
 	<!--tr>
-		<td align=center valign=top><a href=></a>
+		<td align=center valign=top>&#10102; &#10131; &#9451; <a href=></a>
 		</td>
 		<td>
 		</td>
@@ -315,7 +316,7 @@
 
 
 	<tr>
-		<td align=center valign=top><big><b><a href=https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout>FeedlyCtrlF5</a></b></big><br>
+		<td align=center valign=top>&#10109; <big><b><a href=https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout>FeedlyCtrlF5</a></b></big><br>
 			для сайта<br>
 			<a href=http://feedly.com>feedly.com</a><br>
 			<i>(Fx30+, Chr35+, Op12?)</i>
@@ -340,7 +341,7 @@
 
 
 	<tr>
-		<td align=center valign=top>Стили и скрипт <big><b><a href=http://spmbt.github.io/haPages/doc/overCompact/>OverCompact</a></b></big><br>
+		<td align=center valign=top>&#10110; Стили и скрипт <big><b><a href=http://spmbt.github.io/haPages/doc/overCompact/>OverCompact</a></b></big><br>
 			для сайта и форума<br>
 			<a href=http://overclockers.ru>overclockers.ru</a><br>
 			<i>(Fx15+, Chr20+, Op11+)</i>
@@ -374,11 +375,11 @@
 
 #### Другие скрипты и стили ####
 
-* [googleSearchExtraButtons](https://github.com/spmbt/googleSearchExtraButtons): добавление нескольких кнопок на страницу результатов поиска Google (искать PDF; за последний день, неделю, месяц и год). <a href=http://habrahabr.ru/post/179367/>Статья</a> (2013) о причинах выставления этих кнопок.
+* &#10111; [googleSearchExtraButtons](https://github.com/spmbt/googleSearchExtraButtons): добавление нескольких кнопок на страницу результатов поиска Google (искать PDF; за последний день, неделю, месяц и год). <a href=http://habrahabr.ru/post/179367/>Статья</a> (2013) о причинах выставления этих кнопок.
 
-* [Jira usable](https://userstyles.org/styles/40625/): подкраска блоков Джиры для лучшей читаемости и разделения. Просмотреть эффекты можно на каких-нибудь Atlassian-[страницах](https://jira.atlassian.com/browse/GHS-11516) и [подобных](https://jira.atlassian.com/browse/JRA-38860?filter=-4). Для использования в своём проекте впишите домен проекта вместо слов "writeyourdomain".
+* &#9451; [Jira usable](https://userstyles.org/styles/40625/): подкраска блоков Джиры для лучшей читаемости и разделения. Просмотреть эффекты можно на каких-нибудь Atlassian-[страницах](https://jira.atlassian.com/browse/GHS-11516) и [подобных](https://jira.atlassian.com/browse/JRA-38860?filter=-4). Для использования в своём проекте впишите домен проекта вместо слов "writeyourdomain".
 
-* [Coffeescript Title Fix](https://userstyles.org/styles/89070/coffeescript-title-fix): смотреть [coffeescript.org](http://coffeescript.org/) и [его перевод](http://cidocs.ru/coffeescript/) без постоянно съедаемой верхушки окна - всё окно используется для просмотра кодов и статей.
+* &#9452; [Coffeescript Title Fix](https://userstyles.org/styles/89070/coffeescript-title-fix): смотреть [coffeescript.org](http://coffeescript.org/) и [его перевод](http://cidocs.ru/coffeescript/) без постоянно съедаемой верхушки окна - всё окно используется для просмотра кодов и статей.
 
 ---
 
