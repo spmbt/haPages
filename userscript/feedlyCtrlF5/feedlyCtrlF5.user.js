@@ -7,6 +7,7 @@
 // @description:ru Обновляет по "R", исправляет стили, добавляет время обновления и висячий заголовок открытой статьи 
 // @namespace   github.com/spmbt
 // @include     http://feedly.com/*
+// @include     https://feedly.com/*
 // @update 4 show date+time of load page or refresh; floating author+title of opened line + float.date+time
 // ==/UserScript==
 

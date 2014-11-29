@@ -1,0 +1,20 @@
+/** FeedlyMoreCompact v. 5.2014.11.30,
+ * update 4 "https" url prefix */
+@-moz-document domain("feedly.com"), url-prefix('https://feedly.com'){
+	#feedlyTabsHolder{width: 240px!important}
+	#feedlyTabs{padding: 0 2px 0 0!important}
+	#feedlyFrame{margin-left: 220px!important}
+	#mainBar, #feedlyPage{width:auto!important}
+	a[style*="images/condensed-twitter-black"], a[style*="images/condensed-sharing-facebook"]{display:none!important}
+	#feedlyMessageBar{display:none!important}
+	.profileMore{margin-right:38px!important}
+	#feedlyTitleBar{margin-left: 11px!important}
+	#feedlyPart0{padding-left: 6px!important}
+	#feedlyPart{padding-right: 6px!important}
+	.u0Entry .condensedTools{width: auto!important}
+	.u0Entry .condensedTools img {padding:0!important}
+	.u0Entry .condensedTools a:first-child{margin: 0 -5px 0 6px}
+	.u0Entry .lastModified{padding-left: 2px!important}
+	.inlineFrame .u100entry .title{font-size:17px!important}
+	.u0EntryList{margin-top: 0!important}
+}
