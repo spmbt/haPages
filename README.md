@@ -236,6 +236,9 @@
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
+			<table><tr><td>
+			<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrActivity20150101-111047.png"/>
+			</td></tr></table>
 		</td>
 		<td>Снятие со страниц комментариев данных об активности выбранного пользователя и&nbsp;представление их в&nbsp;виде диаграммы, подобной диаграмме активности "Contributions" на&nbsp;Github. <a href=http://spmbt.github.io/haPages/doc/habractivity03.jpg>Скриншот</a>.
 		</td>
@@ -264,6 +267,9 @@
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
+			<table><tr><td>
+			<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habraKarmaView20141231-052826.png"/>
+			</td></tr></table>
 		</td>
 		<td>Подсказка кармы и&nbsp;рейтинга по&nbsp;наведению на&nbsp;любой ник на&nbsp;странице, кроссбраузерно.<br>
 		<br>

@@ -1,23 +1,25 @@
 ﻿// ==UserScript==
 // @id             habrActivity
 // @name           habrActivity
-// @version        4.2014.10.17
+// @version        5.2014.12.31
 // @author         spmbt0
-// @description    view user activity in Habr site for Fx-Opera-Chrome-Safari
+// @description    view user activity in Habr comments for Fx-Opera-Chrome
 // @include        http://habrahabr.ru/*
 // @include        http://geektimes.ru/*
 // @exclude        http://habrahabr.ru/api/*
-// @update 1 многострочная диаграмма; Исправление user lowercase из строки адреса; число прочитанных комментариев и период их опубликования; удаление пользователей по одному;
+// @update 4 win.console; remove panel from Geektimes articles;
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // @namespace https://greasyfork.org/users/2323
 // ==/UserScript==
 (function(win, noConsole, css, hActHelp){
-var $q = function(q, f){return (f||document).querySelector(q)}
+var d = document
+	,dBody = d.body || d.documentElement
+	,$q = function(q, f){return (f||d).querySelector(q)}
 	,uHead = $q('.user_header')
 	,uName2a = $q('.username a', uHead)
 	,uName2 = uName2a && uName2a.innerHTML
 	,comms = $q('.comments_list');
-if(uHead && uName2 && comms){ //=====(основные операции скрипта, только на странице некоторого пользователя)=====
+if(uName2 && comms && $q('.user_comments')){ //=====(всё работает только на странице комментариев некоторого пользователя)=====
 
 try{ //для оповещения об ошибках в Fx
 var NOWdate = new Date()
@@ -31,7 +33,7 @@ var NOWdate = new Date()
 	return (JSON.parse(localStorage && localStorage[lStorRoot + name] ||'{"h":{}}')).h;
 }
 ,removeLocStor = function(name){localStorage.removeItem(lStorRoot + name);}
-,$qA = function(q, f){return (f||document).querySelectorAll(q)}
+,$qA = function(q, f){return (f||d).querySelectorAll(q)}
 ,$pd = function(ev){ev.preventDefault();}
 ,$sp = function(ev){ev.stopPropagation();}
 ,$x = function(el, h){ //===extend===
@@ -48,7 +50,7 @@ var NOWdate = new Date()
 		g.IF = g.IF.apply(g, g.ifA ||[]);
 	g.el = g.el || g.clone || g.IF && g.IF.attributes && g.IF ||'DIV';
 	var o = g.clone && g.clone.cloneNode(!0)
-			|| (typeof g.el =='string' ? document.createElement(g.el) : g.el);
+			|| (typeof g.el =='string' ? d.createElement(g.el) : g.el);
 	if(o && (g.IF===undefined || g.IF) && (!g.q || g.q && (g.dQ = g.q instanceof Array ? $q(g.q[0], g.q[1]) : $q(g.q)) ) ){ //выполнять, если существует; g.dQ - результат селектора для функций IF,f
 		if(g.cl)
 			o.className = g.cl;
@@ -83,19 +85,6 @@ var NOWdate = new Date()
 	}
 	return o;
 }
-,addRules = function(css){ var u = 'undefined';
-	if(typeof GM_addStyle !=u){ GM_addStyle(css);
-	}else if(typeof PRO_addStyle !=u){ PRO_addStyle(css);
-	}else if(typeof addStyle !=u){ addStyle(css);
-	}else{
-		var heads = document.getElementsByTagName('head');
-		if(heads.length){
-			var node = document.createElement('style');
-			node.type ='text/css';
-			node.appendChild(document.createTextNode(css));
-			heads[0].appendChild(node);
-	}}
-}
 ,parents = function(cl, elem){
 	for(var el = elem; el!=null && !RegExp(cl).test(el.className); el = el.parentNode);
 	return el;
@@ -113,12 +102,11 @@ var NOWdate = new Date()
 		,datMonth ={"января":0,"февраля":1,"марта":2,"апреля":3,"мая":4,"июня":5,
 			"июля":6,"августа":7,"сентября":8,"октября":9,"ноября":10,"декабря":11}
 		,datFull = dat.innerHTML
-		,datQaToday = /сегодня/.test(datFull)
-		,datQaYest = /вчера/.test(datFull)
+		,datYest = /вчера/.test(datFull)
 		,dateText = datFull.replace(/ в /,' ').replace(/(сегодня |вчера )/,'')
 		,datArr = dateText.match(/(\d+)\s+([а-яё]+)\s+(\d{4})?/i);
 	if(!datArr)
-		datArr =[0,(datQaYest ? yestDate : NOWdate).getDate(),(datQaYest ? yestDate : NOWdate).getMonth(),(datQaYest ? yestDate : NOWdate).getFullYear()];
+		datArr =[0,(datYest ? yestDate : NOWdate).getDate(),(datYest ? yestDate : NOWdate).getMonth(),(datYest ? yestDate : NOWdate).getFullYear()];
 	var altArr = dateText.match(/(\d+)\:(\d+),([а-яё]+)\s*(\d+)\s*([а-яё]+)\s*(\d{4})?/i); //ччммддЧЧММГГГГ?
 	if(altArr)
 		datArr =[0,altArr[4],altArr[5],altArr[6]];
@@ -130,33 +118,40 @@ var NOWdate = new Date()
 	var ret2 = new Date(datArr[3], mon, datArr[1], dateText.replace(/(.*?)(\d{1,2}):(\d\d)(.*)/,'$2'), dateText.replace(/(.*?)(\d{1,2}):(\d\d)(.*)/,'$3') ).getTime();
 	if(+NOWdate < ret2)
 		ret2 = new Date(datArr[3] -1, mon, datArr[1], dateText.replace(/(.*?)(\d{1,2}):(\d\d)(.*)/,'$2'), dateText.replace(/(.*?)(\d{1,2}):(\d\d)(.*)/,'$3') ).getTime();
-	return ret2
+	return ret2;
 }
 ,getYearWeekDay = function(dd){
-	//wcl(new Date(dd).getFullYear())
 	var d = new Date(dd), jan1 = new Date(d.getFullYear(),0,1);
 	return [d.getFullYear(), Math.ceil(((dd - jan1) /86400000 + jan1.getDay() -1)/7)
 		, d.getDay() + 7*(d.getDay()==0), d.getDate(), d.getMonth()];
 }
 ,wcl = function(a){ a = a ||''; //консоль как метод строки или функция, с отключением по noConsole
-	if(win.console && !noConsole)
-		win.console.log.apply(console, this instanceof String
+	if(win.console && (!noConsole || this =='ER_global:'))
+		win.console.log.apply(win.console, this instanceof String
 			? ["'=="+ this +"'"].concat([].slice.call(arguments)) : arguments);
 };
 String.prototype.wcl = wcl;
-addRules(css);
 
 var hActUsersTmpl ={ //шаблон основной (индексной) записи в хранилище
-		dataLen: 0 //число записей в хранилище вида habrActDataNNNNN, где NNNNN - число
-		,dataCount: 25 //огранчитель цикла чтения, страниц
-		,dateStart: 1000 //ограничитель периода чтения, до 365 дней, сравнивает дату начала цикла и посл.
-		,userS: []  //массив имён пользователей, для которых имеются данные
-	}
+	dataLen: 0 //число записей в хранилище вида habrActDataNNNNN, где NNNNN - число
+	,dataCount: 25 //огранчитель цикла чтения, страниц
+	,dateStart: 1000 //ограничитель периода чтения, до 365 дней, сравнивает дату начала цикла и посл.
+	,userS: []  //массив имён пользователей, для которых имеются данные
+}
 ,readAutoIntervalMax = 365
 ,hActDataTmpl ={ //шаблон записи данных в хранилище; запись имеет вид habrActData[число], от 1 до dataLen
 	user:'' //пользователь, для которого со страницы комментариев сняли данные
 	,data: [] //массив дат (или сложнее)
 };
+(function(css){ var u = 'undefined'; //addRules
+	if(typeof GM_addStyle !=u){ GM_addStyle(css);
+	}else if(typeof addStyle !=u){ addStyle(css);
+	}else{
+		var node = d.createElement('style');
+		node.type ='text/css';
+		node.appendChild(d.createTextNode(css));
+		(d.getElementsByTagName('head')[0] || dBody).appendChild(node);}
+})(css);
 
 var readPage
 	,ww =0
@@ -177,7 +172,7 @@ var readPage
 				setLocStor('users', hActUsers);
 				return;
 			}
-			hActUsers.dataLen++
+			hActUsers.dataLen++;
 			startButt.innerHTML ='Стоп';
 			if(handStart)
 				hActUsers.dataCount = hActUsersTmpl.dataCount;
@@ -240,7 +235,7 @@ helpButt = $e({el:'button', ht:'Подробности'
 			helpHAct = $e({cl:'helpHAct'
 				,ht: hActHelp
 				,on:{click: function(){this.style.display ='none';}}
-				,apT: document.body
+				,apT: dBody
 			});
 			$q('.in', helpHAct).addEventListener('click', function(ev){$sp(ev);},!1);
 		}else
@@ -275,9 +270,9 @@ selectUser = function(f){ //предложить выбор пользовате
 	if(!selUser || selUser.style.display=='none'){
 		if(!selUser){
 			selUser = $e({cl:'selUser'
-				,ht: '<div class=under></div><div class=in><h2><input class="inUser" title="на комментарии польователя; Ctrl-Enter - в новом окне"><span class="titl">Выбрать пользователя</span></h2><div class="diag empty"></div></div>'
+				,ht: '<div class=under></div><div class=in><h2><input class="inUser" title="перейти -видео на комментарии пользователя; Ctrl-Enter - в новом окне"><span class="titl">Выбрать пользователя</span></h2><div class="diag empty"></div></div>'
 				,on:{click: function(){this.style.display ='none';}}
-				,apT: document.body
+				,apT: dBody
 			});
 			$q('.in', selUser).addEventListener('click', function(ev){$sp(ev);},!1);
 			$q('.inUser',selUser).addEventListener('keyup',function(ev){ if(ev.keyCode ==13){
@@ -352,7 +347,7 @@ showData = function(user){ //показать диаграмму активно�
 			if(user == dat.user)
 				dA = dA.concat(dat.data);
 	}}
-	diag.style.height ='100px'
+	diag.style.height ='100px';
 	dA.sort(function(a, b){return a - b});
 	var ymd0 = getYearWeekDay(dA[0]*1000), ymdE =[] //год, неделя, день, число, месяц, кол-во комм.
 		,diagLeftMargin =7
@@ -409,9 +404,9 @@ del1user = function(user){ //удалить данные 1 пользовате�
 
 
 }catch(er){
-	wcl('~~ER_global: '+ er +' (line '+(er.lineNumber||'')+')')}; //для оповещения об ошибках в Fx
+	'ER_global:'.wcl(er +' (line '+(er.lineNumber||'')+')')}; //для оповещения об ошибках в Fx
 }} //=====/(конец основных операций)=====
-)(typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})(), !'noConsole',
+)(typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})(), 'noConsole',
 
 	/*===== css =====*/
 

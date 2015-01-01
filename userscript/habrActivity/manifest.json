@@ -10,6 +10,6 @@
    "converted_from_user_script": true,
    "description": "view user activity in comments of Habr site",
    "name": "HabrActivityFx",
-   "version": "4",
+   "version": "5",
    "manifest_version": 2
 }
