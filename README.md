@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td colspan=4>
-<blockquote> Замечание для пользователей <b><i>Firefox 30</i></b> и <b><i>Scriptish</i></b>: нужно использовать <a href=https://github.com/scriptish/scriptish-nightlies/tags>последнюю ночную сборку от 11 мая или около того, 0.1.12 и новее</a> Scriptish для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое).</blockquote>
+<blockquote> Замечание для пользователей <b><i>Firefox 30+</i></b> и <b><i>Scriptish</i></b>: нужно использовать <a href=https://github.com/scriptish/scriptish-nightlies/tags>последнюю ночную сборку от 11 мая или около того, 0.1.12 и новее</a> Scriptish для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое).</blockquote>
 		</td>
 	</tr>
 	<tr>
@@ -30,6 +30,12 @@
         <a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
         локальный сайт<br>
         <i>(Fx3+, Chr, Op12)</i>
+			<table><tr><td>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrAjax20150102-005348.png"/>
+			</td></tr></table>
+			<table><tr><td>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrAjax20150101-235908.png"/>
+			</td></tr></table>
 		</td>
 		<td>Автоматизация сайта (>60 функций с&nbsp;настройками) с&nbsp;подключаемыми <a href=http://userstyles.org/styles/36690/>стилями ZenComment</a>.
 			<ul>
@@ -48,6 +54,9 @@
 				<li><a href=https://greasyfork.org/ru/scripts/1970-habrajax>Greasyfork.org</a></li>
 				<li><a href=http://userscripts-mirror.org/scripts/show/121690.html>Старое описание на userscripts.org</a> <i>(не устанавли-<br>вать оттуда! - версия устаревшая и неизменяемая)</i></li>
 			</ul>
+			<table><tr><td>
+				<a href="doc/img/snaphajax20121023.png" target=_blank><img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/snaphajaxPre20121023.png"/></a>
+			</td></tr></table>
 		</td>
 		<td>
 			<i>(> 5000 строк)</i>
@@ -76,6 +85,12 @@
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx3+, Chr, Op12)</i>
+			<table><tr><td>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/zenComment20150102-004402.png"/>
+			</td></tr></table>
+			<table><tr><td>
+				<a href="doc/img/zenCommentWide.png" target=_blank><img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/zenCommentWidePre.png"/></a>
+			</td></tr></table>
 		</td>
 		<td colspan=2 rowspan=2>Переоформление сайта для <ul>
 				<li><b>лучшей компактности</b> статей и блоков (<i>"читать, а не скроллить"</i>),</li>
@@ -170,6 +185,9 @@
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
 			<i>(Fx3+, Chr, Op10+)</i>
+			<table><tr><td>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrPercentageRing20150102-011029.png"/>
+			</td></tr></table>
 		</td>
 		<td>Показывает соотношение положительных и&nbsp;отрицательных оценок к&nbsp;комментарию или статье кольцевой диаграммой вокруг суммарной оценки.<br>
 		<br>
@@ -237,7 +255,7 @@
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
 			<table><tr><td>
-			<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrActivity20150101-111047.png"/>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habrActivity20150101-111047.png"/>
 			</td></tr></table>
 		</td>
 		<td>Снятие со страниц комментариев данных об активности выбранного пользователя и&nbsp;представление их в&nbsp;виде диаграммы, подобной диаграмме активности "Contributions" на&nbsp;Github. <a href=http://spmbt.github.io/haPages/doc/habractivity03.jpg>Скриншот</a>.
@@ -268,7 +286,7 @@
 			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
 			<table><tr><td>
-			<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habraKarmaView20141231-052826.png"/>
+				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habraKarmaView20141231-052826.png"/>
 			</td></tr></table>
 		</td>
 		<td>Подсказка кармы и&nbsp;рейтинга по&nbsp;наведению на&nbsp;любой ник на&nbsp;странице, кроссбраузерно.<br>
