@@ -140,7 +140,10 @@
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
-            <i>(Fx30+, Chr35+, Op12?)</i>
+            <i>(Fx30+, Chr35+)</i>
+			<table><tr><td>
+				<a href="doc/habraDarkAge/habrDarkAgeSearchLowHeight.png"><img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habraDarkAge20150102-034308.png"/></a>
+			</td></tr></table>
 		</td>
 		<td colspan=2 rowspan=2>Тёмная тема Хабрахабра. Дизайн, в&nbsp;основном, исходный, кроме тонов.
 			<ul>
@@ -157,7 +160,7 @@
 		<td>
 			<i><b>Документация</b>:</i>
 			<ul>
-				<li><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>Github</a></li>
+				<li><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>Github</a>+фото</li>
 				<li><a href=https://userstyles.org/styles/101697/>Userstyles</a></li>
 				<li>Статья <a href=http://habrahabr.ru/post/242189/>Наступают тёмные времена</a></li>
 			</ul>
@@ -351,6 +354,7 @@
 			<ul>
 				<li><a href=https://greasyfork.org/ru/scripts/5915-feedly-partial-refresh-by-r-in-any-keyboard-layout>Greasyfork</a></li>
 			</ul>
+			<a href="doc/img/feedlyCtrlF5_20150102-035234.png">(скриншот)</a>
 		</td>
 		<td>
 			<i>(100 строк)</i>
