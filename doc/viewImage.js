@@ -25,7 +25,7 @@ var win = window
 	,$offset = function(el){
 		var box = el.getBoundingClientRect(), aa ={
 			top: Math.round(box.top + win.pageYOffset),
-			left: Math.round(box.left + win.pageXOffset) }
+			left: Math.round(box.left + win.pageXOffset) };
 		return aa;
 	},
 	$each = Function.prototype.call.bind(Array.prototype.forEach),
@@ -34,7 +34,7 @@ var win = window
 		if(typeof selS =='string') selS =[selS];
 		for(var i =0, sL = selS.length, s =''; i < sL; i++)
 			for(var j =0, eL = extS.length; j < eL; j++)
-				s += (i==0 && j==0 ?'':',') + selS[i] + selPart + extS[j] +'"]'; //.content a[href$=".jpg"]
+				s += (i==0 && j==0 ?'':',') + selS[i] + selPart + extS[j] +'"]'; //.content a[href $=".jpg"]
 		return s;
 	},
 	getSel2 = function(selS, selPart){
@@ -207,8 +207,8 @@ var win = window
 },
 handlImgViews = function(el, selector){ //обработчики просмотров картинок
 	var hS = settings
-		,selector = getSel(selector,' a[href$="') || getSel(['.content','.message','.comments .text'],' a[href$="')
-		,els = dQA(selector, el); //все ссылки на картинки
+		,selector1 = getSel(selector,' a[href $="') || getSel(['.content','.message','.comments .text'],' a[href $="')
+		,els = dQA(selector1, el); //все ссылки на картинки
 	for(var i =0, linkImg; linkImg = els[i++];){ //подгрузка картинок в рамках до 200 на 200 по расширениям файлов в ссылках
 		var a = linkImg.cloneNode(false)
 			,imgsInLink = dQA('img', linkImg);
