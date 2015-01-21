@@ -1,11 +1,11 @@
-/** Habr ZenComment v423.2014.11.23, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v425.2015.01.21, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: indent in Freelansim block
+ * LastUpdatesDescription: +megamozg.ru
  */
-@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!/special|/api).*"){
 
-/*начало стилей для не-Firefox */
+	/*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
 body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 #layout{width:auto!important;
@@ -145,7 +145,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	top: 0;
 	margin: -60px -55px 0!important;
 	background-position: 50% -144px!important;
-		border-bottom-right-radius:5px;
+	border-bottom-right-radius:5px;
 	background-color: #ccc!important;
 	opacity: 0.5;filter: alpha(opacity=50)}
 .header .logo:hover,
@@ -215,9 +215,10 @@ form#search_form{width: 245px!important;height:21px}
 .main_menu a:hover[href*="companies"]{width: auto; margin-right: 3px!important}
 #header_bg{position:absolute!important}
 .company_header,
-.profile-header{height: 28px!important;margin-bottom:0!important;padding:3px 0 0 5px!important;font-size:inherit!important}
-.company_header .company_icon img{position: absolute; margin-top:29px!important}
-.company_header .name a, .company_header .rating{font-size: 180%!important}
+.profile-header{height: 28px!important;margin-bottom:-10px!important;padding:13px 0 0 5px!important;font-size:inherit!important}
+.inner .company_header .company_icon img{position: absolute; z-index: 3; margin-top: 5px!important}
+.company_header .name{margin: 0 26px -10px 51px!important}
+.company_header .name a, .company_header .rating{margin-bottom: -10px; font-size: 180%!important}
 .profile-header .profile-actions dt{font-size: 220%!important;padding-top: 6px!important}
 .profile-header h1{margin: 0!important}
 .profile-header h1 .favicon{margin-top: 6px!important}
@@ -243,6 +244,11 @@ form#search_form{width: 245px!important;height:21px}
 	background-image: url(http://geektimes.ru/images/logo.svg)!important;
 	background-size: 100px 60px !important;
 	background-position:-22px -19px!important}
+#navbar a.logo[href*=megamozg]{
+	width: 30px!important;
+	background-image: url(http://megamozg.ru/images/logo.svg)!important;
+	background-size: 51px 40px !important;
+	background-position:-10px -10px!important}
 #navbar a.tab{
 	position: absolute!important;
 	width: 32px!important;
@@ -278,15 +284,15 @@ form#search_form{width: 245px!important;height:21px}
 	margin-top:-6px!important}
 #navbar #print_tab{display: none!important}
 #navbar a.tab_user:hover ~ a.tab_add_post, #navbar a.tab_add_post:hover{visibility: visible}
-  #navbar a.tab_add_post:hover + a.tab_settings, #navbar a.tab_settings:hover,
-  #navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu{display: block!important}
-  #navbar a.logo + a.tab_menu{left: 32px!important}
-	.g-icon-alarm:before{position: relative; top: -4px; color: rgba(153, 153, 153, 0.25)}
-	.g-icon-alarm:hover:before{color: rgba(85, 153, 216, 0.24)}
-	.g-icon-burger:before{position: relative; top: -8px; color: rgba(85, 153, 216, 0.25)}
-	.g-icon-burger:hover:before{color: rgba(85, 153, 216, 0.37)}
-	.g-icon-write:before{color: rgba(85, 153, 216, 0.43)}
-	.g-icon-gear:before{color: rgba(85, 153, 216, 0.35)}
+#navbar a.tab_add_post:hover + a.tab_settings, #navbar a.tab_settings:hover,
+#navbar a.tab_tracker:hover + a.tab_menu, #navbar a.tab_menu:hover,#navbar a.logo:hover + a.tab_menu{display: block!important}
+#navbar a.logo + a.tab_menu{left: 32px!important}
+.g-icon-alarm:before{position: relative; top: -4px; color: rgba(153, 153, 153, 0.25)}
+.g-icon-alarm:hover:before{color: rgba(85, 153, 216, 0.24)}
+.g-icon-burger:before{position: relative; top: -8px; color: rgba(85, 153, 216, 0.25)}
+.g-icon-burger:hover:before{color: rgba(85, 153, 216, 0.37)}
+.g-icon-write:before{color: rgba(85, 153, 216, 0.43)}
+.g-icon-gear:before{color: rgba(85, 153, 216, 0.35)}
 #navbar .nav_panel .tab.open:not(:hover){background: transparent!important}
 #navbar .nav_panel .tab.open:before{width:0!important}
 #navbar .nav_panel #print_tab{top:-22px; right:129px}
@@ -372,6 +378,7 @@ form#search_form{width: 245px!important;height:21px}
 .user_header h2.username, .user_header .karma .score .num, .user_header .rating .num{font-size: 24px!important}
 .user_header h2.username a:hover,
 .hub_header h2 .hub_title:hover{color: #84b18a!important}
+.user_header a.avatar{top: 21px; left: 1px}
 
 .content_left{width: 240px; min-width: 74%; margin-right: 0!important; padding:0!important}
 .content_left .add_post{position: relative; left: 35px;opacity: 0.5;filter: alpha(opacity=50)}
@@ -380,9 +387,9 @@ form#search_form{width: 245px!important;height:21px}
 	display: inline-block!important;
 	width: 100%;
 	font-size: inherit!important}
-.content_left table.menu .profile a{position:relative; z-index:2; opacity:0.4}
+.content_left table.menu .profile a{position:relative; z-index:2; opacity:1!important}
 .content_left table.menu .profile a:hover{opacity:0.9}
-.content_left .submenu{position: relative; z-index: 1; margin: -12px 0!important}
+.content_left .submenu{position: relative; display: inline-block; z-index: 3; height: 22px; top: -13px; margin: -13px 0 -9px!important}
 /*содержание (в статье или в группе .posts)*/
 .content_left .post{overflow: inherit!important; margin:12px 0 32px!important}
 .content_left .company_post .post{margin-bottom: -5px!important}
@@ -433,7 +440,7 @@ h1{letter-spacing:0!important}
 .post .content ul,
 .post .content ol{margin: 6px 9px 6px 18px!important;list-style: decimal inside none!important; text-indent:-0.75em}
 
- #wrapper .comment_item .message pre
+#wrapper .comment_item .message pre
 ,#wrapper .comment_item .message code
 ,.content_left .comments_list .comment_item .message pre
 ,.content_left .comments_list .comment_item .message code
@@ -443,20 +450,20 @@ h1{letter-spacing:0!important}
 	overflow: auto;
 	line-height: 1.3!important;
 	font-size:100%!important}
- .content_left .post .content br+br
+.content_left .post .content br+br
 ,.content_left .post .content h4+br
 ,.content_left .post .content pre+br
-	{display: inline-block!important; height: 10px!important;line-height: 10px!important}
+{display: inline-block!important; height: 10px!important;line-height: 10px!important}
 *|html[xmlns*=""] .content_left .post .content br+br
 ,.content_left .post .content h4+br
 ,.content_left .post .content pre+br
-	{display: block!important}/*Op*/
- .comment_item >.message br+br, .comment_item >.message blockquote+br{display: inline-block!important;height: 6px!important;line-height: 6px!important}
+{display: block!important}/*Op*/
+.comment_item >.message br+br, .comment_item >.message blockquote+br{display: inline-block!important;height: 6px!important;line-height: 6px!important}
 *|html[xmlns*=""] .comment_item >.message br+br, .comment_item >.message blockquote+br{display: block!important}/*Op*/
 .content >blockquote,.message >blockquote{margin:2px 0!important;padding-left: 6px!important}
 
 .content .vSpace,.comments .vSpace, .content .vSpace3,.comments .vSpace3, .comments_list .vSpace, .comments_list .vSpace3
-	{width:3.6em; height:4px; margin:-1px 0 -3px 1.6em!important; background:#ddd}
+{width:3.6em; height:4px; margin:-1px 0 -3px 1.6em!important; background:#ddd}
 .content .vSpace3,.comments .vSpace3, .comments_list .vSpace3{width: 2.8em; height: 2px; margin: 0 0 -2px 1.6em!important}
 
 .content_left .post .content iframe{max-width:100%}
@@ -657,7 +664,7 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	overflow: hidden;
 	left: 1.7em;
 	top:-2px;
-		border-radius: 4px;
+	border-radius: 4px;
 	background-color:#f2f2e4;
 	color: #8ca!important}
 .comments_list .comment_item .comment_body >.reply a.abuse_link:hover{width: auto; overflow: inherit}
@@ -673,7 +680,7 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	line-height: 11px!important;
 	margin:-8px 8px -4px 32px!important;
 	padding:0 3px 0 4px!important;
-		border-radius:4px;
+	border-radius:4px;
 	text-decoration: none!important;
 	font-size: 10px!important;
 	letter-spacing:1px;
@@ -757,19 +764,19 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 .comments.c2:hover div.reply,
 .comment_item:hover div.reply{border-top: 1px solid #fff!important}
 .comments.c2:not(:hover) .reply >a.reply_link
-	,.comments_list:not(:hover) .reply >a.reply_link
-	,.comments.c2:not(:hover) .reply >a.reply
-	,.comments_list:not(:hover) .reply >a.reply
-	,.comments.c2:hover >.comment_item:not(:hover) .reply >a.reply_link
-	,.comments_list:hover >.comment_item:not(:hover) .reply >a.reply_link
-	,.comments.c2:hover >.comment_item:not(:hover) .reply >a.reply
-	,.comments_list:hover >.comment_item:not(:hover) .reply >a.reply
-	,.comments.c2 >.comment_item:hover .comment_item:not(:hover) a.reply_link
-	,.comments_list >.comment_item:hover .comment_item:not(:hover) a.reply_link
-	,.comments.c2 >.comment_item:hover .comment_item:not(:hover) a.reply
-	,.comments_list >.comment_item:hover .comment_item:not(:hover) a.reply{visibility:hidden}
+,.comments_list:not(:hover) .reply >a.reply_link
+,.comments.c2:not(:hover) .reply >a.reply
+,.comments_list:not(:hover) .reply >a.reply
+,.comments.c2:hover >.comment_item:not(:hover) .reply >a.reply_link
+,.comments_list:hover >.comment_item:not(:hover) .reply >a.reply_link
+,.comments.c2:hover >.comment_item:not(:hover) .reply >a.reply
+,.comments_list:hover >.comment_item:not(:hover) .reply >a.reply
+,.comments.c2 >.comment_item:hover .comment_item:not(:hover) a.reply_link
+,.comments_list >.comment_item:hover .comment_item:not(:hover) a.reply_link
+,.comments.c2 >.comment_item:hover .comment_item:not(:hover) a.reply
+,.comments_list >.comment_item:hover .comment_item:not(:hover) a.reply{visibility:hidden}
 .comments_list >.comments_list .comment_item:hover .reply a.reply_link
-	,.comments_list >.comments_list .comment_item:hover .reply a.reply{visibility:visible}
+,.comments_list >.comments_list .comment_item:hover .reply a.reply{visibility:visible}
 .comment_item .reply a.reply_link,.comment_item .reply a.reply,
 .comment_holder .reply a{
 	padding: 2px 7px 5px!important;border-radius:5px;
@@ -869,7 +876,7 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	margin: 0 -2px!important; border-radius:5px}
 .editor .panel .spanned,
 .editor .panel .wysiwyg_wrapper .btn{
-display: inline-block!important;
+	display: inline-block!important;
 	position:relative;
 	float: left;
 	z-index: 11;
@@ -947,7 +954,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 	width: 0;
 	height: 18px;
 	padding: 4px 0 2px 32px!important;
-background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamusbW4p6+0trq9pKuwvr6+sre8ubu9m6Squ76/tLe5q7O5qbK4sbe7uLy+uLq7qbG4pK2yury/vb6+rbS4trq8qbC1tLm9r7a6uby9rbO4oqqwtru9vr+/pq6znqetqK+0rrW6naarpq2ytbq9oKiur7W5qrG2mqOppKyxs7i8vb+/sLa5vL29t7u+rLK3ur+/t7q9vr6/uLu+vb6/t7q8s7a5v7+/uru8rbS6vL2+v///yH5BAEAAD8ALAAAAAAuACgAAAb/wAiH4/oZj8ikcslUKhqNUnNKrUZoNAxHUe16f4pQCEMrmc+R3XdtTO9mrw12DoKF2F/YbhfYyV6AgTIld3hVKnsrOxJ7jXsdGIWGTRiAGjs3jo41HpNTM1AkDS6BpYAknk0BNzciFioWLLKzFhYGGRk5ujcLCx0WAz7CFzg2IY1NKwcHJwczB7OzMswFBTrXDg4C2xMTPAMDMT4XNntNJC4uFQoGES4b8PDvFalMIhERCCUVPf3+PQoiiKi35ES/Dw9SUFjI0MwJSQSPtHjw4AMEhBQpluBQAWJEIx8WEuihAYRJkwpaePz4A2MKDiNiyvyQgKUSfSVSmCBgs8oH/3wjenYhYMJEC6FWhhRBOuVJFKZTrmRhomAL0jBjmJQoc8ZMGoJuZmiNMwdLnZVs9PAxAgNDCbcYPPgx9WIQ2i+IdqwwIkLGDRAyZPRhpGkHpLtdKr3QYISAzJiKMu0p2oiTJ1ANUC0RRQpQ0VKMJ626YYCJgVexWDBYzaKWhhw1FvDyBUzYsGLGGiljxqTZs2iypomwlk3btgwTFnwLNy5BuR3o1DFZ1+6drAMbXKAYOOlePiNE0qXTx68fAAAKAEbQbMhgjw9GTgSej1DhwgclepgRgbjKxIogPTYCARdR1MMDbnHUn08iMZECSSeZFIFK9bjExAgwCUgTQTilwBEEUTwJ9VMEQUH1YVFHmbhEEAA7)!important;
+	background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamusbW4p6+0trq9pKuwvr6+sre8ubu9m6Squ76/tLe5q7O5qbK4sbe7uLy+uLq7qbG4pK2yury/vb6+rbS4trq8qbC1tLm9r7a6uby9rbO4oqqwtru9vr+/pq6znqetqK+0rrW6naarpq2ytbq9oKiur7W5qrG2mqOppKyxs7i8vb+/sLa5vL29t7u+rLK3ur+/t7q9vr6/uLu+vb6/t7q8s7a5v7+/uru8rbS6vL2+v///yH5BAEAAD8ALAAAAAAuACgAAAb/wAiH4/oZj8ikcslUKhqNUnNKrUZoNAxHUe16f4pQCEMrmc+R3XdtTO9mrw12DoKF2F/YbhfYyV6AgTIld3hVKnsrOxJ7jXsdGIWGTRiAGjs3jo41HpNTM1AkDS6BpYAknk0BNzciFioWLLKzFhYGGRk5ujcLCx0WAz7CFzg2IY1NKwcHJwczB7OzMswFBTrXDg4C2xMTPAMDMT4XNntNJC4uFQoGES4b8PDvFalMIhERCCUVPf3+PQoiiKi35ES/Dw9SUFjI0MwJSQSPtHjw4AMEhBQpluBQAWJEIx8WEuihAYRJkwpaePz4A2MKDiNiyvyQgKUSfSVSmCBgs8oH/3wjenYhYMJEC6FWhhRBOuVJFKZTrmRhomAL0jBjmJQoc8ZMGoJuZmiNMwdLnZVs9PAxAgNDCbcYPPgx9WIQ2i+IdqwwIkLGDRAyZPRhpGkHpLtdKr3QYISAzJiKMu0p2oiTJ1ANUC0RRQpQ0VKMJ626YYCJgVexWDBYzaKWhhw1FvDyBUzYsGLGGiljxqTZs2iypomwlk3btgwTFnwLNy5BuR3o1DFZ1+6drAMbXKAYOOlePiNE0qXTx68fAAAKAEbQbMhgjw9GTgSej1DhwgclepgRgbjKxIogPTYCARdR1MMDbnHUn08iMZECSSeZFIFK9bjExAgwCUgTQTilwBEEUTwJ9VMEQUH1YVFHmbhEEAA7)!important;
 	background-position: 0 -20px!important;
 	background-repeat: no-repeat!important;
 	background-color: transparent!important;
@@ -982,6 +989,8 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .block .category-list .category .blogs .blog .checkbox{margin:0!important}
 .block.daily_best_posts h1 sup, .block.geektimes_top h1 sup{vertical-align: baseline!important}
 .block.daily_best_posts .posts_list .post_item, .block.geektimes_top .posts_list .post_item{margin: 0!important}
+.block.daily_best_posts h1 sup, .block.megamozg_top h1 sup{vertical-align: baseline!important}
+.block.daily_best_posts .posts_list .post_item, .block.megamozg_top .posts_list .post_item{margin: 0!important}
 .block .posts_list .post_item a.user_name{padding-left:2.5ex!important}
 .block.new_vacanies h1,
 .block.new_vacanies .title{display: none}
@@ -1049,6 +1058,8 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	.content_left .post .content,.content_left.post .content{padding-left: 0!important}
 	.daily_best_posts .posts_list, .geektimes_top .posts_list{margin-left:-12px!important}
 	.daily_best_posts .post_item, .geektimes_top .post_item{text-indent:-1ex!important}
+	.daily_best_posts .posts_list, .megamozg_top .posts_list{margin-left:-12px!important}
+	.daily_best_posts .post_item, .megamozg_top .post_item{text-indent:-1ex!important}
 	.sidebar_right .block .post_item,.vacancies .job_item,.tasks .task{margin-left: 0.2ex!important}
 	.vacancies .job_item,.tasks .task{padding-left: 0!important}
 	.content_left .post .infopanel{margin-left: 2px!important}
@@ -1081,6 +1092,8 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 
 .block.daily_best_posts .posts_list .post_item a.user_name, .block.geektimes_top .posts_list .post_item a.user_name{color:#ddd!important}
 .block.daily_best_posts .posts_list .post_item:hover a.user_name, .block.geektimes_top .posts_list .post_item:hover a.user_name{color:#999!important}
+.block.daily_best_posts .posts_list .post_item a.user_name, .block.megamozg_top .posts_list .post_item a.user_name{color:#ddd!important}
+.block.daily_best_posts .posts_list .post_item:hover a.user_name, .block.megamozg_top .posts_list .post_item:hover a.user_name{color:#999!important}
 .block.freelansim .title, .block.new_vacanies .title{opacity:0.3}
 .block.freelansim .tasks .task a, .block.new_vacanies .vacancies .job_item a{font-size: 12px!important}
 
@@ -1097,7 +1110,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 #TMpanel .menu.special,.special_navbar_image,#print_tab,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner]{display:none!important}
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner]{display:none!important}
 #header_mouse_activity,.block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 /*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}
@@ -1129,7 +1142,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 	width: 99.4% !important;
 	border: 0!important;border-radius:5px;
 	padding: 3px;
-		-webkit-box-shadow:0 1px 6px #ddd inset;box-shadow:0 1px 6px #ddd inset}
+	-webkit-box-shadow:0 1px 6px #ddd inset;box-shadow:0 1px 6px #ddd inset}
 .editor .text-holder textarea:focus,
 #js-field-comment:focus, #report_form_container_textarea:focus, .textfield:focus{-webkit-box-shadow: 0 1px 6px #ddd inset, 0 0 2px #5ec6fb;box-shadow: 0 1px 6px #ddd inset, 0 0 2px #5ec6fb; border-color: #5699d8!important; outline:0!important}
 
@@ -1147,7 +1160,7 @@ background-image:url(data:image/gif;base64,R0lGODlhLgAoANU/AFZ6lq7K3trm6u7y9oamu
 .vote_holder .vote.voted_minus .vote_minus{background-position:-11px 1px!important}/* */
 
 }
-@-moz-document domain("habrahabr.ru"), domain("geektimes.ru"){
+@-moz-document domain("habrahabr.ru"), domain("geektimes.ru"), domain("megamozg.ru"){
 #header .userpanel a.nav-settings,#header .user_panel a.nav-settings{margin-top:-1px!important}
 #header .userpanel:hover .top a.nav-settings,#header .user_panel:hover .top a.nav-settings{position: relative; top: -1.3em}
 }

@@ -1,11 +1,11 @@
-/** HabraDarkAge v424.2014.11.23, FF30+, Opera12+, Chrome35+
+/** HabraDarkAge v425.2015.1.21, FF30+, Opera15+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: permanent submenus after 1520px; .next-prev is more left;
+ * LastUpdatesDescription: +megamozg.ru;
  */
-@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|h).ru(?!/special|/api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!/special|/api).*"){
 
-body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #555!important; color: #bbb}
+	body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #555!important; color: #bbb}
 body:after{
 	content: '';
 	display: block;
@@ -191,7 +191,7 @@ body >#logo,
 	background-size: 71px 71px!important;
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAABlUlEQVR42u3doW7DMBRAUcvY8mcUbKjM/1IWUFQ+0iS/PjZQ5mfJSbRjXf4kH5bYctq3VRcq2QJgAiZgwARMwIAJmIABEzABAyZgAgZMwAQMmIAJGDABEzBgAiZgwOwCMAETMGACptOBLa/34/nT1fjQ3onL6w0sDpZSmgx2+76XUoDFwWqtk8FSSq01YEGwQbMYWM75cLMLg42YxcDOYHZtsLBZN9jX/W/isWbAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGBnBZsfMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAGb+rU+toABAwYMGLBT/HEOLGCOCAADBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAEDBgwYMGDAgAHrr5QSPnQdfkIsPBHYum9ray3nPBNs39ZaK7DZZoOPYQbMgA2ZDYIFzIB9mvVeRRkf2jsRmIABEzABAyZgAgZMwAQMmIAJGDABEzABAyZgAgZMwAQMmIAJGDABEzBgAiZgwARMwP5Jv1lyJlCGuCEMAAAAAElFTkSuQmCC)!important;
 	transition: all 70ms}
-#navbar .nav_panel .logo[href*=geektimes]{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAAD8UlEQVR42u3cwUvbYBjH8eDB7SDyIg4KgogMdMVBZaCF0QnaIOpGh6xrhmDpDgZBJuthoujGDoPdPOzg3aMnj/4TO+yyv2eHbCFL2rxv37xJmvoNv2NJ2ufT9036Jk+tL58vSIFiUQLACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDAqAJgBDACGGAEMAIYYAQwAhhgBDACGGAEMAIYYASwaDpH552j872Dk5h4rzk+/Q5YPvn567cUKd4vfv/ae9bLKIPd3N6ZKtP+4enl1XXuYM32B8uyRhMsyajql9b7bnSqzB4sVTOr0AOrZ8ls284dLD2zrMEur64zKFnQLC+wlMysUdLaOzipv3znFcs3yxJsY6dl/b8VGCzVmbBnyTwzwDQz6CcvV6qlmbnQ5y9XquVKVb1ktm0Dlu41Ya3emJouWbJtdn5xY6elWDLp3iYmRfy7ajiupbUVEkx9MpydXxyoHKWZua3dtsp3HDDzk2F0AlTcgpNkzKQEmMnhNejYig61ZvtYehYBzMzZa7W2Kf3kQgjHcUI7F0IIIfyib+y0pKd9wJLOh8328fiDhzGf2XVd6VFs205SMuk0EAUbzdV6lflweWWtX61Di0zSOI4DWKK4H79KwfpdxEcnQMWMjY0Bppn9w1PpfGhkbIWysLAAWConsFq9kdK5utvtAmYerFypRrXOzs6G7Y4PYH/z+Eklg0thwIyBRVc3vIv4JEv7gGUKlvxejEY1AcsZbNCCAqYKFlpCFEKYAhuopoBpXnQsLS0ZBFMvK2CqYKF1KX91wxQYv8PS/eEM2LCDhZamAMsZTOVmWHDxN7iE6K8thbbV2iZgeT6IGLx76V90xJgBlv8NzIlJ0a8QUTPA0j2A9A5LaJDFrLsDlgXYxbcfKlcK/g+y+HslgGVx4Fanq24mfYKDq8SLIRlk/twIWP6PaisOMq8069tvAMsZ7Ob2bu/gk0b/crQRFrCMjvSq2cmmhQQwY1nffgtYwVpmX9ivAStYU/rTZ8+9xgXACvO3D1OPSrV6Y3h6IAFTOHCvdjztbO22y5Vqz6YKwEyaWZY1NV1aXlnTc/JanpM3/ACmmvHx8WCTlgfQb9g1HNd7gRRJo7L9br9l1vhVmD8HCzYupLFpPI4PmOFvd3pDQf2d3GuwmHY87U0IoddUoWgG2L8eQNdNguQ/ipr2iAesR9WCPecxQkaQihL+8xcwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwqgAYAYwABhgBjAAGGAGMAAYYAYwABhgBjAAGGAGMAHYP8gcwWWSqNNsPcwAAAABJRU5ErkJggg==)!important}
+#navbar .nav_panel .logo[href*=geektimes],#navbar .nav_panel .logo[href*=megamozg]{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAAABnRSTlMAfwB+AH1l/zhUAAAABmJLR0QA/wD/AP+gvaeTAAAD8UlEQVR42u3cwUvbYBjH8eDB7SDyIg4KgogMdMVBZaCF0QnaIOpGh6xrhmDpDgZBJuthoujGDoPdPOzg3aMnj/4TO+yyv2eHbCFL2rxv37xJmvoNv2NJ2ufT9036Jk+tL58vSIFiUQLACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDAqAJgBDACGGAEMAIYYAQwAhhgBDACGGAEMAIYYASwaDpH552j872Dk5h4rzk+/Q5YPvn567cUKd4vfv/ae9bLKIPd3N6ZKtP+4enl1XXuYM32B8uyRhMsyajql9b7bnSqzB4sVTOr0AOrZ8ls284dLD2zrMEur64zKFnQLC+wlMysUdLaOzipv3znFcs3yxJsY6dl/b8VGCzVmbBnyTwzwDQz6CcvV6qlmbnQ5y9XquVKVb1ktm0Dlu41Ya3emJouWbJtdn5xY6elWDLp3iYmRfy7ajiupbUVEkx9MpydXxyoHKWZua3dtsp3HDDzk2F0AlTcgpNkzKQEmMnhNejYig61ZvtYehYBzMzZa7W2Kf3kQgjHcUI7F0IIIfyib+y0pKd9wJLOh8328fiDhzGf2XVd6VFs205SMuk0EAUbzdV6lflweWWtX61Di0zSOI4DWKK4H79KwfpdxEcnQMWMjY0Bppn9w1PpfGhkbIWysLAAWConsFq9kdK5utvtAmYerFypRrXOzs6G7Y4PYH/z+Eklg0thwIyBRVc3vIv4JEv7gGUKlvxejEY1AcsZbNCCAqYKFlpCFEKYAhuopoBpXnQsLS0ZBFMvK2CqYKF1KX91wxQYv8PS/eEM2LCDhZamAMsZTOVmWHDxN7iE6K8thbbV2iZgeT6IGLx76V90xJgBlv8NzIlJ0a8QUTPA0j2A9A5LaJDFrLsDlgXYxbcfKlcK/g+y+HslgGVx4Fanq24mfYKDq8SLIRlk/twIWP6PaisOMq8069tvAMsZ7Ob2bu/gk0b/crQRFrCMjvSq2cmmhQQwY1nffgtYwVpmX9ivAStYU/rTZ8+9xgXACvO3D1OPSrV6Y3h6IAFTOHCvdjztbO22y5Vqz6YKwEyaWZY1NV1aXlnTc/JanpM3/ACmmvHx8WCTlgfQb9g1HNd7gRRJo7L9br9l1vhVmD8HCzYupLFpPI4PmOFvd3pDQf2d3GuwmHY87U0IoddUoWgG2L8eQNdNguQ/ipr2iAesR9WCPecxQkaQihL+8xcwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwAhgBDDACGAEMMAIYAQwwqgAYAYwABhgBjAAGGAGMAAYYAYwABhgBjAAGGAGMAHYP8gcwWWSqNNsPcwAAAABJRU5ErkJggg==)!important}
 #navbar .nav_panel .logo:hover{background-color: #444}
 #navbar .nav_panel .tab {
 	left: 36px!important;
@@ -226,9 +226,9 @@ body >#logo,
 #navbar .tab.open:before{width: 0!important}
 #navbar .tab .g-icon:before{
 	position: relative;
-    display: block;
+	display: block;
 	top: 18px;
-    left: -18px;
+	left: -18px;
 	border-radius: 15px;
 	transition: all 200ms, background-color 70ms}
 #navbar .tab:hover .g-icon:before{background-color: rgba(80,80,80,0.5); box-shadow: 0 0 2px 0 #444}
@@ -333,8 +333,8 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 .content_left .post .content br+br
 ,.content_left .post .content h4+br
 ,.content_left .post .content pre+br
-	{display: inline-block!important; height: 10px!important;line-height: 10px!important}
- .comment_item >.message br+br, .comment_item >.message blockquote+br{display: inline-block!important;height: 12px!important;line-height: 12px!important}
+{display: inline-block!important; height: 10px!important;line-height: 10px!important}
+.comment_item >.message br+br, .comment_item >.message blockquote+br{display: inline-block!important;height: 12px!important;line-height: 12px!important}
 .content >blockquote,.message >blockquote{margin:2px 0!important;padding-left: 6px!important}
 
 .html_format pre code{background: #bbb; border: none}
@@ -827,12 +827,12 @@ body >#logo >img{opacity: 0.16}
 .chzn-container .chzn-results li{color: #adbfc0}
 .chzn-container .chzn-results .no-results,
 .chzn-container .chzn-results .highlighted{
-    background-color: #555;
+	background-color: #555;
 	background-image: linear-gradient(#4b4f54 20%, #45484e 90%)!important;
-    border-color: #525559 #484a4f #45484e;
-    box-shadow: 0 1px 0 #555e62 inset;
+	border-color: #525559 #484a4f #45484e;
+	box-shadow: 0 1px 0 #555e62 inset;
 	font-weight: bold;
-    color: #cde}
+	color: #cde}
 .chzn-container .chzn-results .highlighted .subscribers{color: #cde}
 .blue_buttons_panel{
 	border-radius: 6px;
@@ -1011,7 +1011,6 @@ div.footer_panel:before{
 /* постоянные подменю */
 @media (min-width: 1520px) and (min-height: 705px){
 	#layout,.rotated_posts, #footer{margin-right: 0!important; transition: margin 0.8s, width 0.8s}
-	#layout >.inner{padding-left: 6px !important}
 	#TMpanel{left: 205px !important}
 	#navbar .nav_panel .logo{margin-left: -7px;border-bottom-left-radius:3px}
 	#navbar a.logo + a.tab_menu{left: 22px!important}
@@ -1048,7 +1047,7 @@ div.footer_panel:before{
 #TMpanel .menu.special,.special_navbar_image,#print_tab,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner]{display:none!important}
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner]{display:none!important}
 #header_mouse_activity,.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 /*m.habr*/
@@ -1074,21 +1073,21 @@ div.footer_panel:before{
 #layout >#content .text_html a{color: #93b2d0}
 #layout >#content .share_to_social_networks{
 	background-color: #35383e;
-    background-image: linear-gradient(#3e4247 20%, #35383a 90%);
-    border-radius: 6px;
-    box-shadow: 0 0 5px #333 inset}
+	background-image: linear-gradient(#3e4247 20%, #35383a 90%);
+	border-radius: 6px;
+	box-shadow: 0 0 5px #333 inset}
 .share_to_social_networks .share_buttons{opacity: 0.6}
 
 .comments_list .comment_item .meta .username{font-weight: bold; color: #ddd}
 
 .buttons .btn{
 	background-color: #444 !important;
-    background-image: linear-gradient(#4f5557 20%, #45484a 90%) !important;
-    border-color: #424549 #383a3f #35383e !important;
+	background-image: linear-gradient(#4f5557 20%, #45484a 90%) !important;
+	border-color: #424549 #383a3f #35383e !important;
 	box-shadow: 0 1px 2px #555 inset !important;
-    color: #cde !important;
-    text-shadow: 0 1px 0 #9ab !important;
-    transition: all 0.4s ease 0s !important}
+	color: #cde !important;
+	text-shadow: 0 1px 0 #9ab !important;
+	transition: all 0.4s ease 0s !important}
 .buttons .btn:hover{background-image: linear-gradient(#5f6366 20%, #55585b 90%) !important}
 
 #layout >#footer .copyright{border-top: 1px solid #666}

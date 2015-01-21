@@ -27,6 +27,7 @@
 		для сайтов:<br>
 		<a href=http://habrahabr.ru>Habrahabr</a>,<br>
         <a href=http://geektimes.ru>Geektimes</a>,<br>
+        <a href=http://megamozg.ru>megaMozg</a>,<br>
         <a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
         локальный сайт<br>
         <i>(Fx3+, Chr, Op12)</i>
@@ -82,6 +83,7 @@
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
+        	<a href=http://megamozg.ru>megaMozg</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx3+, Chr, Op12)</i>
@@ -138,6 +140,7 @@
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://m.habrahabr.ru>m.Habr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
+			<a href=http://megamozg.ru>megaMozg</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx30+, Chr35+)</i>
@@ -185,6 +188,7 @@
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
+			<a href=http://megamozg.ru>megaMozg</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
 			<i>(Fx3+, Chr, Op10+)</i>
