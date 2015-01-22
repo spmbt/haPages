@@ -1,5 +1,5 @@
 .gitignore
-00
+ARCH/
 *.rar
 *.zip
 --*.rtf
