@@ -1,7 +1,7 @@
-/** Habr ZenComment v426.2015.01.31, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v428.2015.02.14, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: +tmfeed.ru
+ * LastUpdatesDescription: TM_menu in one line
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -62,7 +62,7 @@
 		right: auto!important;
 		left: 140px!important;
 		min-width: 0!important;
-		height: 18px!important;
+		height: 4px!important;
 		border: 0!important;
 		text-align: left!important;
 		background: transparent!important;
@@ -70,9 +70,10 @@
 		-moz-transition: left 1s;
 		-o-transition: left 1s;
 		transition: left 1s;}
-	#TMpanel .container{min-width:0!important;}
+	#TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
 	#TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
-	#TMpanel .menu a{margin: 0 6px!important; padding: 0 4px!important; background-color: #eee; color: transparent!important; opacity: 0.5}
+	#TMpanel .container .menu{display: block!important}
+	#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-color: #eee; color: transparent!important; opacity: 0.65}
 	#TMpanel .menu a:last-child{margin-right: -9ex!important}
 	#TMpanel .menu a.current{display: none!important}
 	#TMpanel .menu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
@@ -932,6 +933,7 @@
 
 	.editor .panel >a:first-child,
 	.editor .panel .wysiwyg_wrapper .btn:first-of-type{margin-left: 3px!important}
+	.editor .panel .wysiwyg_wrapper .btn[onclick*="twitter"]{display: none!important}
 
 	.editor .panel .spanned{padding: 0!important}
 	#js-topic-form-holder .editor .panel .spanned a >font{top:0!important}
@@ -1166,7 +1168,7 @@
 	#TMpanel .menu.special,.special_navbar_image,#print_tab,
 	.header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 	#header .main_menu .banner_special,
-	.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.block_brainstorage):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner]{display:none!important}
+	.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.block_brainstorage):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
 	#header_mouse_activity,.block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 	/*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}

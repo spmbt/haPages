@@ -3,7 +3,7 @@
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
-			<div class="" align=right style="float: right; font-weight: normal">(2014-11-23)</div>
+			<div class="" align=right style="float: right; font-weight: normal">(2015-02-15)</div>
 			<h3>Скрипты и стили для разработки и использования</h3>
 		</th>
 	</tr>
@@ -137,10 +137,10 @@
 		<td rowspan=2 align=center valign=top>&#10104; Стили<br>
 			<big><b><a href=http://spmbt.github.io/haPages/doc/habraDarkAge/>HabraDarkAge</a></b></big><br>
 			для сайтов:<br>
-			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
-			<a href=http://m.habrahabr.ru>m.Habr</a>,<br>
+			<a href=http://habrahabr.ru>Habr</a>,<a href=http://m.habrahabr.ru>m.Habr</a>,<br>
 			<a href=http://geektimes.ru>Geektimes</a>,<br>
 			<a href=http://megamozg.ru>megaMozg</a>,<br>
+			<a href=http://tmfeed.ru>TMfeed</a>,<br>
 			<a href=http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru title="(для недавно удалённых статей)">кеш Гугла</a>,<br>
 			локальный сайт<br>
             <i>(Fx30+, Chr35+)</i>
@@ -383,7 +383,7 @@
 		</td>
 		<td>Модификация вида сайта и форума стилями. Примерно 10% работы делают скрипты - то, что не&nbsp;могут сделать стили.<br>
 		<br>
-		Основное назначение - стилизация, компактность списков форумов, нераспирание страниц сайта (ширина страниц становится допустимой от&nbsp;600-800 пикс.)..
+		Основное назначение - стилизация, компактность списков форумов, нераспирание страниц сайта (ширина страниц становится допустимой от&nbsp;600-800 пикс.).
 		</td>
 		<td>
 			<ul>
