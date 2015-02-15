@@ -73,7 +73,7 @@
 	#TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
 	#TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
 	#TMpanel .container .menu{display: block!important}
-	#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-color: #eee; color: transparent!important; opacity: 0.65}
+	#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#eee 20%, #d3e2f0 90%); color: transparent!important; opacity: 0.65}
 	#TMpanel .menu a:last-child{margin-right: -9ex!important}
 	#TMpanel .menu a.current{display: none!important}
 	#TMpanel .menu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
@@ -430,7 +430,7 @@
 	.Posts >ul li h2 a{display: block; min-height: 2.5em; text-decoration: none!important; color: #000!important}
 	.Posts >ul li h2 a:hover{background-color: #f2f2f2!important}
 	.Posts >ul li h2 a:visited{color: #735!important}
-	.Posts >ul li h2 a:active{color: #d12																			!important}
+	.Posts >ul li h2 a:active{color: #d12!important}
 	.Posts >ul li .meta{
 		overflow: hidden;
 		position: relative;
@@ -438,17 +438,21 @@
 		height: 32px;
 		margin: -32px 0 0 -22px!important;
 		padding: 0 0 0 6ex!important}
-	.Posts >ul li .meta .favicon{position: relative; z-index: 1}
-	.Posts >ul li .meta .favicon.habrahabr{margin-left:-7px}
+	.Posts ul li .meta .item.highlighted{border-radius: 5px; background-color: #ddd!important}
+	.Posts >ul li .meta .favicon{position: relative; z-index: 2; border-radius: 7px}
+	.Posts >ul li .meta .favicon.habrahabr{margin-left:-7px; opacity: 0.62}
 	.Posts >ul li .meta .favicon.geektimes{opacity: 0.6}
-	.Posts >ul li .meta .favicon.megamozg{margin-left: 6px; opacity: 0.4; box-shadow: 0 0 0 8px rgba(160,98,80,0.55) inset}
+	.Posts >ul li .meta .favicon.megamozg{margin-left: 6px; opacity: 0.5; box-shadow: 0 0 2px 4px rgba(160,90,72,0.65) inset}
 	.Posts >ul li .meta .time_published{position:absolute; display: inline-block; overflow: hidden; top: 0; right: 0; margin-right: -7.5ex}
 	.Posts >ul li .meta .comments_count{position:absolute; top: 14px; right: 1ex; margin: 0!important; padding: 0!important}
 	.Posts >ul li .meta .comments_count span{display: inline-block; overflow: hidden; width: 4.8ex; vertical-align: bottom; margin-right: 6px; color: #c7c7c7}
-	.Posts >ul li .meta .reading_count{position:absolute; top: 14px; right: 53px; font-size: 10px; color: #bbb}
-	.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #433}
-	.Posts >ul li .meta .score{position:absolute; top: 6px; right: 34px}
-	.Posts >ul li .meta .comments_count b{color: #b56}.Posts >ul li .meta .score b{color: #8b4}
+	.Posts >ul li .meta .comments_count b{color: #b56}
+	.Posts >ul li .meta .reading_count{position:absolute; top: 15px; right: 56px; font-size: 10px; color: #bbb}
+	.Posts >ul li .meta .reading_count.highlighted{color: #aaa}
+	.Posts >ul li .meta .reading_count b{margin: 0 -3px}
+	.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #9f6036}
+	.Posts >ul li .meta .score{position:absolute; z-index: 1; top: 6px; right: 31px}
+	.Posts >ul li .meta .score b{color: #8b4}
 	.Posts >ul li .reading_count span,.Posts >ul li .favorites_count span,.Posts >ul li .score span{display:none}
 	.container >.Sidebar{display: block!important}
 
