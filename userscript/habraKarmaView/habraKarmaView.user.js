@@ -1,11 +1,11 @@
 ﻿// ==UserScript==
 // @id HabraKarmaView
 // @name HabraKarmaView
-// @version 4.2015.1.21
+// @version 5.2015.2.25
 // @author spmbt
 // @namespace github.com/spmbt
 // @description Подсказка кармы по наведению на ник, кроссбраузерно
-// @update 4 add geektimes, cache:
+// @update 4 add geektimes, megamozg; full GM_ substitution
 // @icon http://habrahabr.ru/favicon.ico
 // @include http://habrahabr.ru/*
 // @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
@@ -75,7 +75,7 @@ try{
 				t.setAttribute('triggerShow',0); //постоянный показ выключен (только по наведению)
 			};
 			//(c) 2005, Reify Software, Inc.,www.howtocreate.co.uk/operaStuff/userjs/aagmfunctions.js
-			if(win.opera || typeof GM_xmlhttpRequest ==u)
+			if(win.opera || typeof GM_xmlhttpRequest ==u ||1) //2015-01 - GM_xml.. вообще перестало работать
 				GM_xmlhttpRequest = function(h){
 					var xhr = new XMLHttpRequest();
 					xhr.onreadystatechange = function(){
@@ -161,4 +161,3 @@ try{
 	win.console.error('~ER_hKView: '+ er +' (line '+(er.lineNumber||'')+')')}; //для оповещения об ошибках в Fx
 
 })(typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})(),'undefined');
-

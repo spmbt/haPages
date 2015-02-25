@@ -1,7 +1,7 @@
-/** Habr ZenComment v428.2015.02.14, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v429.2015.02.19, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: TM_menu in one line
+ * LastUpdatesDescription: TM_menu in one line; hubs in oneline;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -465,7 +465,7 @@ h1{letter-spacing:0!important}
 	font-variant: small-caps;
 	vertical-align: 2px!important;border-radius: 4px;}
 .post h1.title .translation{background-color:#def!important}
-.content_left .post .hubs{float: right; position: relative; z-index:2; margin: -1px 8px -3px -12px!important;opacity: 0.7; background: 0 0!important; color: transparent!important}
+.content_left .post .hubs{float: right; position: relative; z-index:2; margin: -1px 8px -3px -12px!important; white-space: nowrap; opacity: 0.7; background: 0 0!important; color: transparent!important}
 .content_left .hubs +.content{clear: both}
 .content_left .hubs .profiled_hub{display: inline-block; vertical-align: top!important; height: 9px!important; margin:0 -4px 0 1px!important; font-size:5px!important; background-color: #cbd6ce}
 
