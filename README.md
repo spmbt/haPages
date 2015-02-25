@@ -290,7 +290,8 @@
 		<td align=center valign=top>&#10108; <big><b><a href=https://greasyfork.org/ru/scripts/1965-habrakarmaview>HabraKarmaView</a></b></big><br>
 			для сайтов:<br>
 			<a href=http://habrahabr.ru>Habrahabr</a>,<br>
-			<a href=http://geektimes.ru">Geektimes.ru</a>,<br>
+			<a href=http://geektimes.ru">Geektimes</a>,<br>
+			<a href=http://megamozg.ru">Megamozg</a>,<br>
 			<i>(Fx30+, Chr35+, Op12+)</i>
 			<table><tr><td>
 				<img border=6 borderColor="gray" style="border:6px solid #bbb; border-radius: 3px" src="doc/img/habraKarmaView20141231-052826.png"/>
@@ -298,7 +299,7 @@
 		</td>
 		<td>Подсказка кармы и&nbsp;рейтинга по&nbsp;наведению на&nbsp;любой ник на&nbsp;странице, кроссбраузерно.<br>
 		<br>
-		<i>По событию 'chgDom' поддерживается обработка подгруженных блоков в HabrAjax.</i>
+		<i>Интегрирован с HabrAjax - работает в его подгруженных статьях (с помощью Custom Event).</i>
 		</td>
 		<td>
 			<ul>
