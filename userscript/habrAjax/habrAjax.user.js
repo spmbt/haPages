@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 142.2015.1.31
+// @version 143.2015.3.2
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,6 +15,7 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
+// @update 142 fix in Fx36;
 // @update 141 +tmfeed.ru css support (not start in tmfeed);
 // @update 140 +megamozg.ru; +ввод тега <code>;
 // @update 138 всплывающие даты в "Похожих публикациях"; удаление времени в датах "похожих";
@@ -2384,7 +2385,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 						,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
 						,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
 						,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,147005,158837
-						,169713,180551]; //фев.2015 qa -прогноз
+						,169713,182213,195255,208001]; //апр.2015 qa -прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
 						var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
@@ -2406,7 +2407,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 					,135593,137388,139154,141161,143096,145002,146858,148825,150655,152897,156927,160927
 					,164511,167841,171141,174897,178523,181712,185178,188544,192134,195908,200442,204302
 					,207968,211020,214263,217769,221545,224805,228191,231847,235117,238753,242143,244603
-					,247199,249501]; //фев.2015 -прогноз
+					,247199,249403,251783,253991]; //апр.2015 -прогноз
 				//.!обновлять каждый месяц, писать последнее число как прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
@@ -2515,9 +2516,8 @@ hViewHide = function(ev){
 ,selS ={} //окружение выделенного текста (всё, что вычислили, исходя из текущего выделения)
 ,citeS =[] //список цитат данной статьи
 ,citeA =[]; //список статей, имеющих цитаты в хранилище
-
 (function(){ //внедрение функций GM_... для Хрома, FF4+
-	if(!this.GM_getValue || this.GM_getValue.toString && /not supported/.test(this.GM_getValue.toString()) ){
+	if(1 ){
 		this.GM_getValue = function(key, deflt){ return localStorage[key] || deflt };
 		this.GM_setValue = function(key, value){ return localStorage[key] = value };
 		this.GM_deleteValue = function(key){ return delete localStorage[key] };
@@ -2736,7 +2736,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.sidebar_right .block .all a:visited,.content_left .post h1.title .post_title:visited{color: #b99!important}'
 	+'.content_left .company_post h1.title .post_title{font-size: 18px!important;font-weight: normal}'
 	+'.content_left :not(.company_post) .post h1.title .post_title:hover{color: #84b18a!important}'
-	+'.content_left .post .hubs{float: right; position: relative; z-index:2; margin: 1px 8px 2px -12px!important;opacity: 0.7; background: 0 0!important; color: transparent!important}.content_left .hubs +.content{clear: both}'
+	+'.content_left .post .hubs{float: right; position: relative; z-index:2; margin: 1px 8px 2px -12px!important; white-space: nowrap; opacity: 0.7; background: 0 0!important; color: transparent!important}.content_left .hubs +.content{clear: both}'
 	+'.content_left .hubs .profiled_hub{display: inline-block; vertical-align: top!important; height: 9px!important; margin:0 -4px 0 1px!important; font-size:5px!important; background-color: #cbd6ce}'
 
 	+'.content_left .stats{margin-left: 3em}.content_left .stats .item{display: inline-block}'

@@ -1,7 +1,7 @@
-/** Habr ZenComment v429.2015.02.19, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v430.2015.03.02, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: TM_menu in one line; hubs in oneline;
+ * LastUpdatesDescription: .habralenta_settings;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -73,7 +73,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 #TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
 #TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
 #TMpanel .container .menu{display: block!important}
-#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#eee 20%, #d3e2f0 90%); color: transparent!important; opacity: 0.65}
+#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#d3e2f0 20%, rgba(238, 238, 238, 0.3) 90%); color: transparent!important; opacity: 0.65}
 #TMpanel .menu a:last-child{margin-right: -9ex!important}
 #TMpanel .menu a.current{display: none!important}
 #TMpanel .menu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
@@ -1031,7 +1031,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .block:not(.freelansim):not(.block_freelansim):not(.new_vacanies):not(.block_brainstorage) >div >div{overflow: inherit!important}
 .block.company_info .join{width: 104px}
 .block.habralenta_settings,.block.habralenta_settings p{margin:0!important;padding:0!important}
-.habralenta_settings .hub.subscription a{margin-left:20px!important}
+.habralenta_settings .hub a{margin-left:20px!important}
 .block .category-list .category{margin-bottom:3px!important}
 .block .category-list .category .blogs{padding-top:4px!important}
 .block .category-list .category .blogs .blog{margin-bottom:3px!important; padding-left:18px!important}
@@ -1156,6 +1156,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .block.daily_best_posts .posts_list .post_item a.user_name, .block.megamozg_top .posts_list .post_item a.user_name{color:#ddd!important}
 .block.daily_best_posts .posts_list .post_item:hover a.user_name, .block.megamozg_top .posts_list .post_item:hover a.user_name{color:#999!important}
 .block.freelansim .title, .block.block_freelansim .title, .block.new_vacanies .title, .block.block_brainstorage .title{opacity:0.3}
+.bottom_promo_blocks .block.new_vacanies .vacancies .job_item, .bottom_promo_blocks .block.freelansim .tasks .task{white-space: normal!important}
 .block.freelansim .tasks .task a, .block.block_freelansim .tasks .task a, .block.new_vacanies .vacancies .job_item a, .block.block_brainstorage .vacancies .job_item a{font-size: 12px!important}
 .Sidebar .copyright{text-align: right; margin-right: 6px}
 
