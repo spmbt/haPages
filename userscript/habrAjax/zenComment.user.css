@@ -1,7 +1,7 @@
-/** Habr ZenComment v430.2015.03.02, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v431.2015.03.06, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: .habralenta_settings;
+ * LastUpdatesDescription: footer width;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -1083,11 +1083,11 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .posts_list .sort_menu{margin: 10px 0 -12px!important}
 .search_results, .comment_item_plain:first-child{margin-top: 17px}
 
-#footer{width: auto!important; min-width: 314px!important; overflow: visible!important;margin-bottom: 0!important; padding: 7px 0 0 0!important}
+#footer{width: auto!important; min-width: 314px!important; margin-bottom: 0!important; padding: 7px 0 0 0!important}
 #footer:before{position:relative; display:block; float:right; height:0; top:-5px; right:2px; white-space:nowrap; margin-top:-4px!important; font-size: 9px; color:#888; content:"ZenComment by spmbt"}
 #footer .bottom_menu{width: 100%!important}
 #footer	a{text-decoration: none!important}
-#footer	dl{width: 50%!important; float:right}
+#footer	dl{width: 49.6%!important; float:right}
 #footer dl:last-child{display:none}
 #footer	dt{float:left; width: 4em; margin: 0 0 0 2px!important; line-height: 120%!important}
 #footer	dt:after{content:":"}
@@ -1147,6 +1147,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 	#navbar .nav_tabs_content .nav_tab .menu a.new_window:after{top: 4px!important; right: 100px!important}
 	#navbar .nav_tabs_content .nav_tab .title{font: 12px Arial,Helvetica,sans-serif bold}
 	#navbar .menu a,#navbar .nav_tab .global_search_form, #navbar .nav_tab .text{background-color: #f2f2f2}
+	.page-nav #nav-pages{left: 110px}
 }
 @media (min-width: 1574px){#layout,.rotated_posts, #footer{margin-right:26px!important}}
 @media (min-width: 1650px){#layout,.rotated_posts, #footer{margin-right:auto!important}}
