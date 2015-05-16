@@ -1,7 +1,7 @@
-/** HabraDarkAge v428.2015.2.14, FF30+, Opera15+, Chrome35+
+/** HabraDarkAge v429.2015.5.16, FF30+, Opera15+, Chrome35+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: +tmfeed.ru;
+ * LastUpdatesDescription: .similar_posts;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -333,17 +333,17 @@ head[prefix] +body:after{position: static;}
 .Filter{margin:0 0!important; padding: 0 0 6px 2px}
 .Posts >ul{padding: 0 0 0 24px!important}
 .Posts >ul li{clear: both; position: relative; margin: 0!important}
-	.Posts >ul li h2{
-		width: 100%;
-		margin-right: -80px!important;
-		padding: 0 0 0 115px!important;
-		text-indent: -2ex;
-		font: 13px/1.1 Verdana,Tahoma,Helvetica,sans-serif!important}
-	.Posts >ul li h2 a{display: block; min-height: 2.5em; text-decoration: none!important; color: #e0e3ea !important}
-	.Posts >ul li h2 a:visited{color: #dfd1c5 !important}
-	.Posts >ul li h2 a:hover{background-color: #444!important}
-	.Posts >ul li h2 a:visited:hover{background-color: #443f3a !important}
-	.Posts >ul li h2 a:active{color: #b81925 !important}
+.Posts >ul li h2{
+	width: 100%;
+	margin-right: -80px!important;
+	padding: 0 0 0 115px!important;
+	text-indent: -2ex;
+	font: 13px/1.1 Verdana,Tahoma,Helvetica,sans-serif!important}
+.Posts >ul li h2 a{display: block; min-height: 2.5em; text-decoration: none!important; color: #e0e3ea !important}
+.Posts >ul li h2 a:visited{color: #dfd1c5 !important}
+.Posts >ul li h2 a:hover{background-color: #444!important}
+.Posts >ul li h2 a:visited:hover{background-color: #443f3a !important}
+.Posts >ul li h2 a:active{color: #b81925 !important}
 .Posts >ul li .meta{
 	overflow: hidden;
 	position: relative;
@@ -356,26 +356,27 @@ head[prefix] +body:after{position: static;}
 .Posts >ul li .meta .favicon.habrahabr{margin-left:-7px; opacity: 0.62}
 .Posts >ul li .meta .favicon.geektimes{opacity: 0.6}
 .Posts >ul li .meta .favicon.megamozg{margin-left: 6px; opacity: 0.5; box-shadow: 0 0 2px 4px rgba(160,90,72,0.65) inset}
-	.Posts >ul li .meta .time_published{position:absolute; display: inline-block; overflow: hidden; top: 0; right: 0; margin-right: -7.5ex}
-	.Posts >ul li .meta .comments_count{position:absolute; top: 14px; right: 1ex; margin: 0!important; padding: 0!important}
-		.Posts >ul li .meta .comments_count span{display: inline-block; overflow: hidden; width: 4.8ex; vertical-align: bottom; margin-right: 6px; color: #888}
-		.Posts >ul li .meta .comments_count b{color: #b56}
-	.Posts >ul li .meta .reading_count{position:absolute; top: 15px; right: 56px; font-size: 10px; color: #667}
-		.Posts >ul li .meta .reading_count.highlighted{color: #779}
-		.Posts >ul li .meta .reading_count b{margin: 0 -3px}
-	.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #996946}
-		.Posts >ul li .meta .favorites_count.highlighted{color: #af5a3b}
-	.Posts >ul li .meta .score{position:absolute; z-index: 1; top: 6px; right: 31px}
-		.Posts >ul li .meta .score b{color: #8b4}
-	.Posts >ul li .reading_count span,.Posts >ul li .favorites_count span,.Posts >ul li .score span{display:none}
+.Posts >ul li .meta .time_published{position:absolute; display: inline-block; overflow: hidden; top: 0; right: 0; margin-right: -7.5ex}
+.Posts >ul li .meta .comments_count{position:absolute; top: 14px; right: 1ex; margin: 0!important; padding: 0!important}
+.Posts >ul li .meta .comments_count span{display: inline-block; overflow: hidden; width: 4.8ex; vertical-align: bottom; margin-right: 6px; color: #888}
+.Posts >ul li .meta .reading_count{position:absolute; top: 15px; right: 56px; font-size: 10px; color: #667}
+.Posts >ul li .meta .reading_count.highlighted{color: #779}
+.Posts >ul li .meta .reading_count b{margin: 0 -3px}
+.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #996946
+}
+.Posts >ul li .meta .favorites_count.highlighted{color: #af5a3b
+}
+.Posts >ul li .meta .score{position:absolute; z-index: 1; top: 6px; right: 31px}
+.Posts >ul li .meta .comments_count b{color: #b56}.Posts >ul li .meta .score b{color: #8b4}
+.Posts >ul li .reading_count span,.Posts >ul li .favorites_count span,.Posts >ul li .score span{display:none}
 .container >.Sidebar{display: block!important}
 
-		/* статья */
+	/* статья */
 .posts .post{margin-bottom: 30px}
 .post_show .post.shortcuts_item{padding-top: 10px!important}
 .post_shortwrite{margin-left: -3px; padding: 3px 5px 0 10px!important; border-left: 6px solid #5e5e5e;}
-.posts .post_shortwrite +.post_shortwrite
-,.posts .post +.post_shortwrite{margin-top: 27px; margin-bottom: -13px}
+.posts .post_shortwrite +.post_shortwrite,
+.posts .post +.post_shortwrite{margin-top: 27px; margin-bottom: -13px}
 .company_order .date, #preview_placeholder .date,
 .post .published{float: right;
 	margin-top: 8px; margin-left: 12px;
@@ -576,15 +577,22 @@ code .diff .change{background: #385570}
 .post .abuse.cancel_abuse{margin: 11px 10px -24px 2px!important}
 
 /* над комментариями */
+.comments_form +.block_after_post{margin: 6px -4px 0 0!important}
 .block_after_post{margin: 6px -8px 0 -6px!important}
 .block_after_post .block{padding: 6px 10px}
 .block_after_post .block .title{margin: -5px 0 5px!important; font-size: 18px!important}
-.block_after_post .block.similar_posts .posts_list .post_item{margin-bottom:0!important}
-.block_after_post .block.similar_posts .posts_list .post_item .when{
+.block_after_post .similar_posts .posts_list .post_item{margin-bottom:0!important}
+.block_after_post .similar_posts .posts_list .post_item .when{
 	margin-left: 5px!important;
 	font-size: 11px;
 	font-style: italic;
 	color: #777}
+.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{margin-bottom: 8px}
+.block_after_post .live_broadcast .posts_list .post_item + .post_item,
+.block_after_post .similar_posts .posts_list .post_item + .post_item{margin-top: 3px;}
+.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEX///95cURJd02fAAAAAXRSTlMAQObYZgAAABtJREFUCNdjYAAC/n8MDAKMDAzCP7HTIHkoAACP+wWDQrlT5wAAAABJRU5ErkJggg==)!important}
+.similar_posts,
+.live_broadcast{padding-bottom: 8px!important}
 body.company .comments_list h2.comments-header,
 .comments_list h2.title{
 	max-width: 1200px;
@@ -748,7 +756,8 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .sidebar_right .block.for_authors_help .row[class^=row]{
 	background-image: url(http://habrastorage.org/files/eac/54e/c02/eac54ec02b1a4fdda418ceef7e63c614.png);
 	background-repeat: no-repeat}
-.block.similar_posts,
+.live_broadcast,
+.similar_posts,
 .block.new_vacanies,
 .block.freelansim,
 .sidebar_right .block{background: #222; opacity: .5!important}
@@ -772,7 +781,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .conversations .conversation a.conversation_link,
 .page_head h2.title,
 .grey a, a.grey{color: #93b2d0!important}
-.block_after_post .block.similar_posts .posts_list .post_item a.post_name{color: #93b2d0}
+.block_after_post .similar_posts .posts_list .post_item a.post_name{color: #93b2d0}
 
 .post h1.title a.post_title:visited,
 .post_shortwrite h2.title a.post_title:visited{color: #ab9497!important}
@@ -781,7 +790,6 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .post .content a:visited,
 .html_format a:visited,
 .grey a:visited, a.grey:visited{color: #ae8c92!important}
-.block_after_post .block.similar_posts .posts_list .post_item a.post_name:visited{color: #988}
 
 .conversation_page .messages .message .info .login a:hover,
 .sidebar_right .block.twitter_stream .tweets .tweet .text{color: #aaa}
@@ -790,17 +798,23 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .bottom_promo_blocks .block.new_vacanies .vacancies .job_item a,
 .bottom_promo_blocks .block.freelansim .tasks .task a{color: #8392a0}
 
+.block_after_post .similar_posts .posts_list .post_item a.post_name:visited,
+.block_after_post .live_broadcast .posts_list .post_item a.post_name:visited,
 .sidebar_right .block .posts_list .post_item a.post_name:visited,
 .bottom_promo_blocks .block.new_vacanies .vacancies .job_item a:visited,
 .bottom_promo_blocks .block.freelansim .tasks .task a:visited{color: #988}
 .sidebar_right .block .posts_list .post_item a.post_name:hover,
-.block_after_post .block.similar_posts .posts_list .post_item a.post_name:hover,
+.block_after_post .similar_posts .posts_list .post_item a.post_name:hover,
 .bottom_promo_blocks .block.new_vacanies .vacancies .job_item a:hover,
 .bottom_promo_blocks .block.freelansim .tasks .task a:hover{color: #8b9cb6}
 .sidebar_right .block .posts_list .post_item a.post_name:visited:hover,
-.block_after_post .block.similar_posts .posts_list .post_item a.post_name:visited:hover,
+.block_after_post .similar_posts .posts_list .post_item a.post_name:visited:hover,
 .bottom_promo_blocks .block.new_vacanies .vacancies .job_item a:visited:hover,
 .bottom_promo_blocks .block.freelansim .tasks .task a:visited:hover{color: #a3918c}
+.block_after_post .live_broadcast .posts_list .post_item,
+.block_after_post .similar_posts .posts_list .post_item{font-size: 13px}
+.block_after_post .live_broadcast .posts_list .post_item .bull,
+.block_after_post .similar_posts .posts_list .post_item .bull {display: none}
 
 .sidebar_right .block .all a,
 .bottom_promo_blocks .block .all a,
@@ -844,7 +858,8 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 .conversations .conversation:hover a.delete{-webkit-filter: invert(.7); filter: invert(.7)}
 .post .content .poll .poll_title{color: #999}
 
-.block.similar_posts:hover,
+.live_broadcast:hover,
+.similar_posts:hover,
 .block.new_vacanies:hover,
 .block.freelansim:hover,
 .sidebar_right .block:hover{opacity: .99!important; transition: all 300ms}

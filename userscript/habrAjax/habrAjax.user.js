@@ -535,7 +535,7 @@ addFullImg = function(a, sz, x2, isExp){ //построение изображе
 	}
 },
 handlImgViews = function(el, selector){ //обработчики просмотров картинок
-	var selector = selector ||'.content a[href$=".jpg"],.content a[href$=".jpeg"],.content a[href$=".png"],.content a[href$=".gif"], .message a[href$=".jpg"],.message a[href$=".png"],.message a[href$=".gif"], .comments .text a[href$=".jpg"],.comments .text a[href$=".png"],.comments .text a[href$=".gif"]'
+	var selector = selector ||'.content a[href$=".jpg"],.content a[href$=".jpeg"],.content a[href$=".png"],.content a[href$=".gif"], .message a[href$=".jpg"],.message a[href$=".png"],.message a[href$=".gif"], .comments .text a[href$=".jpg"], .comments .text a[href$=".png"], .comments .text a[href$=".gif"]'
 		,els = $qA(selector, el); //все ссылки на картинки
 	//'handlImgViews'.wcl(el, selector, els )
 	for(var i =0, linkImg; linkImg = els[i++];){ //подгрузка картинок в рамках до 200 на 200 по расширениям файлов в ссылках
@@ -1151,7 +1151,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 	,noBK:'0~свернуть аннотации БК~2011-05'
 	,noPodcast:'1~свернуть подкасты~2011-05'
 	,noNews:'1~свернуть новости~2013-03-01'
-	,listNewsAuthors: {val:'alizar,marks,aleksandrit,ilya42,FakeFactFelis,DaryaZ,mayuxi,shifttstas,wwakabobik,sharamyshara,Captcha,Mairon,ivansychev'.split(','), desc2:'(авторы-новостники)'},a:0
+	,listNewsAuthors: {val:'alizar,marks,aleksandrit,ilya42,FakeFactFelis,DaryaZ,mayuxi,shifttstas,wwakabobik,sharamyshara,Captcha,Mairon,ivansychev,Shapelez,semen_grinshtein'.split(','), desc2:'(авторы-новостники)'},a:0
 	,noEvent:'1~сворачивать события в ленте~2012-08-20'
 	,noAuthor:'1~свернуть <a id="showNoAuthor" href="#">по списку авторов</a>~2012-01-15'
 		,listNoAuthor: {val:'', desc2:'(хранилище списка авторов)'}
@@ -2385,7 +2385,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 						,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
 						,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
 						,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,147005,158837
-						,169713,182213,195255,208001]; //апр.2015 qa -прогноз
+						,169713,182213,195255,206961,213979,221001]; //июн.2015 qa -прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
 						var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
@@ -2407,7 +2407,9 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 					,135593,137388,139154,141161,143096,145002,146858,148825,150655,152897,156927,160927
 					,164511,167841,171141,174897,178523,181712,185178,188544,192134,195908,200442,204302
 					,207968,211020,214263,217769,221545,224805,228191,231847,235117,238753,242143,244603
-					,247199,249403,251783,253991]; //апр.2015 -прогноз
+					,247199,249403,251783,254567,257097,259501]; //июн.2015 -прогноз
+					//,0,245130,246570,248202,249848,251208]; //geektimes
+					//,0,0,0,13790,14858,15800]; //megamo
 				//.!обновлять каждый месяц, писать последнее число как прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
@@ -2811,7 +2813,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.vacancies .job_item,'
 	+'.tasks .task{margin-bottom: 0!important; line-height:  1.18!important; text-indent:-2ex}'
 	+'.Sidebar .block_brainstorage .vacancies .job_item, .Sidebar .block_freelansim .tasks .task{line-height:  1.04!important}'
-	+'.sidebar_right .live_broadcast .qa_activity{margin-top: 0.8em!important; display: block!important}'
+	+'.live_broadcast .qa_activity{margin-top: 0.8em!important; display: block!important}'
 	+'.sidebar_right .freelansim .title,'
 	+'.sidebar_right .block.new_vacanies .title{display:inline-block!important; margin-bottom: 6px!important; opacity:0.3}'
 	+'.sidebar_right .block.freelansim .tasks .task a,'
@@ -3627,10 +3629,11 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				date.innerHTML = date.innerHTML.replace(/в .*/,'');;
 		}
 	}
-	var acvity = $q('.live_broadcast_activity',sidebar) //пометки обуждений старого в "Прямом эфире"
-		,acvityQA = $q('.qa_activity',sidebar)
+	var acvity = $q('.live_broadcast') //пометки обуждений старого в "Прямом эфире"
+		,acvityQA = $q('.qa_activity')
 		,dbp = $q('.daily_best_posts',sidebar)
 		,tops ={};
+	$e({el: acvity, clAdd:'block', aft: $q('.daily_best_posts')});
 	if(dbp){ //хеш лучших 10, для перекидывания комментариев в них, если есть в "прямом эфире"
 		var dbpA = $qA('.post_name', dbp);
 		for(var j in dbpA){ var dbpAJ = dbpA[j]; if(dbpAJ.attributes)
