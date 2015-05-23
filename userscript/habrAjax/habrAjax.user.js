@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 144.2015.3.6
+// @version 146.2015.5.24
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,10 +15,9 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
+// @update 145 .c2 >.block_after_post;
+// @update 144 .block_after_post .live_broadcast .posts_list;
 // @update 143 footer width; sidebar width in %%;
-// @update 142 fix in Fx36;
-// @update 141 +tmfeed.ru css support (not start in tmfeed);
-// @update 140 +megamozg.ru; +ввод тега <code>;
 // @resource meta habrAjax.meta.js
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // ==/UserScript==
@@ -2576,6 +2575,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.comments.c2 >comment_item_plain >.comment_item .info time'
 		+',.comments.c2 >.comment_item:hover .info time'
 		+',.comments.c2 >.comment_item:hover .reply a.reply_link{visibility:visible}'
+	+'.comments.c2 >.block_after_post{display:none}'
 	+'.content.c2 table{width: 100%; margin: 6px 0!important; border: 1px solid #ccc; clear: both; border-collapse: collapse; border-spacing: 0}.content.c2 table td, .content.c2 table th{border: 1px solid #ccc; padding: 2px 3px!important}.content.c2 .polling table.result,.content.c2 .polling table.result td{border:0}'
 
 	+'.eventLine .eventHid, .eventLine .date{visibility:hidden}.eventLine:hover .eventHid, .eventLine:hover .date{visibility:visible}'
