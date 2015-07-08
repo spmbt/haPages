@@ -2,7 +2,7 @@
    "content_scripts": [ {
       "exclude_globs": [ "http://habrahabr.ru/api/*" ],
       "exclude_matches": [  ],
-      "include_globs": [  "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "https://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://haru/*", "http://h.ru/*" ],
+      "include_globs": [  "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "http://megamozg.ru/*", "https://geektimes.ru/*", "https://megamozg.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://haru/*", "http://h.ru/*" ],
       "js": [ "habrPercentageRing.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
@@ -10,6 +10,6 @@
    "converted_from_user_script": true,
    "description": "Percentage Rings around numbers which show grades",
    "name": "HabrPercentageRingFx",
-   "version": "11.2014.11.2",
+   "version": "13.2015.7.8",
    "manifest_version": 2
 }
