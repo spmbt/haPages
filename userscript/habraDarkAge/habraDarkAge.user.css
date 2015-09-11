@@ -1,21 +1,11 @@
-/** HabraDarkAge v429.2015.5.16, FF30+, Opera15+, Chrome35+
+/** HabraDarkAge v431.2015.9.11, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: .similar_posts;
+ * LastUpdatesDescription: .infopanel_wrapper, .post-type, .author-info in new site layout rules;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
 body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #222!important; color: #bbb}
-/*body:after{
-	content: '';
-	display: block;
-	position: fixed;
-	z-index: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0)}*/
 #layout{background-color: transparent}
 #layout,
 #layout >.layout,
@@ -278,7 +268,7 @@ body >#logo,
 	line-height: 14px;
 	font-size:18px!important;
 	font-family: Arial,Helvetica,sans-serif;
-	color: #4684b2 !important}
+	color: #4684b2!important}
 
 /* под-шапка */
 body >#logo,
@@ -528,7 +518,9 @@ code .diff .change{background: #385570}
 
 /* данные под статьёй */
 .post .infopanel .voting{margin-top: 6px!important}
+.voting-wjt__counter_positive .voting-wjt__counter-score,
 .post .infopanel .voting .mark.positive span{color: #6e4!important}
+.voting-wjt__counter_negative .voting-wjt__counter-score,
 .post .infopanel .voting .mark.negative span{color: #c53!important}
 .post .infopanel .voting a.plus,
 .post .infopanel .voting a.minus,
@@ -568,17 +560,117 @@ code .diff .change{background: #385570}
 .post_shortwrite .comments a, .post_shortwrite .comments a span.all{color: #c53}
 .post .infopanel .original-author a{color: #c3823e}
 .post .infopanel .author .rating{margin-left: -3px; font-size: 12px!important; font-weight: normal!important; color: #c9e3e1}
+.views-count_post{color: #bcc}
+.author-info__name{
+	left: -3px;
+	position: relative;
+	top: -3px;}
+.post-type__label::before{width: 6px;}
+.post-type__label_author{font-size: 1px;}
+.post-type_nowrap{margin-bottom:-4px;}
+.post-author__link,
+.post-type__value_author,
+.post-comments__link_all::before,
+.post-comments__link,
+.author-info__nickname{color: #bba}
+.post-type__value_translate{color: #88ad40}
+.post-type .post-type__value_translate:hover{color: #a8bd55}
+.favorite-wjt__counter,
+.post-author__link:hover,
+.post-type .post-type__value_author:hover,
+.author-info__nickname:hover,
+.post-comments:hover .post-comments__link_all::before,
+.post-comments:hover .post-comments__link{color: #dcb}
+.post-comments__link_new{color: #6e4}
+.infopanel_wrapper +.author-info .author-info__name{position: absolute; top:-9px}
+
+.icon_down::before,
+.voting-wjt__button_minus:not(.voted)::before,
+.icon_up::before,
+.voting-wjt__button_plus:not(.voted)::before{color: #bba}
+.voting-wjt{border-right: 1px solid #889;}
+
+.post-comments{border-left: 1px solid #889;}
 .post .infopanel .author a.googleplus_profile{color: #866; padding: 0 8px 0 21px}
 .post .infopanel .author a.googleplus_profile:hover{color: #c53}
+
+.post .infopanel_wrapper{margin-right: -10px;}
+.post .postinfo-panel__item_abuse.abuse{
+	z-index: 2;
+	top: 3px;
+	left: 8px;
+	margin: -42px 9px 1px !important;
+	background: transparent;
+	opacity: 0.9;}
+.abuse__button_cancel{height: 40px; background: #444;}
+
+	.abuse__button_submit::before{opacity: 0.4;}
+	.abuse-form__text-field_wrapper{padding-right: 38px;}
 .buttons .orange,
 .post .abuse_form{width: 94%!important; margin: -1px 0!important}
 .post .abuse{position: relative; float: right;margin: -22px 9px -2px!important; opacity: 0.35}
 .post .abuse:hover, .post .abuse.cancel_abuse{opacity: 1}
 .post .abuse.cancel_abuse{margin: 11px 10px -24px 2px!important}
 
+.post-type{float: right;
+	position: relative;
+	width: auto;
+	margin-top: -46px;
+	border-width: 0;
+	border-color: transparent;
+	background-color: transparent;}
+.author-info{float: right;
+	overflow: inherit;
+	max-width: 50%;
+	width: auto;
+	margin-top: -0.9em;
+	padding: 8px 0 0 4px;
+	white-space: inherit;
+	border-radius:8px;
+	background: rgba(118,123,130,0.3);
+}
+.author-info:not(.author-info_top){margin-top: -3.7em}
+.post-type +.author-info:not(.author-info_top){margin-top: -0.9em}
+.post_show +div[id*=adriver_banner]{display: none;}
+.author-info__username{margin-top: -5px; text-indent: 14px;}
+.voting-wjt_small .voting-wjt__counter,
+.user-rating{line-height: 1.6em;}
+.author-info .user-rating__label, .voting-wjt__label{top:-62%; line-height: 22px;}
+.voting-wjt__label{right: 8px; left: auto;}
+.voting-wjt_small .voting-wjt__counter-score, .voting-wjt_small .voting-wjt__result-score, .voting-wjt_small .voting-wjt__button_score{position: relative; left:-9px;}
+
+.author-info__specialization{margin-top: 4px; line-height: inherit;}
+.author-info .author-info__image{
+	overflow: inherit;
+	width: 24px;
+	height: 24px;
+	margin-right: -24px;
+	background: rgba(118,123,130,0.3);
+}
+.author-info:hover .author-info__image{background: rgba(118,123,130,0)}
+.author-info_top .author-info__desc{
+	width: 100%;
+	left: 0;
+	padding-left: 0;
+	white-space: inherit;
+}
+.author-info .author-info__desc {
+	left: -18px;
+	padding-left: 28px;}
+.author-info__desc .author-info__contacts{float: right; margin: -9px 5px 0 0;}
+.author-info__buttons{
+	position: static;
+	float: right;
+	margin-top: -9px;
+	margin-bottom: -22px;
+}
+.author-info__buttons.buttons button{opacity: 0.7;}
+.author-info__buttons.buttons button:hover{opacity: 1}
+.author-info__name,.author-info__name:hover{color:inherit}/*8#6da3bd*/
+
 /* над комментариями */
 .comments_form +.block_after_post{margin: 6px -4px 0 0!important}
-.block_after_post{margin: 6px -8px 0 -6px!important}
+.block_after_post{margin: -5px 4px 0 -6px!important}
 .block_after_post .block{padding: 6px 10px}
 .block_after_post .block .title{margin: -5px 0 5px!important; font-size: 18px!important}
 .block_after_post .similar_posts .posts_list .post_item{margin-bottom:0!important}
@@ -590,11 +682,13 @@ code .diff .change{background: #385570}
 .block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{margin-bottom: 8px}
 .block_after_post .live_broadcast .posts_list .post_item + .post_item,
 .block_after_post .similar_posts .posts_list .post_item + .post_item{margin-top: 3px;}
-.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEX///95cURJd02fAAAAAXRSTlMAQObYZgAAABtJREFUCNdjYAAC/n8MDAKMDAzCP7HTIHkoAACP+wWDQrlT5wAAAABJRU5ErkJggg==)!important}
+.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEX///95cURJd02fAAAAAXRSTlMAQObYZgAAABtJREFUCNdjYAAC/n8MDAKMDAzCP7HTIHkoAACP+wWDQrlT5wAAAABJRU5ErkJggg==) no-repeat!important; padding-left: 0.87em;}
 .similar_posts,
 .live_broadcast{padding-bottom: 8px!important}
+.block_after_post .similar_posts:hover{opacity: 0.9!important;}
 body.company .comments_list h2.comments-header,
-.comments_list h2.title{
+.comments_list h2.title,
+.post .infopanel_wrapper .postinfo-panel{
 	max-width: 1200px;
 	margin:-17px 1px 5px -6px!important;
 	padding: 18px 0 20px 25px!important;
@@ -602,6 +696,7 @@ body.company .comments_list h2.comments-header,
 	border-color: #9c9fa2 #6c7076 #5c6066!important;
 	background-image: linear-gradient(#767b82 20%, #4c5056 90%);
 	color: #9aa!important}
+.post .infopanel_wrapper .postinfo-panel{padding:0!important;}
 .company_order .meta .replies .total, #preview_placeholder .meta .replies .total,
 .company_order .responses .responses_head .title, #preview_placeholder .responses .responses_head .title,
 .comments_list h2.title2,
@@ -610,22 +705,29 @@ h2.title .subscribe_comments{color: #899!important}
 h2.title .subscribe_comments label input{opacity: 0.6}
 
 /* Комментарии */
-.comments_list{margin-right: -8px!important}
+.comments_list{margin-right: -8px!important; padding-top: 18px;}
 .comments_list .comment_item .info a.avatar img,
 .tracker_page table.tracker_mentions tr td.mention_type img,
-.conversation_page .messages .message .info a.avatar img{
+.conversation_page .messages .message .info a.avatar img,
+.author-info .author-info__image-pic,
+.infopanel_wrapper .post-author__pic{
 	-webkit-filter: grayscale(1); filter: grayscale(1);
 	transition: all 200ms 250ms, width 200ms 800ms, height 200ms 800ms, margin 200ms 800ms;
 	opacity: 0.21}
+.infopanel_wrapper .post-author__pic{width: 24px; height: 24px;}
+.author-info__image-pic{max-width: none; width: 24px; height: 24px;}
 .tracker_page table.tracker_mentions tr td.mention_type a:first-child{display: inline-block; width: 24px; height: 24px}
 .comments_list .comment_item .info:hover a.avatar img:not([src*=stub-user-small]),
 .tracker_page table.tracker_mentions tr td.mention_type:hover img:not([src*=stub-user-small]),
-.conversation_page .messages .message .info:hover a.avatar img:not([src*=stub-user-small]){
+.conversation_page .messages .message .info:hover a.avatar img:not([src*=stub-user-small]),
+.author-info:hover .author-info__image-pic,
+.post-author:hover .post-author__pic{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	width: 48px!important;
 	height: 48px!important;
 	margin: -12px 0 0 -17px;
 	opacity: 0.6}
+.post-author:hover .post-author__pic{margin: -12px -0px -12px -14px;}
 .comments_list .comment_item .info a.avatar{overflow: inherit!important}
 .comments_list .comment_item .info.is_new,
 .conversation_page .messages .message.new .info{background: #404046}
@@ -996,8 +1098,8 @@ body >#logo >img{opacity: 0.16}
 
 /* нижний сайдбар */
 .block.new_vacanies .title,
-.block.freelansim .title{box-shadow: 0 0 5px 5px #444; background-color: #444!important}
-.block.freelansim .title{margin: 1px 0 8px!important; padding: 7px 0!important; background-position: 0 7px!important}
+.block.freelansim .title{margin: -4px 0 8px!important; padding: 0!important; font-size: 16px; color: #999;}
+.block.freelansim .title{background-position: 0 7px!important}
 .block.new_vacanies .vacancies .job_item a,
 .block.freelansim .tasks .task a{font-size: 12px!important}
 
@@ -1040,7 +1142,7 @@ body >#logo >img{opacity: 0.16}
 .rotated_posts .rotated_post a:hover{background: #555}
 .bottom_promo_blocks{padding-top: 15px}
 
-div.footer_panel:before{
+.inner >div.footer_panel:before{
 	content: '';
 	display: block;
 	position: fixed;
@@ -1110,7 +1212,6 @@ div.footer_panel:before{
 .block:not(.freelansim):not(.block_freelansim):not(.new_vacanies):not(.block_brainstorage) >div >div{overflow: inherit!important}
 .block.company_info .join{width: 104px}
 
-.block.new_vacanies .title{display: none}
 .block.new_vacanies h1, .block.block_brainstorage h1,
 .block.block_freelansims .title, .block.block_brainstorage .title{
 	display: inline-block !important;
@@ -1218,7 +1319,7 @@ div.footer_panel:before{
 #TMpanel .menu.special,.special_navbar_image,#print_tab,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.new_vacanies):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner],.company_top_banner,.dont-add-our-site-pls{display:none!important}
 #header_mouse_activity,.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
 
 /*m.habr*/
