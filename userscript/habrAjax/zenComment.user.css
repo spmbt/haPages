@@ -73,10 +73,25 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 #TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
 #TMpanel .bmenu{margin-left:-12px!important; line-height: normal!important}
 #TMpanel .container .bmenu{display: block!important}
-#TMpanel .bmenu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#d3e2f0 20%, rgba(238, 238, 238, 0.3) 90%); color: transparent!important; opacity: 0.65}
+#TMpanel .bmenu a{
+	max-width:5.9ex!important;
+	overflow: hidden;
+	margin: 0 6px!important;
+	padding: 0!important;
+	white-space: nowrap;
+	background-image: linear-gradient(#d3e2f0 20%, rgba(238, 238, 238, 0.3) 90%);
+	box-shadow: -3px 0 2px 1px rgba(238, 238, 238, 0.1), 3px 0 2px 1px rgba(238, 238, 238, 0.1);
+	color: transparent!important;
+	opacity: 0.65;
+	transition: all 180ms}
 #TMpanel .bmenu a:last-child{margin-right: -9ex!important}
 #TMpanel .bmenu a.current{display: none!important}
-#TMpanel .bmenu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
+#TMpanel .bmenu:hover a{
+	text-decoration: none!important;
+	background-color: #f0f4fa;
+	box-shadow: -3px 0 2px 1px rgba(238, 238, 238, 0.7), 3px 0 2px 1px rgba(238, 238, 238, 0.7);
+	color: #47a !important;
+	opacity: 1}
 #header .user_panel{font: 12px/14px Arial,Helvetica,sans-serif!important}
 #header .userpanel:hover,#header .user_panel:hover{background-color: #fff;
 	opacity: 1;filter: none}
@@ -1141,7 +1156,8 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 		margin-bottom: -2px;
 		font-size: 12px;
 		line-height: 18px}
-	.content-list__item-counter{margin-left: 12px}
+	.content-list__item-counter:before{margin-left: 7px}
+	.content-list__item-counter{margin-left: 10px}
 	.content-list_top-materials .content-list__item-link{font-size: 14px}
 	.post-preview__desc{display: inline-block; margin-left: 3em}
 	.post-preview, .post-preview__desc,
@@ -1257,7 +1273,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.ppa_links),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
 .sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
 
-.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset),
+.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),
 .company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),
 .column-wrapper_bottom >.sidebar_right{display:none!important}
 .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none}

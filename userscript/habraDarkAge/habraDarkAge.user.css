@@ -298,9 +298,11 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	padding: 0 14px;
 	background: #666;
 	color: #d3e2f0;}
+.tabs{margin-bottom: 8px}
 .content_left table.menu tr td a{padding: 5px 2px 0;}
 	.content_left .tabs-menu .tab-item:hover{background: #6c6c6e; color: #eff}
 	.tab-item{border-right-color: #777}
+	.tab-item_stacked{height: 49px}
 .content_left table.menu tr td.active a, .content_left .submenu .item.active, .content_left .submenu .item.active a
 	,.content_left .tabs-menu .tab-item_current, .content_left .tabs-menu .item.active a{background: #666; color: #eff}
 .content_left .submenu .item.active,
@@ -575,8 +577,9 @@ code .diff .change{background: #385570}
 .author-info__name{
 	left: -3px;
 	position: relative;
-	top: -3px;}
+	top: 2px;}
 .post-type__label::before{width: 6px;}
+.user-mail.send_mail{top: 0}
 .post-type__label_author{font-size: 1px;}
 .post-type_nowrap{margin-bottom:-4px;}
 .post-author__link,
@@ -593,7 +596,7 @@ code .diff .change{background: #385570}
 .post-comments:hover .post-comments__link_all::before,
 .post-comments:hover .post-comments__link{color: #dcb}
 .post-comments__link_new{color: #6e4}
-.infopanel_wrapper +.author-info .author-info__name{position: absolute; top:-9px}
+.infopanel_wrapper +.author-info .author-info__name{position: absolute; top:-12px}
 
 .icon_down::before,
 .voting-wjt__button_minus:not(.voted)::before,
@@ -624,7 +627,7 @@ code .diff .change{background: #385570}
 	opacity: 0.9;}
 .abuse__button_cancel{height: 40px; background: #444;}
 
-	.abuse__button_submit::before{opacity: 0.4;}
+	.abuse__button_submit::before{opacity: 0.4}
 	.abuse-form__text-field_wrapper{padding-right: 38px;}
 .buttons .orange,
 .post .abuse_form{width: 94%!important; margin: -1px 0!important}
@@ -653,10 +656,10 @@ code .diff .change{background: #385570}
 .author-info:not(.author-info_top){margin-top: -3.7em}
 .post-type +.author-info:not(.author-info_top){margin-top: -0.9em}
 .post_show +div[id*=adriver_banner]{display: none;}
-.author-info__username{margin-top: -5px; text-indent: 14px;}
+.author-info__username{margin-top: -4px; text-indent: 14px;}
 .voting-wjt_small .voting-wjt__counter,
 .user-rating{line-height: 1.6em;}
-.author-info .user-rating__label, .voting-wjt__label{top:-62%; line-height: 22px;}
+.author-info .user-rating__label, .voting-wjt__label{top:-82%; line-height: 26px}
 .voting-wjt__label{right: 8px; left: auto;}
 .voting-wjt_small .voting-wjt__counter-score, .voting-wjt_small .voting-wjt__result-score, .voting-wjt_small .voting-wjt__button_score{position: relative; left:-9px;}
 
@@ -668,6 +671,8 @@ code .diff .change{background: #385570}
 	margin-right: -24px;
 	background: rgba(118,123,130,0.3);
 }
+	.post >.author-info .author-info__image{position: absolute}
+.profile-header .author-info__specialization{margin: 7px 0 0 25px}
 .author-info:hover .author-info__image{background: rgba(118,123,130,0)}
 .author-info_top .author-info__desc{
 	width: 100%;
@@ -675,10 +680,11 @@ code .diff .change{background: #385570}
 	padding-left: 0;
 	white-space: inherit;
 }
-.author-info .author-info__desc {
+.profile-header >.author-info[id*="company"] .author-info__desc{top:-2.8em}
+.author-info .author-info__desc{
 	left: -18px;
 	padding-left: 28px;}
-.author-info__desc .author-info__contacts{float: right; margin: -9px 5px 0 0;}
+.author-info__desc .author-info__contacts{float: right; margin: -4px 5px 0 0;}
 .author-info__buttons{
 	position: static;
 	float: right;
@@ -758,7 +764,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	width: 48px!important;
 	height: 48px!important;
-	margin: -12px 0 0 -17px;
+	margin: -18px 0 0 -21px;
 	opacity: 0.6}
 .company_header:hover .company_icon img,
 .user_header:hover .avatar img:not([src*="stub-user-middle"]){margin: 0 7px -3px -24px;}
@@ -1414,7 +1420,7 @@ body >#logo >img{opacity: 0.16}
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.ppa_links),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
 .sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
 
-.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset),
+.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),
 .company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),
 .column-wrapper_bottom >.sidebar_right{display:none!important}
 .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none}
@@ -1450,8 +1456,7 @@ body >#logo >img{opacity: 0.16}
 .comments_list .comment_item .meta .username{font-weight: bold; color: #ddd}
 
 .buttons .btn{
-	background-color: #444!important;
-	background-image: linear-gradient(#4f5557 20%, #45484a 90%)!important;
+	background-color: #444!important; background-image: linear-gradient(#4f5557 20%, #45484a 90%)!important;
 	border-color: #424549 #383a3f #35383e !important;
 	box-shadow: 0 1px 2px #555 inset!important;
 	color: #cde !important;
