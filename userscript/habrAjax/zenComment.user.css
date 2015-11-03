@@ -1,7 +1,7 @@
-/** Habr ZenComment v434.2015.05.16, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v440.2015.11.2, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: .block_after_post .live_broadcast .posts_list;
+ * LastUpdatesDescription: many new layouts;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -42,7 +42,6 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	top: 0!important;
 	right: 0;
 	left: auto!important;
-	z-index: 10026;/*!is indication of ZenComment styles!*/
 	float: right;
 	width: auto!important;
 	height: 15px;
@@ -52,6 +51,7 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	border-left: 2px solid #666!important;border-bottom-left-radius:5px;
 	background-color: #ccc;
 	opacity: 0.5;filter: alpha(opacity=50)}
+#header .userpanel,#header .user_panel,.nav_panel .tab_user{z-index: 10026}/*! for ZenComment detect!*/
 .page_head{line-height: 0}
 .page_head h2.title{font-size: 13px!important; position: relative; top: 1.8em; left: 1ex}
 .page_head .controls{position: absolute; left: 5px; top: 2.8em}
@@ -71,12 +71,12 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	-o-transition: left 1s;
 	transition: left 1s;}
 #TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
-#TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
-#TMpanel .container .menu{display: block!important}
-#TMpanel .menu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#d3e2f0 20%, rgba(238, 238, 238, 0.3) 90%); color: transparent!important; opacity: 0.65}
-#TMpanel .menu a:last-child{margin-right: -9ex!important}
-#TMpanel .menu a.current{display: none!important}
-#TMpanel .menu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
+#TMpanel .bmenu{margin-left:-12px!important; line-height: normal!important}
+#TMpanel .container .bmenu{display: block!important}
+#TMpanel .bmenu a{max-width:5.2ex!important; overflow: hidden; margin: 0 6px!important; padding: 0 4px!important; white-space: nowrap; background-image: linear-gradient(#d3e2f0 20%, rgba(238, 238, 238, 0.3) 90%); color: transparent!important; opacity: 0.65}
+#TMpanel .bmenu a:last-child{margin-right: -9ex!important}
+#TMpanel .bmenu a.current{display: none!important}
+#TMpanel .bmenu:hover a{text-decoration: none!important; background-color: #f0f4fa; color: #47a !important; opacity: 1}
 #header .user_panel{font: 12px/14px Arial,Helvetica,sans-serif!important}
 #header .userpanel:hover,#header .user_panel:hover{background-color: #fff;
 	opacity: 1;filter: none}
@@ -123,6 +123,10 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 .userpanel .count[href*=tracker],.user_panel .count[href*=tracker]{color: #68a!important}
 .userpanel:hover .count,.user_panel:hover .count{border: 1px solid #999!important}
 .userpanel .count:empty,.user_panel .count:empty{display: none!important}
+.stats__counters{margin-bottom:-4px}
+.stats__value{margin-bottom: 3px}
+.profile-header__buttons{margin-left:-100%}
+.menu__item.menu__item_float{top:-2em; left: -3.5em}
 #header .userpanel .charge,#header .user_panel .charge{
 	position: absolute;
 	display: none!important;
@@ -227,6 +231,10 @@ form#search_form{width: 245px!important;height:21px}
 .inner .company_header .company_icon img{position: absolute; z-index: 3; margin-top: 5px!important}
 .company_header .name{margin: 0 26px -10px 51px!important}
 .company_header .name a, .company_header .rating{margin-bottom: -10px; font-size: 180%!important}
+	.profile-header .profile-header__stats{position: relative; z-index: 1}
+	.profile-header__stats .voting-wjt,
+	.profile-header__stats .user-rating{margin-top: -20px; font-size: 180%!important}
+	.user-mail.send_mail{position: relative; top: -13px; left: 20px}
 .profile-header .profile-actions dt{font-size: 220%!important;padding-top: 6px!important}
 .profile-header h1{margin: 0!important}
 .profile-header h1 .favicon{margin-top: 6px!important}
@@ -334,6 +342,7 @@ form#search_form{width: 245px!important;height:21px}
 #navbar_overlay{background: none repeat scroll 0 0 rgba(0, 0, 0, 0.17)!important}
 #navbar #menu_tab .title{padding-left: 80px!important}
 #navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important}
+	.tab-item_stacked{height: auto}
 
 #js-addFan, #js-addWorker{margin: 6px 0 0!important}
 .profile-karma-holder{margin: -10px 8px!important}
@@ -399,7 +408,7 @@ form#search_form{width: 245px!important;height:21px}
 .content_left table.menu .profile a:hover{opacity:0.9}
 .content_left .submenu{position: relative; display: inline-block; z-index: 3; height: 22px; top: -13px; margin: -13px 0 -9px!important}
 /*содержание (в статье или в группе .posts)*/
-.content_left .post{overflow: inherit!important; margin:12px 0 32px!important}
+.content_left .post.shortcuts_item{overflow: inherit!important; margin:12px 0!important}
 .content_left .company_post .post{margin-bottom: -5px!important}
 h1{letter-spacing:0!important}
 .content_left .post h1.title{
@@ -427,10 +436,10 @@ h1{letter-spacing:0!important}
 	text-indent: -2ex;
 	font: 13px/1.1 Verdana,Tahoma,Helvetica,sans-serif!important
 }
-	.Posts >ul li h2 a{display: block; min-height: 2.5em; text-decoration: none!important; color: #000!important}
-	.Posts >ul li h2 a:hover{background-color: #f2f2f2!important}
-	.Posts >ul li h2 a:visited{color: #735!important}
-	.Posts >ul li h2 a:active{color: #d12!important}
+.Posts >ul li h2 a{display: block; min-height: 2.5em; text-decoration: none!important; color: #000!important}
+.Posts >ul li h2 a:hover{background-color: #f2f2f2!important}
+.Posts >ul li h2 a:visited{color: #735!important}
+.Posts >ul li h2 a:active{color: #d12!important}
 .Posts >ul li .meta{
 	overflow: hidden;
 	position: relative;
@@ -445,17 +454,17 @@ h1{letter-spacing:0!important}
 .Posts >ul li .meta .favicon.habrahabr{margin-left:-7px; opacity: 0.62}
 .Posts >ul li .meta .favicon.geektimes{opacity: 0.6}
 .Posts >ul li .meta .favicon.megamozg{margin-left: 7px; opacity: 0.5; box-shadow: 0 0 2px 4px rgba(160,90,72,0.65) inset}
-	.Posts >ul li .meta .time_published{position:absolute; display: inline-block; overflow: hidden; top: 0; right: 0; margin-right: -7.5ex}
-	.Posts >ul li .meta .comments_count{position:absolute; top: 14px; right: 1ex; margin: 0!important; padding: 0!important}
-		.Posts >ul li .meta .comments_count span{display: inline-block; overflow: hidden; width: 4.8ex; vertical-align: bottom; margin-right: 6px; color: #c7c7c7}
-		.Posts >ul li .meta .comments_count b{color: #b56}
-	.Posts >ul li .meta .reading_count{position:absolute; top: 15px; right: 56px; font-size: 10px; color: #bbb}
-		.Posts >ul li .meta .reading_count.highlighted{color: #aaa}
-		.Posts >ul li .meta .reading_count b{margin: 0 -3px}
-	.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #9f6036}
-	.Posts >ul li .meta .score{position:absolute; z-index: 1; top: 6px; right: 31px}
-		.Posts >ul li .meta .score b{color: #8b4}
-	.Posts >ul li .reading_count span,.Posts >ul li .favorites_count span,.Posts >ul li .score span{display:none}
+.Posts >ul li .meta .time_published{position:absolute; display: inline-block; overflow: hidden; top: 0; right: 0; margin-right: -7.5ex}
+.Posts >ul li .meta .comments_count{position:absolute; top: 14px; right: 1ex; margin: 0!important; padding: 0!important}
+	.Posts >ul li .meta .comments_count span{display: inline-block; overflow: hidden; width: 4.8ex; vertical-align: bottom; margin-right: 6px; color: #c7c7c7}
+	.Posts >ul li .meta .comments_count b{color: #b56}
+.Posts >ul li .meta .reading_count{position:absolute; top: 15px; right: 56px; font-size: 10px; color: #bbb}
+	.Posts >ul li .meta .reading_count.highlighted{color: #aaa}
+	.Posts >ul li .meta .reading_count b{margin: 0 -3px}
+.Posts >ul li .meta .favorites_count{position:absolute; top: 2px; right: 72px; color: #9f6036}
+.Posts >ul li .meta .score{position:absolute; z-index: 1; top: 6px; right: 31px}
+	.Posts >ul li .meta .score b{color: #8b4}
+.Posts >ul li .reading_count span,.Posts >ul li .favorites_count span,.Posts >ul li .score span{display:none}
 .container >.Sidebar{display: block!important}
 
 .content_left .company_post h1.title .post_title{font-size: 18px!important;font-weight: normal}
@@ -539,6 +548,17 @@ ul.tags li a{text-decoration:none!important}
 .post ul.tags li a:hover{background-color:#fffcf8;color:#333!important}
 .post .content .poll table.result tr td{width: 90%!important; border: 0!important}
 .post .content .poll table.result tr td.percent{width: 10%!important}
+.postinfo-panel,.postinfo-panel__item_abuse{background:transparent}
+.postinfo-panel__item_socials{right: auto;}
+.postinfo-panel{border: 0;}
+.post-share{width: 40px;
+	margin: 0 0 0 3px;
+	line-height: 18px;
+	opacity: 0.4;}
+.post-share__item{margin-right: 1px;}
+.post-share__item-link{font-size: 16px;}
+.post-share__item +.post-share__item{margin-left:0}
+.post-share__item-link.pocket{color: #994056}
 
 /*.content_left .post .infopanel_wrapper{height: 1px}*/
 .content_left >.post .tags +.infopanel{background-color:#f9fbf8}
@@ -576,6 +596,9 @@ ul.tags li a{text-decoration:none!important}
 .post .infopanel .author .rating{top: auto!important; vertical-align: -3px!important;font-weight: normal!important}
 .post .infopanel .comments{margin-left: 5px!important;background: url(data:image/gif;base64,R0lGODlhDAAOANQVAIGhtsHU2uLq79Tv8qbE0dLh6/f//+z6+9/09r/c8Nru+rfL2O3y9sbY4+Pz+4movMjk8K/K0svc59Xr+r3P3P7//4WkuQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABcALAAAAAAMAA4AAAVRIFOMJCmJVaqukmS8cNxIxxHceN00SO//u8EgQiwKKRShcjmgLCAQgnQKXSwG0Gx2YHXUDgpozRERPM6PhiJhaQsu8AsjPQHE7/K0HR9nSOMhADs=) no-repeat 2px 2px #e5e4eb!important}
 .post .infopanel .comments a{padding:3px 4px 4px 17px!important}
+.author-info{padding: 2px 0 0 3px}
+.profile-header .author-info__desc{vertical-align: top; margin-top:-6px}
+.author-info__username, .author-info__specialization{display: inline-block; padding-right: 6px}
 .page-nav #nav-pages,.page-nav{
 	margin: 0 40px 0!important;
 	padding: 0 0 1px 1px!important}
@@ -609,11 +632,10 @@ ul.tags li a{text-decoration:none!important}
 	position: static!important;
 	overflow: visible!important;
 	min-height: 2em;
-	margin: -5.6em -2px 0 0!important;
+	margin: -4.6em -2px 0 0!important;
 	padding-top: 5.6em!important;
 	padding-left: 30px!important;
-	border-right: 2px solid #fff!important;
-	background:#fff}
+	border-right: 2px solid #fff!important}
 .content_left .comments_list{border-bottom: 2px solid #fff!important}
 .content_left .comments_list:hover{border-bottom: 2px solid #eee!important}
 .comments_list:hover >.comment_item:not(:hover){
@@ -1070,23 +1092,72 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .content_left .topic_add{margin-left: 10px!important}
 .content_left .similar_posts,.content_left .similar_posts .posts_list,
 .rotated_posts{margin-top:0!important;margin-bottom:0!important;padding-top:0!important;border-top:1px solid #eee!important;background:#f8f8f8}
-.footer_panel{height: 0.6em}
+.footer_panel{float: right; height: 0.6em; white-space: nowrap;}
 .rotated_posts,#footer{max-width: 1420px;margin-left: auto !important; margin-right: auto !important}
 body >.rotated_posts{width: 100%; padding-left: 0!important}
 .rotated_posts .rotated_post{margin-bottom: 0!important}
-.rotated_posts .rotated_post a,.content_left .similar_posts .title{display:block;padding:0 3px 2px!important;text-decoration:none!important;font-size: 13px!important;line-height:1.1!important;background:#f8f8f8}
+.rotated_posts .rotated_post a,.content_left .similar_posts .title,.block_after_post .similar_posts h2.title{display:block; top: -1.8em; padding:0 3px 2px!important;text-decoration:none!important;font-size: 13px!important;line-height:1.1!important; background: #ecedf2; color: #5699d8}
 .content_left .similar_posts .title,.content_left .similar_posts .post_item .when{padding-bottom:0!important;font: 12px Arial,Helvetica,sans-serif!important}
-.content_left .similar_posts .posts_list{display:none;max-width:1540px;margin:-6px 4px 0!important;padding: 0 12px 2px!important}.content_left .similar_posts .posts_list{margin-top:14px!important}
-.content_left .similar_posts{margin-top:-4px!important; padding: 0 !important}
+.content_left .similar_posts .posts_list{display:none;max-width:1540px;margin:-6px 4px 0!important;padding: 0 12px 2px!important}.content_left .similar_posts .posts_list{margin-top:-14px!important}
+.content_left .similar_posts{position: relative; top: 22px; margin-top:-4px!important; padding: 0 !important}
 .content_left .similar_posts .title{float:right;height:1.2em;margin: -3px 24px 0 12px!important;padding:2px 5px 4px!important;border-radius:5px}
-.content_left .similar_posts >.title,.content_left .similar_posts .post_item, .content_left .similar_posts .post_item .when{margin-bottom:0!important}
+.content_left .similar_questions .title, .similar_posts .title{top:-2px}
+.content_left .similar_posts >.title,.content_left .similar_posts .post_item, .content_left .similar_posts .post_item .when{margin-top:2px!important; margin-bottom:0!important; padding: 0 0 2px!important; font-size: 12px!important}
+.similar_posts .post_item .bull{display: none!important}
 .content_left .similar_posts .post_item .when{font-size: 12px!important;color:#777}
-.content_left .similar_posts:hover{float:none;position:static}
-.content_left .similar_posts:hover .posts_list,.content_left .similar_posts .posts_list:hover{position:absolute;z-index:12;display:block}
+.content_left .similar_posts:hover{float:none; position: relative!important}
+.content_left .similar_posts:hover .posts_list,.content_left .similar_posts .posts_list:hover{position: absolute; z-index: 12; display: block; margin-top: -0.3em !important;}
 .content_left .similar_posts .post_item .when, .content_left .similar_posts .post_item .post_name{display:inline;text-decoration:none!important}
-.content_left .similar_posts .post_item{display:inline-block;vertical-align: middle!important;width:24%!important;margin-right:0!important;padding-bottom:1px!important;line-height:1.14!important;text-indent:0}
+.content_left .similar_posts .post_item{display:inline-block;vertical-align: middle!important;width:24%!important;margin-right:0!important;line-height:1.14!important;text-indent:0}
 .posts_list .sort_menu{margin: 10px 0 -12px!important}
 .search_results, .comment_item_plain:first-child{margin-top: 17px}
+
+	.column-wrapper_bottom{text-align: center}
+	.columns-group{width: 130%; margin-left: 20px}
+	.tabs__content{padding: 7px 3px 5px 19px}
+	.live-broadcast__title, .promo-block__title{padding: 0 0 0 8px; font-size: 1.2em; font-variant: small-caps; letter-spacing: 0}
+	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
+	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
+	.content-list__item.vacancy .vacancy__attrs.attrs,
+	.content-list__item.task .task__attrs.attrs{top: -4px; margin: -1px 0 0 1.8em}
+		.content-list__item-link{}
+	.top-materials{display: inline-block;
+		vertical-align: middle;
+		width: 61%;
+		margin: 1.5% 0 0 1.5%;
+		padding: 8px;
+		text-align: left}
+	.top-materials_geektimes .top-materials__title::before, .top-materials_megamozg .top-materials__title::before,
+		.top-materials_habrahabr .top-materials__title::before{width: 17px; height: 17px}
+	.top-materials_megamozg{margin-right: -34% !important}
+	.similar-posts__title,
+	.top-materials__title, .top-materials__title-link{font-size: 16px}
+	.top-materials__title{margin-bottom: 2px}
+	.content-list_top-materials .content-list__item::before,
+	.content-list_top-materials .content-list__item{margin: 0 12px 0 4px; line-height: 1}
+	.content-list_top-materials .content-list__item::before{margin-top: 2px;
+		margin-bottom: -2px;
+		font-size: 12px;
+		line-height: 18px}
+	.content-list__item-counter{margin-left: 12px}
+	.content-list_top-materials .content-list__item-link{font-size: 14px}
+	.post-preview__desc{display: inline-block; margin-left: 3em}
+	.post-preview, .post-preview__desc,
+	.content-list_top-materials .content-list__item,
+	.content-list__item_wrap{overflow: inherit}
+
+	.similar-posts__title{padding: 0 0 0 20px; font-variant: small-caps; font-size: 14px}
+	.content-list_posts .content-list__item{margin-left: 3.7em; padding: 0 0 0 20px}
+	.content-list_posts .content-list__item{border-top: 0}
+	.post-preview__rating{margin-top: -1px; font-size: 12px}
+	.post-preview__link{margin-bottom: 0; font-size: 14px}
+
+	.columns-group .columns-group__column,
+	.columns-group__column{display: table-cell; width: 50%; text-align: left}
+	.columns-group__column .live-broadcast__title, .columns-group__column .promo-block__title, .promo-block__title-link{font-size: 16px}
+	.promo-block{padding-bottom: 30px}
+	.promo-block__content{padding: 6px 8px 8px 8px}
+	.promo-block__footer{padding: 4px 0 8px}
 
 #footer{width: auto!important; min-width: 314px!important; margin-bottom: 0!important; padding: 7px 0 0 0!important}
 #footer:before{position:relative; display:block; float:right; height:0; top:-5px; right:2px; white-space:nowrap; margin-top:-4px!important; font-size: 9px; color:#888; content:"ZenComment by spmbt"}
@@ -1128,7 +1199,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.content_left .post .infopanel{margin-left: 2px!important}
 	.content_left{width: 240px;}
 	#TMpanel{left: 0!important}
-	#TMpanel .menu a{margin: 0 2px!important}
+	#TMpanel .bmenu a{margin: 0 2px!important}
 	.Posts ul li h2{padding-left: 107px!important} }
 @media (min-width: 1520px){
 	#layout,.rotated_posts, #footer{margin-right:0!important}
@@ -1176,11 +1247,14 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 #navbar .nav_tab .line,
 #navbar .nav_tab .line +.title,
 #navbar .nav_tab .line +.title +.menu{display: none!important}
-#TMpanel .menu.special,.special_navbar_image,#print_tab,
+#TMpanel .bmenu.special,.special_navbar_image,#print_tab,
+#TMpanel .bmenu.slink,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.block_brainstorage):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
-#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos{display:none}
+	.no_please_one_one_one, .xixixi,
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.block_brainstorage):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner],.company_top_banner,.dont-add-our-site-pls{display:none!important}
+.sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo){display:none!important}
+.posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none}
 
 /*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}
 #layout img[align="middle"],#layout img[align="center"]{display:block; margin:0 auto 2px!important}
