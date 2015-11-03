@@ -348,6 +348,8 @@ form#search_form{width: 245px!important;height:21px}
 .profile-karma-holder{margin: -10px 8px!important}
 .company-header .profile-karma-holder{margin: 0 12px 0 0!important}
 .profile-header .vote_holder .mark span{position: relative!important; top: 5px!important; font-size: 75%!important}
+	.profile-header .voting-wjt__label, .profile-header .user-rating__label{margin: -16px 0 0}
+	.profile-header .user-mail__label{position: relative; top: -8px}
 .profile-header .profile-actions dt,
 .profile-karma-holder .karma{background: transparent!important}
 .profile-karma-holder >dl >dt,
@@ -1251,9 +1253,13 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 #TMpanel .bmenu.slink,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
-	.no_please_one_one_one, .xixixi,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.block_brainstorage):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog),.sidebar_right div[class*=banner],.company_top_banner,.dont-add-our-site-pls{display:none!important}
-.sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo){display:none!important}
+	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.ppa_links),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
+.sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
+
+.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset),
+.company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),
+.column-wrapper_bottom >.sidebar_right{display:none!important}
 .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none}
 
 /*исправления сайта*/.post .content .poll dl{margin-bottom: 3px!important}.post .content .poll dl dt{width: 5em!important}.post .content .poll .total{padding: 0 0 4px!important}
