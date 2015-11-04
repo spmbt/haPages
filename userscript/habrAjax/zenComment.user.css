@@ -1,4 +1,4 @@
-/** Habr ZenComment v440.2015.11.2, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v440.2015.11.3, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
  * LastUpdatesDescription: many new layouts;
@@ -1271,7 +1271,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 #header .main_menu .banner_special,
 	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.ppa_links),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
-.sidebar_right >div:not(.company_widgets):not(.block):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
+.sidebar_right >div:not(.company_widgets):not([class="block daily_best_posts"]):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
 
 .content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),
 .company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),
