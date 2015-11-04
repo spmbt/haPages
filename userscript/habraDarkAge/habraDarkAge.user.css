@@ -1,4 +1,4 @@
-/** HabraDarkAge v434.2015.11.4, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v435.2015.11.4, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: many new layouts;
@@ -146,6 +146,7 @@ body .buttons a.button:hover,
 	-webkit-filter: grayscale(0.6); filter: grayscale(0.6);
 	padding-left: 15px;
 	padding-right: 15px}
+.count_icon::before{color: rgba(160, 96, 120, 0.25)}
 
 /* Geektimes-меню */
 #TMpanel{display: block!important;
@@ -292,6 +293,7 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	color: #cde}
 .content_left .menu_sub{background: #444}
 .content_left .menu_sub .menu__item-link{color: #777}
+.content_left .menu_sub .menu__item-link:hover{color: #b3c2d0}
 .content_left .menu_sub .menu__item-link_current{
 	display: inline-block;
 	height: 35px;
@@ -300,8 +302,8 @@ body >#reg-wrapper, /*"Доступ к публикации закрыт"*/
 	color: #d3e2f0;}
 .tabs{margin-bottom: 8px}
 .content_left table.menu tr td a{padding: 5px 2px 0;}
-	.content_left .tabs-menu .tab-item:hover{background: #6c6c6e; color: #eff}
-	.tab-item{border-right-color: #777}
+	.content_left .tabs-menu .tab-item:hover{background: #595959; color: #b3c2d0}
+	.tab-item{border-right-color: #777; color: #777}
 	.tab-item_stacked{height: 49px}
 .content_left table.menu tr td.active a, .content_left .submenu .item.active, .content_left .submenu .item.active a
 	,.content_left .tabs-menu .tab-item_current, .content_left .tabs-menu .item.active a{background: #666; color: #eff}
@@ -602,7 +604,8 @@ code .diff .change{background: #385570}
 .voting-wjt__button_minus:not(.voted)::before,
 .icon_up::before,
 .voting-wjt__button_plus:not(.voted)::before{color: #bba}
-.voting-wjt{border-right: 1px solid #889;}
+.voting-wjt{border-right: 1px solid #889}
+.postinfo-panel__item_comments .post-comments{border-left: 1px solid #889}
 
 .post-comments{border-left: 1px solid #889;}
 .post .infopanel .author a.googleplus_profile{color: #866; padding: 0 8px 0 21px}
@@ -691,7 +694,10 @@ code .diff .change{background: #385570}
 	margin-top: -9px;
 	margin-bottom: -22px;
 }
-.author-info__buttons.buttons button{opacity: 0.7;}
+.profile-header .profile-header__stats{position: relative; z-index: 1}
+.profile-header__buttons{position: relative; z-index: 99991; opacity: .4}
+.profile-header__buttons:hover{opacity: .6}
+.author-info__buttons.buttons button{display:none}
 .author-info__buttons.buttons button:hover{opacity: 1}
 .author-info__name,.author-info__name:hover{color:inherit}/*8#6da3bd*/
 
@@ -1019,6 +1025,9 @@ select{background: #555; color: #ccc; border: 1px solid #555!important}
 	background: url(http://habrastorage.org/files/c95/c7a/b12/c95c7ab1234f4327af496b3332008ee4.png)}
 /*.hubs_list ul li{
 	background-image: url(http://habrastorage.org/files/e97/b37/862/e97b378624ea4d0a8ab1154304249ae4.png)}*/
+.sidebar_right .block.top_hub_invest table.users tr td.userinfo .username .bar{background-color: #444}
+#people-tags li a{background-color: #888}
+.sidebar_right .block.favorite_tags .top-tags a:hover, .sidebar_right .block.favorite_tags .top-tags a.current{background: #66665e}
 
 .comments_list .comment_item_plain{overflow: visible!important}
 .comments_list .comment_item_plain .post_info{font-size: 12px!important}
@@ -1382,18 +1391,24 @@ body >#logo >img{opacity: 0.16}
 		font-size: 12px;
 		line-height: 18px}
 	.content-list__item-counter{margin-left: 12px}
-	.content-list_top-materials .content-list__item-counter::before{margin-left: 9px; opacity:.5}
+	.content-list_top-materials .content-list__item-counter::before{margin-left: 9px; color: rgba(160, 96, 120, 0.25); opacity:.5}
+	.content-list_top-materials .content-list__item-counter{font-size: 14px; color: #845}
 	.content-list_top-materials .content-list__item-link{font-size: 14px}
-	.post-preview__desc{display: inline-block; margin-left: 3em}
+	.post-preview__desc{margin-left: 0.1em}
 	.post-preview, .post-preview__desc,
 	.content-list_top-materials .content-list__item,
 	.content-list__item_wrap{overflow: inherit}
+	.inline-list__item{margin-right: 30px}
+
+	.post-preview__attrs{padding-left: 1.7em}
+	.views-count::before, .favorites-count::before, .comments-count::before{margin-right:-3px; margin-left: 0; opacity: .3}
+	.comments-count::before{opacity: .3}
 
 	.similar-posts__title{padding: 0 0 0 20px; font-variant: small-caps; font-size: 14px}
-	.content-list_posts .content-list__item{margin-left: 3.7em; padding: 0 0 0 20px}
+	.content-list_posts .content-list__item{margin-left: 1.7em; padding: 0 0 0 20px}
 	.content-list_posts .content-list__item{border-top: 0}
-	.post-preview__rating{margin-top: -1px; font-size: 12px}
-	.post-preview__link{margin-bottom: 0; font-size: 14px}
+	.post-preview__rating{display: inline; margin-top: -1px; font-size: 12px}
+	.post-preview__link{display: inline; margin-bottom: 0; font-size: 14px}
 
 	.columns-group .columns-group__column,
 	.columns-group__column{display: table-cell; width: 50%; text-align: left}
@@ -1417,13 +1432,97 @@ body >#logo >img{opacity: 0.16}
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
 	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,
-.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,body >a,.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.new_vacanies):not(.freelansim):not(.block_freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.favorite_tags):not(.for_authors_help):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.ppa_links),.sidebar_right div[class*=banner],.company_top_banner{display:none!important}
-.sidebar_right >div:not(.company_widgets):not([class="block daily_best_posts"]):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo),
-
-.content_left >div:not(.tabs):not(.post_show):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),
-.company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),
+.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.posts_list .post_item img,body >a,
+.company_top_banner,
+.sidebar_right .banner_240x400{display:none!important}
+.sidebar_right >div:not(.blog_info
+	):not(.user_info
+	):not(.habralenta_settings
+	):not(.fast_navigator
+	):not(.similar_posts
+	):not([class="block daily_best_posts"]
+	):not(.live_broadcast
+	):not(.similar_questions
+	):not(.company_info
+	):not(.corporate_news
+	):not(.company_links
+	):not(.corporate_blog
+	):not(.similar_events
+	):not(.events_search_filter
+	):not(.favorite_tags
+	):not(.for_authors_help
+	):not(.top_hub_invest
+	):not(.ppa_links
+	):not(.company_widgets
+	):not(.saveCompaSide
+	):not(.hAjaxLogo
+	):not(.habrAjaxInfo){display:none!important}
+.sidebar_right .company_widgets >div:not(.corporate_news
+	):not(.company_links
+	):not(.corporate_blog
+	):not(.mobile_applications
+	):not(.hantim_vacanies),
+.sidebar_right >.block >a,
+.sidebar_right >.block >iframe,
+.sidebar_right >.block.daily_best_posts >div:not(.title
+	):not(.posts_list
+	):not(.all),
+.sidebar_right div[class*=banner]{display:none!important}
+.content_left >div:not(.tabs
+	):not(.post_show
+	):not(.user_info
+	):not(.block_after_post
+	):not(.comments_list
+	):not(.comments_form
+	):not(.edit_tags_form
+	):not(.posts_list
+	):not(.columns-group
+	):not(.top-materials
+	):not(.company_post
+	):not(.company_blog
+	):not(.user_profile
+	):not(.user_comments
+	):not(.user_favorites
+	):not(.peoples_list
+	):not(.hubs_list
+	):not(.companies_list
+	):not(.company_profile
+	):not(.post
+	):not(.tracker_page
+	):not(.topic_add
+	):not(.conversation_page
+	):not(.user_settings
+	):not(.apps
+	):not(.info_page
+	):not(.ppa_rules
+	):not(.user_invites
+	):not(.user_notes
+	):not(.user_reset
+	):not(.lenta_settings
+	):not(.company_questions
+	):not(.search_results),
+.content_left >.search_results >.post,
+.company_post >div:not(.post
+	):not(.block_after_post
+	):not(.comments_list
+	):not(.comments_form
+	):not(.post),
 .column-wrapper_bottom >.sidebar_right{display:none!important}
-.posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name),iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none}
+.posts >.shortcuts_item:not(.post),
+#yandex_ad,#header_mouse_activity,
+.live_broadcast .posts_list .post_item a:not(.blog_name
+	):not(.user_name
+	):not(.post_name
+	):not(.count),
+.daily_best_posts .posts_list .post_item a:not(.blog_name
+	):not(.user_name
+	):not(.post_name
+	):not(.count),
+iframe[src*="facebook"],.footer_logos,
+.daily_best_posts .supported_by_bookmate,
+.daily_best_posts .title.hide_on_float,
+.daily_best_posts .posts_list.hide_on_float,
+.html_banner{display:none}
 
 /*m.habr*/
 #layout >#header, #layout >#footer{background-color: #333!important}
