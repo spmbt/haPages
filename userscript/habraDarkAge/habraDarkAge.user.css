@@ -609,7 +609,7 @@ code .diff .change{background: #385570}
 .voting-wjt__button_minus:not(.voted)::before,
 .icon_up::before,
 .voting-wjt__button_plus:not(.voted)::before{color: #bba}
-.voting-wjt{border-right: 1px solid #889}
+.postinfo-panel__item .voting-wjt{border-right: 1px solid #889}
 .postinfo-panel__item_comments .post-comments{border-left: 1px solid #889}
 
 .post-comments{border-left: 1px solid #889;}
