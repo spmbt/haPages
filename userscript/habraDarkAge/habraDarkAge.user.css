@@ -1,4 +1,4 @@
-/** HabraDarkAge v435.2015.11.4, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v435.2015.11.5, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: many new layouts;
@@ -164,8 +164,8 @@ body .buttons a.button:hover,
 	transition: left 1s;}
 
 #TMpanel .container{overflow: inherit!important; height: 0!important;}
-#TMpanel .bmenu .current{display:none!important}
-#TMpanel .container .bmenu a{
+#TMpanel .bmenu .current,#TMpanel .menu .current{display:none!important}
+#TMpanel .container .bmenu a,#TMpanel .container .menu a{
 	margin: 0 6px!important;
 	padding: 0 4px!important;
 	border-radius: 0 0 5px 5px;
@@ -174,7 +174,7 @@ body .buttons a.button:hover,
 	color: transparent!important;
 	opacity: 0.42;
 	transition: all 80ms}
-#TMpanel .bmenu:hover a{
+#TMpanel .bmenu:hover a,#TMpanel .menu:hover a{
 	color: #93b2d0 !important;
 	opacity: .99}
 
@@ -357,7 +357,12 @@ head[prefix] +body:after{position: static;}
 	margin: -32px 0 0 -22px!important;
 	padding: 0 0 0 6ex!important}
 .Posts ul li .meta .item.highlighted{border-radius: 5px; background-color: #484848!important}
-.Posts >ul li .meta .favicon{position: relative; z-index: 2; border-radius: 7px}
+.Posts >ul li .meta .favicon{position: relative; z-index: 2}
+
+	.Posts >ul li .meta .favicon.habrahabr{border-top-left-radius: 9px; border-bottom-left-radius: 9px; background-position: -25px 0;}
+	.Posts >ul li .meta .favicon.geektimes{position: relative; z-index: 2; border-radius: 7px}
+	.Posts >ul li .meta .favicon.megamozg{border-top-right-radius: 9px; border-bottom-right-radius: 9px; background-position: -53px 0;}
+
 .Posts >ul li .meta .favicon.habrahabr{margin-left:-7px; opacity: 0.62}
 .Posts >ul li .meta .favicon.geektimes{opacity: 0.6}
 .Posts >ul li .meta .favicon.megamozg{margin-left: 6px; opacity: 0.5; box-shadow: 0 0 2px 4px rgba(160,90,72,0.65) inset}
@@ -1162,8 +1167,8 @@ body >#logo >img{opacity: 0.16}
 .block.freelansim .tasks .task{line-height: 1.5; margin-bottom: 0!important}
 
 
-.block.freelansim .title, .block.block_freelansim .title, .block.new_vacanies .title, .block.block_brainstorage .title{opacity:0.3}
-.block.freelansim .tasks .task a, .block.block_freelansim .tasks .task a, .block.new_vacanies .vacancies .job_item a, .block.block_brainstorage .vacancies .job_item a{font-size: 12px!important}
+.block.freelansim .title, .block.block_freelansim .title, .block.new_vacanies .title, .block.block_moikrug .title{opacity:0.3}
+.block.freelansim .tasks .task a, .block.block_freelansim .tasks .task a, .block.new_vacanies .vacancies .job_item a, .block.block_moikrug .vacancies .job_item a{font-size: 12px!important}
 .Sidebar .copyright{text-align: right; margin-right: 6px}
 
 
@@ -1246,44 +1251,50 @@ body >#logo >img{opacity: 0.16}
 
 .block.company_info{margin: 0 0 -0.7em 0!important}
 .company_widgets{margin: 0 0 0 3px!important; padding-bottom: 0.2ex}
-.Sidebar .links .link,.block_freelansim .tasks .task,.block.block_brainstorage .vacancies .job_item{margin-bottom: 0!important; padding-bottom: 0!important; line-height: 1.04!important;text-indent:-1.8ex;font-family:Verdana,Helvetica,sans-serif}
-.Sidebar .block_brainstorage .vacancies .job_item a:not(:visited):hover,
+.Sidebar .links .link, .block_freelansim .tasks .task, .block.block_moikrug .vacancies .job_item{
+	margin-bottom: 0!important;
+	padding-bottom: 0!important;
+	line-height: 1.04!important;
+	text-indent:-1.8ex;
+	font-family:Verdana,Helvetica,sans-serif}
+.Sidebar .block_moikrug .vacancies .job_item a:not(:visited):hover,
 .Sidebar .block a:not(:visited):hover{border-bottom: 1px dotted #777!important; text-decoration: none!important; color: #777!important}
-.Sidebar .block_brainstorage .vacancies .job_item a:visited,
+.Sidebar .block_moikrug .vacancies .job_item a:visited,
 .Sidebar .block_freelansim .tasks .task a:visited,
 .block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited{color: #77605f}
-.Sidebar .block_brainstorage .vacancies .job_item a:visited:hover,
+.Sidebar .block_moikrug .vacancies .job_item a:visited:hover,
 .Sidebar .block_freelansim .tasks .task a:visited:hover,
 .block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited:hover{border-bottom: 1px dotted #886f6f!important; color: #886f6f}
-.block .event, .new_vacanies .vacancies, .block_brainstorage .vacancies,.freelansim .tasks,.block_freelansim .tasks{margin-left: -1.6ex!important; word-wrap:break-word}
+.block .event, .new_vacanies .vacancies, .block_moikrug .vacancies,.freelansim .tasks,.block_freelansim .tasks{margin-left: -1.6ex!important; word-wrap:break-word}
 
-.freelansim .tasks .task, .block_freelansim .tasks .task, .new_vacanies .job_item, .block_brainstorage .job_item{overflow: inherit!important; padding-left: 1.4ex!important}
+.freelansim .tasks .task, .block_freelansim .tasks .task, .new_vacanies .job_item, .block_moikrug .job_item{overflow: inherit!important; padding-left: 1.4ex!important}
 .Sidebar .block a{margin: 0!important;padding: 0!important;text-decoration: none!important; border-bottom: 1px dotted transparent!important}
 
-.block:not(.freelansim):not(.block_freelansim):not(.new_vacanies):not(.block_brainstorage) >div >div{overflow: inherit!important}
+.block:not(.freelansim):not(.block_freelansim):not(.new_vacanies):not(.block_moikrug) >div >div{overflow: inherit!important}
 .block.company_info .join{width: 104px}
 
-.block.new_vacanies h1, .block.block_brainstorage h1,
-.block.block_freelansims .title, .block.block_brainstorage .title{
+.block.new_vacanies h1, .block.block_moikrug h1,
+.block.block_freelansims .title, .block.block_moikrug .title{
 	display: inline-block !important;
 	margin-bottom: 6px !important;
 	opacity: 0.3}
-.block.freelansim .task, .block.block_freelansim .task, .block.new_vacanies .job_item, .block.block_brainstorage .job_item{margin:0!important}
-.best_company +.block.new_vacanies .vacancies .job_item, .best_company +.block.block_brainstorage .vacancies .job_item{display: block}
-.block.block_brainstorage .title,
-.block.block_freelansim .title{margin: 9px 0 10px!important; box-shadow: 0 0 6px 0 #777; background-color: #555}
+.block.freelansim .task, .block.block_freelansim .task, .block.new_vacanies .job_item, .block.block_moikrug .job_item{margin:0!important}
+.best_company +.block.new_vacanies .vacancies .job_item, .best_company +.block.block_moikrug .vacancies .job_item{display: block}
+.block.block_moikrug .title,
+.block.block_freelansim .title{margin: 9px 0 10px!important; background-color: #555}
 .Sidebar .all{margin-right: 5px; text-align: right}
+.Sidebar .block_moikrug .title,.Sidebar .block_freelansim .title{display: inline-block; background: transparent; color:#555}
 
-@media (max-width: 405px){.App >.container{padding-top:18px!important}.Posts > ul li h2{font-size:11px!important}}
+	@media (max-width: 405px){.App >.container{padding-top:18px!important}.Posts > ul li h2{font-size:11px!important}}
 @media (max-width: 570px){
 	.App >.container .left_column{min-width: 100%}
 	.Posts > ul li h2{font-size:12px!important}
 	.App >.container >.Sidebar{display: none!important}}
 @media (max-width: 640px){
 	.block .post_item,.vacancies .job_item,.tasks .task{margin-left: 0.2ex!important}
-	.Sidebar .block_brainstorage .vacancies .job_item, .Sidebar .block_freelansim .tasks .task{line-height:  1.04!important}
+	.Sidebar .block_moikrug .vacancies .job_item, .Sidebar .block_freelansim .tasks .task{line-height:  1.04!important}
 	#TMpanel{left: 0!important}
-	#TMpanel .bmenu a{margin: 0 2px!important}
+	#TMpanel .bmenu a,#TMpanel .menu a{margin: 0 2px!important}
 	.Posts ul li h2{padding-left: 107px!important} }
 
 /* адаптивное сжатие меню */
@@ -1427,8 +1438,8 @@ body >#logo >img{opacity: 0.16}
 #navbar .nav_tab .line,
 #navbar .nav_tab .line +.title,
 #navbar .nav_tab .line +.title +.menu{display: none!important}
-#TMpanel .bmenu.special,.special_navbar_image,#print_tab,
-#TMpanel .bmenu.slink,
+#TMpanel .bmenu.special,#TMpanel .menu.special,.special_navbar_image,#print_tab,
+#TMpanel .bmenu.slink,#TMpanel .menu.slink,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
 	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,

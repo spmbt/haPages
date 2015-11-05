@@ -71,9 +71,9 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	-o-transition: left 1s;
 	transition: left 1s;}
 #TMpanel .container{overflow:inherit!important; min-width:0!important; height:4px!important}
-#TMpanel .bmenu{margin-left:-12px!important; line-height: normal!important}
-#TMpanel .container .bmenu{display: block!important}
-#TMpanel .bmenu a{
+#TMpanel .bmenu,#TMpanel .menu{margin-left:-12px!important; line-height: normal!important}
+#TMpanel .container .bmenu,#TMpanel .container .menu{display: block!important}
+#TMpanel .bmenu a,#TMpanel .menu a{
 	max-width:5.9ex!important;
 	overflow: hidden;
 	margin: 0 6px!important;
@@ -84,9 +84,9 @@ body{text-align: inherit!important; font-family: Verdana,sans-serif!important}
 	color: transparent!important;
 	opacity: 0.65;
 	transition: all 180ms}
-#TMpanel .bmenu a:last-child{margin-right: -9ex!important}
-#TMpanel .bmenu a.current{display: none!important}
-#TMpanel .bmenu:hover a{
+#TMpanel .bmenu a:last-child,#TMpanel .menu a:last-child{margin-right: -9ex!important}
+#TMpanel .bmenu a.current,#TMpanel .menu a.current{display: none!important}
+#TMpanel .bmenu:hover a,#TMpanel .menu:hover a{
 	text-decoration: none!important;
 	background-color: #f0f4fa;
 	box-shadow: -3px 0 2px 1px rgba(238, 238, 238, 0.7), 3px 0 2px 1px rgba(238, 238, 238, 0.7);
@@ -1216,7 +1216,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.content_left .post .infopanel{margin-left: 2px!important}
 	.content_left{width: 240px;}
 	#TMpanel{left: 0!important}
-	#TMpanel .bmenu a{margin: 0 2px!important}
+	#TMpanel .bmenu a,#TMpanel .menu a{margin: 0 2px!important}
 	.Posts ul li h2{padding-left: 107px!important} }
 @media (min-width: 1520px){
 	#layout,.rotated_posts, #footer{margin-right:0!important}
@@ -1264,8 +1264,8 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 #navbar .nav_tab .line,
 #navbar .nav_tab .line +.title,
 #navbar .nav_tab .line +.title +.menu{display: none!important}
-#TMpanel .bmenu.special,.special_navbar_image,#print_tab,
-#TMpanel .bmenu.slink,
+#TMpanel .bmenu.special,#TMpanel .menu.special,.special_navbar_image,#print_tab,
+#TMpanel .bmenu.slink,#TMpanel .menu.slink,
 .header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/
 #header .main_menu .banner_special,
 	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,
@@ -1288,6 +1288,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	):not(.events_search_filter
 	):not(.favorite_tags
 	):not(.for_authors_help
+	):not(.top_hub_invest
 	):not(.ppa_links
 	):not(.company_widgets
 	):not(.saveCompaSide
