@@ -1418,8 +1418,8 @@ body >#logo >img{opacity: 0.16}
 	.similar-posts__title{padding: 0 0 0 20px; font-variant: small-caps; font-size: 14px}
 	.content-list_posts .content-list__item{margin-left: 1.7em; padding: 0 0 0 20px}
 	.content-list_posts .content-list__item{border-top: 0}
-	.post-preview__rating{display: inline; margin-top: -1px; font-size: 12px}
-	.post-preview__link{display: inline; margin-bottom: 0; font-size: 14px}
+	.post-preview__rating{display: inline; min-width: 38px; line-height: 1.2em; font-size: 12px}
+	.post-preview__link{display: inline; margin-bottom: 0; line-height: 1.1em; font-size: 14px}
 
 	.columns-group .columns-group__column,
 	.columns-group__column{display: table-cell; width: 50%; text-align: left}
