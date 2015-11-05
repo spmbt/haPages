@@ -9,7 +9,7 @@ body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color
 #layout{background-color: transparent}
 #layout,
 #layout >.layout,
-#xpanel, .to_top{z-index: 99990}
+#xpanel, .to_top{z-index: 99990; min-width: 0!important;}
 #layout #navbar,
 #layout .inner, #TMpanel{background: #333!important}
 #navbar .scroll_to_up{opacity: 0.5}
@@ -163,7 +163,7 @@ body .buttons a.button:hover,
 	-o-transition: left 1s;
 	transition: left 1s;}
 
-#TMpanel .container{overflow: inherit!important; height: 0!important;}
+#TMpanel .container{overflow: inherit!important;min-width: 0; height: 0!important;}
 #TMpanel .bmenu .current,#TMpanel .menu .current{display:none!important}
 #TMpanel .container .bmenu a,#TMpanel .container .menu a{
 	margin: 0 6px!important;
@@ -757,7 +757,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .infopanel_wrapper .post-author__pic{
 	-webkit-filter: grayscale(1); filter: grayscale(1);
 	transition: all 200ms 250ms, width 200ms 800ms, height 200ms 800ms, margin 200ms 800ms;
-	opacity: 0.21}	
+	opacity: 0.21}
 .company_header, .user_header{height:50px}
 .content_left{margin-top: -5px;}
 .company_header .company_icon img,
