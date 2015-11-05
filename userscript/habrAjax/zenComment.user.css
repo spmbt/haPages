@@ -1372,6 +1372,7 @@ iframe[src*="facebook"],.footer_logos,
 .post .content .buttons{display:inline-block!important;padding:0!important}
 .post .content .buttons a.button,.post .content .buttons input[type="button"]{position: relative;top:-2px;padding:0 2px 1px!important;border:0!important;border-radius:2px!important;background:transparent!important;color:#6da3bd!important;box-shadow: 0 0 2px rgba(255,255,255,0.4) inset, 0 0 2px rgba(0,0,0,0.2)!important}
 .buttons a.button{height: 1.3em!important;top:-1px!important; line-height: 1.3em!important}
+	.author-info__buttons.buttons button, .author-info__buttons.buttons .button{display:none}
 .post .content .buttons input[type="button"]{color:#367!important}
 .post .content .buttons a.button:hover{background:#f4f4f9!important}
 .post .content .buttons a.button:visited{color:#b98!important}
