@@ -1136,12 +1136,18 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.column-wrapper_bottom{text-align: center}
 	.columns-group{width: 130%; margin-left: 20px}
 	.tabs__content{padding: 7px 3px 5px 19px}
+	.live-broadcast{
+		box-shadow: inset 0 0 6px 2px #eee;
+		background: none!important;
+	}
 	.live-broadcast__title, .promo-block__title{padding: 0 0 0 8px; font-size: 1.2em; font-variant: small-caps; letter-spacing: 0}
 	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
+	.content-list{font-family: arial,Tahoma,Verdana,Segoe,sans-serif}
 	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
 	.content-list__item.vacancy .vacancy__attrs.attrs,
 	.content-list__item.task .task__attrs.attrs{top: -4px; margin: -1px 0 0 1.8em}
-		.content-list__item-link{}
+		.content-list__item-link{line-height: 1.2}
+		.content-list__item-link:hover{text-decoration: none; border-bottom: 1px dotted #aaa}
 	.top-materials{display: inline-block;
 		vertical-align: middle;
 		width: 61%;
@@ -1156,7 +1162,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.top-materials__title{margin-bottom: 2px}
 	.content-list_top-materials .content-list__item::before,
 	.content-list_top-materials .content-list__item{margin: 0 12px 0 4px; line-height: 1}
-	.content-list_top-materials .content-list__item::before{margin-top: 2px;
+	.content-list_top-materials .content-list__item::before{
 		margin-bottom: -2px;
 		font-size: 12px;
 		line-height: 18px}
