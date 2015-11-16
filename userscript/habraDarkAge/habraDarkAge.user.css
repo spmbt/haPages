@@ -1,4 +1,4 @@
-/** HabraDarkAge v436.2015.11.10, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v437.2015.11.16, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/, license CC-BY-NC v.4.0
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: live-broadcast, item-counter:before, profile-header;
@@ -1381,6 +1381,9 @@ body >#logo >img{opacity: 0.16}
 	.columns-group{width: 140%}
 	.tabs__content{padding: 7px 3px 5px 19px}
 	.live-broadcast__title, .promo-block__title{padding: 0 0 0 8px; font-size: 1.2em; font-variant: small-caps; letter-spacing: 0}
+	.sidebar_right .content-list__item-counter{margin-left: 15px}
+	.content-list__item-counter_icon{margin-left: 1px}
+	.content-list__item-counter.icon_comments::before, .content-list__item-counter.icon_answers::before{margin-right:0}
 	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
 	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
 	.content-list__item.vacancy .vacancy__attrs.attrs,
@@ -1457,7 +1460,7 @@ body >#logo >img{opacity: 0.16}
 	.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,div[class*="what_are_you_doing"],
 .post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.posts_list .post_item img,body >a,
 .company_top_banner,
-.sidebar_right .banner_240x400{display:none!important}
+.sidebar_right .banner_240x400{display:none!important; height: 0; opacity: 0;}
 .sidebar_right >div:not(.blog_info
 	):not(.user_info
 	):not(.habralenta_settings
@@ -1482,7 +1485,7 @@ body >#logo >img{opacity: 0.16}
 	):not(.company_widgets
 	):not(.saveCompaSide
 	):not(.hAjaxLogo
-	):not(.habrAjaxInfo){display:none!important}
+	):not(.habrAjaxInfo){display:none!important; height: 0; opacity: 0;}
 .sidebar_right .company_widgets >div:not(.corporate_news
 	):not(.company_links
 	):not(.corporate_blog
@@ -1493,7 +1496,7 @@ body >#logo >img{opacity: 0.16}
 .sidebar_right >.block.daily_best_posts >div:not(.title
 	):not(.posts_list
 	):not(.all),
-.sidebar_right div[class*=banner]{display:none!important}
+.sidebar_right div[class*=banner]{display:none!important; height: 0; opacity: 0;}
 .content_left >div:not(.tabs
 	):not(.post_show
 	):not(.user_info
@@ -1533,7 +1536,7 @@ body >#logo >img{opacity: 0.16}
 	):not(.comments_list
 	):not(.comments_form
 	):not(.post),
-.column-wrapper_bottom >.sidebar_right{display:none!important}
+.column-wrapper_bottom >.sidebar_right{display:none!important; height: 0; opacity: 0;}
 .posts >.shortcuts_item:not(.post),
 #yandex_ad,#header_mouse_activity,
 .live_broadcast .posts_list .post_item a:not(.blog_name
@@ -1548,7 +1551,7 @@ iframe[src*="facebook"],.footer_logos,
 .daily_best_posts .supported_by_bookmate,
 .daily_best_posts .title.hide_on_float,
 .daily_best_posts .posts_list.hide_on_float,
-.html_banner{display:none}
+.html_banner{display:none; height: 0; opacity: 0;}
 
 /*m.habr*/
 #layout >#header, #layout >#footer{background-color: #333!important}
