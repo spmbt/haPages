@@ -509,6 +509,7 @@ head[prefix] +body:after{position: static;}
 		background-color: rgba(192, 192, 192, 0.5);
 		color: #2f5e26;}
 	.postinfo-panel_post{width: auto}
+	.tags +.infopanel_wrapper >.postinfo-panel_post{width: 100%}
 	.article__body{
 		padding: 0;
 		border: 0;}
