@@ -42,7 +42,8 @@ hr{border-color: #444; color: #ddd}
 .announce img,
 .mobile_applications img /* страницы компаний */,
 .user_profile .summary img,
-#content .empty_block img{
+#content .empty_block img,
+.article__body img{
 	-webkit-filter: grayscale(0.8); filter: grayscale(0.8);
 	transition: all 300ms;
 	opacity: 0.6}
@@ -55,7 +56,8 @@ img[src*="images/tags/"]{opacity: 0.6}
 .mobile_applications img:hover /* страницы компаний */,
 .user_profile .summary img:hover,
 #content .empty_block img:hover,
-img[src*="images/tags/"]:hover{
+img[src*="images/tags/"]:hover,
+.article__body img:hover{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	opacity: .99}
 img[src*="images/tags/"]{opacity: 0.6}
@@ -479,10 +481,13 @@ head[prefix] +body:after{position: static;}
 	}
 	.megapost-head{transform: none;}
 	.megapost-head__title-link{font-weight: normal}
+	.megapost-cover >.logo{display: none}
+	.megapost-cover >.logo +.megapost-cover__img{position: static}
 	.megapost-cover_light .list__item, .megapost-cover_light .list__item{
 		padding: 0 3px;
 		background-color: rgba(192, 192, 192, 0.5);}
-	.megapost-cover_light .list__item, .megapost-cover_light .list__item-link{text-decoration: none; color: #366e2c;}
+	.megapost-cover_light .list__item, .megapost-cover_light .list__item-link,
+		.megapost-cover_light .list__item-link:hover{text-decoration: none; color: #366e2c;}
 	.megapost-cover__company-blog, .megapost-head__meta{position: static; width: auto;}
 	.megapost-cover__blog-link{border-radius: 11px;}
 	.megapost-cover_short .megapost-cover__company-blog, .megapost-cover_short .megapost-cover__company-blog a{
@@ -512,6 +517,12 @@ head[prefix] +body:after{position: static;}
 		margin-right: 50%;
 		padding-right: 5px;
 		color: #bbb;}
+	.article.article_megapost .article__body h2[field="title"]{line-height: 24px; color: #b9c5cf !important}
+	.article.article_megapost .article__body h2[field="title"] strong{font-size: 24px}
+	.article.article_megapost .article__body .text{
+		margin: -15px 0;
+		color: #bbb}
+	.t157 .text{border-left: 3px solid #888}
 
 .html_format pre code{background: #bbb; border: none}
 .html_format .spoiler .spoiler_text{background: #444; border: none}
@@ -756,6 +767,10 @@ code .diff .change{background: #385570}
 .user-rating{line-height: 1.6em;}
 .author-info .user-rating__label, .voting-wjt__label{top:-82%; line-height: 26px}
 .voting-wjt__label{right: 8px; left: auto;}
+.article__infopanel .voting-wjt__counter,
+.article__infopanel .views-count_post,
+.article__infopanel .favorite-wjt__counter
+{line-height: 28px}
 .voting-wjt_small .voting-wjt__counter-score, .voting-wjt_small .voting-wjt__result-score, .voting-wjt_small .voting-wjt__button_score{position: relative; left:-9px;}
 
 .author-info__specialization{margin-top: 4px; line-height: inherit;}
@@ -807,13 +822,20 @@ code .diff .change{background: #385570}
 .block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{margin-bottom: 1px}
 .block_after_post .live_broadcast .posts_list .post_item + .post_item,
 .block_after_post .similar_posts .posts_list .post_item + .post_item{margin-top: 3px;}
-.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEX///95cURJd02fAAAAAXRSTlMAQObYZgAAABtJREFUCNdjYAAC/n8MDAKMDAzCP7HTIHkoAACP+wWDQrlT5wAAAABJRU5ErkJggg==) no-repeat!important; padding-left: 0.87em; text-indent: 1.3em; font-size:10px; letter-spacing: 0; font-variant: all-small-caps;}
+.block_after_post .live_broadcast h2.title, .block_after_post .similar_posts h2.title{
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMAQMAAABV3H//AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEX///95cURJd02fAAAAAXRSTlMAQObYZgAAABtJREFUCNdjYAAC/n8MDAKMDAzCP7HTIHkoAACP+wWDQrlT5wAAAABJRU5ErkJggg==) no-repeat!important;
+	padding-left: 0.87em;
+	text-indent: 1.3em;
+	font-size:10px;
+	letter-spacing: 0;
+	font-variant: all-small-caps;}
 .similar_posts,
 .live_broadcast{padding-bottom: 8px!important}
 .block_after_post .similar_posts:hover{opacity: 0.9!important;}
 body.company .comments_list h2.comments-header,
 .comments_list h2.title,
-.post .infopanel_wrapper .postinfo-panel{
+.post .infopanel_wrapper .postinfo-panel,
+.article__infopanel .postinfo-panel{
 	max-width: 1200px;
 	margin:-17px 1px 5px -6px!important;
 	padding: 5px 0 7px 13px !important;
@@ -1313,7 +1335,7 @@ body >#logo >img{opacity: 0.16}
 #footer:before{position:relative;display:block;float:right;height:0;top:-4px;right:2px;white-space:nowrap;margin-top:-4px!important;font-size: 9px;color:#888;content:"HabraDarkAge by spmbt"}
 #footer .bottom_menu{width: 100%!important}
 #footer	a{text-decoration: none!important}
-#footer	dl{width: 50%!important; float:right}
+#footer	dl{width: 50%!important; float:right; margin: 0;}
 #footer dl:last-child{display:none}
 #footer	dt{float:left; width: 4em; margin: 0 0 0 2px!important; line-height: 120%!important}
 #footer	dt:after{content:":"}
