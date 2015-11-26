@@ -1,7 +1,7 @@
-/** HabraDarkAge v438.2015.11.17, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v438.2015.11.26, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/, license CC-BY-NC v.4.0
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: pre-footer blocks width; different logos on the 3 sites; fix note counters when >1480px;
+ * LastUpdatesDescription: avatars;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -442,8 +442,6 @@ head[prefix] +body:after{position: static;}
 	height: 17px;
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjxJREFUeNpi/P//PwM+sHTdzpZDRw5XMzExMTD+Z2QQEORd1lZTEg2TZ8Knedq85Q2HDx2sVtY3YrAIC2IQlZBg+PjhYxSyGrwGPH7yrF7bwpZBXkuR4dWVWwz3bl9lMDXSd0dWw4LPgHfv3zFIywgxvHr6ieHqyaMMTna2kQlRIbs6J07vv3LzUQELC+MkvC74++8fA8MnZoarxw8w/Pj+nQEYXkbVrb2tV+88KbB19mJgZmXLw+mC6QvWThQQEmFg//OPQUZRk4GXX5hh95EzpTy8fAyKSjoMrBx8DJycPNi9MGPh2ll3Hz5KVTKwYXj/8S3D77+MQA2CDDIKvAx///9lEJaQYfj28QnDm7evgDGDFo1AzX13HjwqVDKwYvjy6R3D10/fgDaxM4iKyzP8+/OHgZGZleHDq9sMJ08cZfBxtKpBMQCouRyouQNZMw8P0GYlbYYTuxYxfPnyheHX718MX798Pe7jYncgKSakCm4AUPNEoOY8bJq3Lutl0NFUqajIS+tE9y4Tks04NWuoKszBphkEmCUUdUOAmmcpG1gANb5j+AbWLISsuaamKKsUV2wxPXn+arWGsRUD09+/DH9/fGfgA0aTnJI6TPNUoOZWfGmF5efvHwzfP7xgOHv6FENAZAbDj59/GLYsnbBeQ03xGVBzDgMBwPL58ycGMTExhrjiIoa7py4wHN23g0FDTWFVdVHWCgYiAIuehlrc9k0bFnHsYmf4+Okzg6KM5LLqomyiNIMAQIABABXyAgeAuAmhAAAAAElFTkSuQmCC) 0 2px no-repeat!important}
 .post h1.title .edit img{display: none}
-.company_order .meta .company_name, #preview_placeholder .meta .company_name,
-.post .hubs{background-image: url(http://habrastorage.org/files/51e/ac0/f4f/51eac0f4fa5e415997500ab0002d4b2e.png)!important}
 .post .hubs{float: right; margin: -4px 0 4px}
 
 .post .hubs a{color: #596}
@@ -618,8 +616,7 @@ code .diff .change{background: #385570}
 .company_order .tags, #preview_placeholder .tags,
 .post .tags{
 	float: right;
-	margin: -5px 0 10px 16px!important;
-	background-image: url(data:image/gif;base64,R0lGODlhDAAPANQRAGZmZlJSUk5OTlpaWoaGhr6+vm5uboKCgmpqaqKioo6OjnJyclZWVrKyspKSkjIyMjY2NsrKyp6enoqKijo6Oj4+Pnp6enZ2dkZGRq6urkJCQpaWlgAAAAAAAAAAAAAAACH5BAEAABwALAAAAAAMAA8AAAVzICdagSAEg6heU+EWgKImV5EcSpAMhDg0DccDEpE4ABZERpKYUCoNy2SBwRQcEwtzcrFYqpnDwWIAGBZojYYWaLsNBvVmAa/XK5WNwcQXIBAVFA4Gf4WFFIIIfSYAABAQE42Sk48TlpcEmQRDjw+en54QIQA7)!important}
+	margin: -5px 0 10px 16px!important}
 .company_order .tags a, #preview_placeholder .tags a,
 .post .tags li a,
 .post div.tags{color: #596!important}
@@ -858,18 +855,26 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 
 	/* Комментарии */
 .comments_list{overflow: inherit; clear: both; margin-right: -8px!important; padding-top: 18px;}
-.comments_list >.comment_item{overflow-x: hidden;}
+.comments_list >.comment_item{
+	overflow-x: hidden;
+	margin-left: -16px;
+	margin-top: -20px;
+	padding-left: 16px;
+	padding-top: 20px;}
 .comments_list .comment_item .info .folding-dot-holder{left: 3px}
 .company_header .company_icon img,
 .user_header .avatar img,
-.comments_list .comment_item .info a.avatar img,
+.comments_list .comment_item .info a.comment-item__avatar img,
 .tracker_page table.tracker_mentions tr td.mention_type img,
 .conversation_page .messages .message .info a.avatar img,
 .author-info .author-info__image-pic,
-.infopanel_wrapper .post-author__pic{
+.infopanel_wrapper .post-author__pic,
+.comments_list .comment_item .info:hover a.comment-item__avatar .comment-item__avatar-img_default::before{
 	-webkit-filter: grayscale(1); filter: grayscale(1);
+	font-size: 24px;
 	transition: all 200ms 250ms, width 200ms 800ms, height 200ms 800ms, margin 200ms 800ms;
 	opacity: 0.21}
+.comment-item__avatar-img_default::before{background-color: #444;}
 .company_header, .user_header{height:50px}
 .content_left{margin-top: -5px;}
 .company_header .company_icon img,
@@ -879,16 +884,26 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .tracker_page table.tracker_mentions tr td.mention_type a:first-child{display: inline-block; width: 24px; height: 24px}
 .company_header:hover .company_icon img,
 .user_header:hover .avatar img:not([src*="stub-user-middle"]),
-.comments_list .comment_item .info:hover a.avatar img:not([src*=stub-user-small]),
+.comments_list .comment_item .info:hover a.comment-item__avatar img:not([src*=stub-user-small]),
 .tracker_page table.tracker_mentions tr td.mention_type:hover img:not([src*=stub-user-small]),
 .conversation_page .messages .message .info:hover a.avatar img:not([src*=stub-user-small]),
 .author-info:hover .author-info__image-pic:not([src*="stub-user-middle"]),
-.post-author:hover .post-author__pic:not([src*="stub-user-middle"]){
+.post-author:hover .post-author__pic:not([src*="stub-user-middle"]),
+.comments_list .comment_item .info:hover a.comment-item__avatar .comment-item__avatar-img_default::before{
 	-webkit-filter: grayscale(0); filter: grayscale(0);
 	width: 48px!important;
 	height: 48px!important;
-	margin: -18px 0 0 -21px;
+	font-size: 48px;
+	margin: -18px -5px 0 -16px;
 	opacity: 0.6}
+.comments_list .comment_item .info:hover a.comment-item__avatar,
+.conversation_page .messages .message .info:hover a.avatar{
+	overflow: inherit;
+	width: 48px!important;
+	height: 48px!important;
+	margin: 0 -14px -24px 0;
+	font-size: 48px;
+}
 .company_header:hover .company_icon img,
 .user_header:hover .avatar img:not([src*="stub-user-middle"]){margin: 0 7px -3px -24px;}
 .post-author:hover .post-author__pic:not([src*="stub-user-middle"]){margin: -12px -0px -12px -14px;}
@@ -1504,7 +1519,7 @@ body >#logo >img{opacity: 0.16}
 	.top-materials{display: inline-block;
 		vertical-align: middle;
 		width: 44%;
-		margin: 7px 1.5% 0;
+		margin: 7px 1.5% 2px 1.5%;
 		padding: 8px;
 		text-align: left}
 	.live-broadcast{background: transparent!important}
@@ -1513,7 +1528,7 @@ body >#logo >img{opacity: 0.16}
 	.top-materials_geektimes .top-materials__title::before, .top-materials_megamozg .top-materials__title::before,
 	.top-materials_habrahabr .top-materials__title::before{width: 17px; height: 17px; opacity:.6}
 	.live-broadcast_habrahabr .tabs__menu, .live-broadcast_habrahabr .tabs__menu, .live-broadcast_habrahabr .tabs__menu{background: #b0c1c6}
-	.top-materials_megamozg{margin-right: -39% !important}
+	.top-materials_megamozg{margin-right: -10% !important}
 	.similar-posts__title,
 	.live-broadcast__title,
 	.top-materials__title, .top-materials__title-link{font-size: 16px}
