@@ -1,7 +1,7 @@
-/** Habr ZenComment v442.2015.11.26, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v443.2015.12.1, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: hide avatars;
+ * LastUpdatesDescription: .info line of message in comments;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -672,7 +672,9 @@ body.company .comments_list h2.comments-header,
 	background: #f0f0e7!important}
 .company_post .comments_list h2.title{margin-top: 0!important;padding-top:22px!important;}
 h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!important}
-.comments_list .comment_item .reply_comments{margin-top:0!important}
+.comments_list .comment_item .reply_comments{
+	margin-top:12px!important;
+}
 .conversation_page .title{margin-top: 0.8em!important}
 .conversation_page .messages .message,
 .comments_list .comment_item{position:relative;
@@ -695,11 +697,14 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	line-height: 11px!important;
 	font-family: tahoma,sans-serif!important;
 	background-position:1px 7px!important}
+.comment_item:hover .info{margin: -3px 0 -1px!important;}
 .comments.c2 .comment_body{margin-top: 12px !important}
 .comment_item >.info >a:not(.username):not(.favorite),
 .comment_item .info >div:not(.clear){
 	position: relative;
-	height: 3px!important}
+	height: 18px!important;
+	margin-top:-9px;
+	margin-bottom:-9px;}
 .conversation_page .message.new .info,
 .comment_item .info.is_new{background:#f0f0fc}
 .conversation_page .message .info{background:#ecefef}
@@ -1398,9 +1403,10 @@ iframe[src*="facebook"],.footer_logos,
 .to_top.mini{width:3px!important}
 .user_settings{margin: 0 0 8px 24px!important}
 .user_profile .twitter .text{word-wrap:break-word}
-.content a:not(.comment-item__username),.content_left .comments_list a:not(.comment-item__username),.comments.c2 a:not(.comment-item__username){display: none; color:#497da5!important}
+.content a,.content_left .comments_list a,.comments.c2 a{color:#497da5!important}
+.content_left .comments_list a.comment-item__avatar,.comments.c2 a.comment-item__avatar{display: none}
 .content a:hover,.comments_list a:hover,.comments.c2 a:hover{color:#4d7285!important}
-.comment-item__username{margin-left: 10px; margin-top: -7px;}
+.comment-item__username{margin-left: 10px; margin-top: -15px;}
 
 /*старые вёрстки*/
 .editor .text-holder{border: 0!important; clear:both}
