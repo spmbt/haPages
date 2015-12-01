@@ -1,7 +1,7 @@
-/** Habr ZenComment v442.2015.11.16, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v442.2015.11.26, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: .live-broadcast.live-broadcast_geektimes daily_best_posts;
+ * LastUpdatesDescription: hide avatars;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -855,7 +855,7 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	margin: -1px 0 -18px!important;
 	border-top: 1px solid #fff!important}
 .comments.c2:hover >.comment_item:not(:hover) div.reply,
-.comments_list:hover >.comment_item:not(:hover) div.reply{border-top: 1px solid #eee!important}
+.comments_list:hover >.comment_item:not(:hover) div.reply{border-top: 0px solid #eee!important}
 .comments.c2:hover div.reply,
 .comment_item:hover div.reply{border-top: 1px solid #fff!important}
 .comments.c2:not(:hover) .reply >a.reply_link
@@ -1398,8 +1398,9 @@ iframe[src*="facebook"],.footer_logos,
 .to_top.mini{width:3px!important}
 .user_settings{margin: 0 0 8px 24px!important}
 .user_profile .twitter .text{word-wrap:break-word}
-.content a,.content_left .comments_list a,.comments.c2 a{color:#497da5!important}
+.content a:not(.comment-item__username),.content_left .comments_list a:not(.comment-item__username),.comments.c2 a:not(.comment-item__username){display: none; color:#497da5!important}
 .content a:hover,.comments_list a:hover,.comments.c2 a:hover{color:#4d7285!important}
+.comment-item__username{margin-left: 10px; margin-top: -7px;}
 
 /*старые вёрстки*/
 .editor .text-holder{border: 0!important; clear:both}
