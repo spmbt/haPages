@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 146.2015.5.24
+// @version 150.2015.12.4
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,9 +15,9 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 145 .c2 >.block_after_post;
-// @update 144 .block_after_post .live_broadcast .posts_list;
-// @update 143 footer width; sidebar width in %%;
+// @update 149 ajax of article from list;
+// @update 148 fix err on new format of annotation;
+// @update 146 .similar_posts;
 // @resource meta habrAjax.meta.js
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // ==/UserScript==
@@ -100,7 +100,7 @@ var DAY = 86400000
 ,isChrome = /Chrome\//.test(navigator.userAgent)
 ,wcl = function(a){ a = a!==undefined ? a :''; //консоль как метод строки или функция, с отключением по hS.noConsole.val ==1
 	if(win.console && typeof hS !=u && !hS.noConsole.val)
-		win.console.log.apply(console, this instanceof String
+		win.console.log.apply(win.console, this instanceof String
 			? ["'=="+ this +"'"].concat([].slice.call(arguments))
 			: arguments);
 }
@@ -824,7 +824,7 @@ if(/habrastorage\.org/.test(lh)){
 		$e({el:hsoLogo
 			,cs:{backgroundImage:'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABHCAMAAAB4UkqjAAABblBMVEVorulnrednrObW5vX2+Pmhv9tTkcTm7/eVw+ygye681/LI3vS41vGCuemeutRNiLmKsdR0s+r1+Pn1+PihvtqGqsve6vb09vjt8fXi7PBakL6Vt9fz9vjr8fPR4OuRs9BNiblorua0yd3u8/iWuNhdkb6hu9aLsM9YjrxPibpOiLlNibtZmdForelOiruKr9PI1+WtyeNOiLpPibtRjL5cnNVorObE2/FPir5Xk8xkp95nrufl7PKpwdjN4PJwocxRi75cntVmrOVoruiIq83t8vXT3+yTstBOibxanNJmrOdNiLpUkshjp+Foreh6osfb5O3S3ulQjMBdnthnrOdOibtWlMtiqePk6/G+0OFQjr5gotlsmsJbnNNVlcpUkcVTkcZNirlXlstOiLxentXW5vRRjsBipNzU4e5Si75bmcxkqeNQjcBZmM5ko91nq+ZnrulOi7xVk8hcn9djpuJNibpQjb9jqN5lquVnrOicjUr2AAAAAWJLR0QAiAUdSAAAAWpJREFUeNrtlk1Lw0AQhgtdUCsGhVawfkCq1YuMejJ2G70YQ0+JCBVr0BxCsJSoh4J/39mPxB6kZLPBg+xz2ckGHt6ZLGwaDYPBYDAY/j2U1uNpEkLasZCtYL3Ky7UWYay3NqiiywIhY65NLLeapKBNVV1CxlwdLLcLk7fTjamqi8uEC3Zz097+gY9vbKV5gZBJVw+XwyPc6h+fdHE5VXahjLnOAM5xuYCCSWIr9shkfPbCdRnnKudqQNVdMBQ9umxW1zdyc5pQlR4XucUxeby680WuUWUX5oJOfiJ44PFcIxdAEMqn+z5A+kA1ciGWtIVYvzxWn70geOIyFw/Fs64LIAplsJG+CwIWjDVZg4t9Tw/X1+quiPRc9ugOZY+x5rnPsfR6DBdULJaTVHZF3o+KnVVIByVdb7/M3ueTIp7LP8Q0m5W9g2JYTpq9f3zWInPGydxWuB2XyCbZV+lQBoOh5j9XMwKD4S/4Bpvib4HQl4+eAAAAAElFTkSuQmCC)',opacity:1}
 		});
-		
+
 	}
 	var testLegacyFrame =0;
 	$e({ht:'<h2>&rarr; Перетащи картинку сюда &larr;</h2>(куда-нибудь в это окно)<br>К сожалению, будет работать только для картинок размером менее 10КБ. Держатели сайта знают, а работа по устранению недостатка через клиент &mdash; ведётся.'
@@ -982,7 +982,7 @@ hideC2 = function(ev){ //скрыть содержание
 		= $q('.btnBack.n2',topic).style.display //скрытие нижнего "Свернуть"
 		= c2.style.display ='none'; //скрыть полную статью
 	if(isChrome){
-		var info = $q('.infopanel', topic);
+		var info = $q('.infopanel_wrapper', topic);
 		info.style.top =(h.inZen?'-':'')+'3px';
 	}
 },
@@ -1582,7 +1582,7 @@ blockBrs = function(replyM){
 	}
 },
 correctCommentsBefore = function(comms){ //коррекции комментариев в тексте HTML, после подгрузки
-	if(!hS.brAsBlock.val) return comms;
+	if(!hS.brAsBlock.val || !comms) return comms;
 	return (comms.replace(/<br\/>\r?\n?<br\/>(?!\s+<\/div>)/gm, '\n<div class="vSpace"></div>')
 		.replace(/<br\/>(?!\s+<\/div>)/gm, '\n<div class="vSpace3"></div>'));
 },
@@ -1624,7 +1624,7 @@ correctCommentsAfter = function(comms, topic){ //коррекции в DOM по�
 		,colorTAHnew ='#f5ecf5' //'#efd9ef' topicAuthorHighlight New
 		,oneLineHeight =25
 		,newEntity = $q('.comment_item >.comment_body >.message', topic) //новая вёрстка комментариев
-		,topicAuthor = $q('.post .infopanel .author a', topic) //===место автора топика
+		,topicAuthor = $q('.post .infopanel_wrapper .author a', topic) //===место автора топика
 		,authorTopicName = topicAuthor ? topicAuthor.innerHTML :'(без автора)';
 	(function(s){
 		var replyMsgs = $qA('.message, .comment_item >span.text', c) //===сообщения - ответы
@@ -1679,7 +1679,7 @@ correctCommentsAfter = function(comms, topic){ //коррекции в DOM по�
 			if(replyMP)
 				var infoButt = prev('info', replyMI);
 			if(hS.noAva.val && infoButt) //не показывать уменьшенные аватары
-				$q('.avatar', infoButt).style.opacity =0;
+				$q('.avatar', infoButt) && ($q('.avatar', infoButt).style.opacity =0);
 			//'replyMsgs'.wcl(replyMI, replyMsgs.length, i)
 			//'authorCommName,'.wcl(authorCommName, authors.length, j)
 			if(hS.brAsBlock.val) //замена BR и BR-BR на прослойки
@@ -1932,7 +1932,7 @@ openInFrame = function(ev, t, blck, Li){ //открывать в фрейме (�
 	var name ='hA_userinfoView'
 		,uFrm = //document.getElementById(name);
 	$e({el:$q('#'+ name)||'iframe'
-		,at:{id: name, name: name, src:''} 
+		,at:{id: name, name: name, src:''}
 		,cs:{position:'fixed', width: h.uFrmWid, height:'200px', top:'200px', borderWidth:0, backgroundColor:'#f4f6f7', zIndex: 101}
 		,apT: document.body
 	});
@@ -2032,17 +2032,15 @@ showContent = function(ev){ //подгрузить и показать стат�
 		,tLink = this.tagName.toUpperCase() !='SPAN' && this || this.parentNode
 		,inFooter = parents('rotated_posts', tLink)
 		,topic = parents('^post($| )', tLink) || inFooter //топик или блок в футере
-		,info2 = $q('.infopanel', topic)
-		,clickComments = /comments|infopanel/.test(this.parentNode.className); //признак клика по ссылке/кнопке комментариев
+		,info2 = $q('.infopanel_wrapper', topic)
+		,clickComments = /comments|infopanel_wrapper/.test(this.parentNode.className); //признак клика по ссылке/кнопке комментариев
 	//'~~topic'.wcl(tLink, topic, info2)
-	if(!tLink.href && (clickComments || parents('habracut', this)) ) //поправка для малых правых кнопок
-		tLink.href = $q('a', prev('comments', this) || parents('habracut', this) ).href;
+	if(!tLink.href && (clickComments || $q('.post-comments a', parents('infopanel_wrapper', this)) ) ) //поправка для малых правых кнопок
+		tLink.href = $q('.post-comments a', parents('infopanel_wrapper', this)).href || $q('a', prev('comments', this) ).href;
 	var commLink = $q('.comments a', info2);
 	if(/ link/.test(topic.className)) //сменить ссылку для подгрузки (на ту, которая в комментариях)
 		tLink = commLink;
 	var topicTitle = $q('.post_title', topic) || parents('^grey$', tLink); //заголовок статьи
-	//if(inFooter && !/infopanel/.test(this.parentNode.className) ) //нажатая кнопка в футере
-	//	$q('span.inln',tLink).className +=' content';
 	if(inFooter && !/^post($| )/.test(inFooter.className))
 		inFooter.className ='post content_left '+  inFooter.className;
 	if(!/blk2nd/.test(this.className)){ //защита от повторного клика
@@ -2087,14 +2085,13 @@ showContent = function(ev){ //подгрузить и показать стат�
 					cont.removeChild($q('.comments.c2', cont)); //контент удалён
 					xhr.wasArrows =1; //(стрелки были - и остались)
 				}
-				//topicTitle && 'tLink'.wcl(topicTitle, tLink.href, topicTitle.link);
 				var url = topicTitle && (tLink.href || commLink && commLink.href || topicTitle.link);
 					//-обход заголовка-ссылки, не-ссылок, отсутствия ссылки на комментарии
-				xhr.open('GET', url.replace(/_/g,'%5F'), true); //странно, но "_" не переваривает (FF)
+				xhr.open('GET', url.replace(/_/g,'%5F'), true); //странно, но "_" не переваривает (Fx)
 				xhr.link = this; //активный элемент клика мыши
 				xhr.onreadystatechange = function(){ //===показ статьи===
-
 					if(this.readyState !=4) return;
+
 					if(inFooter && !$q('.contentRow',inFooter)){ //область контента-c2 в над-футере для подгрузки
 						var cntRow = $e({cl:'contentRow'
 							,cs:{display:'table-row', backgroundColor:'#fff'}
@@ -2102,7 +2099,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 						$e({cl:'contentCell', el:'td'
 							,cs:{display:'table-cell', padding:'0 13%'}
 							,at:{colspan:3}
-							,ht:'<div class=content></div><div class=infopanel><span class="showComm btnBack inln" title="комментарии; Ctrl+Shift - пере-подгрузка">&rarr;</span></div><div class=clear></div>'
+							,ht:'<div class=content></div><div class=infopanel_wrapper><span class="showComm btnBack inln" title="комментарии; Ctrl+Shift - пере-подгрузка">&rarr;</span></div><div class=clear></div>'
 							,apT: cntRow});
 						topic = inFooter = $q('.contentCell', cntRow);
 						$q('.showComm', topic).addEventListener('click',showContent,!1);
@@ -2125,7 +2122,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 				//'contEdge'.wcl(contEdge)
 				//=== точка "ajax-парсинг страницы" ===
 					var conte = this.responseText.match( // ====== парсинг страницы, шаблон ======
-						/<div class="content html_format">([\s\S]*?)<div class="clear"><\/div>\s+?<\/div>[\s\S]+?(<ul class="tags">|<div class="tags">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel/m) //вся статья (до тегов или подписи)
+						/<div class="content html_format">([\s\S]*?)<div class="clear"><\/div>[\s\n]+?<\/div>[\s\S]+?(<ul class="tags icon_tag">|<div class="tags icon_tag">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel_wrapper/m) //вся статья (до тегов или подписи)
 						,tagPars = conte && conte.length ==5 ? conte[3] :''; //вытаскивание тегов
 					//'conte~~'.wcl(conte.length, conte, info2)
 					conte = conte ? conte[1] :''; //устранение ошибки пустого ответа
@@ -2149,7 +2146,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 						,ht: /<a name="habracut"><\/a>/.test(this.responseText)
 							?'<div style="background: #efeff2; padding: 2px 3px 2px 7px; margin: -2px -3px -2px -7px; position: relative">'
 								+ conte.replace(/<a name="habracut"><\/a>/,'</div>')
-							:(!topicHaCut || conte.length >20 || clarif.length >20 ? conte + clarif :'<i style="color: #999">(пустой блок)</i>')
+							:(!topicHaCut || conte.length >20 ? conte :'<i style="color: #999">(пустой блок)</i>')
 						,aft: tContent }); //(-бывает, что ката в результирующем блоке нет, а в начальном есть)
 					extLinks(contC2);
 					authorClicks(contC2); //расст.обраб.кликов по ссылкам
@@ -2165,7 +2162,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 						if(showComm)
 							btnBackN2.style.display = btnBack.style.display ='none';
 						else if(isChrome){
-							var info = $q('.infopanel', topic);
+							var info = $q('.infopanel_wrapper', topic);
 							info.style.top ='-5px';
 						}
 					}else if(!showComm) //...или показать контент
@@ -2183,7 +2180,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 					if(!xhr.wasArrows && showComm && !topicHaCut) //скрыть статью, если надо только комм.
 						hideC2.call(tLink);
 
-					var infoDelim = $q('.infopanel +.clear', topic);
+					var infoDelim = $q('.infopanel_wrapper', topic);
 					//'infoDelim'.wcl(infoDelim)
 					if(!xhr.wasArrows){ //создание кнопки над комментариями
 						$e({cl:'showComm btnBack n2' //созд_кноп.сворач_ под комментариями
@@ -2192,9 +2189,8 @@ showContent = function(ev){ //подгрузить и показать стат�
 							,aft: infoDelim});
 						var b = $q('.content_left .posts_list .showComm.btnBack:not(.inln)', topic.parentNode);
 						if(b) b.style.marginTop ='25px';
-						//'zenPresent'.wcl(hS.zenPresent.val, zenChecked, topic.querySelector('.btnBack:not(.inln):not(.n2)'), topic.querySelector('.comments.c2 ul.hentry'))
 						var back1 = $q('.showComm.btnBack:not(.inln):not(.n2)', topic);
-						if(!zenChecked && !$q('.comments.c2 ul.hentry', topic) && back1 ) //двигать вверх для новых внутренних вёрсток, но не для новых в старом окружении
+						if(!zenChecked && back1 ) //двигать вверх для новых внутренних вёрсток, но не для новых в старом окружении
 							back1.style.top ='-22px';
 					}
 
@@ -2209,17 +2205,17 @@ showContent = function(ev){ //подгрузить и показать стат�
 							,bef: prevLastInAnno});
 						$q('.btnBack:not(.showComm) .percent', topic).innerHTML = '<div class="gPercent"><div style="width:'+(100 - percnt)+'px"></div></div>'+ percent;
 					}
-
 					//wcl('trace_02')
 					//шаблон, парсинг, комментарии
-					var matchComments = this.responseText.match(/<div( class="comments_list " | )id="comments">([\s\S]*?)<\/div>\s+?<div (id|class)="sidebar/m);
+					var matchComments = this.responseText.match(/<div class="(?:info )?comments_list.+?>([\s\S]*?)<\/div>[\s\n]+?<div (?:id|class)="sidebar/m);
 					//'matchComments'.wcl(matchComments);
-					if(matchComments.length ==4)
-						matchComments[1] = matchComments[2];
-					if(matchComments && hS.shortReply.val){ //шаблон, парсинг
-						matchComments[1] = matchComments[1].replace(/( class="reply_link">[\n\r\s]*<a[\s\S]+?)(ответить|комментировать)(<\/a>[\n\r\s]*<\/)/gm,'$1ответ$3').replace(/id="js-field-holder-with-help"/,'id="js-field-holder-with-help" class="hidden"');
-					}
-					var comms = correctCommentsBefore(matchComments[1])
+					if(matchComments && matchComments.length ==2){
+						matchComments[0] = matchComments[1];
+						if(matchComments && hS.shortReply.val){ //шаблон, парсинг
+							matchComments[0] = matchComments[0].replace(/( class="reply_link[\s\S]+?)(ответить|комментировать)(<\/a>)/gm,'$1ответ$3')
+									.replace(/id="js-field-holder-with-help"/,'id="js-field-holder-with-help" class="hidden"');
+					}}
+					var comms = correctCommentsBefore(matchComments && matchComments[0])
 						,comments = matchComments
 							? $e({cl:'comments c2 noShowYet', ht: comms}) : null
 						,replyA = $qA('.reply a',comments); //коррекция комментов для FF3.6
@@ -2384,7 +2380,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 						,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
 						,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
 						,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,147005,158837
-						,169713,182213,195255,206961,213979,221001]; //июн.2015 qa -прогноз
+						,169713,182213,195255,206961,213979,221214,229400]; //июл.2015 qa -прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
 						var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
@@ -2406,9 +2402,9 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 					,135593,137388,139154,141161,143096,145002,146858,148825,150655,152897,156927,160927
 					,164511,167841,171141,174897,178523,181712,185178,188544,192134,195908,200442,204302
 					,207968,211020,214263,217769,221545,224805,228191,231847,235117,238753,242143,244603
-					,247199,249403,251783,254567,257097,259501]; //июн.2015 -прогноз
-					//,0,245130,246570,248202,249848,251208]; //geektimes
-					//,0,0,0,13790,14858,15800]; //megamo
+					,247199,249403,251783,254567,257097,259213,261301]; //июл.2015 -прогноз
+					//,0,245130,246570,248202,249848,251248,252708]; //geektimes
+					//,0,0,0,13790,14858,15978,17020]; //megamo
 				//.!обновлять каждый месяц, писать последнее число как прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
@@ -2601,7 +2597,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.comments .comment_item .info .branch,#comments .comment_item .info .branch{Visibility: hidden; position: relative; top:-11px!important; text-decoration: none}'
 	+'.comments .comment_item .info:hover .branch,#comments .comment_item .info:hover .branch{Visibility: visible}'
 
-	+'.post div.btnBack.inln{display: inline-block; vertical-align: middle; overflow: hidden; height: 14px; line-height: 14px!important; margin: 0 2px 3px}'
+	+'.post div.btnBack.inln{display: inline-block; vertical-align: bottom; overflow: hidden; height: 14px; line-height: 14px!important; margin: 0 2px 3px}'
 	+'.post .btnBack:not(.inln):not(.n2){position: relative;z-index: 1}'
 	+'.post .content .percent,.post .btnBack .percent,.post .btnBack >i{display: inline-block;vertical-align:top; line-height:10px}'
 	+'.post .content .percent{font-size:12px;color:#8ac}'
@@ -2633,12 +2629,12 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 
 	+'.comments.c2 .comment_holder .mark{left:0}'
 	+'.g-plusone >iframe[id^="I"][src^="https://plusone.google.com"]{display:block!important;width:width:24px!important; margin-right: 6px!important}'
-	+'.infopanel .g-plusone,.infopanel div[id*="__plusone"]{float: left!important;overflow:hidden; width: 24px!important; margin-top: 5px!important; margin-right: 6px!important}.infopanel >.g-plusone:hover{overflow:inherit}'
+	+'.infopanel_wrapper .g-plusone,.infopanel_wrapper div[id*="__plusone"]{float: left!important;overflow:hidden; width: 24px!important; margin-top: 5px!important; margin-right: 6px!important}.infopanel_wrapper >.g-plusone:hover{overflow:inherit}'
 
-	+'.infopanel >.g-plusone +.likes{position: relative; float: left; left: -33px; width: 0; height: 16px; padding: 0!important; text-align: center}'
-	+'.infopanel >.g-plusone +.likes >div{float: none; width: 30px; height: 10px; margin-top: '+(isChrome?8:2)+'px!important; padding: 0; line-height: 10px; font-size:12px;}'
-	+'.infopanel >.g-plusone +.likes >div >div{display: inline-block; float: none; min-width: 12px; height: 10px; line-height: 10px; padding: 0; padding-left: 2px!important; background: #efefef!important; border-radius: 2px}'
-	+'.infopanel >.g-plusone:hover +.likes{display: none}'
+	+'.infopanel_wrapper >.g-plusone +.likes{position: relative; float: left; left: -33px; width: 0; height: 16px; padding: 0!important; text-align: center}'
+	+'.infopanel_wrapper >.g-plusone +.likes >div{float: none; width: 30px; height: 10px; margin-top: '+(isChrome?8:2)+'px!important; padding: 0; line-height: 10px; font-size:12px;}'
+	+'.infopanel_wrapper >.g-plusone +.likes >div >div{display: inline-block; float: none; min-width: 12px; height: 10px; line-height: 10px; padding: 0; padding-left: 2px!important; background: #efefef!important; border-radius: 2px}'
+	+'.infopanel_wrapper >.g-plusone:hover +.likes{display: none}'
 	+'.comment_item .info .comma{display:none!important}'
 
 	+'#comment_form .panel .spanned, #comments_form .panel .spanned, .editor .panel .spanned{display:block; float:left}'
@@ -2758,7 +2754,8 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.translation .topic,.podcast .topic,.link .topic{background-position: 0 0!important}'
 	+'.search-results{margin: 30px 0 0 -22px!important;padding-left: 22px!important}'
 	+'body.company .comments_list h2.comments-header,.content_left .comments_list h2.title{max-width: 1200px;padding: 15px 0 2px 25px!important;border-radius:8px;background: #f0f0e7!important;'+(ZenNCh?'margin:0 -3px 0 -17px!important;':'')+(h.inZen?'border: 1px solid #e8e8ee!important':'border-radius:16px;box-shadow: 0 0 8px #fff inset, 0 0 6px  #eed!important')+'}'
-	+'.comments.c2 .comment_item .info div.voting{top:'+(h.inZen?3:'-2')+'px}'
+	+'.comments.c2 .comment_item .info div.voting{top:'+(h.inZen?3:'-2')+'px}.comments.c2 .comment-item__username{margin-top: -25px}'
+	+'.comments.c2 .voting-wjt__button:not([disabled]), .comments.c2 .voting-wjt__button[title*="зарегистрированные"]{display:none}'
 	+'.comments_list{overflow:visible!important; padding-left:17px!important; padding-right:3px!important}'
 	+'.comment_item .info a.favorite{visibility:hidden}'+(h.inZen?'':'.comment_item .info:hover a.favorite,')+'.comment_item .info a.favorite:hover{visibility:visible}'
 
@@ -2789,16 +2786,16 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.editor .panel .wysiwyg_wrapper{float:left}.editor .panel >.wysiwyg_wrapper >a:hover,.editor .panel >div >b >a:hover,.comment_item .reply .editor .panel >div >a:hover,.content_left #comments_form .editor .panel a:hover{background:#fff}'
 	+'.editor .panel .wysiwyg_wrapper .btn{display: inline-block; height: 20px!important; line-height: 22px!important}'
 	+'.editor .panel .wysiwyg_wrapper .btn.btn-dropdown{float: none!important}'
-	
+
 	+'#js-field-holder-with-help{overflow: inherit!important}'
 	+'.editor .panel{position: relative!important; overflow: inherit!important; z-index: 11; width: 98%!important; min-height: 22px; padding: 2px 5px 0!important}'
 	+'.panel select.with-title{display:none!important}'
 	+'.editor .panel .can_use_html{right: -4px; position: absolute; z-index:10; height: 20px!important; margin-top: 0!important; line-height: 22px!important; white-space: nowrap; color: #999!important}.editor .panel .can_use_html a{position: relative; z-index: 12}'
-	+'.post .infopanel >div{line-height:20px!important}.post .infopanel .voting{margin: 2px 26px 2px 0!important}.post .infopanel .voting a,.post .infopanel .voting .mark{z-index: 5}'
-	+'.post .infopanel .original-author,.post .infopanel .author,.post .infopanel .comments{padding-top:2px!important;padding-bottom:3px!important; font-weight:normal!important}'
-	+'.infopanel .original-author a{font-size:12px!important; color:#a33!important}.post .infopanel .author a{font-size:12px!important}'
-	+'.post .infopanel .comments{margin-left:8px!important; background-position:4px 7px!important;'+ (ZenNCh?'padding:0!important;background-color:#f4f6ff!important':'')+'}.post .infopanel .comments a{display: inline-block;padding:2px 4px 3px 21px!important;font-size:12px!important}'
-	+'.i-am-your-father-luke .post .infopanel{width: 94%; margin: 3px 0 0 4px!important;border: 1px solid #ddd;letter-spacing: -1px;border-radius: 5px;font-size:11px;line-height:1.7}'
+	+'.post .infopanel_wrapper >div{line-height:20px!important; vertical-align: bottom;}.post .infopanel_wrapper .voting{margin: 2px 26px 2px 0!important}.post .infopanel_wrapper .voting a,.post .infopanel_wrapper .voting .mark{z-index: 5}'
+	+'.post .infopanel_wrapper .original-author,.post .infopanel_wrapper .author,.post .infopanel_wrapper .comments{padding-top:2px!important;padding-bottom:3px!important; font-weight:normal!important}'
+	+'.infopanel_wrapper .original-author a{font-size:12px!important; color:#a33!important}.post .infopanel_wrapper .author a{font-size:12px!important}'
+	+'.post .infopanel_wrapper .comments{margin-left:8px!important; background-position:4px 7px!important;'+ (ZenNCh?'padding:0!important;background-color:#f4f6ff!important':'')+'}.post .infopanel_wrapper .comments a{display: inline-block;padding:2px 4px 3px 21px!important;font-size:12px!important}'
+	+'.i-am-your-father-luke .post .infopanel_wrapper{width: 94%; margin: 3px 0 0 4px!important;border: 1px solid #ddd;letter-spacing: -1px;border-radius: 5px;font-size:11px;line-height:1.7}'
 	+'p img[src*="error-404-monster"]{display:none}#write_message_form, #write_message_form .item{margin-bottom:0!important}'
 	+'#write_message_form label[for="text"]{display:none!important}'
 	+'.rotated_posts .rotTRow a{display: table-cell; padding:0 12px 4px!important; text-align: center;text-decoration: none!important; font-size: 13px!important; line-height:1.1!important}'
@@ -2844,7 +2841,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.rotated_posts .rotated_post a,'
 	+'.content_left .similar_posts .title,'
 	+'.content_left .similar_questions .title{display: block; padding: 0 3px 2px!important; text-decoration: none!important; font-size: 13px!important; line-height: 1.1!important; background: #f8f8f8}'
-	+'.content_left .similar_questions .title{position: relative; z-index: 13; top:-1.6em; float: right; height: 1.2em; margin:-3px -4em 0 -6em!important; padding: 2px 5px 4px!important; border-radius: 5px; background: #ecedf2}'
+	+'.content_left .similar_questions .title, .similar_posts .title{position: relative; z-index: 13; top:-1.6em; float: right; height: 1.2em; margin:-3px -4em 0 -6em!important; padding: 2px 5px 4px!important; border-radius: 5px; background: #ecedf2}'
 	+'.content_left .similar_posts .title,'
 	+'.content_left .similar_questions .title,'
 	+'.content_left .similar_posts .post_item .when{padding-bottom: 0!important; font: 12px Arial,Helvetica,sans-serif!important}'
@@ -2971,7 +2968,7 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 	+ (hS.justify.val?'.content_left .event .text, .post .content, .comment_item >.comment_body >.message, .comments .comment_item, form >.preview_placeholder, form >#preview_placeholder{text-align: justify}':'')
 
 	+'.comments_list .info .voting:not(.voted_plus) span.plus,'
-	+'.post .infopanel .voting:not(.voted_plus) span.plus,'
+	+'.post .infopanel_wrapper .voting:not(.voted_plus) span.plus,'
 	+'.vote_holder .vote.expired:not(.voted_plus) .vote_plus,'
 	+'.vote_holder .voting.expired:not(.voted_plus) .vote_plus,'
 	+'.vote_holder .vote.no_auth .vote_plus,'
@@ -2980,7 +2977,7 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 	+'.vote_holder .vote.voted_minus .vote_plus{visibility:'
 		+ (hS.noExpiredVote.val ?'hidden':'visible!important') +'}'
 	+'.comments_list .info .voting:not(.voted_minus) span.minus,'
-	+'.post .infopanel .voting:not(.voted_minus) span.minus,'
+	+'.post .infopanel_wrapper .voting:not(.voted_minus) span.minus,'
 	+'.vote_holder .vote.expired:not(.voted_minus) .vote_minus,'
 	+'.vote_holder .voting.expired:not(.voted_minus) .vote_minus,'
 	+'.vote_holder .vote.no_auth .vote_minus,'
@@ -2990,8 +2987,8 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 		+ (hS.noExpiredVote.val ?'hidden':'visible!important') +'}'
 
 	+(h.inZen ?'.comment_item .info a.favorite{left:-3px}':'.entry-info-wrap .btnBack{top:7px}'
-		+'.infopanel >.g-plusone +.likes{margin-top: 5px}')
-	+(hS.noSomeSideBlocks.val && !h.inZen?'.sidebar_right .block:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not(.similar_questions):not(.daily_best_posts):not(.habrahabr_top):not(.geektimes_top):not(.megamozg_top):not(.live_broadcast):not(.new_vacanies):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.freelansim):not(.similar_events):not(.events_search_filter):not(.user_info):not(.for_authors_help):not(.for_authors),#header .main_menu .banner_special,div[id^="topline"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],iframe[src*="//www.facebook.com/plugins"],.sidebar_right .banner_240x400,.posts_list .post_item img,#print_tab{display:none!important}.sidebar_right .block.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.post_name):not(.user_name),iframe[src*="facebook"],.footer_logos{display:none}':''));
+		+'.infopanel_wrapper >.g-plusone +.likes{margin-top: 5px}')
+	+(hS.noSomeSideBlocks.val && !h.inZen?'#navbar .nav_tab .line,#navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important} #TMpanel .bmenu.special,#TMpanel .menu.special,.special_navbar_image,#print_tab,#TMpanel .bmenu.slink,#TMpanel .menu.slink,.header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/ #header .main_menu .banner_special,.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,div[class*="what_are_you_doing"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.posts_list .post_item img,body >a,.company_top_banner,.sidebar_right .banner_240x400{display:none!important; height: 0; opacity: 0;} .sidebar_right >div:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not([class="block daily_best_posts"]):not([class="live-broadcast live-broadcast_habrahabr daily_best_posts"]):not([class="live-broadcast live-broadcast_geektimes daily_best_posts"]):not([class="live-broadcast live-broadcast_megamozg daily_best_posts"]):not(.live-broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.similar_events):not(.events_search_filter):not(.favorite_tags):not(.for_authors_help):not(.top_hub_invest):not(.ppa_links):not(.company_widgets):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo){display:none!important; height: 0; opacity: 0;} .sidebar_right .company_widgets >div:not(.corporate_news):not(.company_links):not(.corporate_blog):not(.mobile_applications):not(.hantim_vacanies),.sidebar_right >.block >a,.sidebar_right >.block >iframe,.sidebar_right >.block.daily_best_posts >div:not(.title):not(.posts_list):not(.all),.sidebar_right div[class*=banner]{display:none!important; height: 0; opacity: 0;} .content_left >div:not(.tabs):not(.post_show):not(.user_info):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),.content_left >.search_results >.post,.company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),.column-wrapper_bottom >.sidebar_right{display:none!important; height: 0; opacity: 0;} .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count), iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none; height: 0; opacity: 0;}':''));
 if(hS.colorAuthorTAH.val) addRules('.comment_item .info.is_new.is_topicAuthor, .comment_item .comment_head.is_new.is_topicAuthor{background:#F5ECF5!important}');
 h.uFrmWid = h.inZen || win.opera ?'74%':'66%';
 
@@ -3215,7 +3212,7 @@ function loadGPlus(sObject){ //загрузка своей ф. как скрип
 		var post = document.querySelectorAll('.post');
 		for(var i =0; i < post.length; i++){
 			var topicTitle = $q('.title a.post_title', post[i])
-				,info = $q('.infopanel', post[i])
+				,info = $q('.infopanel_wrapper', post[i])
 				,vcard = $q('.original-author', info) //поиск места прикрепления кнопки G+
 					|| $q('.author', info)
 					|| $q('.link', info)
@@ -3231,7 +3228,7 @@ function loadGPlus(sObject){ //загрузка своей ф. как скрип
 			}catch(e){alert('loadGPlus_err_')}
 		}
 	}else{
-		var info = $q('.infopanel')
+		var info = $q('.infopanel_wrapper')
 			,vcard = $q('.author', info)
 				|| $q('.favorite', info)
 				|| $q('.favs_count', info)
@@ -3660,11 +3657,11 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				,hubs = $qA('.hubs >.hub', topic)
 				,content = $q('.content', topic)
 				,topicHaCut = $q('a.habracut', topic)
-				,info = $q('.infopanel', topic)
+				,info = $q('.infopanel_wrapper', topic)
 				,news =0
-				,commLink = $q('.infopanel .comments a', topic);
+				,commLink = $q('.infopanel_wrapper .post-comments .post-comments__link', topic);
 				//заголовок+-
-			if(hS.colorTopic.val){
+			if(hS.colorTopic.val && topicTitle){
 				for(var j in hubs){
 					if(hubs[j].innerHTML =='Переводы')
 					topicTitle.style.backgroundColor ='#f0f4fa'; //топик-перевод (светло-синий)
@@ -4041,7 +4038,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			xhr.onreadystatechange = function(){ //===показ статьи===
 				if(this.readyState !=4) return;
 				var conte = this.responseText.match( // ====== парсинг страницы, шаблон ======
-					/<div class="content html_format">([\s\S]*?)<div class="clear"><\/div>\s+?<\/div>[\s\S]+?(<ul class="tags">|<div class="tags">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel/m); //вся статья (до тегов или подписи)
+					/<div class="content html_format">([\s\S]*?)<div class="clear"><\/div>\s+?<\/div>[\s\S]+?(<ul class="tags">|<div class="tags">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel_wrapper/m); //вся статья (до тегов или подписи)
 				'conte'.wcl(conte);
 			}
 		}*/
@@ -4068,7 +4065,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 	if(lukes && lukes.length){
 		var o = document.createElement('DIV');
 		o.className ='post';
-		o.innerHTML ='<div class="infopanel">(это сообщение в формате "<a style="color:#888" target="_blank" href="'+HRU+'/info/help/tools/" title="описание на странице помощи">Внутренний Голос ⇗</a>" от лидера рейтинга пользователей или администрации)</div>';
+		o.innerHTML ='<div class="infopanel_wrapper">(это сообщение в формате "<a style="color:#888" target="_blank" href="'+HRU+'/info/help/tools/" title="описание на странице помощи">Внутренний Голос ⇗</a>" от лидера рейтинга пользователей или администрации)</div>';
 		for(var i in lukes){ //скрытие ненужных шаринг-кнопок
 			var lui = lukes[i];
 			if(lui.parentNode)
@@ -4077,7 +4074,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 	}
 	var hsh ={noTwit:'twitter', noVk:'vkontakte', noFb:'facebook', noGP:'googleplus'};
 	for(var i in hsh){	if(hS[i].val){ //скрытие ненужных шаринг-кнопок
-		var shars = $qA('.infopanel .'+ hsh[i]);
+		var shars = $qA('.infopanel_wrapper .'+ hsh[i]);
 		if(shars && shars.length)
 			for(var j in shars)
 				if(shars[j].style)
@@ -4088,7 +4085,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 	if(comments && comments.length){
 		correctCommentsAfter(comments[0], document.body); //==== обработка комментариев ====
 		var topic = $q('.post')
-			,panel = $q('.infopanel')
+			,panel = $q('.infopanel_wrapper')
 			,date = topic && $q('.published', topic)
 			,author = panel && $q('.author', panel)
 			,issue = panel && $q('.original-author', panel)
@@ -4437,7 +4434,7 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 				,tAF = function(ev){
 					if(tSHPrev < maxH && tAInh)
 						win.clearTimeout(tATout), tA.style.overflow ='hidden', tAInh =0;
-					var tSH = tA.scrollHeight - (isChrome||isFx?6:win.opera?2:6);
+					var tSH = tA.scrollHeight - (isChrome||isFx ? 0 :win.opera?2:6);
 					//'tA'.wcl(tSHPrev, tSH, ev.type, tA.offsetHeight);
 					if(win.opera){
 						tA.blur();
@@ -4739,13 +4736,13 @@ http://igstan.ro/posts/2009-01-11-ajax-file-upload-with-pure-javascript.html */
 							? commTime.textContent.trim() + (commTime.title ?', '+ commTime.title.replace(/,/,', ') :'')
 							: undefined
 						,author: sel.postElem
-							? $q('.infopanel .author a[href*="/users/"]', sel.postElem) && $q('.infopanel .author a[href*="/users/"]', sel.postElem).textContent.trim()
+							? $q('infopanel_wrapper .author a[href*="/users/"]', sel.postElem) && $q('.infopanel_wrapper .author a[href*="/users/"]', sel.postElem).textContent.trim()
 							: undefined
 						,title: sel.postElem
 							? $q('.title span', sel.postElem) && $q('.title span', sel.postElem).textContent.trim()
 							: undefined
 						,date: sel.postElem
-							? $q('.infopanel .published', sel.postElem) && $q('.infopanel .published', sel.postElem).textContent.trim() + ($q('.infopanel .published', sel.postElem).title ?', '+ $q('.infopanel .published', sel.postElem).title :'')
+							? $q('.infopanel_wrapper .published', sel.postElem) && $q('.infopanel_wrapper .published', sel.postElem).textContent.trim() + ($q('.infopanel_wrapper .published', sel.postElem).title ?', '+ $q('.infopanel_wrapper .published', sel.postElem).title :'')
 							:undefined
 					});
 					//'sel'.wcl(sel);
