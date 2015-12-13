@@ -1,11 +1,11 @@
 ﻿// ==UserScript==
 // @id HabraKarmaView
 // @name HabraKarmaView
-// @version 5.2015.2.25
+// @version 6.2015.12.13
 // @author spmbt
 // @namespace github.com/spmbt
 // @description Подсказка кармы по наведению на ник, кроссбраузерно
-// @update 4 add geektimes, megamozg; full GM_ substitution
+// @update 5 new paths; fix content of 404th page of API
 // @icon http://habrahabr.ru/favicon.ico
 // @include http://habrahabr.ru/*
 // @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
@@ -26,7 +26,8 @@ try{
 		,writeKarma = function(ev, th){ //показ кармы (по наведению)
 			var t = ev !=null ? this : th //текущий ник под указателем
 				, tAuth = $q('a',t) || t
-				, userName = tAuth.childNodes;
+				, userName = tAuth.textContent.replace(/@|%20| /g,'');
+		console.log('userName', tAuth.textContent)
 			for(var i in userName)
 				if(userName[i].nodeType ==3 && userName[i].nodeValue.length >2){ //TEXT_NODE
 					userName = userName[i].nodeValue;  break;}
@@ -116,7 +117,14 @@ try{
 							t.setAttribute('tx', dat.responseText);
 							t.setAttribute('date', +new Date());
 							showValue(dat.responseText, t);
-						}, onerror: function(dat){}
+						}, onerror: function(dat){
+							var xmlTx = dat.responseText.replace(/<!DOCTYPE.+/,'');
+							t.setAttribute('tx', xmlTx);
+							if(t.getAttribute('tx') =='')
+								console.warn('anyError', dat);
+							t.setAttribute('date', +new Date());
+							showValue(xmlTx, t);
+						}
 					});})(t);
 			}else if(!$q('p',t) && uNameLast == userName)
 				showValue(txLast, t);
@@ -139,7 +147,15 @@ try{
 			t.ww1 =0;
 		},
 		addKarmEvent = function(blck){ //расстановка обработчиков на показ кармы
-			var karmElems = blck.querySelectorAll('.infopanel >.author a, .dblAuthor >.author a, .info >.username, .comment_item >span.info a, .post .content .user_link, .comment_item .text .user_link, .comment_item .message .user_link, .comment_head .info a[href*="/users/"]');
+			var karmElems = blck.querySelectorAll('.infopanel >.author a'
+				+',.comment_item .message .user_link'
+
+				+',.infopanel_wrapper .post-author__link'
+				+',.comments .comment-item__username'
+				+',.comments_list .comment-item__username'
+				+',.messages a[href*="/users/"]'
+				+',.conversations .login'
+			);
 			for(var i in karmElems){var kEl = karmElems[i]; if(kEl.attributes){
 				if(kEl.parentNode.tagName =='SPAN'&& kEl.parentNode.className =='info')
 					kEl.style.cssText +='position:relative; display: inline-block; text-indent:0';

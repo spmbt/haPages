@@ -1,7 +1,7 @@
-/** Habr ZenComment v444.2015.12.5, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v445.2015.12.12, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: .info line of message in comments;
+ * LastUpdatesDescription: :visited;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -436,6 +436,7 @@ h1{letter-spacing:0!important}
 	margin: 3px 0 -3px!important;
 	padding-left: 25px!important;
 	font: 16px/118% normal Verdana,Tahoma,sans-serif!important}
+.post h1.title a{letter-spacing: 0}
 .content_left .post h1.title .post_title{
 	line-height: 16px;
 	font-size: 16px;
@@ -1071,7 +1072,8 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .block.company_info{margin: 0 0 -0.7em 0!important}
 .company_widgets{margin: 0 0 0 3px!important; padding-bottom: 0.2ex}
 .posts_list .post_item a,.sidebar_right .links .link,.Sidebar .links .link, .block .post_item{margin-bottom: 0!important; padding-bottom: 0!important; line-height: 1.1!important;text-indent:-1ex;font-family:Verdana,Helvetica,sans-serif}
-.block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited{color: #a88!important}
+.block .all a:visited,.posts_list .post_item a:not(.blog_name):not(.user_name):visited,
+.content a:visited, .content_left .comments_list a:visited, .comments.c2 a:visited{color: #a88!important}
 .block .event, .new_vacanies .vacancies, .block_brainstorage .vacancies,.freelansim .tasks,.block_freelansim .tasks{margin-left: -1.6ex!important; word-wrap:break-word}
 
 .freelansim .tasks .task, .block_freelansim .tasks .task, .new_vacanies .job_item, .block_brainstorage .job_item{overflow: inherit!important; padding-left: 1.4ex!important}

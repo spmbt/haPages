@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 150.2015.12.4
+// @version 151.2015.12.12
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -2369,7 +2369,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 	for(var i in links){var LI = links[i]; if(LI.attributes && LI.attributes['href']){
 		var lH = LI.attributes['href'].nodeValue
 			,postMatch, qaMatch;
-		if(!RegExp('^('+ HRU.replace(/\/\//,'//(\\w+\\.)*').replace(/ahabr/,'(ahabr)?\\') +'|/(?!\/)|#)','i').test(lH) && !/^textDecorationColor/.test(LI.className) ){
+		if(!RegExp('^('+ HRU.replace(/\/\//,'//(\\w+\\.)*').replace(/ahabr/,'(ahabr)?\\') +'|/(?!\/)|#)','i').test(lH) && !/^textDecorationColor/.test(LI.className) && !/geektimes.ru|megamozg.ru|tmfeed.ru/i.test(lH) ){
 			LI.className ='textDecorationColor'+(LI.className ?' '+ LI.className :'');
 			LI.setAttribute('target','_blank');
 			$e({el:'SPAN', ht:"⇗", cs:{color:'#248'}, aft: LI}); //стрелк2 верх-прав
@@ -2380,7 +2380,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 						,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
 						,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
 						,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,147005,158837
-						,169713,182213,195255,206961,213979,221214,229400]; //июл.2015 qa -прогноз
+						,169713,182213,195255,206961,213979,221214,228201,231847,235119,238753,242143,272007]; //по дек.2015
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
 						var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
@@ -2725,6 +2725,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.content_left{padding-right: 27%}'
 	+'.sidebar_right{margin-left: -25%; width: 25%}'
 	+'.content_left .post h1.title .post_title{display: inline-block;margin: -1px -3px!important; padding: 0 2px 1px 3px!important; border-radius: 2px;background-image: none!important}h1{letter-spacing:0!important}'
+	+'.post h1.title a{letter-spacing: 0}'
 	+'.content_left table.menu .profile a{position:relative; z-index:2; opacity:0.4}'
 	+'.content_left table.menu .profile a:hover{opacity:0.9}'
 	+'.content_left .post{margin: 12px 0 32px !important;overflow: inherit !important}'
