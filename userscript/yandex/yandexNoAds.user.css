@@ -1,0 +1,55 @@
+/** Yandex No-ads v4.2015.12.20, Chrome 42+, Fx 40+
+ * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
+ * Author: github.com/spmbt
+ * LastUpdates: remove "najdyotsya vsyo";
+ */
+@-moz-document domain("yandex.ru"),domain("yandex.net"){
+  .container__banner.container__line
+  ,.headline__item.headline__leftcorner
+  ,.home-arrow__promo-wrapper
+  ,.stripe-universal-wrapper
+  ,.head-stripe
+    {display:none}
+
+  .b-top-bar__item_has_promo
+  ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
+  ,.b-head-universal-wrapper
+    {display: none;}
+  .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg{width:38px; top: 5px;}
+  .b-logo:hover{z-index: 1;}
+  .m-svg .b-line_exp_button4 .button_theme_websearch .button__text
+  ,.input_theme_websearch{background: #ddd;}
+
+  .second{height: auto;}
+  .container__search{margin-bottom: -15px;}
+  .search2{width: auto; margin-bottom: 0;}
+  .search2 .input{margin-bottom: 0;}
+  .input__samples{display: none;}
+
+  .home-arrow__search-wrapper{margin-left: -125px;}
+  .rows__row .headline, .row .headline{margin: 0; height: 0;}
+  .col.headline__item.headline__bar{background: rgba(255,255,255,.5);}
+  .headline .headline__item, .headline-item, .headline .headline__center{z-index: 1;}
+  .col_home-logo{opacity:.1; transition: all, 1s, ease, 1s;}
+  .col_home-logo:hover{opacity:1; z-index: 2;}
+  .button_theme_websearch{opacity:.65;}
+
+  .serp-adv{background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .serp-adv .serp-item{margin-bottom: 6px;}
+
+  .footer.footer_distro_yes
+  ,.foot__business
+    {display:none}
+
+  /*ya-pochta*/
+  .b-intruder__i,.b-banner,.b-intruder
+  ,.block-informer-box .b-news,.block-collectors
+  ,#swiffycontainer
+    {display:none!important; height:0;}
+
+  /*ya-karty*/
+  .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
+  .search-result-view_direct._hovered, .search-result-view_direct:hover, .search-result-view_direct:active{border-width: 0}
+  .search-result-view_direct._init .search-result-view_direct__title{font-size: 12px; line-height: 1.14;}
+  .stores-badges-view{display:none;}
+}
