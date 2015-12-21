@@ -1,7 +1,7 @@
-/** Yandex No-ads v4.2015.12.20, Chrome 42+, Fx 40+
+/** Yandex No-ads v5.2015.12.21, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: remove "najdyotsya vsyo";
+ * LastUpdates: .block-folders in ya-pochta;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -43,7 +43,7 @@
 
   /*ya-pochta*/
   .b-intruder__i,.b-banner,.b-intruder
-  ,.block-informer-box .b-news,.block-collectors
+  ,.block-informer-box .b-news,.block-collectors,.block-folders
   ,#swiffycontainer
     {display:none!important; height:0;}
 
