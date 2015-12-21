@@ -1,4 +1,4 @@
-/** Yandex No-ads v5.2015.12.21, Chrome 42+, Fx 40+
+/** Yandex No-ads v6.2015.12.22, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
  * LastUpdates: .block-folders in ya-pochta;
@@ -43,7 +43,7 @@
 
   /*pochta*/
   .b-intruder__i,.b-banner,.b-intruder
-  ,.block-informer-box .b-news,.block-collectors,.block-folders
+  ,.block-informer-box .b-news,.block-collectors
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
     {display:none!important; height:0;}
