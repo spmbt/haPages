@@ -45,6 +45,7 @@
   .b-intruder__i,.b-banner,.b-intruder
   ,.block-informer-box .b-news,.block-collectors,.block-folders
   ,#swiffycontainer
+  ,.block-messages .b-direct.b-direct_messages
     {display:none!important; height:0;}
 
   /*ya-karty*/
