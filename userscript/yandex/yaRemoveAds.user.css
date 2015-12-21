@@ -41,16 +41,31 @@
   ,.foot__business
     {display:none}
 
-  /*ya-pochta*/
+  /*pochta*/
   .b-intruder__i,.b-banner,.b-intruder
   ,.block-informer-box .b-news,.block-collectors,.block-folders
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
     {display:none!important; height:0;}
 
-  /*ya-karty*/
+  /*karty*/
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
   .search-result-view_direct._hovered, .search-result-view_direct:hover, .search-result-view_direct:active{border-width: 0}
   .search-result-view_direct._init .search-result-view_direct__title{font-size: 12px; line-height: 1.14;}
   .stores-badges-view{display:none;}
+
+  /*news*/
+  body.b-page >iframe:first-child{margin-bottom:-30px!important;}
+  .page-content__right .banner{display:none;}
+
+  /*music*/
+  .sidebar__placeholder .smalladv__item
+  ,.bar__monkey{display:none;}
+
+  /*rasp*/
+  .index-layout__right .direct{display:none!important;}
+}
+  /*news (in frame)*/
+@-moz-document url("javascript:name"){
+  body >#container.stripe.stripe_narrow_bg-text2{display:none;}
 }
