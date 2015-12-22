@@ -1,7 +1,7 @@
-/** Yandex No-ads v6.2015.12.22, Chrome 42+, Fx 40+
+/** Yandex No-ads v7.2015.12.23, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: .block-folders in ya-pochta;
+ * LastUpdates: .block-folders in ya-pochtaafisha, pogoda, slovari ...;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -54,16 +54,19 @@
   .search-result-view_direct._init .search-result-view_direct__title{font-size: 12px; line-height: 1.14;}
   .stores-badges-view{display:none;}
 
-  /*news*/
-  body.b-page >iframe:first-child{margin-bottom:-30px!important;}
-  .page-content__right .banner{display:none;}
+  /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
+    .page-content__right .banner{display:none;}
+  /*music*/.sidebar__placeholder .smalladv__item
+    ,.bar__monkey{display:none;}
+  /*kartinki /images*/ iframe.direct{display: none!important;}
 
-  /*music*/
-  .sidebar__placeholder .smalladv__item
-  ,.bar__monkey{display:none;}
-
-  /*rasp*/
-  .index-layout__right .direct{display:none!important;}
+  /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
+  /*pogoda*/ .content .adv, .info .adv, .info__more .store{display: none!important;}
+  /*rasp*/ .index-layout__right .direct{display:none!important;}
+  /*slovari*/ .b-translation +.b-rtb{display:none;}
+  /*perevod*/ .footer-line_promo, .footer-promo-browser{display:none!important;}
+  /*taxi*/ .island_type_city-promo{display:none!important;}
+  /*fotki*/ .ns-view-ads-direct,    .ns-view-panel-box +.ns-view-ads{display:none!important;}
 }
   /*news (in frame)*/
 @-moz-document url("javascript:name"){
