@@ -1,7 +1,7 @@
-/** Yandex No-ads v7.2015.12.23, Chrome 42+, Fx 40+
+/** Yandex No-ads v8.2015.12.23, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: .block-folders in ya-pochtaafisha, pogoda, slovari ...;
+ * LastUpdates: afisha, pogoda, slovari ...;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -39,6 +39,7 @@
 
   .footer.footer_distro_yes
   ,.foot__business
+  ,.b-wrapper[id*="wd-_teaser"]
     {display:none}
 
   /*pochta*/
@@ -52,7 +53,7 @@
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
   .search-result-view_direct._hovered, .search-result-view_direct:hover, .search-result-view_direct:active{border-width: 0}
   .search-result-view_direct._init .search-result-view_direct__title{font-size: 12px; line-height: 1.14;}
-  .stores-badges-view{display:none;}
+  .stores-badges-view, .home-panel-content-view_has-panorama__banner-layout, .home-panel-content-view_has-panorama__tip{display:none;}
 
   /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
     .page-content__right .banner{display:none;}

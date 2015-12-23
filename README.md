@@ -417,6 +417,8 @@
 
 * &#9452; [Coffeescript Title Fix](https://userstyles.org/styles/89070/coffeescript-title-fix): смотреть [coffeescript.org](http://coffeescript.org/) и [его перевод](http://cidocs.ru/coffeescript/) без постоянно съедаемой верхушки окна - всё окно используется для просмотра кодов и статей.
 
+* &#9452; [Yandex-Remove_Ads](https://userstyles.org/styles/121827/yandex-remove-ads): смотреть [yandex.ru](http://yandex.ru/) и его многочисленные разделы - без рекламы, не отключаемой в интерфейсе сайта поисковика. [Описание стилей](http://spmbt.github.io/haPages/doc/yandex/yaRemoveAds.htm).
+
 ---
 
 Скрипты и их функции имеют страницы описаний. Пример страницы `haPages` для описания функций: [Перенос сообщений из "прямого эфира" в "Лучшие"](http://spmbt.github.io/haPages/doc/habrAjax/sidebarLive2Dailybest.htm).
