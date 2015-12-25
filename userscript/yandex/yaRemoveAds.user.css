@@ -1,7 +1,7 @@
-/** Yandex No-ads v8.2015.12.23, Chrome 42+, Fx 40+
+/** Yandex No-ads v9.2015.12.25, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: afisha, pogoda, slovari ...;
+ * LastUpdates: big top banner about ya-browser; .themes-promo;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -40,6 +40,10 @@
   .footer.footer_distro_yes
   ,.foot__business
   ,.b-wrapper[id*="wd-_teaser"]
+  ,.b-cards__enter__wrap .b-cards__enter
+  ,.row .col .themes-promo__image
+  ,.row .col .themes-promo__link
+  ,.row .col .themes-promo
     {display:none}
 
   /*pochta*/
@@ -47,6 +51,7 @@
   ,.block-informer-box .b-news,.block-collectors,.block-left-box +.block-folders
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
+  ,.b-page .b-statusline_promo-yabrowser
     {display:none!important; height:0;}
 
   /*karty*/
@@ -62,7 +67,8 @@
   /*kartinki /images*/ iframe.direct{display: none!important;}
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
-  /*pogoda*/ .content .adv, .info .adv, .info__more .store{display: none!important;}
+  /*pogoda*/ .content .adv, .info .adv, .info__more .store, .info .info__ratatuy
+             ,.content .adlos.adlos_pos_top{display: none!important; position: absolute; left: -9999px;}
   /*rasp*/ .index-layout__right .direct{display:none!important;}
   /*slovari*/ .b-translation +.b-rtb{display:none;}
   /*perevod*/ .footer-line_promo, .footer-promo-browser{display:none!important;}
