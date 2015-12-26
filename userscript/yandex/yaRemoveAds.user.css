@@ -1,7 +1,7 @@
-/** Yandex No-ads v9.2015.12.25, Chrome 42+, Fx 40+
+/** Yandex No-ads v10.2015.12.26, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: big top banner about ya-browser; .themes-promo;
+ * LastUpdates: ya-mixes (images, video, addresses, ...);
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -34,8 +34,20 @@
   .col_home-logo:hover{opacity:1; z-index: 2;}
   .button_theme_websearch{opacity:.65;}
 
+  .serp-meta2.serp-meta2_type_gray,
+  div:not(.serp-item__text) +.serp-sitelinks,
+  .text.organic__text, .sitelinks.organic__sitelinks,
+  .serp-url +div:not(.serp-item__text),
+  .serp-item__greenurl a[href*="market.yandex.ru"],
+  .serp-meta, .extended-meta,
+  .social-snippet2__info,
   .serp-adv{background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .z-video__clips, .z-video__head-title{background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .serp-item__title.z-images__head, .z-images__thumbs-list{background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-adv .serp-item{margin-bottom: 6px;}
+  .serp-item__greenurl a[href*="market.yandex.ru"]{background-color: #f4efef;}
+  .serp-item.z-audio,
+  .serp-item__title a[href*="music.yandex.ru"]{background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
 
   .footer.footer_distro_yes
   ,.foot__business
@@ -44,6 +56,7 @@
   ,.row .col .themes-promo__image
   ,.row .col .themes-promo__link
   ,.row .col .themes-promo
+  ,.z-default-search_yabro_yes
     {display:none}
 
   /*pochta*/
