@@ -1,7 +1,7 @@
-/** Yandex No-ads v10.2015.12.26, Chrome 42+, Fx 40+
+/** Yandex No-ads v11.2015.12.30, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: ya-mixes (images, video, addresses, ...);
+ * LastUpdates: ya-d in news (absolutely positioned blocks);
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -41,7 +41,9 @@
   .serp-item__greenurl a[href*="market.yandex.ru"],
   .serp-meta, .extended-meta,
   .social-snippet2__info,
-  .serp-adv{background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .serp-adv,
+  .story__group .doc .doc__content .doc__text ol, .story__group .doc .doc__content .doc__text ul
+    {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .z-video__clips, .z-video__head-title{background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item__title.z-images__head, .z-images__thumbs-list{background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-adv .serp-item{margin-bottom: 6px;}
