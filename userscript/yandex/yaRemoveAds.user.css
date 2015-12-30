@@ -32,6 +32,7 @@
   .headline .headline__item, .headline-item, .headline .headline__center{z-index: 1;}
   .col_home-logo{opacity:.1; transition: all, 1s, ease, 1s;}
   .col_home-logo:hover{opacity:1; z-index: 2;}
+  .col_home-logo .covers__newyear2016_mic{top: 72px}
   .button_theme_websearch{opacity:.65;}
 
   .serp-meta2.serp-meta2_type_gray,
