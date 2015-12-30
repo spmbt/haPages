@@ -84,7 +84,9 @@
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
   /*pogoda*/ .content .adv, .info .adv, .info__more .store, .info .info__ratatuy
-             ,.content .adlos.adlos_pos_top{display: none!important; position: absolute; left: -9999px;}
+       ,.content .adlos.adlos_pos_top
+       ,.adbca{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
+    .adbca *, .adbca__title a, .adbca__text_sitelinks a, .adbca__text_contacts a{color:#fff!important;}.adbca__favicon{max-height: 0}
   /*rasp*/ .index-layout__right .direct{display:none!important;}
   /*slovari*/ .b-translation +.b-rtb{display:none;}
   /*perevod*/ .footer-line_promo, .footer-promo-browser{display:none!important;}
