@@ -1,7 +1,7 @@
-/** HabraDarkAge v438.2015.11.26, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v439.2016.1.12, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/, license CC-BY-NC v.4.0
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: avatars;
+ * LastUpdatesDescription: remove 'z-ya' picture;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -434,8 +434,6 @@ head[prefix] +body:after{position: static;}
 .megapost-cover .megapost-head h1 a,
 .post h1.title{font-size: 20px!important; line-height: 20px!important; letter-spacing:0!important}
 .post h1.title .flag{opacity: 0.6}
-.post.translation h1.title .post_title{
-	background: url(data:image/gif;base64,R0lGODlhFAAQAPYIAJ6qt5SjsJOhsJGerZGer5CdrY6cq5ikscrKyouaqYeXpYybqsfKyoWUo4mXpsHIycDHyb7FyYKSoYaVpLfByFhqeLrCx4CQnrC7xLzEyVpqebO9w1mPPp2yoVVndnuLm6u4v1JkdLbAxE6FM0yEMVZnd3eJmHyMnbTAxaa2vk5gc7S+xEF8KEB6Jj55JU9hc3aGl3mJmqOyvTZyHTZxHXCCkq+7xZ+vvVNldk1gcytpFI6ll2x+j3KElJ2tvau3xKu4xZmpvWh5i6i2xJWmvGV4iWp9jqW0xGB0hml7jGN2iWBzhl9zhQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAFAAQAAAHzoAAAYMBAoUCA4mKigYHAgiQkZKTkQkDlJiTCgYIDJ6foKGeEw4MD6cRp6oPqa2nEgoPFBq0Gha3FLcWtRYUFxIPGBHDGhsbHB0rGx7ExjEXFCDSONEgIyPSHtnSzxQpKS8i3yksLS4pIi8vHt8wMRQyLxgy9DIzM/PyGCX0NTA2N3Coe3Hjho4dBT0UxFGQRw+APyL+KDiRosUbPGoACcKxo8ePHIXw+EGkpMmTKEsKMTKkpUuXP1rGfIkkiZCbQpTo1LkEyZKfS5gIRRIIADs=) no-repeat 0 7px!important}
 .post h1.title .edit{
 	display: inline-block;
 	width: 17px;
