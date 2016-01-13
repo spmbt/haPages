@@ -1,7 +1,7 @@
-/** Habr ZenComment v445.2015.12.12, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v446.2016.1.13, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: :visited;
+ * LastUpdatesDescription: anchors in comments;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -799,13 +799,18 @@ h2.title .subscribe_comments{font-size: 12px!important; cursor: inherit!importan
 	/*visibility: hidden;*/
 	position: relative;
 	float: none!important;
-	top: -10px!important;
+	top: -13px!important;
 	height:10px;
 	margin-top: 1px!important;
 	padding-right: 1px!important;
 	white-space: nowrap;
 	font-style: italic!important;
 	color:#a97!important}
+.comment-item__controls{margin-top: -30px;}
+.info.comment-item .comment-item__controls a:not(.icon_comment-anchor),
+  .info.comment-item .comment-item__controls span{display: none;}
+.info.comment-item:hover .comment-item__controls a:not(.icon_comment-anchor),
+  .info.comment-item:hover .comment-item__controls span{display: inline-block;}
 .conversation_page .messages .message .info .time{top: -5px;}
 .comment_item .info .show_tree,
 .comment_item .info a.link_to_comment{
@@ -1410,7 +1415,7 @@ iframe[src*="facebook"],.footer_logos,
 .content a,.content_left .comments_list a,.comments.c2 a{color:#497da5!important}
 .content_left .comments_list a.comment-item__avatar,.comments.c2 a.comment-item__avatar{display: none}
 .content a:hover,.comments_list a:hover,.comments.c2 a:hover{color:#4d7285!important}
-.comment-item__username{display: inline-block; margin-left: 10px; margin-top: -15px; vertical-align: middle}
+.comment-item__username{display: inline-block; margin-left: 10px; margin-top: -18px; vertical-align: middle}
 .comments.c2 .comment-item__username{margin-top: -25px}
 .voting-wjt__button[title*="зарегистрированные"], .voting-wjt__button[title*="истек"]{display:none}
 

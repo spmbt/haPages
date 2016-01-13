@@ -1,7 +1,7 @@
-/** Yandex No-ads v11.2015.12.30, Chrome 42+, Fx 40+
+/** Yandex No-ads v12.2016.1.12, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: ya-d in news (absolutely positioned blocks);
+ * LastUpdates: .mail-in-browser-line;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -9,12 +9,12 @@
   ,.home-arrow__promo-wrapper
   ,.stripe-universal-wrapper
   ,.head-stripe
-    {display:none}
+  {display:none}
 
   .b-top-bar__item_has_promo
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
   ,.b-head-universal-wrapper
-    {display: none;}
+  {display: none;}
   .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg{width:38px; top: 5px;}
   .b-logo:hover{z-index: 1;}
   .m-svg .b-line_exp_button4 .button_theme_websearch .button__text
@@ -35,22 +35,24 @@
   .col_home-logo .covers__newyear2016_mic{top: 72px}
   .button_theme_websearch{opacity:.65;}
 
-  .serp-meta2.serp-meta2_type_gray,
-  div:not(.serp-item__text) +.serp-sitelinks,
-  .text.organic__text, .sitelinks.organic__sitelinks,
-  .serp-url +div:not(.serp-item__text),
-  .serp-item__greenurl a[href*="market.yandex.ru"],
-  .serp-meta, .extended-meta,
-  .social-snippet2__info,
-  .serp-adv,
-  .story__group .doc .doc__content .doc__text ol, .story__group .doc .doc__content .doc__text ul
-    {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .serp-meta2.serp-meta2_type_gray
+  ,div:not(.serp-item__text) +.serp-sitelinks
+  ,.text.organic__text, .sitelinks.organic__sitelinks
+  ,.serp-url +div:not(.serp-item__text)
+  ,.serp-item__greenurl a[href*="market.yandex.ru"]
+  ,.serp-meta, .extended-meta
+  ,.social-snippet2__info
+  ,.serp-adv
+  ,.story__group .doc .doc__content .doc__text ol, .story__group .doc .doc__content .doc__text ul
+  ,.story__content .story__text ol, .story__content .story__text ul
+  {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .z-video__clips, .z-video__head-title{background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item__title.z-images__head, .z-images__thumbs-list{background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-adv .serp-item{margin-bottom: 6px;}
   .serp-item__greenurl a[href*="market.yandex.ru"]{background-color: #f4efef;}
-  .serp-item.z-audio,
-  .serp-item__title a[href*="music.yandex.ru"]{background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
+  .serp-item.z-audio
+  ,.serp-item__title a[href*="music.yandex.ru"]
+  {background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
 
   .footer.footer_distro_yes
   ,.foot__business
@@ -60,7 +62,7 @@
   ,.row .col .themes-promo__link
   ,.row .col .themes-promo
   ,.z-default-search_yabro_yes
-    {display:none}
+  {display:none}
 
   /*pochta*/
   .b-intruder__i,.b-banner,.b-intruder
@@ -68,7 +70,8 @@
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
   ,.b-page .b-statusline_promo-yabrowser
-    {display:none!important; height:0;}
+  ,.mail-in-browser-line
+  {display:none!important; height:0;}
 
   /*karty*/
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
@@ -77,23 +80,24 @@
   .stores-badges-view, .home-panel-content-view_has-panorama__banner-layout, .home-panel-content-view_has-panorama__tip{display:none;}
 
   /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
-    .page-content__right .banner{display:none;}
+  .page-content__right .banner{display:none;}
   /*music*/.sidebar__placeholder .smalladv__item
-    ,.bar__monkey{display:none;}
+           ,.bar__monkey{display:none;}
   /*kartinki /images*/ iframe.direct{display: none!important;}
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
   /*pogoda*/ .content .adv, .info .adv, .info__more .store, .info .info__ratatuy
-       ,.content .adlos.adlos_pos_top
-       ,.adbca{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
-    .adbca *, .adbca__title a, .adbca__text_sitelinks a, .adbca__text_contacts a{color:#fff!important;}.adbca__favicon{max-height: 0}
+             ,.content .adlos.adlos_pos_top
+             ,.adbca{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
+  .adbca *, .adbca__title a, .adbca__text_sitelinks a, .adbca__text_contacts a{color:#fff!important;}.adbca__favicon{max-height: 0}
   /*rasp*/ .index-layout__right .direct{display:none!important;}
   /*slovari*/ .b-translation +.b-rtb{display:none;}
   /*perevod*/ .footer-line_promo, .footer-promo-browser{display:none!important;}
   /*taxi*/ .island_type_city-promo{display:none!important;}
   /*fotki*/ .ns-view-ads-direct,    .ns-view-panel-box +.ns-view-ads{display:none!important;}
+  /*rabota*/ .promo__inner, .content-top .promo{display:none!important;}
 }
-  /*news (in frame)*/
+/*news (in frame)*/
 @-moz-document url("javascript:name"){
   body >#container.stripe.stripe_narrow_bg-text2{display:none;}
 }
