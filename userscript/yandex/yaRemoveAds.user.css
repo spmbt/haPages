@@ -1,7 +1,7 @@
-/** Yandex No-ads v12.2016.1.12, Chrome 42+, Fx 40+
+/** Yandex No-ads v13.2016.1.13, Chrome 42+, Fx 40+
  * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdates: .mail-in-browser-line;
+ * LastUpdates: .t-default-search;
  */
 @-moz-document domain("yandex.ru"),domain("yandex.net"){
   .container__banner.container__line
@@ -14,6 +14,7 @@
   .b-top-bar__item_has_promo
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
   ,.b-head-universal-wrapper
+  ,.i-bem.popup.popup_product_set
   {display: none;}
   .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg{width:38px; top: 5px;}
   .b-logo:hover{z-index: 1;}
@@ -24,7 +25,9 @@
   .container__search{margin-bottom: -15px;}
   .search2{width: auto; margin-bottom: 0;}
   .search2 .input{margin-bottom: 0;}
-  .input__samples{display: none;}
+  .input__samples
+  ,.serp-block_type_default-search
+  ,.serp-block.t-default-search{display: none;}
 
   .home-arrow__search-wrapper{margin-left: -125px;}
   .rows__row .headline, .row .headline{margin: 0; height: 0;}
