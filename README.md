@@ -417,7 +417,11 @@
 
 * &#9452; [Coffeescript Title Fix](https://userstyles.org/styles/89070/coffeescript-title-fix): смотреть [coffeescript.org](http://coffeescript.org/) и [его перевод](http://cidocs.ru/coffeescript/) без постоянно съедаемой верхушки окна - всё окно используется для просмотра кодов и статей.
 
-* &#9452; [Yandex-Remove_Ads](https://userstyles.org/styles/121827/yandex-remove-ads): смотреть [yandex.ru](http://yandex.ru/) и его многочисленные разделы - без рекламы, не отключаемой в интерфейсе сайта поисковика. [Описание стилей](http://spmbt.github.io/haPages/doc/yandex/yaRemoveAds.htm).
+* &#9452; [Yandex-Remove_Ads](https://userstyles.org/styles/121827/): смотреть [yandex.ru](http://yandex.ru/) и его многочисленные разделы - без рекламы, не отключаемой в интерфейсе сайта поисковика. [Описание стилей](http://spmbt.github.io/haPages/doc/yandex/yaRemoveAds.htm).
+
+* &#9452; [Yandex-NoFloatField](https://userstyles.org/styles/51117/): смотреть результаты поиска [yandex.ru](http://yandex.ru/) без плавающего прилипающего к верхней кромке окна поля.
+
+* &#9452; [Yandex_Extra_Buttons](https://greasyfork.org/en/scripts/16332-yandex-extra-buttons): [скрипт (описание)](https://github.com/spmbt/haPages/tree/gh-pages/userscript/yandex) добавляет несколько кнопок к поиску [yandex.ru](http://yandex.ru/) для быстрого перехода к результатам специального поиска - по интервалу дат, по сайту или по документам.
 
 ---
 

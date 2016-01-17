@@ -9,7 +9,11 @@
   ,.home-arrow__promo-wrapper
   ,.stripe-universal-wrapper
   ,.head-stripe
-  {display:none}
+  {display:none; color: rgba(224, 210, 135, 0.9)  }
+  {display:none; color: rgba(245, 202, 5, 0.8)}
+  {display:none; color: rgba(255, 235, 160, 0.7)
+}
+  {display:none; color: #e4bc5f}
 
   .b-top-bar__item_has_promo
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
