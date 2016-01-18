@@ -3,7 +3,7 @@
 <table border=0 style="border-collapse: collapse" cellspacing=0>
 	<tr>
 		<th colspan=4>
-			<div class="" align=right style="float: right; font-weight: normal">(2015-02-15)</div>
+			<div class="" align=right style="float: right; font-weight: normal">(2016-01-18)</div>
 			<h3>Скрипты и стили для разработки и использования</h3>
 		</th>
 	</tr>
@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td colspan=4>
-<blockquote> Замечание для пользователей <b><i>Firefox 30+</i></b> и <b><i>Scriptish</i></b>: нужно использовать <a href=https://github.com/scriptish/scriptish-nightlies/tags>последнюю ночную сборку от 11 мая или около того, 0.1.12 и новее</a> Scriptish для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое).</blockquote>
+<blockquote> Замечание для пользователей <b><i>Firefox 30+</i></b> и <b><i>Scriptish</i></b>: нужно использовать <a href=https://github.com/scriptish/scriptish-nightlies/tags>последнюю ночную сборку от 20 ноября 2014</a> (и новее, если такие будут, но проект заброшен; тем не менее, после установки Scriptish с отключенной проверкой (*xpinstall.signatures.required: false*) - работает на Windows и Fx43 (2015-01)) для корректных результатов (иначе, проблемы - с функциями GM_*** - и не работает список настроек для Fx30, а за ним многое другое). **Чем пользоваться?** Сейчас c 2014 Greasemonkey снова стала обновляться, поэтому роль Scriptish можно считать выполненной и пользоваться Greasemonkey.</blockquote>
 		</td>
 	</tr>
 	<tr>
