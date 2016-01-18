@@ -3,11 +3,11 @@
     "exclude_globs": [ "http://habrahabr.ru/api/*", "http://habrahabr.ru/special/*", "http://geektimes.ru/api/*", "http://geektimes.ru/special/*", "http://megamozg.ru/api/*", "http://megamozg.ru/special/*" ],
     "exclude_matches": [ ],
     "include_globs": [ "http://habrahabr.ru/*","http://geektimes.ru/*", "http://megamozg.ru/*", "http://tmfeed.ru/*", "https://habrahabr.ru/auth/settings*", "https://plusone.google.com/*", "http://userscripts-mirror.org/scripts/source/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://megamozg.ru/*", "http://habrastorage.org/*", "http://legacy.habrastorage.org/*", "http://hbr/*" ],
-    "js": [ "habrajax.user.js" ],
+    "js": [ "HabrAjax.user.js" ],
     "matches": [ "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "https://geektimes.ru/*", "http://megamozg.ru/*", "https://megamozg.ru/*", "http://tmfeed.ru/*" ],
     "run_at": "document_idle"
   } ],
-  "convered_from_user_script": true,
+  "converted_from_user_script": true,
   "description": "Cumulative script with over 60 functions for Fx-Opera-Chrome",
   //"id": "HabrAjax",
   "name": "HabrAjax",

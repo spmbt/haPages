@@ -36,6 +36,10 @@
 
 #### Скриншоты: 
 
+**Свёрнутые кнопки:**
+
 ![Свёрнутые кнопки](../../doc/yandex/shot-YandexExtraButtons1.png)
+
+**Развёрнутые кнопки:**
 
 ![Развёрнутые кнопки](../../doc/yandex/shot-YandexExtraButtons2.png)
