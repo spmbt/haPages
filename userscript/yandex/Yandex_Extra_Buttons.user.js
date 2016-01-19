@@ -314,7 +314,6 @@ new Tout({t:120, i:8, m: 1.6
 		return d && $q('.suggest2-form__button');
 	},
 	occur: function(){
-		console.log('12', 'buttSearch')
 		var lang = S.lang != null && S.lang || setts.lang
 			,sites = S.sites && (S.sites.length && S.sites[0] || S.sites.length >1) && S.sites
 				|| typeof sites =='string'&& [sites] || !S.sites && setts.sites || null;
@@ -345,7 +344,6 @@ new Tout({t:120, i:8, m: 1.6
 				//,DOC:{url:'&mime=doc', txt:$L['search in PDF files'].replace(/PDF/,'DOC'), up: type.length}
 				,PDF:{url:'&mime=pdf', txt:$L['search in PDF files'], up: type.length}
 		}, ii = 0, iD = -1;
-		console.log('12', buttSearch)
 		!sites && delete buttS.site;
 		buttSearch.parentNode.style.position ='relative';
 		if(buttSearch && top == self) for(var i in buttS) if(i !='site'|| S.sites){ //buttons under search input line
