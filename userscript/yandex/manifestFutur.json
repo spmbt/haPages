@@ -1,0 +1,15 @@
+﻿{
+   "content_scripts": [ {
+      "exclude_globs": [  ],
+      "exclude_matches": [  ],
+      "include_globs": [  "https://yandex.ru/*", "https://yandex.by/*", "https://yandex.ua/*", "https://yandex.kz/*", "https://yandex.com.tr/*", "https://yandex.com/*", "https://www.yandex.ru", "https://www.yandex.by", "https://www.yandex.ua", "https://www.yandex.kz", "https://www.yandex.com.tr", "https://www.yandex.com", "https://yandex.net", "https://*.yandex.ru/*", "https://*.yandex.by/*", "https://*.yandex.ua/*", "https://*.yandex.kz/*", "https://*.yandex.com.tr/*", "https://*.yandex.com/*", "https://spmbt.github.io/googleSearchExtraButtons/saveYourLocalStorage.html"],
+      "js": [ "Yandex_Extra_Buttons.user.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "converted_from_user_script": true,
+   "description": "Add buttons (last 1/2/3 days, weeks, PDF search etc.) for Yandex ",
+   "name": "Yandex Extra Buttons",
+   "version": "2.2016.1.19",
+   "manifest_version": 2
+}

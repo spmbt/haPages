@@ -3,10 +3,11 @@
 // @name:ru     Yandex_Extra_Buttons
 // @description Add buttons (last 1/2/3 days, weeks, PDF search etc.) for Yandex search page
 // @description:ru Кнопки вариантов поиска для страницы результатов поиска Yandex (1-2-3 дня, недели, PDF, ...)
-// @version     2.2016.1.18
+// @version     2.2016.1.19
 // @namespace   spmbt.github.com
 // @include     https://www.yandex.*
 // @include     https://yandex.*/search*
+// @include     https://yandex.*/yandsearch*
 // @include     https://spmbt.github.io/googleSearchExtraButtons/saveYourLocalStorage.html
 // @update 1 buttons on the main page and above suggests
 // ==/UserScript==
@@ -223,6 +224,27 @@ var Tout = function(h){
 		,'Interface language':'Мова інтерфейсу'
 		,'Less positions at the end of selects':'Менше вибору в кінці селектів'
 		,'Sites':'Сайти'
+	},by:{
+		'search in PDF files':'пошук па дакументах PDF'
+		,'search in':'шукаць па'
+		,'from / to':'за перыяд'
+		,'last':['за апошні','за апошнія','за апошнюю']
+		,'day':'суткі'
+		,'days':['дня','дзён']
+		,'week':'тыдзень'
+		,'weeks':['тыдня','тыдняў']
+		,'month':'месяц'
+		,'months':['месяца','месяцаў']
+		,'year':'год'
+		,'years':['года','гадоў']
+		,'hour':'гадзіну'
+		,'hours':['гадзіны','гадзін']
+		,'Settings':'Налады'
+		,'of userscript':'юзерскрипта'
+		,'reload page for effect':'перазагрузіць старонку'
+		,'Interface language':'Мова інтэрфейсу'
+		,'Less positions at the end of selects':'Менш выбару ў канцы селект'
+		,'Sites':'Сайты'
 	},fr:{
 		'search in PDF files':'la recherche dans les fichiers PDF'
 		,'search in':'rechercher dans'
@@ -287,20 +309,18 @@ var Tout = function(h){
 		,'Less positions at the end of selects':'Menos elección en listas largas'
 		,'Sites':'Sitios'
 	}}; //if !lang, then no hints
-addRules('.hp .sfsbc,.sfsbc{display: inline-block}.siteList:hover button{display: block}'
-	+'.gb_Ib >.gb_e{height:47px}.gb_Fb{z-index:1087}.tsf-p{z-index:203}'
-	+'.z-index-group_level_9{z-index: 11002}' //buttons above suggest
+addRules('.z-index-group_level_9{z-index: 11002}' //buttons above suggest
 	+'.lsbb .xButt,.search2__button >.siteList, .search2__button .suggest2-form__button:not([role="button"]){'
-		+'z-index: 11002; width: 34px; height:17px; padding: 0 2px; line-height:14px;'
-		+'font-size:14px; border:1px solid transparent; background-color: rgba(214, 188, 76, 0.92); color:#fff; opacity:.6}'
-	+'.search2__button >.siteList{width:32px; height:auto; padding:1px 0 2px; text-align:center; background-color: rgba(228, 189, 17, 0.7);}'
-	+'.search2__button >.siteList .lsb{font-weight: normal; color:#ece3dd}.search2__button .suggest2-form__button:hover,'
-		+'.search2__button .xButt:hover{opacity:.85; color:#6f6e69;}.search2__button .xButt:not(.sett):hover'
-		+'{background-color: rgba(226, 194, 27, 0.47);}.search2__button .xButt .suggest2-form__button:hover{background-color: #e4d68c}'
-	+'.siteList .sett .txt{background-color: #e2c043}.siteList .xButt .txt{padding: 0 2px 0 1px;}'
+		+'z-index: 11002; width: 34px; height:17px; padding: 0 2px; line-height:14px; font-size:14px;'
+		+'border:1px solid transparent; border-radius: 1px; background-color: rgba(214, 188, 76, 0.92); color:#fff; opacity:.6}'
+	+'.search2__button >.siteList{width:32px; height:auto; padding: 1px 0 2px; text-align:center; font-weight: bold;'
+		+'background-color: rgba(228, 189, 17, 0.7);}  .search2__button >.siteList .lsb{font-weight: normal; color:#ece3dd}'
+	+'.search2__button .suggest2-form__button:hover,.search2__button .xButt:hover{opacity:.85; color:#6f6e69;}'
+	+'.search2__button .xButt:not(.sett):hover{background-color: rgba(226, 194, 27, 0.47);}'
+	+'.search2__button .xButt .suggest2-form__button:hover{background-color: #e4d68c}'
+	+'.siteList .xButt{display: block}  .siteList .xButt .txt{padding: 0 2px 0 1px;}  .siteList .sett .txt{background-color: #e2c043}'
 	+'.siteList .settIn{display: none; width: 250px; padding: 2px 4px; text-align: left; border:1px solid #dacb97;'
-		+'background-color: rgba(239, 235, 217, 0.94); color: #653}'
-	+'.siteList .settIn hr{margin:2px 0}'
+		+'background-color: rgba(239, 235, 217, 0.94); color: #653}  .siteList .settIn hr{margin:2px 0}'
 	+'.sbibtd .sfsbc .nojsb, .siteList .sett:hover .settIn, .siteList .settIn.changed,'
 		+'.siteList .settIn.changed .reload{display: block}.siteList .settIn .reload, .siteList.hiddn{display: none}'
 	+'.select .button.button_checked_yes, .select .button.button_checked_yes .button__text{background-color: rgba(245, 226, 140, 0.7)}');
@@ -327,20 +347,19 @@ new Tout({t:120, i:8, m: 1.6
 		}
 		var $LSettings = $L['Settings'];
 		if(sites && sites.length)
-			sites.push($LSettings)
+			sites.push($LSettings);
 		var mainPg = /\/search\?/.test(lh)
 			,inputSearch = $q('.suggest2-form .input__control.input__input') || $q('.input__control') //trueth place for 1 of 2 pages
 			,buttSearch = this.dat
-			,ua = lang=='ua'
-			,de = lang=='de'
+			,ua = lang=='ua', by = lang=='by',de = lang=='de'
 			,buttS ={
 				site:{url:'site:'+ S.sites[0], txt:$L['search in']+' '+ S.sites[0], one:'day'} //you may comment this line
 				,'.. : ..':{url:'', txt:$L['from / to']}
 				,'1D':{url:'&tbs=qdr:d', txt:$L['last'][de?0:ua?2:1] +' '+ $L['day'], one:'day', up:13,lett:'D',itrv:1}
-				,'1W':{url:'&tbs=qdr:w', txt:$L['last'][ua?0:2] +' '+ $L['week'], one:'week', up:14,lett:'W',itrv:7}
+				,'1W':{url:'&tbs=qdr:w', txt:$L['last'][ua||by?0:2] +' '+ $L['week'], one:'week', up:14,lett:'W',itrv:7}
 				,'1M':{url:'&tbs=qdr:m', txt:$L['last'][0] +' '+ $L['month'], one:'month', up:20,lett:'M',itrv:30.5}
 				,'1Y':{url:'&tbs=qdr:y', txt:$L['last'][de?1:0] +' '+ $L['year'], one:'year', up:10,lett:'Y',itrv:365.24}
-				//,'1H':{url:'&tbs=qdr:h', txt:$L['last'][ua||de?2:0] +' '+ $L['hour'], one:'hour', up:23,lett:'H',itrv:1/24}
+				//,'1H':{url:'&tbs=qdr:h', txt:$L['last'][ua||de||by?2:0] +' '+ $L['hour'], one:'hour', up:23,lett:'H',itrv:1/24}
 				//,DOC:{url:'&mime=doc', txt:$L['search in PDF files'].replace(/PDF/,'DOC'), up: type.length}
 				,PDF:{url:'&mime=pdf', txt:$L['search in PDF files'], up: type.length}
 		}, ii = 0, iD = -1;
@@ -455,9 +474,9 @@ new Tout({t:120, i:8, m: 1.6
 										+(function(){var s='<option'+ (lang=='en'?' selected':'') +'>en</option>';
 											for(var i in $l)
 												s+='<option'+ (lang==i ?' selected':'') +'>'+ i +'</option>';
-											return s +'<option value=""'+ (lang==''?' selected':'') +'>en w/o hints</option>'})()
+											return s +'<option value="" '+ (lang==''?'selected':'') +'>en w/o hints</option>'})()
 										+'</select><br>'
-										+'<input type="checkbox" class="less" id="hoursLess"'+ (S.lastHoursLess ?' checked':'') +'/>'
+										+'<input type="checkbox" class="less" id="hoursLess" '+ (S.lastHoursLess ?'checked':'') +'/>'
 											+'<label for="hoursLess" id="hoursLessL">'+ $L['Less positions at the end of selects'] +'</label><br>'
 										+'<i><a href="#" class="defa" style="float: right">Default settings</a></i>'
 										+$L.Sites +': <br><textarea class="sites" style="width:97%" rows=8>'
