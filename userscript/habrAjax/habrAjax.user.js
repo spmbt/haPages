@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 151.2015.12.12
+// @version 154.2016.1.22
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,10 +15,12 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
+// @update 153 fix protocol in Ajax
+// @update 152 command 'settings' from scripts menu in Fx; repair page (for hidden pages);
 // @update 149 ajax of article from list;
-// @update 148 fix err on new format of annotation;
-// @update 146 .similar_posts;
+// @grant GM_registerMenuCommand
 // @resource meta habrAjax.meta.js
+// @grant none
 // @icon data:image/gif;base64,R0lGODlhIAAgAMMBAG6Wyv///2+NtIucstfY2b/FzpSmvY+QkM3Nzunp6fLy8qGwweDg4MbFxa2trrm6uiwAAAAAIAAgAAAE/xDISau9OM/AOe2edoHBBwqiRZodmrKhRLqXYFfrdmLCQBQGWk62swgOiERAQQgChs9iRZBMKDgEFGnbMi4YDMU1gNBytzSJDcGwXhUD4lmqZofFioZrPqMIDARtYksIAzZ8dAINgngJVgkLUH1qBmBuCgmBYA6SUgKBl0wICA6lk1FdAAIFjngKDAgEpKYgWXIcKH8EDQ0EVwmjsrycIA4FZl2rDwcHDgivow8ODwzEHca3ASgDpMylsrEOzdUkDk59AtOl07wIDcwNkDbzCy7z8xIDD8Ps3Q5hCQqscxBHgw0DbEY1WIbEkRtHZV6oMsAq0wNqrcQ4KihR1Z9YjzUeKjjWcYqABUoaJeBY0k8bAm5ItqxgANjFBnBmTgnTQNw0nVOSNBjQLA1QXdEMATVioGnJCAA7
 // ==/UserScript==
 */s//]]>
@@ -271,6 +273,7 @@ var setLocStor = function(name, hh){
 	}
 	,removeLocStor = function(name){localStorage.removeItem('habrAjax_'+ name);}
 	,lh = location.href
+	,lProt = location.protocol
 	,$q = function(q, f, f2, args){ // контекстный DOM-селектор или условная функция с ним: (elem)q | ((str)q, f, args) | ((str)q, elem) | ((str)q, (elem)context, f, args)
 		var Q = q && q.attributes && q || (!(f instanceof Function) && f||document).querySelector(q);
 		return f instanceof Function ? f && Q ? f.apply(Q, f2 instanceof Array && f2 || [f2]) : Q
@@ -710,11 +713,6 @@ $e = function(g){ //===создать или использовать имеющ
 		if(g.atRemove)
 			for(var i in g.atRemove)
 				o.removeAttribute(g.atRemove[i]);
-		if(g.htT){ //подготовка шаблона
-			if(!(typeof g.htTA =='object')) g.htTA =[g.htTA];
-			for(var i in g.htTA)
-				g.htT = g.htT.replace(RegExp('\\{\\{'+ i +'\\}\\}','g'), g.htTA[i])
-			o.innerHTML = g.htT;}
 		if(g.on)
 			for(var i in g.on) if(g.on[i])
 				o.addEventListener(i, g.on[i],!1);
@@ -737,9 +735,17 @@ $e = function(g){ //===создать или использовать имеющ
 		g.remove && g.remove.parentNode.removeChild(g.remove);
 		if(typeof g.f =='function')
 			g.f.apply(g, g.fA); //this - это g
+		if(g.htT){ //подготовка шаблона
+			if(typeof g.htT =='function')
+				o.innerHTML = g.htT(g.htTA);
+			else{
+				if(typeof g.htTA !='object') g.htTA =[g.htTA];
+				for(var i in g.htTA)
+					g.htT = g.htT.replace(RegExp('\\{\\{'+ i +'\\}\\}','g'), g.htTA[i])
+				o.innerHTML = g.htT;}}
 	}
 	return o;
-/*
+/* вариант выбора по структуре (медленнее)
 var x=
 	{cl: function(){o.className = g.cl;}
 	,clAdd: function(){o.classList.add(g.clAdd);}
@@ -1448,7 +1454,7 @@ var verDat = getVersionDate(typeof metaD !=u && metaD.version)
 		return divSett;
 	},
 	edit: function(ev){ //показать список настроек
-		if(ev.ctrlKey ^ ev.shiftKey){
+		if(ev && ev.ctrlKey ^ ev.shiftKey){
 			window.open(URLSCR + HAJAX,'_blank');return;}
 		var sett = $q('.habrAjaxSettings');
 		sett.style.display = sett.style.display !='block'?'block':'none';
@@ -2087,7 +2093,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 				}
 				var url = topicTitle && (tLink.href || commLink && commLink.href || topicTitle.link);
 					//-обход заголовка-ссылки, не-ссылок, отсутствия ссылки на комментарии
-				xhr.open('GET', url.replace(/_/g,'%5F'), true); //странно, но "_" не переваривает (Fx)
+				xhr.open('GET', url.replace(/^https?:/,lProt).replace(/_/g,'%5F'), true); //странно, но "_" не переваривает (Fx)
 				xhr.link = this; //активный элемент клика мыши
 				xhr.onreadystatechange = function(){ //===показ статьи===
 					if(this.readyState !=4) return;
@@ -2986,6 +2992,7 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 	+'#comments .info .voting.voted_plus .minus,'
 	+'.vote_holder .vote.voted_plus .vote_minus{visibility:'
 		+ (hS.noExpiredVote.val ?'hidden':'visible!important') +'}'
+	+'.conversation_page .messages:not(#messages){margin-top: 67px;}.conversation_page .conversation_form{margin-bottom: 16px}'
 
 	+(h.inZen ?'.comment_item .info a.favorite{left:-3px}':'.entry-info-wrap .btnBack{top:7px}'
 		+'.infopanel_wrapper >.g-plusone +.likes{margin-top: 5px}')
@@ -3427,7 +3434,8 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		var h3p = sidebar && $q('.habralenta_settings >.title +p', sidebar);
 		if(h3p) h3p.parentNode.removeChild(h3p);
 	}
-	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3 || $q('body[bgcolor="white"] >center'));
+	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3 || $q('#layout >.main >.logo +h1 +p +.buttons >.button[href="http://habrahabr.ru/"]'));
+	'noPage'.wcl(noPage)
 	if(regW && regW.className !='register_form'|| noPage){ //восстановление страниц
 		var postNumb = win.location.toString().replace(/[^\d]/g,''), copiersMsg;
 		extLinks( copiersMsg = $e({cs: {
@@ -3637,6 +3645,9 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		for(var j in dbpA){ var dbpAJ = dbpA[j]; if(dbpAJ.attributes)
 			tops['p'+ (dbpAJ.getAttribute('href').match(/\d{3,}/)||[])[0]] = dbpAJ;
 		}
+		var dbpT = $q('.live-broadcast__title', dbp);
+		if(dbpT)
+			dbpT.innerHTML = dbpT.innerHTML.replace(/Самое читаемое/,'Наичитаемейшее');
 	}else
 		tops = null;
 	acvity && extLinks(acvity,'old_labels',tops);
@@ -4026,7 +4037,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			for(var j in HRs)
 				if(hS[i].val && i == j)
 					addMixes.push({i: j, site: HRs[j]});
-		'addMixes'.wcl(addMixes, hS.ha.val, hS.geek.val, hS.manag.val);
+		//'addMixes'.wcl(addMixes, hS.ha.val, hS.geek.val, hS.manag.val);
 		/*for(var i in addMixes){
 			var aI = addMixes[i]
 				, mixUrl = aI.site + location.pathname;
