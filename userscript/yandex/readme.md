@@ -38,8 +38,14 @@
 
 **Свёрнутые кнопки:**
 
-![Свёрнутые кнопки](../../doc/yandex/shot-YandexExtraButtons1.png)
+![Свёрнутые кнопки](../../doc/shot-yaExtraButtFolded20160122.png)
 
 **Развёрнутые кнопки:**
 
-![Развёрнутые кнопки](../../doc/yandex/shot-YandexExtraButtons2.png)
+![Развёрнутые кнопки](../../doc/yandex/shot-yaExtraButtUnfold20160122.png)
+
+**... крупным планом (с главной):**
+
+![Развёрнутые кнопки крупным планом (с главной)](../../doc/yandex/shot-yaExtraButt20160122.png)
+
+<br><br>
