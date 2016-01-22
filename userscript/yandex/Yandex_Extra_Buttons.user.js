@@ -3,13 +3,13 @@
 // @name:ru     Yandex_Extra_Buttons
 // @description Add buttons (last 1/2/3 days, weeks, PDF search etc.) for Yandex search page
 // @description:ru Кнопки вариантов поиска для страницы результатов поиска Yandex (1-2-3 дня, недели, PDF, ...)
-// @version     3.2016.1.22
+// @version     4.2016.1.22
 // @namespace   spmbt.github.com
 // @include     https://www.yandex.*
 // @include     https://yandex.*/search*
 // @include     https://yandex.*/yandsearch*
 // @include     https://spmbt.github.io/googleSearchExtraButtons/saveYourLocalStorage.html
-// @update 1 buttons on the main page and above suggests
+// @update buttons style like arrows (pentagonal)
 // ==/UserScript==
 if(location.host=='spmbt.github.io'){
 	window.addEventListener('message', function(ev){
@@ -313,8 +313,9 @@ addRules('.z-index-group_level_9{z-index: 11002}' //buttons above suggest
 	+'.lsbb .xButt,.search2__button >.siteList, .search2__button .suggest2-form__button:not([role="button"]){'
 		+'z-index: 11002; width: 34px; height:17px; padding: 0 2px; line-height:14px; font-size:14px;'
 		+'border:1px solid transparent; border-radius: 1px; background-color: rgba(214, 188, 76, 0.92); color:#fff; opacity:.6}'
-	+'.search2__button >.siteList{width:32px; height:auto; padding: 1px 0 2px; text-align:center; font-weight: bold;'
+	+'.search2__button >.siteList{width:31px; height:auto; padding: 1px 0 2px; text-align:center; font-weight: bold;'
 		+'background-color: rgba(228, 189, 17, 0.7);}  .search2__button >.siteList .lsb{font-weight: normal; color:#ece3dd}'
+	+'.search2__button >.siteList:after{display:block; border-left:3px solid rgba(228, 189, 17, 0.7); border-top:8px solid transparent; border-bottom:9px solid transparent; content:""; position: absolute; left:32px; top:0; height:2px;}'
 	+'.search2__button .suggest2-form__button:hover,.search2__button .xButt:hover{opacity:.85; color:#6f6e69;}'
 	+'.search2__button .xButt:not(.sett):hover{background-color: rgba(226, 194, 27, 0.47);}'
 	+'.search2__button .xButt .suggest2-form__button:hover{background-color: #e4d68c}'
