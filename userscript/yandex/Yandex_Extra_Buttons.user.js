@@ -3,7 +3,7 @@
 // @name:ru     Yandex_Extra_Buttons
 // @description Add buttons (last 1/2/3 days, weeks, PDF search etc.) for Yandex search page
 // @description:ru Кнопки вариантов поиска для страницы результатов поиска Yandex (1-2-3 дня, недели, PDF, ...)
-// @version     2.2016.1.19
+// @version     3.2016.1.22
 // @namespace   spmbt.github.com
 // @include     https://www.yandex.*
 // @include     https://yandex.*/search*
