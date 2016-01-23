@@ -1,8 +1,12 @@
 ﻿{
    "content_scripts": [ {
-      "exclude_globs": [ "http://habrahabr.ru/api/*" ],
+      "exclude_globs": [ "https://habrahabr.ru/api/*" ],
       "exclude_matches": [  ],
-      "include_globs": [  "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "http://megamozg.ru/*", "https://geektimes.ru/*", "https://megamozg.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://haru/*", "http://h.ru/*" ],
+      "include_globs": [  "http://habrahabr.ru/*", "https://habrahabr.ru/*", "https://geektimes.ru/*",
+         "https://megamozg.ru/*", "https://geektimes.ru/*", "https://megamozg.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://habrahabr.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://geektimes.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://megamozg.ru/*", "http://haru/*", "http://h.ru/*" ],
       "js": [ "habrPercentageRing.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"

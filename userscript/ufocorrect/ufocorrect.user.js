@@ -1,16 +1,16 @@
 ﻿// ==UserScript==
 // @id             ufoCorrect
 // @name           ufoCorrect
-// @version        12.2015.12.21
+// @version        13.2016.1.23
 // @namespace      github.com/spmbt
 // @author         spmbt0
 // @description    Correct Long Tall design in 5 sites: habrastorage.org, toster, tmtm, freelansim, habrahabr, geektimes, megamozg
-// @include        http://habrastorage.org/*
-// @include        http://tmtm.ru/*
+// @include        https://habrastorage.org/*
+// @include        https://tmtm.ru/*
 // @include        https://id.tmtm.ru/*
-// @include        http://habrahabr.ru/*
-// @include        http://geektimes.ru/*
-// @include        http://megamozg.ru/*
+// @include        https://habrahabr.ru/*
+// @include        https://geektimes.ru/*
+// @include        https://megamozg.ru/*
 // @run-at         document-end
 // ==/UserScript==
 (function(win, noConsole, css, help, u){

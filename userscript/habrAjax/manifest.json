@@ -1,16 +1,16 @@
 {
   "content_scripts": [ {
-    "exclude_globs": [ "http://habrahabr.ru/api/*", "http://habrahabr.ru/special/*", "http://geektimes.ru/api/*", "http://geektimes.ru/special/*", "http://megamozg.ru/api/*", "http://megamozg.ru/special/*" ],
+    "exclude_globs": [ "https://habrahabr.ru/api/*", "https://habrahabr.ru/special/*", "https://geektimes.ru/api/*", "https://geektimes.ru/special/*", "https://megamozg.ru/api/*", "https://megamozg.ru/special/*" ],
     "exclude_matches": [ ],
-    "include_globs": [ "http://habrahabr.ru/*","http://geektimes.ru/*", "http://megamozg.ru/*", "http://tmfeed.ru/*", "https://habrahabr.ru/auth/settings*", "https://plusone.google.com/*", "http://userscripts-mirror.org/scripts/source/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://megamozg.ru/*", "http://habrastorage.org/*", "http://legacy.habrastorage.org/*", "http://hbr/*" ],
+    "include_globs": [ "https://habrahabr.ru/*","https://geektimes.ru/*", "https://megamozg.ru/*", "https://tmfeed.ru/*", "https://habrahabr.ru/auth/settings*", "https://plusone.google.com/*", "http://userscripts-mirror.org/scripts/source/*", "http://webcache.googleusercontent.com/search?q=cache:https://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:https://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:https://megamozg.ru/*", "https://habrastorage.org/*", "http://legacy.habrastorage.org/*", "http://hbr/*" ],
     "js": [ "HabrAjax.user.js" ],
-    "matches": [ "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "https://geektimes.ru/*", "http://megamozg.ru/*", "https://megamozg.ru/*", "http://tmfeed.ru/*" ],
+    "matches": [ "http://habrahabr.ru/*", "https://habrahabr.ru/*", "http://geektimes.ru/*", "https://geektimes.ru/*", "http://megamozg.ru/*", "https://megamozg.ru/*", "https://tmfeed.ru/*" ],
     "run_at": "document_idle"
   } ],
   "converted_from_user_script": true,
   "description": "Cumulative script with over 60 functions for Fx-Opera-Chrome",
   //"id": "HabrAjax",
   "name": "HabrAjax",
-  "version": "152.2016.1.14",
+  "version": "155.2016.1.23",
   "manifest_version": 2
 }

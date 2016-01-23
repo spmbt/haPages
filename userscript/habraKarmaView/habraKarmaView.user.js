@@ -1,14 +1,14 @@
 ﻿// ==UserScript==
 // @id HabraKarmaView
 // @name HabraKarmaView
-// @version 6.2015.12.13
+// @version 7.2016.1.23
 // @author spmbt
 // @namespace github.com/spmbt
 // @description Подсказка кармы по наведению на ник, кроссбраузерно
 // @update 5 new paths; fix content of 404th page of API
 // @icon http://habrahabr.ru/favicon.ico
 // @include http://habrahabr.ru/*
-// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
+// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
 // @exclude http://habrahabr.ru/api/*
 // @exclude http://geektimes.ru/api/*
 // @exclude http://megamozg.ru/api/*
@@ -16,7 +16,7 @@
 (function(win, u){
 
 if(/ru\/api/.test(location.href)) return;
-var urlBase ='http://'+ (/habr\.ru/.test(location.href) ?'habrahabr':(/geektimes\.ru/.test(location.href)?'geektimes':'megamozg')) +'.ru/api/profile/'
+var urlBase = location.protocol +'//'+ (/habr\.ru/.test(location.href) ?'habrahabr':(/geektimes\.ru/.test(location.href)?'geektimes':'megamozg')) +'.ru/api/profile/'
 	,$x = function(h, elem){for(var i in h) elem[i] = h[i]; return elem;}
 	,$q = function(q, b){return (b||document).querySelector(q)};
 try{

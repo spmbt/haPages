@@ -5,17 +5,17 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 154.2016.1.22
+// @version 155.2016.1.23
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
-// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!\/special|\/api)/
+// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!\/special|\/api)/
 // @include http://habrahabr.ru/
 // @include https://plusone.google.com/*
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 153 fix protocol in Ajax
+// @update 154 fix protocol in Ajax; fix https for closed articles;
 // @update 152 command 'settings' from scripts menu in Fx; repair page (for hidden pages);
 // @update 149 ajax of article from list;
 // @grant GM_registerMenuCommand
@@ -90,10 +90,11 @@ var DAY = 86400000
 ,CHKUPD = 15 //мин. период проверок обновлений скрипта (минут) при ошибках чтения
 ,NOWdate = new Date()
 ,NOW = +NOWdate,HSO='http://habrastorage.org',SHRU='https://habrahabr.ru/auth'
-,HRU ='http://habrahabr.ru',sHQ='habr.statis.tk/c?id=@&in=@&zc=@&at=@' //37.230.115.43исп-ть ли сервер статистики
-,HRs ={ha: HRU, geek:'http://geektimes.ru',manag:'http://megamozg.ru',qa:'http://toster.ru',haru:'http://haru'}
+,lProt = location.protocol
+,HRU = lProt +'//habrahabr.ru',sHQ=''//исп-ть ли сервер-стат
+,HRs ={ha: HRU, geek: lProt +'//geektimes.ru',manag: lProt +'//megamozg.ru',qa: lProt +'//toster.ru', haru:'http://haru'}
 ,HClons ={soha:'sohabr',sape:'savepearlharbor',haru:'haru'}
-,ROOT = location.protocol +'//'+ location.host
+,ROOT = lProt +'//'+ location.host
 ,URLSCR ='https://greasyfork.org/scripts/'
 ,URLCSS ='http://userstyles.org/styles/33690/'
 ,HAJAX ='1970-habrajax/'
@@ -273,7 +274,6 @@ var setLocStor = function(name, hh){
 	}
 	,removeLocStor = function(name){localStorage.removeItem('habrAjax_'+ name);}
 	,lh = location.href
-	,lProt = location.protocol
 	,$q = function(q, f, f2, args){ // контекстный DOM-селектор или условная функция с ним: (elem)q | ((str)q, f, args) | ((str)q, elem) | ((str)q, (elem)context, f, args)
 		var Q = q && q.attributes && q || (!(f instanceof Function) && f||document).querySelector(q);
 		return f instanceof Function ? f && Q ? f.apply(Q, f2 instanceof Array && f2 || [f2]) : Q
@@ -3434,8 +3434,8 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		var h3p = sidebar && $q('.habralenta_settings >.title +p', sidebar);
 		if(h3p) h3p.parentNode.removeChild(h3p);
 	}
-	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3 || $q('#layout >.main >.logo +h1 +p +.buttons >.button[href="http://habrahabr.ru/"]'));
-	'noPage'.wcl(noPage)
+	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3 || $q('#layout >.main >.logo +h1 +p +.buttons >.button[href*="'+ HRU +'"]'));
+	//'noPage'.wcl(noPage)
 	if(regW && regW.className !='register_form'|| noPage){ //восстановление страниц
 		var postNumb = win.location.toString().replace(/[^\d]/g,''), copiersMsg;
 		extLinks( copiersMsg = $e({cs: {

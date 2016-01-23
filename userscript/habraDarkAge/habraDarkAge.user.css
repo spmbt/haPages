@@ -3,7 +3,7 @@
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: remove 'z-ya' picture;
  */
-@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
 body{font-family: "PT Sans",Verdana,Arial,Helvetica,sans-serif; background-color: #222!important; color: #bbb}
 #layout{background-color: transparent}

@@ -1,15 +1,15 @@
 ﻿// ==UserScript==
 // @id HabrPercentageRing
 // @name Habr Percentage Ring
-// @version 14.2015.12.1
+// @version 15.2016.1.23
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Percentage Rings around numbers which show grades (for with userstyles)
 // @icon http://habrahabr.ru/favicon.ico
-// @update 13 cvtyf вёрстки сайта, подгонка положений эллипсов
-// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
-// @include http://habrahabr.ru*
-// @exclude http://habrahabr.ru/api/*
+// @update 14 https
+// @include /^https?://(m\.|webcache\.googleusercontent\.com\/search\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(\/|%2F|%2f)(\/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|h).ru(?!\/special|\/api)/
+// @include https://habrahabr.ru*
+// @exclude https://habrahabr.ru/api/*
 // ==/UserScript==
 // работает автономно или как модуль для HabrAjax: https://greasyfork.org/en/scripts/1970-habrajax
 var w1n = typeof unsafeWindow !='undefined'? unsafeWindow: (function(){return this})();

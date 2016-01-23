@@ -1,8 +1,11 @@
 ﻿{
    "content_scripts": [ {
-      "exclude_globs": [ "http://habrahabr.ru/api/*" ],
+      "exclude_globs": [ "https://habrahabr.ru/api/*" ],
       "exclude_matches": [  ],
-      "include_globs": [ "http://habrahabr.ru/*", "http://geektimes.ru/*", "http://megamozg.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://habrahabr.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://geektimes.ru/*", "http://webcache.googleusercontent.com/search?q=cache:http://megamozg.ru/*", "http://h.ru/*", "http://haru/*"],
+      "include_globs": [ "https://habrahabr.ru/*", "https://geektimes.ru/*", "https://megamozg.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://habrahabr.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://geektimes.ru/*",
+         "http://webcache.googleusercontent.com/search?q=cache:https://megamozg.ru/*", "http://h.ru/*", "http://haru/*"],
       "js": [ "habraKarmaView.user.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_idle"
@@ -10,6 +13,6 @@
    "converted_from_user_script": true,
    "description": "Подсказка кармы по наведению на ник, кроссбраузерно",
    "name": "HabraKarmaViewFx",
-   "version": "5.2015.2.25",
+   "version": "7.2016.1.23",
    "manifest_version": 2
 }
