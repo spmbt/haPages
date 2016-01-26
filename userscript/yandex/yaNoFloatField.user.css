@@ -1,32 +1,35 @@
-/* yandex-no-float-field v.10.2016.1.15, spmbt. Hide floating input search field */
+/** yandex-no-float-field v.11.2016.1.25, spmbt. Hide floating input search field
+* changes: transform in .serp-header__wrapper;
+*/
 
-@-moz-document domain("yandex.ru"){
+@-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),
+domain("yandex.ru"), domain("yandex.ua"), domain("yandex.by"), domain("yandex.kz"), domain("yandex.com.tr"), domain("yandex.com"){
 
-.serp-header{margin:0}
-body .serp-header_has-head-stripe_yes{margin-top:0}
-.serp-header__wrapper{position: static;}
-.serp-header__under{display: none;}
+    .serp-header{margin:0}
+    body .serp-header_has-head-stripe_yes{margin-top:0}
+    .serp-header__wrapper{position: static; transform: none;}
+    .serp-header__under{display: none;}
 
-.serp-header__logo{position: fixed;}
-.serp-header__logo .logo{position: relative; left:-12px; opacity:.1;
-   transition: all, 1s, ease, 1s;}
-.serp-header__logo:hover .logo{opacity:1; z-index: 3}
-.serp-header__search2{width: 760px; position: absolute; z-index: 2;}
-.serp-header__logo:hover +.serp-header__search2, .serp-header__search2:hover{position: fixed;}
+    .serp-header__logo{position: fixed;}
+    .serp-header__logo .logo{position: relative; left:-12px; opacity:.1;
+        transition: all, 1s, ease, 1s;}
+    .serp-header__logo:hover .logo{opacity:1; z-index: 3}
+    .serp-header__search2{width: 760px; position: absolute; z-index: 2;}
+    .serp-header__logo:hover +.serp-header__search2, .serp-header__search2:hover{position: fixed;}
 
-/*show additional services in menu of left panel*/
-.navigation__item.navigation__item_service_yes{visibility: visible; height: auto; opacity: 1;}
-.navigation__more.navigation__item,
-.navigation_more-type_slide .navigation__item_extra_hidden + .navigation__more, .navigation_more-type_slide .navigation__item_extra_visible + .navigation__more{display: none;}
-.navigation__item_extra_hidden{background: #f4f4f4;}
+    /*show additional services in menu of left panel*/
+    .navigation__item.navigation__item_service_yes{visibility: visible; height: auto; opacity: 1;}
+    .navigation__more.navigation__item,
+    .navigation_more-type_slide .navigation__item_extra_hidden + .navigation__more, .navigation_more-type_slide .navigation__item_extra_visible + .navigation__more{display: none;}
+    .navigation__item_extra_hidden{background: #f4f4f4;}
 
-/*more little suggesting popup*/
-.popup2_theme_clear.suggest2_theme_large{
-  opacity: 0.9;
-  margin-left: 125px;
-  max-width: 650px;
-  top: 49px!important;
-}
-.suggest2__content.suggest2__content_theme_large{margin-left: 20px!important;}
+    /*more little suggesting popup*/
+    .popup2_theme_clear.suggest2_theme_large{
+        opacity: 0.9;
+        margin-left: 125px;
+        max-width: 650px;
+        top: 49px!important;
+    }
+    .suggest2__content.suggest2__content_theme_large{margin-left: 20px!important;}
 
 }

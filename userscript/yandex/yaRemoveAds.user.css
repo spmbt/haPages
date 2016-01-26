@@ -1,7 +1,6 @@
-/** Yandex No-ads v14.2016.1.19, Chrome 42+, Fx 40+
- * http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
- * Author: github.com/spmbt
- * LastUpdates: .mail-in-browser-line;
+/** Yandex No-ads v18.2016.1.25, Chrome 42+, Fx 40+
+ * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
+ * LastUpdates: colored forums, nets, market;
  */
 @-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"){
   .container__banner.container__line
@@ -9,53 +8,82 @@
   ,.home-arrow__promo-wrapper
   ,.stripe-universal-wrapper
   ,.head-stripe
-  {display:none}
-
-  .b-top-bar__item_has_promo
+  ,.b-top-bar__item_has_promo
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
   ,.b-head-universal-wrapper
   ,.i-bem.popup.popup_product_set
-  {display: none;}
-  .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg{width:38px; top: 5px;}
+  ,.popup__content.dist-popup__content
+    {display: none;}
+  .input__samples
+  ,.serp-block_type_default-search
+  ,.serp-block.t-default-search
+  ,.serp-adv__item,.serp-adv__head
+    {display: none;}
+  .serp-adv{position: absolute; left:-1200px;}
+
+  .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg
+    {width: 38px; top: 5px;}
   .b-logo:hover{z-index: 1;}
   .m-svg .b-line_exp_button4 .button_theme_websearch .button__text
-  ,.input_theme_websearch{background: #ddd;}
+  ,.input_theme_websearch
+    {background: #ddd;}
 
   .second{height: auto;}
   .container__search{margin-bottom: -15px;}
   .search2{width: auto; margin-bottom: 0;}
   .search2 .input{margin-bottom: 0;}
-  .input__samples
-  ,.serp-block_type_default-search
-  ,.serp-block.t-default-search{display: none;}
 
   .home-arrow__search-wrapper{margin-left: -125px;}
   .rows__row .headline, .row .headline{margin: 0; height: 0;}
   .col.headline__item.headline__bar{background: rgba(255,255,255,.5);}
-  .headline .headline__item, .headline-item, .headline .headline__center{z-index: 1;}
+  .headline .headline__item
+  ,.headline-item
+  ,.headline .headline__center
+    {z-index: 1;}
   .col_home-logo{opacity:.1; transition: all, 1s, ease, 1s;}
   .col_home-logo:hover{opacity:1; z-index: 2;}
   .col_home-logo .covers__newyear2016_mic{top: 72px}
   .button_theme_websearch{opacity:.65;}
 
+  /* colored ads */
   .serp-meta2.serp-meta2_type_gray
   ,div:not(.serp-item__text) +.serp-sitelinks
-  ,.text.organic__text, .sitelinks.organic__sitelinks
+  ,.text.organic__text
+  ,.sitelinks.organic__sitelinks
   ,.serp-url +div:not(.serp-item__text)
-  ,.serp-item__greenurl a[href*="market.yandex.ru"]
-  ,.serp-meta, .extended-meta
+  ,.serp-meta
+  ,.extended-meta
   ,.social-snippet2__info
   ,.serp-adv
-  ,.story__group .doc .doc__content .doc__text ol, .story__group .doc .doc__content .doc__text ul
-  ,.story__content .story__text ol, .story__content .story__text ul
-  {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
-  .z-video__clips, .z-video__head-title{background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
-  .serp-item__title.z-images__head, .z-images__thumbs-list{background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
-  .serp-adv .serp-item{margin-bottom: 6px;}
-  .serp-item__greenurl a[href*="market.yandex.ru"]{background-color: #f4efef;}
+  ,.story__group .doc .doc__content .doc__text ol
+  ,.story__group .doc .doc__content .doc__text ul
+  ,.story__content .story__text ol
+  ,.story__content .story__text ul
+    {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  .serp-item__greenurl +.text.organic__text
+    {background-color: transparent;}
+  .serp-adv .serp-item
+    {margin-bottom: 6px;}
+
+  /* colored forums, images, nets */
+  .nav-answers.nav-answers_bno_yes
+  ,.serp-item__title.z-images__head
+  ,.z-images__thumbs-list
+  ,.serp-sitelinks
+  ,.forum.forum_type_topic
+    {background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+
+  /* colored market */
+  .z-market
+  ,.serp-item__greenurl a[href*="market.yandex.ru"]
+    {background-color: #f4efef;}
+
+  .z-video__clips
+  ,.z-video__head-title
+    {background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item.z-audio
   ,.serp-item__title a[href*="music.yandex.ru"]
-  {background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
+    {background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
 
   .footer.footer_distro_yes
   ,.foot__business
@@ -65,16 +93,20 @@
   ,.row .col .themes-promo__link
   ,.row .col .themes-promo
   ,.z-default-search_yabro_yes
-  {display:none}
+    {display:none}
 
   /*pochta*/
-  .b-intruder__i,.b-banner,.b-intruder
-  ,.block-informer-box .b-news,.block-collectors,.block-left-box +.block-folders
+  .b-intruder__i
+  ,.b-banner
+  ,.b-intruder
+  ,.block-informer-box .b-news
+  ,.block-collectors
+  ,.block-left-box +.block-folders
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
   ,.b-page .b-statusline_promo-yabrowser
   ,.mail-in-browser-line
-  {display:none!important; height:0;}
+    {display:none!important; height:0;}
 
   /*karty*/
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
