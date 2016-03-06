@@ -1,6 +1,6 @@
-/** Yandex No-ads v18.2016.1.25, Chrome 42+, Fx 40+
+/** Yandex No-ads v21.2016.2.19, Chrome 42+, Fx 40+
  * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
- * LastUpdates: colored forums, nets, market;
+ * LastUpdates: iframe of y-brow;
  */
 @-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"){
   .container__banner.container__line
@@ -13,20 +13,27 @@
   ,.b-head-universal-wrapper
   ,.i-bem.popup.popup_product_set
   ,.popup__content.dist-popup__content
-    {display: none;}
+  ,.universal-stripe-wrapper
+  ,.serp-list .z-default-search.z-default-search_js_inited
+  {display: none;}
+  body.b-page >iframe
+  {display: none!important}
   .input__samples
   ,.serp-block_type_default-search
   ,.serp-block.t-default-search
   ,.serp-adv__item,.serp-adv__head
-    {display: none;}
+  {display: none;}
   .serp-adv{position: absolute; left:-1200px;}
 
+  .content__left >.competitors.competitors_js_inited{position: fixed; top: -10px; left: -36px}
+  .competitors__link{display: inline-block; overflow: hidden; max-width: 2.2em; margin-left: 4px; color: #ddd;}
+
   .b-logo, .b-line_search2.b-line_exp_slogan .b-logo__image_bg
-    {width: 38px; top: 5px;}
+  {width: 38px; top: 5px;}
   .b-logo:hover{z-index: 1;}
   .m-svg .b-line_exp_button4 .button_theme_websearch .button__text
   ,.input_theme_websearch
-    {background: #ddd;}
+  {background: #ddd;}
 
   .second{height: auto;}
   .container__search{margin-bottom: -15px;}
@@ -39,7 +46,7 @@
   .headline .headline__item
   ,.headline-item
   ,.headline .headline__center
-    {z-index: 1;}
+  {z-index: 1;}
   .col_home-logo{opacity:.1; transition: all, 1s, ease, 1s;}
   .col_home-logo:hover{opacity:1; z-index: 2;}
   .col_home-logo .covers__newyear2016_mic{top: 72px}
@@ -59,11 +66,14 @@
   ,.story__group .doc .doc__content .doc__text ul
   ,.story__content .story__text ol
   ,.story__content .story__text ul
-    {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  ,.story-item .document__snippet ol
+  ,.story-item .document__snippet ul
+  ,.serp-adv-item__label +*
+  {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item__greenurl +.text.organic__text
-    {background-color: transparent;}
+  {background-color: transparent;}
   .serp-adv .serp-item
-    {margin-bottom: 6px;}
+  {margin-bottom: 6px;}
 
   /* colored forums, images, nets */
   .nav-answers.nav-answers_bno_yes
@@ -71,19 +81,19 @@
   ,.z-images__thumbs-list
   ,.serp-sitelinks
   ,.forum.forum_type_topic
-    {background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  {background-color: #eff4ee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
 
   /* colored market */
   .z-market
   ,.serp-item__greenurl a[href*="market.yandex.ru"]
-    {background-color: #f4efef;}
+  {background-color: #f4efef;}
 
   .z-video__clips
   ,.z-video__head-title
-    {background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
+  {background-color: #efeff4; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item.z-audio
   ,.serp-item__title a[href*="music.yandex.ru"]
-    {background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
+  {background-color: #eff4ef; padding: 4px 0 4px 4px; margin-top: -4px; margin-right: 0; margin-left:-4px;}
 
   .footer.footer_distro_yes
   ,.foot__business
@@ -93,7 +103,8 @@
   ,.row .col .themes-promo__link
   ,.row .col .themes-promo
   ,.z-default-search_yabro_yes
-    {display:none}
+  ,.footer-stripe
+  {display:none}
 
   /*pochta*/
   .b-intruder__i
@@ -106,7 +117,7 @@
   ,.block-messages .b-direct.b-direct_messages
   ,.b-page .b-statusline_promo-yabrowser
   ,.mail-in-browser-line
-    {display:none!important; height:0;}
+  {display:none!important; height:0;}
 
   /*karty*/
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
@@ -117,7 +128,9 @@
   /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
   .page-content__right .banner{display:none;}
   /*music*/.sidebar__placeholder .smalladv__item
-           ,.bar__monkey{display:none;}
+           ,.bar__monkey
+           ,.smalladv__item
+           ,.smalladv__no-ads{display:none;}
   /*kartinki /images*/ iframe.direct{display: none!important;}
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}

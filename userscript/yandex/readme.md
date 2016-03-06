@@ -38,7 +38,7 @@
 
 **Свёрнутые кнопки:**
 
-![Свёрнутые кнопки](../../doc/shot-yaExtraButtFolded20160122.png)
+![Свёрнутые кнопки](../../doc/yandex/shot-yaExtraButtFolded20160122.png)
 
 **Развёрнутые кнопки:**
 
