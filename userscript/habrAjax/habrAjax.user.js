@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 157.2016.3.7
+// @version 158.2016.3.12
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,9 +15,8 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 156 isNews folding; folding-list of authors is fixed;
+// @update 157 isNews folding; folding-list of authors is fixed; test of internal links;
 // @update 154 fix protocol in Ajax; fix https for closed articles;
-// @update 152 command 'settings' from scripts menu in Fx; repair page (for hidden pages);
 // @grant GM_registerMenuCommand
 // @resource meta habrAjax.meta.js
 // @grant none
@@ -2373,7 +2372,7 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 	for(var i in links){var LI = links[i]; if(LI.attributes && LI.attributes['href']){
 		var lH = LI.attributes['href'].nodeValue
 			,postMatch, qaMatch;
-		if(!RegExp('^('+ HRU.replace(/\/\//,'//(\\w+\\.)*').replace(/ahabr/,'(ahabr)?\\') +'|/(?!\/)|#)','i').test(lH) && !/^textDecorationColor/.test(LI.className) && !/geektimes.ru|megamozg.ru|tmfeed.ru/i.test(lH) ){
+		if(!RegExp('^('+ HRU.replace(/^https?/,'https?').replace(/\/\//,'//(\\w+\\.)*').replace(/ahabr/,'(ahabr)?\\') +'|/(?!\/)|#)','i').test(lH) && !/^textDecorationColor/.test(LI.className) && !/geektimes.ru|megamozg.ru|tmfeed.ru/i.test(lH) ){
 			LI.className ='textDecorationColor'+(LI.className ?' '+ LI.className :'');
 			LI.setAttribute('target','_blank');
 			$e({el:'SPAN', ht:"⇗", cs:{color:'#248'}, aft: LI}); //стрелк2 верх-прав
@@ -2384,7 +2383,8 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 						,14973,15959,17004,17983,18936,20058,21103,22184,23422,24724,27161,29583
 						,31593,33727,35603,37596,39471,41108,42742,44390,46050,47746,49552,54596
 						,61336,68300,75230,82958,91033,99151,107675,116875,126229,135799,147005,158837
-						,169713,182213,195255,206961,213979,221214,228201,231847,235119,238753,242143,272007]; //по дек.2015
+						,169713,182213,195255,206961, 213979,221214,228201,231847, 235119,238753,242143,272043
+						,279542,288223,297164,306000 ]; //апр.2016 -прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
 					if(postNum >= postYM[j]){
 						var txt = monthRu[j % 12] +' '+ (2010 + (0|j/12)); break;}
@@ -2404,10 +2404,11 @@ extLinks = function(node, oldChk, tops){ //внешние ссылки в нов
 				,postYM =[79815,82680,85884,89552,92535,95099,97893,100688,103185,105320,107313,109124
 					,111037,112913,114666,116587,118465,120339,123152,125327,127474,129518,131623,133750
 					,135593,137388,139154,141161,143096,145002,146858,148825,150655,152897,156927,160927
-					,164511,167841,171141,174897,178523,181712,185178,188544,192134,195908,200442,204302
-					,207968,211020,214263,217769,221545,224805,228191,231847,235117,238753,242143,244603
-					,247199,249403,251783,254567,257097,259213,261301]; //июл.2015 -прогноз
-					//,0,245130,246570,248202,249848,251248,252708]; //geektimes
+					,164511,167841,171141,174897, 178523,181712,185178,188544, 192134,195908,200442,204302
+					,207968,211020,214263,217769, 221545,224805,228191,231847, 235117,238753,242143,244603
+					,247199,249403,251783,254567, 257097,259213,261541,263943, 265823,268005,269901, 272003
+					,274413,276289,278237,280201 ]; //апр.2016 -прогноз
+					//,0,245130,246570,248202,249848,251248,252708]; //geektimes 2015
 					//,0,0,0,13790,14858,15978,17020]; //megamo
 				//.!обновлять каждый месяц, писать последнее число как прогноз
 				for(var j = postYM[postYM.length -1]; --j >=0;) //получение примерной даты - 2-й способ
