@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 158.2016.3.12
+// @version 158.2016.3.13
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,7 +15,7 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 157 isNews folding; folding-list of authors is fixed; test of internal links;
+// @update 157 isNews folding; folding-list of authors is fixed; test of internal links; "сдщыув access@ pages;
 // @update 154 fix protocol in Ajax; fix https for closed articles;
 // @grant GM_registerMenuCommand
 // @resource meta habrAjax.meta.js
@@ -3433,8 +3433,10 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		var h3p = sidebar && $q('.habralenta_settings >.title +p', sidebar);
 		if(h3p) h3p.parentNode.removeChild(h3p);
 	}
-	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3 || $q('#layout >.main >.logo +h1 +p +.buttons >.button[href*="'+ HRU +'"]'));
-	//'noPage'.wcl(noPage)
+	var noPage = $q(doc.body) && ($q(doc.body).childNodes.length <=3
+			|| $q('#layout >.main >.logo +h1 +p +.buttons >.button[href*="'+ HRU +'"]'))
+			|| $q('#layout >.main >.logo a img');
+	'noPage'.wcl(noPage)
 	if(regW && regW.className !='register_form'|| noPage){ //восстановление страниц
 		var postNumb = win.location.toString().replace(/[^\d]/g,''), copiersMsg;
 		extLinks( copiersMsg = $e({cs: {

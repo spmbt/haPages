@@ -3,17 +3,18 @@
 // @name:ru     Yandex_Extra_Buttons
 // @description Add buttons (last 1/2/3 days, weeks, PDF search etc.) for Yandex search page
 // @description:ru Кнопки вариантов поиска для страницы результатов поиска Yandex (1-2-3 дня, недели, PDF, ...)
-// @version     4.2016.1.22
+// @version     5.2016.3.28
 // @namespace   spmbt.github.com
 // @include     https://www.yandex.*
 // @include     https://yandex.*/search*
 // @include     https://yandex.*/yandsearch*
 // @include     https://spmbt.github.io/googleSearchExtraButtons/saveYourLocalStorage.html
-// @update buttons style like arrows (pentagonal)
+// @update buttons CSP fix for main page(native settings) (w/o authorization)
 // ==/UserScript==
 if(location.host=='spmbt.github.io'){
 	window.addEventListener('message', function(ev){
-		if(/^https?:\/\/www\.yandex\./.test(ev.origin)){
+		//console.log('[io0]', ev.origin);
+		if(/^https?:\/\/(www\.)?yandex\./.test(ev.origin)){
 			var d = typeof ev.data =='string' && ev.data[0] =='{' ? JSON.parse(ev.data) : ev.data;
 			if(!d.do) return;
 			var tok = d.tok, key = d.key;
@@ -34,19 +35,21 @@ if(location.host=='spmbt.github.io'){
 					if(prev !==undefined)
 						localStorage.removeItem(key);
 			}
-			//console.log('[io]', tok, 'prev=', prev);
+			//console.log('[io1]', tok, 'prev=', prev);
 			//ev.source.postMessage(JSON.stringify(prev !==undefined ? {tok: tok, prev: prev} : {tok: tok, undef:1}), ev.origin);
 		}},!1);
 }else
 
 (function(setts){ //lang, sites, lastHoursLess
+	if(window != top) return;
 
 var $x = function(el, h){if(h) for(var i in h) el[i] = h[i]; return el;} //===extend===
 	,$pd = function(ev){ev.preventDefault();}
 	,$q = function(q, el){return (el||document).querySelector(q)}
 	,$qA = function(q, el){return (el||document).querySelectorAll(q)}
 	,lh = location.href
-	,d = document
+	,d = document, S //current settings
+	,cspState //if 1 set constant setts
 ,$e = function(g){ //===create or use existing element=== //g={el|clone,cl,ht,cs,at,atRemove,on,apT}
 	g.el = g.el || g.clone ||'DIV';
 	var o = g.o = g.clone && g.clone.cloneNode && g.clone.cloneNode(!0)
@@ -149,28 +152,67 @@ var Tout = function(h){
 			,token = +new Date() + (Math.random()+'').substr(1,8)
 			,el = h.el;
 		delete h.el;
-		if(ifr) query();
-		else ifr = $e({
-			el: 'iframe',
-			at:{id: 'xLocStor'
-				,src: xLocStorOrigin +'/googleSearchExtraButtons/saveYourLocalStorage.html'},
-			cs: {display: 'none'},
-			on: {load: query},
-			apT: el || d.body
-		});
-		if(!listenMsg) addEventListener('message', function(ev){
-			if(ev.origin == xLocStorOrigin){    // {"tok":"<value>"[,"err":"<txt>"],"h":...}
-				//console.log('from_io', JSON.parse(ev.data))
-				var resp = ev.data && ev.data[0] =='{' && JSON.parse(ev.data);
-				if(!resp) xCatch('bad_format', resp, h);
-				if(( qr = qrs[resp.tok] )){
-					qrI -= 1;
-					qr.cB(resp.prev, resp.undef);
-					var er = qr.err;
-					delete qrs[resp.tok];} // else ignore unsufficient token
-				if(resp.err && (!er || er(resp.err)) ) //individual or common error processing depends of er()
-					xCatch(resp.err, resp, h);
-		}},!1);
+/*
+//csp in main page
+	media-src yastatic.net kiks.yandex.ru;
+	img-src 'self' data: https://yastatic.net https://home.yastatic.net https://*.yandex.ru https://*.yandex.net
+		https://*.tns-counter.ru yastatic.net home.yastatic.net yandex.ru *.yandex.ru *.yandex.net *.tns-counter.ru *.gemius.pl yandex.st;
+	font-src 'self' https://yastatic.net yastatic.net;
+	connect-src 'self' wss://push.yandex.ru wss://portal-xiva.yandex.net https://yastatic.net https://home.yastatic.net
+		https://yandex.ru https://*.yandex.ru portal-xiva.yandex.net yastatic.net home.yastatic.net yandex.ru
+		*.yandex.ru *.yandex.net yandex.st;
+	script-src 'self' 'unsafe-inline' 'unsafe-eval' https://suburban-widget.rasp.yandex.ru https://suburban-widget.rasp.yandex.net
+		https://yastatic.net https://home.yastatic.net https://mc.yandex.ru https://pass.yandex.ru yastatic.net
+		home.yastatic.net yandex.ru www.yandex.ru mc.yandex.ru suggest.yandex.ru clck.yandex.ru awaps.yandex.net;
+	default-src 'self' wss://portal-xiva.yandex.net portal-xiva.yandex.net;
+	style-src 'self' 'unsafe-inline' https://yastatic.net https://home.yastatic.net yastatic.net home.yastatic.net;
+	frame-src 'self' https://yastatic.net https://yandex.ru https://*.yandex.ru wfarm.yandex.net yastatic.net
+		yandex.ru *.yandex.ru awaps.yandex.net;
+	report-uri https://csp.yandex.net/csp?from=big.ru&showid=22900.20964.1459066888.30083&h=n58&yandexuid=833832981443596954;
+	object-src *.yandex.net yastatic.net kiks.yandex.ru awaps.yandex.net storage.mds.yandex.net;
+
+//csp in results
+	default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://!*.yandex.net:* *.yandex.net:* https://!*.yandex.ru:*
+		*.yandex.ru:* https://yandex.ru:* yandex.ru:* https://yandex.st:* yandex.st:* yastatic.net https://yastatic.net
+		*.tns-counter.ru https://!*.tns-counter.ru https://video.khl.ru https://www.video.khl.ru https://1tv.ru
+		https://www.1tv.ru https://stream.1tv.ru https://www.stream.1tv.ru https://www.youtube.com https://video.kinopoisk.ru
+		https://pbs.twimg.com yandex.ua https://yandex.ua *.yandex.ua https://!*.yandex.ua;
+	report-uri https://csp.yandex.net/csp?from=web&reqid=1459037130208387-17346427857802980809255285-sas1-1677&yandexuid=833832981443596954&yandex_login=
+*/
+//console.info('h.csp: ',h.csp)
+		if(!h.csp){
+			cspState =1;
+			if(ifr){
+				//ifr.src = xLocStorOrigin +'/googleSearchExtraButtons/saveYourLocalStorage.html?1'
+				query();
+			}
+			else ifr = $e({
+				el: 'iframe',
+				at:{id: 'xLocStor'
+					,src: xLocStorOrigin +'/googleSearchExtraButtons/saveYourLocalStorage.html'
+				},
+				cs: {display: 'none'},
+				on: {load: query},
+				apT: el || d.body
+			});
+			setTimeout(function(){cspState =2;},0);
+			if(!listenMsg) addEventListener('message', function(ev){
+				if(ev.origin == xLocStorOrigin){    // {"tok":"<value>"[,"err":"<txt>"],"h":...}
+					//console.log('from_io', JSON.parse(ev.data))
+					var resp = ev.data && ev.data[0] =='{' && JSON.parse(ev.data);
+					if(!resp) xCatch('bad_format', resp, h);
+					if(( qr = qrs[resp.tok] )){
+						qrI -= 1;
+						qr.cB(resp.prev, resp.undef);
+						var er = qr.err;
+						delete qrs[resp.tok];} // else ignore unsufficient token
+					if(resp.err && (!er || er(resp.err)) ) //individual or common error processing depends of er()
+						xCatch(resp.err, resp, h);
+					cspState =3;
+			}},!1);
+		}else{
+			h.cB && h.cB(setts, 1);
+		}
 		listenMsg =1;
 	},
 		//for tests: localStorage.googXButtons_dwmyh = JSON.stringify({h:[1,2,1,1,1]})
@@ -315,7 +357,8 @@ addRules('.z-index-group_level_9{z-index: 11002}' //buttons above suggest
 		+'border:1px solid transparent; border-radius: 1px; background-color: rgba(214, 188, 76, 0.92); color:#fff; opacity:.6}'
 	+'.search2__button >.siteList{width:31px; height:auto; padding: 1px 0 2px; text-align:center; font-weight: bold;'
 		+'background-color: rgba(228, 189, 17, 0.7);}  .search2__button >.siteList .lsb{font-weight: normal; color:#ece3dd}'
-	+'.search2__button >.siteList:after{display:block; border-left:3px solid rgba(228, 189, 17, 0.7); border-top:8px solid transparent; border-bottom:9px solid transparent; content:""; position: absolute; left:32px; top:0; height:2px;}'
+	+'.search2__button >.siteList:after{display:block; border-left:3px solid rgba(228, 189, 17, 0.7); border-top:8px solid transparent;'
+	+' border-bottom:9px solid transparent; content:""; position: absolute; left:32px; top:0; height:2px;}'
 	+'.search2__button .suggest2-form__button:hover,.search2__button .xButt:hover{opacity:.85; color:#6f6e69;}'
 	+'.search2__button .xButt:not(.sett):hover{background-color: rgba(226, 194, 27, 0.47);}'
 	+'.search2__button .xButt .suggest2-form__button:hover{background-color: #e4d68c}'
@@ -325,7 +368,7 @@ addRules('.z-index-group_level_9{z-index: 11002}' //buttons above suggest
 	+'.sbibtd .sfsbc .nojsb, .siteList .sett:hover .settIn, .siteList .settIn.changed,'
 		+'.siteList .settIn.changed .reload{display: block}.siteList .settIn .reload, .siteList.hiddn{display: none}'
 	+'.select .button.button_checked_yes, .select .button.button_checked_yes .button__text{background-color: rgba(245, 226, 140, 0.7)}');
-xLocStor({do:'get', key:'sett', val:setts, cB: function(prev,undef){
+var ff; (ff=function(CSPolicy){xLocStor({do:'get', key:'sett', val:setts, csp: CSPolicy, cB: function(prev,undef){
 	S = prev || setts;
 	S.dwmyh = S.dwmyh || setts.dwmyh; //temp. transitional expr.
 	console.timeStamp = function(){};
@@ -504,7 +547,7 @@ new Tout({t:120, i:8, m: 1.6
 	}
 });
 
-}, el: d.body});
+}, el: d.body});})(); setTimeout(function(){/*console.log('S1 ', cspState);*/if(cspState <3) ff('CSPolicyFrame');},2000);
 	var saveLocStor = function(ev, val, do2){ var aaa,aab,aac, t = ev && ev.target.form || document.documentElement || document.body;
 		xLocStor({do: do2 ||'set', key:'sett'
 			, val:{lang: (aaa=d.querySelectorAll('.lang', t))[aaa.length-1].value
