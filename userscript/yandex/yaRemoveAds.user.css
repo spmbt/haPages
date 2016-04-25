@@ -1,4 +1,4 @@
-/** Yandex No-ads v22.2016.3.24, Chrome 42+, Fx 40+
+/** Yandex No-ads v22.2016.4.21, Chrome 42+, Fx 40+
  * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
  * LastUpdates: popup_product_*, .container__banner;
  */
@@ -25,6 +25,7 @@
   ,.serp-block_type_default-search
   ,.serp-block.t-default-search
   ,.serp-adv__item,.serp-adv__head
+  ,.bmw__history
     {display: none;}
   .serp-adv{position: absolute; left:-1200px;}
 
