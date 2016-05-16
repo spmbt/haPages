@@ -1,9 +1,9 @@
-/** Habr ZenComment v446.2016.1.13, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v448.2016.5.16, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: anchors in comments;
+ * LastUpdatesDescription: new design when merging with Megamozg;
  */
-@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(http(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
+@-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
 	/*начало стилей для не-Firefox */
 /*для лучшего контраста без HabrAjax - раскомментируйте* /.info a.username{color:#59d!important}/* */
@@ -430,20 +430,22 @@ form#search_form{width: 245px!important;height:21px}
 .content_left .submenu{position: relative; display: inline-block; z-index: 3; height: 22px; top: -13px; margin: -13px 0 -9px!important}
 /*содержание (в статье или в группе .posts)*/
 .content_left .post.shortcuts_item{overflow: inherit!important; margin:12px 0!important}
+.post__header{margin-bottom: 1.2em}
 .content_left .company_post .post{margin-bottom: -5px!important}
 h1{letter-spacing:0!important}
-.content_left .post h1.title{
+.content_left .post h1.title,.post__title{
 	margin: 3px 0 -3px!important;
 	padding-left: 25px!important;
 	font: 16px/118% normal Verdana,Tahoma,sans-serif!important}
-.post h1.title a{letter-spacing: 0}
-.content_left .post h1.title .post_title{
+.post h1.title a,.post__title a{letter-spacing: 0}
+.post__title_link{font-size: inherit}
+.content_left .post h1.title .post_title, .post__title{
 	line-height: 16px;
 	font-size: 16px;
 	text-decoration: none!important;
 	color: #257!important}
-.post h1.title .locked{background-position: 2px 0!important}
-.content_left .post h1.title .post_title:visited{color: #977!important}
+.post h1.title .locked,.post__title .locked{background-position: 2px 0!important}
+.content_left .post h1.title .post_title:visited,.post__title:visited{color: #977!important}
 
 /*tmfeed.ru*/
 .App >.container{padding: 0!important}
@@ -491,14 +493,15 @@ h1{letter-spacing:0!important}
 
 .profile-header +.column-wrapper >.content_left{margin-left: 5px}
 .content_left .company_post h1.title .post_title{font-size: 18px!important;font-weight: normal}
-.content_left :not(.company_post) .post h1.title .post_title:hover{color: #84b18a!important}
+.content_left :not(.company_post) .post h1.title .post_title:hover,
+.content_left :not(.company_post) .post__title:hover{color: #84b18a!important}
 .title sup{
 	padding:0 4px!important;
 	font: 13px/118% normal Verdana,Tahoma,sans-serif !important;
 	font-size-adjust: 0.45;
 	font-variant: small-caps;
 	vertical-align: 2px!important;border-radius: 4px;}
-.post h1.title .translation{background-color:#def!important}
+.post h1.title .translation,.post__title .translation{background-color:#def!important}
 .content_left .post .hubs{float: right; position: relative; z-index:2; margin: -1px 8px -3px -12px!important; white-space: nowrap; opacity: 0.7; background: 0 0!important; color: transparent!important}
 .content_left .hubs +.content{clear: both}
 .content_left .hubs .profiled_hub{display: inline-block; vertical-align: top!important; height: 9px!important; margin:0 -4px 0 1px!important; font-size:5px!important; background-color: #cbd6ce}
@@ -601,7 +604,7 @@ ul.tags li a{text-decoration:none!important}
 	padding-top:0!important;padding-bottom:0!important;
 	line-height:16px!important;
 	background-position:0 0!important}
-.post .published{position: relative; float: right; margin:3px 4px -4px!important; font-size: 10px!important}
+.post .published, .post__time_published{position: relative; float: right; margin:3px 4px -4px!important; font-size: 10px!important}
 .post .infopanel .comments,
 .post .infopanel .comments a,
 .post .infopanel .voting{margin-right: 7px!important}
@@ -618,7 +621,8 @@ ul.tags li a{text-decoration:none!important}
 .post .infopanel .author .rating{top: auto!important; vertical-align: -3px!important;font-weight: normal!important}
 .post .infopanel .comments{margin-left: 5px!important;background: url(data:image/gif;base64,R0lGODlhDAAOANQVAIGhtsHU2uLq79Tv8qbE0dLh6/f//+z6+9/09r/c8Nru+rfL2O3y9sbY4+Pz+4movMjk8K/K0svc59Xr+r3P3P7//4WkuQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABcALAAAAAAMAA4AAAVRIFOMJCmJVaqukmS8cNxIxxHceN00SO//u8EgQiwKKRShcjmgLCAQgnQKXSwG0Gx2YHXUDgpozRERPM6PhiJhaQsu8AsjPQHE7/K0HR9nSOMhADs=) no-repeat 2px 2px #e5e4eb!important}
 .post .infopanel .comments a{padding:3px 4px 4px 17px!important}
-.author-info{overflow: inherit; padding: 2px 0 0 3px}
+.author-info{overflow: inherit; white-space: normal; padding: 2px 0 0 3px}
+.author-info__desc{white-space: normal;}
 .profile-header .author-info__desc{vertical-align: top; margin-top:-6px}
 .author-info__username, .author-info__specialization{display: inline-block; padding-right: 6px}
 .page-nav #nav-pages,.page-nav{
@@ -1042,7 +1046,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 .conversation_page{margin-left:3px!important}
 
 /*сайдбар*/
-#sidebar,.sidebar_right,.Sidebar{overflow: hidden;float: none!important; width:auto!important;margin:0!important;padding-bottom:3px;line-height: 1.18 !important}
+#sidebar,.sidebar_right,.Sidebar{overflow: hidden; width: calc(26% - 8px)!important;margin:0!important;padding-bottom:3px;line-height: 1.18 !important}
 .block.float_block{position:static!important}
 .block.user_info .join{float:right;padding-top:0!important}
 .block.user_info .stats{width:auto!important}
@@ -1158,6 +1162,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
 	.content-list{font-family: arial,Tahoma,Verdana,Segoe,sans-serif}
 	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
+	.sidebar-block_top-hubs .content-list__item{margin-left: 2.8em}
 	.content-list__item.vacancy .vacancy__attrs.attrs,
 	.content-list__item.task .task__attrs.attrs{top: -4px; margin: -1px 0 0 1.8em}
 		.content-list__item-link{line-height: 1.2}
@@ -1324,6 +1329,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	):not(.ppa_links
 	):not(.company_widgets
 	):not(.saveCompaSide
+	):not(.sidebar-block_top-hubs
 	):not(.hAjaxLogo
 	):not(.habrAjaxInfo){display:none!important; height: 0; opacity: 0;}
 .sidebar_right .company_widgets >div:not(.corporate_news

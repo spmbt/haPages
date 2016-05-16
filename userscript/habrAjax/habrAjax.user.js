@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 158.2016.3.13
+// @version 159.2016.5.16
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,6 +15,7 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
+// @update 158 new design of Habr;
 // @update 157 isNews folding; folding-list of authors is fixed; test of internal links; "сдщыув access@ pages;
 // @update 154 fix protocol in Ajax; fix https for closed articles;
 // @grant GM_registerMenuCommand
@@ -2729,19 +2730,19 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 
 	+'.content_left{padding-right: 27%}'
 	+'.sidebar_right{margin-left: -25%; width: 25%}'
-	+'.content_left .post h1.title .post_title{display: inline-block;margin: -1px -3px!important; padding: 0 2px 1px 3px!important; border-radius: 2px;background-image: none!important}h1{letter-spacing:0!important}'
-	+'.post h1.title a{letter-spacing: 0}'
+	+'.content_left .post h1.title .post_title, .content_left .post__title{display: inline-block;margin: -1px -3px!important; padding: 0 2px 1px 3px!important; border-radius: 2px;background-image: none!important}h1{letter-spacing:0!important}'
+	+'.post h1.title a, .post__title_link{letter-spacing: 0}'
 	+'.content_left table.menu .profile a{position:relative; z-index:2; opacity:0.4}'
 	+'.content_left table.menu .profile a:hover{opacity:0.9}'
 	+'.content_left .post{margin: 12px 0 32px !important;overflow: inherit !important}'
 	+'.content_left .company_post .post{margin-bottom: -5px!important}'
 	+'.company_header .company_icon img{position: absolute; margin-top:'+(h.inZen?29:43)+'px!important}'
-	+'.content_left .post h1.title{margin: 3px 0 -3px!important;font: 16px/188% normal Verdana,Tahoma,sans-serif!important}'
-	+'.content_left .post h1.title .post_title{	line-height: 16px;font-size: 16px;text-decoration: none!important;color: #48a!important}'
-	+'.post h1.title .locked{background-position: 2px 0px!important}'
-	+'.sidebar_right .block .all a:visited,.content_left .post h1.title .post_title:visited{color: #b99!important}'
-	+'.content_left .company_post h1.title .post_title{font-size: 18px!important;font-weight: normal}'
-	+'.content_left :not(.company_post) .post h1.title .post_title:hover{color: #84b18a!important}'
+	+'.content_left .post h1.title, .content_left .post__title{margin: 3px 0 -3px!important;font: 16px/188% normal Verdana,Tahoma,sans-serif!important}'
+	+'.content_left .post h1.title .post_title,.content_left .post h1.title .post__title{line-height: 16px;font-size: 16px;text-decoration: none!important;color: #48a!important}'
+	+'.post h1.title .locked, .content_left .post h1.title .locked{background-position: 2px 0px!important}'
+	+'.sidebar_right .block .all a:visited,.content_left .post h1.title .post_title:visited,.post .post__title:visited{color: #b99!important}'
+	+'.content_left .company_post h1.title .post_title,.content_left .company_post .post__title{font-size: 18px!important;font-weight: normal}'
+	+'.content_left :not(.company_post) .post h1.title .post_title:hover,.content_left :not(.company_post) .post__title:hover{color: #84b18a!important}'
 	+'.content_left .post .hubs{float: right; position: relative; z-index:2; margin: 1px 8px 2px -12px!important; white-space: nowrap; opacity: 0.7; background: 0 0!important; color: transparent!important}.content_left .hubs +.content{clear: both}'
 	+'.content_left .hubs .profiled_hub{display: inline-block; vertical-align: top!important; height: 9px!important; margin:0 -4px 0 1px!important; font-size:5px!important; background-color: #cbd6ce}'
 
@@ -2995,7 +2996,7 @@ addRules((hS.inZen.val ?'body{text-align: inherit!important;font-family: Verdana
 
 	+(h.inZen ?'.comment_item .info a.favorite{left:-3px}':'.entry-info-wrap .btnBack{top:7px}'
 		+'.infopanel_wrapper >.g-plusone +.likes{margin-top: 5px}')
-	+(hS.noSomeSideBlocks.val && !h.inZen?'#navbar .nav_tab .line,#navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important} #TMpanel .bmenu.special,#TMpanel .menu.special,.special_navbar_image,#print_tab,#TMpanel .bmenu.slink,#TMpanel .menu.slink,.header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/ #header .main_menu .banner_special,.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,div[class*="what_are_you_doing"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.posts_list .post_item img,body >a,.company_top_banner,.sidebar_right .banner_240x400{display:none!important; height: 0; opacity: 0;} .sidebar_right >div:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not([class="block daily_best_posts"]):not([class="live-broadcast live-broadcast_habrahabr daily_best_posts"]):not([class="live-broadcast live-broadcast_geektimes daily_best_posts"]):not([class="live-broadcast live-broadcast_megamozg daily_best_posts"]):not(.live-broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.similar_events):not(.events_search_filter):not(.favorite_tags):not(.for_authors_help):not(.top_hub_invest):not(.ppa_links):not(.company_widgets):not(.saveCompaSide):not(.hAjaxLogo):not(.habrAjaxInfo){display:none!important; height: 0; opacity: 0;} .sidebar_right .company_widgets >div:not(.corporate_news):not(.company_links):not(.corporate_blog):not(.mobile_applications):not(.hantim_vacanies),.sidebar_right >.block >a,.sidebar_right >.block >iframe,.sidebar_right >.block.daily_best_posts >div:not(.title):not(.posts_list):not(.all),.sidebar_right div[class*=banner]{display:none!important; height: 0; opacity: 0;} .content_left >div:not(.tabs):not(.post_show):not(.user_info):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),.content_left >.search_results >.post,.company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),.column-wrapper_bottom >.sidebar_right{display:none!important; height: 0; opacity: 0;} .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count), iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none; height: 0; opacity: 0;}':''));
+	+(hS.noSomeSideBlocks.val && !h.inZen?'#navbar .nav_tab .line,#navbar .nav_tab .line +.title,#navbar .nav_tab .line +.title +.menu{display: none!important} #TMpanel .bmenu.special,#TMpanel .menu.special,.special_navbar_image,#print_tab,#TMpanel .bmenu.slink,#TMpanel .menu.slink,.header .panel-nav-top .banner_special,div[id^="dd_"],div[id^="topline"],/*Chrome*/ #header .main_menu .banner_special,.no_please_one_one_one,.dont-add-our-site-pls,.xixixi,div[class*="what_are_you_doing"],.post_inner_banner,.top_banner,.right_panel,body >iframe[width="100%"],body >a:not(#logo),iframe[src*="//www.facebook.com/plugins"],.posts_list .post_item img,body >a,.company_top_banner,.sidebar_right .banner_240x400{display:none!important; height: 0; opacity: 0;} .sidebar_right >div:not(.blog_info):not(.user_info):not(.habralenta_settings):not(.fast_navigator):not(.similar_posts):not([class="block daily_best_posts"]):not([class="live-broadcast live-broadcast_habrahabr daily_best_posts"]):not([class="live-broadcast live-broadcast_geektimes daily_best_posts"]):not([class="live-broadcast live-broadcast_megamozg daily_best_posts"]):not(.live-broadcast):not(.similar_questions):not(.company_info):not(.corporate_news):not(.company_links):not(.corporate_blog):not(.similar_events):not(.events_search_filter):not(.favorite_tags):not(.for_authors_help):not(.top_hub_invest):not(.ppa_links):not(.company_widgets):not(.saveCompaSide):not(.sidebar-block_top-hubs):not(.hAjaxLogo):not(.habrAjaxInfo){display:none!important; height: 0; opacity: 0;} .sidebar_right .company_widgets >div:not(.corporate_news):not(.company_links):not(.corporate_blog):not(.mobile_applications):not(.hantim_vacanies),.sidebar_right >.block >a,.sidebar_right >.block >iframe,.sidebar_right >.block.daily_best_posts >div:not(.title):not(.posts_list):not(.all),.sidebar_right div[class*=banner]{display:none!important; height: 0; opacity: 0;} .content_left >div:not(.tabs):not(.post_show):not(.user_info):not(.block_after_post):not(.comments_list):not(.comments_form):not(.edit_tags_form):not(.posts_list):not(.columns-group):not(.top-materials):not(.company_post):not(.company_blog):not(.user_profile):not(.user_comments):not(.user_favorites):not(.peoples_list):not(.hubs_list):not(.companies_list):not(.company_profile):not(.post):not(.tracker_page):not(.topic_add):not(.conversation_page):not(.user_settings):not(.apps):not(.info_page):not(.ppa_rules):not(.user_invites):not(.user_notes):not(.user_reset):not(.lenta_settings):not(.company_questions):not(.search_results),.content_left >.search_results >.post,.company_post >div:not(.post):not(.block_after_post):not(.comments_list):not(.comments_form):not(.post),.column-wrapper_bottom >.sidebar_right{display:none!important; height: 0; opacity: 0;} .posts >.shortcuts_item:not(.post),#yandex_ad,#header_mouse_activity,.live_broadcast .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count),.daily_best_posts .posts_list .post_item a:not(.blog_name):not(.user_name):not(.post_name):not(.count), iframe[src*="facebook"],.footer_logos,.daily_best_posts .supported_by_bookmate,.daily_best_posts .title.hide_on_float,.daily_best_posts .posts_list.hide_on_float,.html_banner{display:none; height: 0; opacity: 0;}':''));
 if(hS.colorAuthorTAH.val) addRules('.comment_item .info.is_new.is_topicAuthor, .comment_item .comment_head.is_new.is_topicAuthor{background:#F5ECF5!important}');
 h.uFrmWid = h.inZen || win.opera ?'74%':'66%';
 
@@ -3523,7 +3524,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 		if(hS.gooYa.val && srchBut){ //поиск по сайту
 			var srchInFav = function(ev, srch){
 				var topic = $q('.post')
-					,topicTitle = topic && $q('h1.title .post_title', topic);
+					,topicTitle = topic && ($q('h1.title .post_title', topic) || $q('.post__title', topic) );
 				var topicTitleVal = topicTitle && ('"'+ topicTitle.innerHTML.replace(/"/g,'&quot;').replace(/&nbsp;/g,' ') +'"');
 				var tValue = $q('input[name="q"]', ev.target.parentNode).value
 					,valEmpt = tValue=='' || tValue =='поиск по сайту'
@@ -3666,7 +3667,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				,author = $q('.post-author__link', topic)
 				,autName = author && author.textContent.replace(/^\s*@/,'')
 				,published = $q('.published', topic)
-				,topicTitle = $q('h1.title .post_title', topic) || $q('.megapost-head__title a', topic)
+				,topicTitle = $q('h1.title .post_title', topic) || $q('.$q('.post__title', topic) ', topic) || $q('.megapost-head__title a', topic)
 				,hubs = $qA('.hubs >.hub', topic)
 				,content = $q('.content', topic) || $q('.article__body', topic)
 				,isNews = $q('.flag_news', topic)
