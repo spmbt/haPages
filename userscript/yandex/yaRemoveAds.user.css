@@ -1,6 +1,6 @@
-/** Yandex No-ads v24.2016.5.16, Chrome 42+, Fx 40+
+/** Yandex No-ads v25.2016.5.17, Chrome 42+, Fx 40+
  * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
- * LastUpdates: stripe_type_promo;
+ * LastUpdates: dist-popup;
  */
 @-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"){
   .container__banner
@@ -12,6 +12,7 @@
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
   ,.b-head-universal-wrapper
   ,.i-bem.popup.popup_product_set
+  ,.dist-popup
   ,.popup_product_browser
   ,.popup__content.dist-popup__content
   ,.universal-stripe-wrapper
