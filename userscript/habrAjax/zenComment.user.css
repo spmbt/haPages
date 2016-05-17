@@ -1,7 +1,7 @@
-/** Habr ZenComment v448.2016.5.16, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v449.2016.5.17, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: new design when merging with Megamozg;
+ * LastUpdatesDescription: little .post__flow;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -438,7 +438,15 @@ h1{letter-spacing:0!important}
 	padding-left: 25px!important;
 	font: 16px/118% normal Verdana,Tahoma,sans-serif!important}
 .post h1.title a,.post__title a{letter-spacing: 0}
-.post__title_link{font-size: inherit}
+.post__flow{display: inline-block;
+	overflow: hidden;
+	width: 1.15em;
+	margin-right:-6px;
+	line-height: 18px;
+	font-size: 16px;}
+.post__flow[href*="/misc/"]{width: auto}
+.post__flow[href*="/mark"]{width: 1.9em}
+.post__title_link{font-size: inherit; line-height: 18px;}
 .content_left .post h1.title .post_title, .post__title{
 	line-height: 16px;
 	font-size: 16px;

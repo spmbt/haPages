@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 159.2016.5.16
+// @version 160.2016.5.17
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,7 +15,7 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 158 new design of Habr;
+// @update 159 new design of Habr; strongCut;
 // @update 157 isNews folding; folding-list of authors is fixed; test of internal links; "сдщыув access@ pages;
 // @update 154 fix protocol in Ajax; fix https for closed articles;
 // @grant GM_registerMenuCommand
@@ -2738,8 +2738,8 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.content_left .company_post .post{margin-bottom: -5px!important}'
 	+'.company_header .company_icon img{position: absolute; margin-top:'+(h.inZen?29:43)+'px!important}'
 	+'.content_left .post h1.title, .content_left .post__title{margin: 3px 0 -3px!important;font: 16px/188% normal Verdana,Tahoma,sans-serif!important}'
-	+'.content_left .post h1.title .post_title,.content_left .post h1.title .post__title{line-height: 16px;font-size: 16px;text-decoration: none!important;color: #48a!important}'
-	+'.post h1.title .locked, .content_left .post h1.title .locked{background-position: 2px 0px!important}'
+	+'.content_left .post h1.title .post_title,.content_left .post__title{line-height: 16px;font-size: 16px;text-decoration: none!important;color: #48a!important}'
+	+'.post h1.title .locked, .content_left .post__title .locked{background-position: 2px 0px!important}'
 	+'.sidebar_right .block .all a:visited,.content_left .post h1.title .post_title:visited,.post .post__title:visited{color: #b99!important}'
 	+'.content_left .company_post h1.title .post_title,.content_left .company_post .post__title{font-size: 18px!important;font-weight: normal}'
 	+'.content_left :not(.company_post) .post h1.title .post_title:hover,.content_left :not(.company_post) .post__title:hover{color: #84b18a!important}'
@@ -3665,13 +3665,13 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				,linkA = $q('.link .link a', topic)
 				,origA = $q('.original-author a', topic)
 				,author = $q('.post-author__link', topic)
-				,autName = author && author.textContent.replace(/^\s*@/,'')
-				,published = $q('.published', topic)
-				,topicTitle = $q('h1.title .post_title', topic) || $q('.$q('.post__title', topic) ', topic) || $q('.megapost-head__title a', topic)
+				,autName = author && author.textContent.replace(/^\s*@|\s*$/g,'')
+				,published = $q('.published', topic) || $q('.post__time_published', topic)
+				,topicTitle = $q('h1.title .post_title', topic) || $q('.post__title', topic) || $q('.megapost-head__title a', topic)
 				,hubs = $qA('.hubs >.hub', topic)
 				,content = $q('.content', topic) || $q('.article__body', topic)
 				,isNews = $q('.flag_news', topic)
-				,topicHaCut = $q('a.habracut', topic)
+				,topicHaCut = $q('a.habracut', topic) || $q('a.button[href*="#habracut"]', topic)
 				,info = $q('.postinfo-panel', topic) || $q('.postinfo-panel__item', topic) || $q('.infopanel_wrapper', topic)
 				,news =0
 				,commLink = $q('.infopanel_wrapper .post-comments .post-comments__link', topic);
@@ -3771,7 +3771,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				}
 			}//конец toBK
 			if(hS.strongCut.val && $q('.content:not(.c2)', topic)){ //ограничение высоты начал статей (244px)
-				topic.querySelector('.content:not(.c2)').className +=' powerCut';
+				$q('.content:not(.c2)', topic).className +=' powerCut';
 				blockBrs($q('.content:not(.c2)', topic));
 			}
 			if(underCut && topicTitle)
@@ -3788,7 +3788,8 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				,txtHA ='обуч.,реш.,пес.,перевод,восст.'.split(',');
 			for(var j=0; j < 5; j++){
 				var flag = $q('.flag_'+ cssSite[j], parents('^title$', topicTitle));
-				if(flag){
+				if(flag && flag.style.display !='none'){
+					console.log('flag', $q('.flag_'+ cssSite[j], parents('^title$', topicTitle)) )
 					var txtHAJ = flag.tagName !='A' ? '<div class='+ cssHA[j] +'3>'+ txtHA[j] +'</div>'
 						: '<a class='+ cssHA[j] +'3 href="'+ flag.href +'">'+ txtHA[j] +'</a>';
 					$e({cl: cssHA[j] +1
@@ -3908,6 +3909,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			extLinks(content); //внешние ссылки в подгруженном
 			showSourceLang(content); //показ языка кодов в подгруженном
 		}
+		console.log('strongCut')
 		if(hS.strongCut.val){ //перенос изображений вверх после их загрузки
 			var sCutI =0, sCutWw;
 			sCutWw = win.setTimeout(function(){
