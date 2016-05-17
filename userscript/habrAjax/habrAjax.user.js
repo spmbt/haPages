@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 160.2016.5.17
+// @version 161.2016.5.17
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,7 +15,7 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
-// @update 159 new design of Habr; strongCut;
+// @update 160 new design of Habr; strongCut; repair habrAjax (for Habr);
 // @update 157 isNews folding; folding-list of authors is fixed; test of internal links; "сдщыув access@ pages;
 // @update 154 fix protocol in Ajax; fix https for closed articles;
 // @grant GM_registerMenuCommand
@@ -2033,25 +2033,26 @@ showContent = function(ev){ //подгрузить и показать стат�
 	if(ev.ctrlKey ^ ev.shiftKey) return;
 	var URL = location.href
 		,isSearchPage = /\/search/.test(URL)
-		,tLink = this.tagName.toUpperCase() !='SPAN' && this || this.parentNode
+		,tLink = $q('.post__title_link', this) || this.tagName.toUpperCase() !='SPAN' && this || this.parentNode
 		,inFooter = parents('rotated_posts', tLink)
 		,topic = parents('^post($| )', tLink) || inFooter //топик или блок в футере
 		,info2 = $q('.infopanel_wrapper', topic)
 		,clickComments = /comments|infopanel_wrapper/.test(this.parentNode.className); //признак клика по ссылке/кнопке комментариев
-	//'~~topic'.wcl(tLink, topic, info2)
 	if(!tLink.href && (clickComments || $q('.post-comments a', parents('infopanel_wrapper', this)) ) ) //поправка для малых правых кнопок
-		tLink.href = $q('.post-comments a', parents('infopanel_wrapper', this)).href || $q('a', prev('comments', this) ).href;
+		tLink.href = ($q('.post__title_link', parents('post_teaser', tLink) ||tLink)||{}).href
+			|| $q('.post-comments a', parents('infopanel_wrapper', this)).href || $q('a', prev('comments', this) ).href;
 	var commLink = $q('.comments a', info2);
 	if(/ link/.test(topic.className)) //сменить ссылку для подгрузки (на ту, которая в комментариях)
 		tLink = commLink;
-	var topicTitle = $q('.post_title', topic) || parents('^grey$', tLink); //заголовок статьи
+	var topicTitle = $q('.post_title', topic) || $q('.post__title', topic) || parents('^grey$', tLink) || parents('post__title', tLink); //заголовок статьи
+	console.log('~~topic', this, tLink, topic, info2, commLink, topicTitle)
 	if(inFooter && !/^post($| )/.test(inFooter.className))
 		inFooter.className ='post content_left '+  inFooter.className;
 	if(!/blk2nd/.test(this.className)){ //защита от повторного клика
 		this.setAttribute('class', this.className +' blk2nd'); //блокировка повторного клика
 		try{
 			var cnte = $qA('.content', topic)
-				,topicHaCut = $q('a.habracut', topic)
+				,topicHaCut = $q('a.habracut', topic) || $q('a.button[href*="#habracut"]', topic)
 				,commC2 = $q('.comments.c2', topic); //комментарии, если есть с прежней подгр.
 			//'cnte'.wcl(this.tagName.toUpperCase() !='SPAN', this, this.parentNode, cnte[0],cnte[1],topicHaCut, commLink);
 			//'commC2=='.wcl(commC2 && getComputedStyle(commC2, null).getPropertyValue('display'))
@@ -2090,6 +2091,7 @@ showContent = function(ev){ //подгрузить и показать стат�
 					xhr.wasArrows =1; //(стрелки были - и остались)
 				}
 				var url = topicTitle && (tLink.href || commLink && commLink.href || topicTitle.link);
+				console.log('url-haJax ', tLink.href , commLink && commLink.href , topicTitle.link, topicTitle)
 					//-обход заголовка-ссылки, не-ссылок, отсутствия ссылки на комментарии
 				xhr.open('GET', url.replace(/^https?:/,lProt).replace(/_/g,'%5F'), true); //странно, но "_" не переваривает (Fx)
 				xhr.link = this; //активный элемент клика мыши
@@ -2124,12 +2126,15 @@ showContent = function(ev){ //подгрузить и показать стат�
 					var contEdge = $q(!xhr.wasArrows ?'.tags':'.btnBack.n2', topic); //контекст, перед кот.ставится содержание
 					//'contEdge2'.wcl(contEdge, !xhr.wasArrows) || info2; //если нет контекста (блока с тегами)- ориентир.на блок с подписями
 				//'contEdge'.wcl(contEdge)
+					//console.log('conte~0~', tContent, contEdge, this.responseText)
+					//window.cont = this.responseText;
 				//=== точка "ajax-парсинг страницы" ===
 					var conte = this.responseText.match( // ====== парсинг страницы, шаблон ======
 						/<div class="content html_format">([\s\S]*?)<div class="clear"><\/div>[\s\n]+?<\/div>[\s\S]+?(<ul class="tags icon_tag">|<div class="tags icon_tag">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel_wrapper/m) //вся статья (до тегов или подписи)
+							|| this.responseText.match(/<div class="content html_format">([\s\S]*?)[\s\n]+?(<ul class="tags icon_tag">|<div class="tags icon_tag">)\s*([\s\S]*?)\s*(<\/div>|<\/ul>)[\s\S]*?<div class="infopanel_wrapper/m) //для нового 2016.05 формата
 						,tagPars = conte && conte.length ==5 ? conte[3] :''; //вытаскивание тегов
-					//'conte~~'.wcl(conte.length, conte, info2)
-					conte = conte ? conte[1] :''; //устранение ошибки пустого ответа
+					//console.log('conte~~', conte && conte.length, conte);
+					conte = conte ? conte[1].replace(/<\/div>\n\s*<div class="post__tags">/,'') :''; //устранение ошибки пустого ответа
 					conte = haReplace(conte); // обработка слов статьи (без комментариев)
 					var len2 = !conte ?'1': conte.replace(/<a name="habracut"><\/a>(.*|\r|\n)*/m,'') //статья до ката
 						//чтобы было "0%" при отсут.текста
@@ -3789,7 +3794,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			for(var j=0; j < 5; j++){
 				var flag = $q('.flag_'+ cssSite[j], parents('^title$', topicTitle));
 				if(flag && flag.style.display !='none'){
-					console.log('flag', $q('.flag_'+ cssSite[j], parents('^title$', topicTitle)) )
+					//console.log('flag', $q('.flag_'+ cssSite[j], parents('^title$', topicTitle)) )
 					var txtHAJ = flag.tagName !='A' ? '<div class='+ cssHA[j] +'3>'+ txtHA[j] +'</div>'
 						: '<a class='+ cssHA[j] +'3 href="'+ flag.href +'">'+ txtHA[j] +'</a>';
 					$e({cl: cssHA[j] +1
@@ -3802,7 +3807,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				extLinks(origA.parentNode);
 				origA.style.color ='#a33';
 			}
-			var topicHaCut = $q('a.habracut', topic);
+			var topicHaCut = $q('a.habracut', topic) || $q('a.button[href*="#habracut"]', topic);
 			//'underCut'.wcl(underCut, topicHaCut)
 			if(underCut && topicHaCut){ //есть хабракат
 				topicHaCut.addEventListener('click', showContent,!1); //показ статьи или комментариев
@@ -3909,7 +3914,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			extLinks(content); //внешние ссылки в подгруженном
 			showSourceLang(content); //показ языка кодов в подгруженном
 		}
-		console.log('strongCut')
+		//console.log('strongCut')
 		if(hS.strongCut.val){ //перенос изображений вверх после их загрузки
 			var sCutI =0, sCutWw;
 			sCutWw = win.setTimeout(function(){
@@ -4151,7 +4156,7 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 				topicTitleSpan.style.paddingRight ='8px';
 			}
 			var lNAV = hS.listNewsAuthors.val
-				,topicHaCut = $q('a[name="habracut"]', topic)
+				,topicHaCut = $q('a[name="habracut"]', topic) || $q('a.button[href*="#habracut"]', topic)
 				,flagNews = $q('.flag_news', parents('^title$', topicTitle));
 			for(var j in lNAV) if(autName == lNAV[j] || !topicHaCut){
 				topicTitleSpan.style.backgroundColor ='#fafdf2'; //новость (жёлтый)#f2f6e8
