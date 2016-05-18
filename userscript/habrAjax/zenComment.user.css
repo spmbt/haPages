@@ -1,7 +1,7 @@
-/** Habr ZenComment v449.2016.5.17, FF3.6+, Opera11+, Safari5, Chrome, IE8-9
+/** Habr ZenComment v450.2016.5.18, FF3.6+, Opera11+, Safari5, Chrome, IE9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: little .post__flow;
+ * LastUpdatesDescription: similar-posts, post-additionals for companies and in footer of list;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -1169,7 +1169,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.live-broadcast__title, .promo-block__title{padding: 0 0 0 8px; font-size: 1.2em; font-variant: small-caps; letter-spacing: 0}
 	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
 	.content-list{font-family: arial,Tahoma,Verdana,Segoe,sans-serif}
-	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
+	.content-list__item{text-indent: -1em; margin-bottom: 5px; margin-left: 1em}
 	.sidebar-block_top-hubs .content-list__item{margin-left: 2.8em}
 	.content-list__item.vacancy .vacancy__attrs.attrs,
 	.content-list__item.task .task__attrs.attrs{top: -4px; margin: -1px 0 0 1.8em}
@@ -1198,7 +1198,7 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.sidebar_right .content-list__item-counter{margin-left: 15px}
 	.content-list__item-counter_icon{margin-left: 1px}
 	.content-list__item-counter_icon::before{margin-right:0; margin-left: 13px}
-    .content-list__item-counter.icon_comments::before, .content-list__item-counter.icon_answers::before{margin-right:0}
+    .content-list__item-counter.icon_comments::before, .content-list__item-counter.icon_answers::before{margin-right:2px}
 	.content-list_top-materials .content-list__item-link{font-size: 14px}
 	.post-preview__desc{display: inline-block; margin-left: 3em}
 	.post-preview, .post-preview__desc,
@@ -1206,17 +1206,21 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	.content-list__item_wrap{overflow: inherit}
 
 	.similar-posts__title{padding: 0 0 0 20px; font-variant: small-caps; font-size: 14px}
-	.content-list_posts .content-list__item{margin-left: 3.7em; padding: 0 0 0 20px}
+	.content-list_posts .content-list__item{margin-left: .1em; padding: 0 0 0 1px}
 	.content-list_posts .content-list__item{border-top: 0}
-	.post-preview__rating{margin-top: -1px; font-size: 12px}
+	.post-preview__rating{min-width: 12px; margin-top: -1px; font-size: 12px}
 	.post-preview__link{margin-bottom: 0; font-size: 14px}
 
 	.columns-group .columns-group__column,
-	.columns-group__column{display: table-cell; width: 50%; text-align: left}
-	.columns-group__column .live-broadcast__title, .columns-group__column .promo-block__title, .promo-block__title-link{font-size: 16px}
+	.columns-group__column,
+	.column-wrapper_bottom .similar-posts,
+	.column-wrapper_bottom .live-broadcast{display: table-cell; width: 50%; text-align: left}
+	.columns-group__column .live-broadcast__title, .columns-group__column .promo-block__title, .promo-block__title-link,
+	.column-wrapper_bottom .live-broadcast__title, .column-wrapper_bottom .promo-block__title{font-size: 16px}
 	.promo-block{padding-bottom: 30px}
 	.promo-block__content{padding: 6px 8px 8px 8px}
 	.promo-block__footer{padding: 4px 0 8px}
+	.dropdown_broadcast{top: 4px}
 
 #footer{width: auto!important; min-width: 314px!important; margin-bottom: 0!important; padding: 7px 0 0 0!important}
 #footer:before{position:relative; display:block; float:right; height:0; top:-5px; right:2px; white-space:nowrap; margin-top:-4px!important; font-size: 9px; color:#888; content:"ZenComment by spmbt"}
@@ -1355,6 +1359,8 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 	):not(.post_show
 	):not(.user_info
 	):not(.block_after_post
+	):not(.similar-posts
+	):not(.live-broadcast
 	):not(.comments_list
 	):not(.comments_form
 	):not(.edit_tags_form
@@ -1387,6 +1393,8 @@ body >.rotated_posts{width: 100%; padding-left: 0!important}
 .content_left >.search_results >.post,
 .company_post >div:not(.post
 	):not(.block_after_post
+	):not(.post-additionals
+	):not(.similar-posts
 	):not(.comments_list
 	):not(.comments_form
 	):not(.post),
