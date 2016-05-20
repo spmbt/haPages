@@ -1,7 +1,7 @@
-/** HabraDarkAge v440.2016.5.16, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v441.2016.5.20, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/, license CC-BY-NC v.4.0
  * Author: github.com/WaveCutz, github.com/spmbt
- * LastUpdatesDescription: new layout of Habr;
+ * LastUpdatesDescription: before footer, search button, new sidebar blocks;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -87,6 +87,9 @@ textarea{resize: vertical!important}
 #comments_form textarea{min-height: 4.6em}
 .global_search_form input[type="text"]{background: rgba(98,98,98,0.33)!important}
 
+.search-form__button,
+.open .icon_cog,
+.btn.icon_cog,
 .buttons a.button.habracut,
 .buttons button,
 .buttons a.button,
@@ -126,6 +129,8 @@ textarea{resize: vertical!important}
 	border-color: #424549 #383a3f #35383e!important;
 	color: #cde!important;
 	transition: all 0.4s!important}
+.search-form__button.icon_search:before{line-height: 2.3}
+.search-form__button{height: 40px}
 .buttons input.green,
 .buttons input.green:active{
 	box-shadow: inset 0 1px 2px #5a6a5a;
@@ -849,8 +854,9 @@ body.company .comments_list h2.comments-header,
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIZJREFUeNpi/P//v9CGZdl5DMSBLwFRU+cyrl+a1QBkMBALgBYwsKAL4ALIBrPgksAHhqNNjMB4EgDaUIBNIzabgfLdIE3MQDYTELMCFZUhawRpArI7gcx/UDV/gfg/iPEfiP8A8Xeggh4sNoAU/gLJQ+nfTFATYOAryHo0jf+hNAdMACDAAOtwQh5VT82WAAAAAElFTkSuQmCC) 0 13px no-repeat!important;}
 h2.title .subscribe_comments{color: #899!important}
 h2.title .subscribe_comments label input{opacity: 0.6}
-.similar-posts{background-color: #222; opacity:.5; transition: all 300ms}
-.similar-posts:hover{opacity:.98}
+.similar-posts{border-right: 2px solid #333}
+.similar-posts, .live-broadcast, .live-broadcast.live-broadcast_habrahabr{background: #222; opacity:.5; transition: all 300ms}
+.similar-posts:hover, .live-broadcast:hover{opacity:.98}
 .similar-posts h2{letter-spacing:0}
 
 
@@ -1023,7 +1029,11 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 #write_message_form input.submit,
 #add_message_form input.submit,
 .conversation_form input.submit{margin-left: 60px!important}
-.sidebar_right{margin-top:-67px}
+.sidebar_right{margin-top:-3px}
+.sidebar_content-area.sticky_init > div, .sidebar_content-area > div.is_visible{
+	position: relative;
+	top: 60px;
+	z-index: 99992;}
 
 /* общие расцветки */
 .content_left table.menu tr td span.count_new,
@@ -1117,6 +1127,7 @@ form .notification_table th{color: #838383!important}
 .editor .text-holder,
 .conversations .conversation:hover,
 .conversations .conversation.new{background: #444; border: 1px solid #555}
+.form-additionals{margin: -12px 0 12px}
 
 .tracker_page table[class^=tracker] tr th{border-bottom-color: #777}
 select{background: #555; color: #ccc; border: 1px solid #555!important}
@@ -1334,7 +1345,7 @@ body >#logo >img{opacity: 0.16}
 	display: block;
 	position: fixed;
 	z-index: 0;
-	width: 100%;
+	width: calc(100% - 350px);
 	max-width: 1440px;
 	top: -10px;
 	bottom: 0;
@@ -1512,7 +1523,7 @@ body >#logo >img{opacity: 0.16}
 	.live-broadcast__title, .promo-block__title{padding: 0 0 0 8px; font-size: 1.2em; font-variant: small-caps; letter-spacing: 0}
 	.sidebar_right .content-list__item-counter{margin-left: 15px}
 	.content-list__item-counter_icon{margin-left: 1px}
-	.content-list__item-counter.icon_comments::before, .content-list__item-counter.icon_answers::before{margin-right:0}
+	.content-list__item-counter.icon_comments::before, .content-list__item-counter.icon_answers::before{margin-right:2px}
 	.tabs__menu_comments::before, .tabs__menu_posts::before, .menu__item-tab{height: auto; line-height: 19px}
 	.content-list__item{text-indent: -1.8em; margin-bottom: 5px; margin-left: 1.8em}
 	.sidebar-block_top-hubs .content-list__item{margin-left: 2.8em}
@@ -1525,7 +1536,7 @@ body >#logo >img{opacity: 0.16}
 		margin: 7px 1.5% 2px 1.5%;
 		padding: 8px;
 		text-align: left}
-	.live-broadcast{background: transparent!important}
+	.live-broadcast{margin-left: 2px}
 	.live-broadcast_geektimes .live-broadcast__title::before, .live-broadcast_megamozg .live-broadcast__title::before,
 	.live-broadcast_habrahabr .live-broadcast__title::before,
 	.top-materials_geektimes .top-materials__title::before, .top-materials_megamozg .top-materials__title::before,
@@ -1536,10 +1547,12 @@ body >#logo >img{opacity: 0.16}
 	.live-broadcast__title,
 	.top-materials__title, .top-materials__title-link{font-size: 16px}
 	.live-broadcast__title{margin-bottom: 2px}
+	.live-broadcast__content{border-top-color: #777;}
 	.top-materials__title{margin-bottom: 2px}
+	.content-list__item{text-indent: -1em; margin-bottom: 5px; margin-left: 1em}
 	.content-list .content-list__item::before,
 	.content-list_top-materials .content-list__item::before,
-	.content-list_top-materials .content-list__item{margin: 0 12px 0 4px; line-height: 1}
+	.content-list_top-materials .content-list__item{margin: 0 12px 0 -21px; line-height: 1}
 	.content-list_top-materials .content-list__item::before{margin-top: 2px;
 		margin-bottom: -2px;
 		font-size: 12px;
@@ -1557,32 +1570,47 @@ body >#logo >img{opacity: 0.16}
 	.inline-list__item{margin-right: 30px}
 
 	.post-preview__attrs{padding-left: 1.7em}
-	.views-count::before, .favorites-count::before, .comments-count::before{margin-right:-3px; margin-left: 0; opacity: .3}
+	.views-count::before, .favorites-count::before, .comments-count::before{margin-right: 3px; margin-left: 0; opacity: .3}
 	.comments-count::before{opacity: .3}
 
 	.similar-posts__title{padding: 0 0 0 20px; font-variant: small-caps; font-size: 14px}
 	.content-list_posts .content-list__item{margin-left: 1.7em; padding: 0 0 0 20px}
 	.content-list_posts .content-list__item{border-top: 0}
-	.post-preview__rating{display: inline; min-width: 38px; line-height: 1.2em; font-size: 12px}
+	.post-preview__rating{min-width: 12px; display: inline; line-height: 1.2em; font-size: 12px}
 	.post-preview__link{display: inline; margin-bottom: 0; line-height: 1.1em; font-size: 14px}
 
 	.columns-group .columns-group__column,
-	.columns-group__column{display: table-cell; width: 50%; text-align: left}
-	.columns-group__column .live-broadcast__title, .columns-group__column .promo-block__title, .promo-block__title-link{font-size: 16px}
+	.columns-group__column,
+	.column-wrapper_bottom .similar-posts,
+	.column-wrapper_bottom .live-broadcast{display: table-cell; width: 50%; text-align: left}
+	.columns-group__column .live-broadcast__title, .columns-group__column .promo-block__title, .promo-block__title-link,
+		.column-wrapper_bottom .live-broadcast__title, .column-wrapper_bottom .promo-block__title{font-size: 16px}
 	.promo-block{padding-bottom: 30px}
 	.promo-block__content{padding: 6px 8px 8px 8px}
 	.promo-block__footer{padding: 4px 0 8px}
+	.dropdown_broadcast{top: 4px}
+	.n-dropdown-menu{
+		padding: 8px!important;
+		border: 1px solid #555;
+		border-radius: 4px;
+		background-color: #444;
+		opacity: .8;}
+	.n-dropdown-menu .checkbox__label{color: #bbb; cursor: pointer}
+	.n-dropdown-menu .checkbox__label:before{background-color: #bbb;}
 
 	.column-wrapper_bottom .columns-group__column, .top-materials, .live-broadcast__tabs, .sidebar-block_top-hubs{background: #222; opacity: .5!important}
 	.column-wrapper_bottom .columns-group__column:hover, .top-materials:hover, .live-broadcast__tabs:hover, .sidebar-block_top-hubs:hover{opacity: .99!important; transition: all 300ms}
-	.sidebar-block_top-hubs{border-top-color: #555; border-bottom-color: #777;}
+	.sidebar-block_top-hubs{
+		position: relative;
+		top: 31px;
+		border-top-color: #555; border-bottom-color: #777;}
 	.sidebar-block__title{border-bottom-color: #777;}
 	.sidebar-block__footer{border-top-color: #444;}
 	.top-users.top-user_rating tr td.userinfo .username .bar{background-color: #555}
 	.column-wrapper_bottom .content_left{margin-top:-55px; padding-right: 0}
 	.columns-group__column{border-right-color: #333}
 	.columns-group__column +.columns-group__column{border-left-color: #333}
-
+	.column-wrapper_bordered{border-top: 0}
 
 	/*no pasaran*/
 #navbar .nav_tab .line,
@@ -1637,6 +1665,8 @@ body >#logo >img{opacity: 0.16}
 	):not(.post_show
 	):not(.user_info
 	):not(.block_after_post
+	):not(.similar-posts
+	):not(.live-broadcast
 	):not(.comments_list
 	):not(.comments_form
 	):not(.edit_tags_form
@@ -1669,6 +1699,8 @@ body >#logo >img{opacity: 0.16}
 .content_left >.search_results >.post,
 .company_post >div:not(.post
 	):not(.block_after_post
+	):not(.post-additionals
+	):not(.similar-posts
 	):not(.comments_list
 	):not(.comments_form
 	):not(.post),
@@ -1727,6 +1759,7 @@ iframe[src*="facebook"],.footer_logos,
 	text-shadow: 0 1px 0 #9ab!important;
 	transition: all 0.4s ease 0s!important}
 .buttons .btn:hover{background-image: linear-gradient(#5f6366 20%, #55585b 90%)!important}
+.btn_outline_grey{border: 1px solid #888}
 
 #layout >#footer .copyright{border-top: 1px solid #666}
 

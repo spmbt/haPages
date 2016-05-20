@@ -1,7 +1,7 @@
-/** Habr ZenComment v450.2016.5.18, FF3.6+, Opera11+, Safari5, Chrome, IE9
+/** Habr ZenComment v451.2016.5.18, FF3.6+, Opera11+, Safari5, Chrome, IE9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
- * LastUpdatesDescription: similar-posts, post-additionals for companies and in footer of list;
+ * LastUpdatesDescription: .sticky_init .broadcast;
  */
 @-moz-document regexp("https?://(m\.|webcache\.googleusercontent.com\/search\\?q=cache(:|%3A|%3a)(https?(:|%3A|%3a)(/|%2F|%2f)(/|%2F|%2f))?)?(habrahabr|geektimes|megamozg|tmfeed|h).ru(?!/special|/api).*"){
 
@@ -1120,6 +1120,7 @@ h3+ #reply_form_0 .text-holder textarea{margin-left: 0!important}
 	display: inline-block !important;
 	margin-bottom: 6px !important;
 	opacity: 0.3}
+.sticky_init .broadcast{width: 26%}
 .block.freelansim .task, .block.block_freelansim .task, .block.new_vacanies .job_item, .block.block_brainstorage .job_item{margin:0!important}
 .best_company +.block.new_vacanies .vacancies .job_item, .best_company +.block.block_brainstorage .vacancies .job_item{display: block}
 .block .vacancies .job_item >div{float: none!important;background-color:transparent!important;color:#666}
