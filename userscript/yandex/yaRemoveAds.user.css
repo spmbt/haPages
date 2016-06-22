@@ -1,6 +1,6 @@
-/** Yandex No-ads v22.2016.3.24, Chrome 42+, Fx 40+
+/** Yandex No-ads v27.2016.6.16, Chrome 42+, Fx 40+
  * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
- * LastUpdates: popup_product_*, .container__banner;
+ * LastUpdates: teaser,adFox,banner,.umzx,.quqz;
  */
 @-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"){
   .container__banner
@@ -12,10 +12,11 @@
   ,.b-line_bar .b-table__cell.b-line_bar__cell:not(.header_table_close)
   ,.b-head-universal-wrapper
   ,.i-bem.popup.popup_product_set
+  ,.dist-popup
   ,.popup_product_browser
   ,.popup__content.dist-popup__content
   ,.universal-stripe-wrapper
-  ,.serp-list .z-default-search.z-default-search_js_inited
+  ,.serp-list .z-default-search
   ,.head-stripe__table, .head-stripe__image
     {display: none!important;}
   .head-stripe.serp, .head-stripe__elements{height: auto;}
@@ -25,6 +26,7 @@
   ,.serp-block_type_default-search
   ,.serp-block.t-default-search
   ,.serp-adv__item,.serp-adv__head
+  ,.bmw__history
     {display: none;}
   .serp-adv{position: absolute; left:-1200px;}
 
@@ -58,7 +60,7 @@
   /* colored ads */
   .serp-meta2.serp-meta2_type_gray
   ,div:not(.serp-item__text) +.serp-sitelinks
-  ,.text.organic__text
+  ,.organic__subtitle_label_yes + div .text.organic__text
   ,.sitelinks.organic__sitelinks
   ,.serp-url +div:not(.serp-item__text)
   ,.serp-meta
@@ -119,6 +121,7 @@
   ,#swiffycontainer
   ,.block-messages .b-direct.b-direct_messages
   ,.b-page .b-statusline_promo-yabrowser
+  ,.stripe_type_promo
   ,.mail-in-browser-line
     {display:none!important; height:0;}
 
@@ -131,15 +134,16 @@
   /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
   .page-content__right .banner{display:none;}
   /*music*/.sidebar__placeholder .smalladv__item
-           ,.bar__monkey
-           ,.smalladv__item
-           ,.smalladv__no-ads{display:none;}
+		,.bar__monkey
+		,.smalladv__item
+		,.smalladv__no-ads{display:none;}
   /*kartinki /images*/ iframe.direct{display: none!important;}
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
   /*pogoda*/ .content .adv, .info .adv, .info__more .store, .info .info__ratatuy
-             ,.content .adlos.adlos_pos_top
-             ,.adbca{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
+		,.content .adlos.adlos_pos_top
+ 		,.adbca, [class*="teaser"], [id*="adFox"], [id*="banner"]
+		, .umzx, .quqz, [style*="absolute!"]{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
   .adbca *, .adbca__title a, .adbca__text_sitelinks a, .adbca__text_contacts a{color:#fff!important;}.adbca__favicon{max-height: 0}
   /*rasp*/ .index-layout__right .direct{display:none!important;}
   /*slovari*/ .b-translation +.b-rtb{display:none;}
