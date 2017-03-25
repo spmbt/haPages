@@ -1,8 +1,8 @@
-/** Yandex No-ads v27.2016.6.16, Chrome 42+, Fx 40+
+/** Yandex No-ads v43.2017.3.25, Chrome 42+, Fx 40+
  * Author: github.com/spmbt http://userstyles.org/styles/121827/, license CC-BY-NC v.4.0
- * LastUpdates: teaser,adFox,banner,.umzx,.quqz;
+ * LastUpdates: search-app-promo in home;
  */
-@-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"){
+@-moz-document regexp("https?://([^.]+\.)?yandex\.(..|com(\.tr)?).*"),domain("yandex.ru"),domain("yandex.ua"),domain("yandex.net"),domain("yastatic.net"){
   .container__banner
   ,.headline__item.headline__leftcorner
   ,.home-arrow__promo-wrapper
@@ -13,22 +13,25 @@
   ,.b-head-universal-wrapper
   ,.i-bem.popup.popup_product_set
   ,.dist-popup
-  ,.popup_product_browser
-  ,.popup__content.dist-popup__content
+  ,.popup_product_browser,.dist-popup_product_home
+  ,.popup__content.dist-popup__content,.popup__content.distr-popup__content
   ,.universal-stripe-wrapper
   ,.serp-list .z-default-search
   ,.head-stripe__table, .head-stripe__image
     {display: none!important;}
   .head-stripe.serp, .head-stripe__elements{height: auto;}
   body.b-page >iframe
-    {display: none!important}
+      {display: none!important}
   .input__samples
   ,.serp-block_type_default-search
   ,.serp-block.t-default-search
   ,.serp-adv__item,.serp-adv__head
   ,.bmw__history
+  ,.search-app-promo
     {display: none;}
+  #wd-wrapper-_topnews-1{margin:20px 0 -20px}
   .serp-adv{position: absolute; left:-1200px;}
+  .head-stripe{height: 0;}
 
   .content__left >.competitors.competitors_js_inited{position: fixed; top: -10px; left: -36px}
   .competitors__link{display: inline-block; overflow: hidden; white-space: nowrap; max-width: 2.2em; margin-left: 4px; color: #ddd;}
@@ -57,6 +60,13 @@
   .col_home-logo .covers__newyear2016_mic{top: 72px}
   .button_theme_websearch{opacity:.65;}
 
+  /* widgets */
+  .w-rss__body_height_large{height: auto!important}
+  .w-rss {margin-right: 10px}
+  .col.col_td_1.widgets__col.widgets__col_td_2{margin-bottom: -3.9em}
+  .col.col_td_1.widgets__col.widgets__col_td_2  h1{margin: 12px 0 0}
+  .col.col_td_1.widgets__col.widgets__col_td_2  .w-rss__item{padding-bottom: 4px}
+  .home-tabs{position: relative}
   /* colored ads */
   .serp-meta2.serp-meta2_type_gray
   ,div:not(.serp-item__text) +.serp-sitelinks
@@ -74,11 +84,13 @@
   ,.story-item .document__snippet ol
   ,.story-item .document__snippet ul
   ,.serp-adv-item__label +*
+  ,.doc__agency-name ul, .doc__agency-name ol
     {background-color: #eee; padding: 4px 0 4px 4px; margin: -4px 0 -4px -4px;}
   .serp-item__greenurl +.text.organic__text
     {background-color: transparent;}
   .serp-adv .serp-item
     {margin-bottom: 6px;}
+  .doc__agency img[src*="resize.yandex.net"]{left: 92%!important; opacity: .4;}
 
   /* colored forums, images, nets */
   .nav-answers.nav-answers_bno_yes
@@ -110,6 +122,8 @@
   ,.z-default-search_yabro_yes
   ,.footer-stripe
     {display:none}
+  .tableau_device_desktop{height: 500px !important;}
+  .ua_js_yes body.page{overflow:hidden;}
 
   /*pochta*/
   .b-intruder__i
@@ -123,27 +137,109 @@
   ,.b-page .b-statusline_promo-yabrowser
   ,.stripe_type_promo
   ,.mail-in-browser-line
+  ,.mail-Informer-Box .mail-News
+  ,.ns-view-messages-direct-box
     {display:none!important; height:0;}
 
   /*karty*/
   .search-result-view_direct, .search-result-view_direct__text{padding: 2px 3px; line-height: 1.14; border-width:0; background-color: #eee;}
   .search-result-view_direct._hovered, .search-result-view_direct:hover, .search-result-view_direct:active{border-width: 0}
   .search-result-view_direct._init .search-result-view_direct__title{font-size: 12px; line-height: 1.14;}
-  .stores-badges-view, .home-panel-content-view_has-panorama__banner-layout, .home-panel-content-view_has-panorama__tip{display:none;}
+  .stores-badges-view, .home-panel-content-view_has-panorama__banner-layout, .home-panel-content-view_has-panorama__tip, .stripe_type_promo
+  ,body >div[style*="padding-top"]
+  ,.banner-view
+    {display:none;}
+  /*iframe[src*="yastatic.net"]{display:none!important; height:0!important}*/
+  .body._init{top:0!important}
+  .map-view__container >ymaps{height: calc(100%)!important}
+  .map-view__mobile-promo-control{opacity:.4}
 
   /*news*/body.b-page >iframe:first-child{margin-bottom:-30px!important;}
-  .page-content__right .banner{display:none;}
+  .page-content__right span[class^="stor"]:not(.addition):not(.widget)
+  ,.page-content__col.page-content__col_pos_right
+  ,.page-content__right .banner, .profit.i-bem{display:none;}
+  article.widget_for_auto
+  ,.page-content__col_pos_left article +span.filters
+  ,article.page-content__extra-item +article.page-content__extra-item
+  ,.widget_for_auto +.widget_for_auto
+  ,.page-content__left .page-content__extra-item span.filters:first-child
+  ,.page-content__left >.page-content__extra-item[data-bem]
+  ,.page-content__left >article
+  ,.page-content__left >span[data-bem]
+  ,.page-content__left >div[data-bem]:not([data-bem*="stories"]):not([data-bem*="quote"])
+  ,.page-content__left >.filters[data-bem]
+  ,.page-content__left >div[class*=rubric][class*=stories]
+  ,.page-content__left >.rubric:not([aria-labelledby]) >div:not(.rubric__left):not(.rubric__right):not(.nav-by-subrubrics)
+		,.page-content__left >div.rubric >div:not([class*="rubric"]) >a >img[src*="direct"]
+		,.page-content__left >div.rubric >div:not([class*="rubric"]) >h4 >a
+		,.page-content__left >div.rubric >div:not([class*="rubric"]) >div[class*="__text"]:not(.widget__links)
+		,.page-content__left >div.rubric >div:not([class*="rubric"]) >ul[class*="__items"]
+		,.page-content__left >div.rubric >div:not([class*="rubric"]) >ol[class*="__items"]
+  ,.page-content__left .pager
+  ,.page-content__right .page-content__extra-item span.filters:first-child
+  ,.page-content__right >.page-content__extra-item[data-bem]
+  ,.page-content__right >article
+  ,.page-content__right >span[data-bem]
+  ,.page-content__right >div[data-bem]
+  ,.page-content__right >.filters[data-bem]
+  ,.page-content__right >div.addition >div:not([class*="addition"])
+		,.page-content__right >div.widget >div:not(.widget__content) >a >img[src*="direct"]
+		,.page-content__right >div.widget >div:not(.widget__content) >h4 >a
+		,.page-content__right >div.widget >div:not(.widget__content) >div[class*="__text"]:not(.widget__links)
+		,.page-content__right >div.widget >div:not(.widget__content) >ul[class*="__items"]
+		,.page-content__right >div.widget >div:not(.widget__content) >ol[class*="__items"]
+  ,.page-content__right .page-content__col form.filters >div:not([class*="filters"])
+    {opacity:0!important; display: none!important;}
+  .page-content__col_pos_left .page-content__extra-item span.filters:first-child
+  ,.page-content__col_pos_left >.page-content__extra-item[data-bem]
+  ,.page-content__col_pos_top >.page-content__extra-item[data-bem]
+  ,.page-content__col_pos_left >article
+  ,.page-content__col_pos_top >article
+  ,.page-content__col_pos_left >span[data-bem]
+  ,.page-content__col_pos_top >span[data-bem]
+  ,.page-content__col_pos_left >div[data-bem]
+  ,.page-content__col_pos_top >div[data-bem]:not(:last-child) /*фото-блок*/
+  ,.page-content__col_pos_left >.widget_for_auto:first-child
+  ,.page-content__col_pos_top >.widget_for_auto:first-child
+  ,.page-content__col_pos_left .page-content__extra-item article.page-content__extra-item
+  ,.page-content__col_pos_top .page-content__extra-item article.page-content__extra-item
+  ,.page-content__col_pos_left .page-content__extra-item >article[data-bem]
+  ,.page-content__col_pos_top .page-content__extra-item >article[data-bem]
+  ,.page-content__col_pos_left .page-content__extra-item >div[data-bem]
+  ,.page-content__col_pos_top .page-content__extra-item >div[data-bem]
+  ,.page-content__col_pos_left .page-content__extra-item >span[data-bem]
+  ,.page-content__col_pos_top .page-content__extra-item >span[data-bem]
+  ,.page-content__col_pos_left .page-content__extra-item div.widget_for_auto:first-child
+  ,.page-content__col_pos_top div.widget_for_auto:first-child
+  ,.page-content__col_pos_left >.page-content__extra-item >.widget_for_rubrics-top:first-child >div
+  ,.page-content__col_pos_top >.page-content__extra-item >.widget_for_rubrics-top:first-child >div
+  ,.page-content__col_pos_left .page-content__extra-item >div[class]:not(.widget_for_rubrics-top)
+  ,.page-content__col_pos_top .page-content__extra-item >div[class]:not(.widget_for_rubrics-top)
+  ,.page-content__col_pos_left .widget_for_rubrics-top >div:not(.widget_for_rubrics-top)
+  ,.page-content__col_pos_top .widget_for_rubrics-top >div:not(.widget_for_rubrics-top)
+  ,.page-content__col_pos_left .widget_layout_small.i-bem >div[class]:not(.widget_for_rubrics-top)
+  ,.page-content__col_pos_top .widget_layout_small.i-bem >div[class]:not(.widget_for_rubrics-top)
+  ,.info__ratatue .adv.adv_pos_bottom
+    {opacity:0!important; display: none!important;}
+  .page-content__col_pos_left .widget_layout_small >div[class*=" "]
+    {opacity:1!important; display: block!important;}
+  .page-content__col_pos_left .widget_layout_small >div
+    {opacity:0!important; display: none!important;}
+  .auto-update{display: none!important; height:0!important; opacity:0!important;}
+  .story__tails +.auto-update{display: block!important; height: auto!important; opacity:1!important;}
   /*music*/.sidebar__placeholder .smalladv__item
 		,.bar__monkey
 		,.smalladv__item
-		,.smalladv__no-ads{display:none;}
-  /*kartinki /images*/ iframe.direct{display: none!important;}
+		,.smalladv__no-ads,.ads-block__item{display:none;}
+  /*kartinki /images*/ iframe.direct, .popup.dist_action_landing,.incut__wrapper .direct-item{display: none!important;}
 
   /*afisha*/ .main +.direct,    .aside .direct{display:none!important;}
   /*pogoda*/ .content .adv, .info .adv, .info__more .store, .info .info__ratatuy
 		,.content .adlos.adlos_pos_top
  		,.adbca, [class*="teaser"], [id*="adFox"], [id*="banner"]
-		, .umzx, .quqz, [style*="absolute!"]{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
+		,.umzx, .quqz, [style*="absolute!"]
+		,.navigation-city_meteum{display: none!important; position: absolute; left: -9999px; margin-left: -130%}
+	.info__map  .maps-widget >div:not(.maps-weather),.info__map  .maps-widget >a{visibility: hidden!important;}.info__more +.info__map, .info__map +.info__map{visibility: inherit;}
   .adbca *, .adbca__title a, .adbca__text_sitelinks a, .adbca__text_contacts a{color:#fff!important;}.adbca__favicon{max-height: 0}
   /*rasp*/ .index-layout__right .direct{display:none!important;}
   /*slovari*/ .b-translation +.b-rtb{display:none;}
@@ -151,6 +247,14 @@
   /*taxi*/ .island_type_city-promo{display:none!important;}
   /*fotki*/ .ns-view-ads-direct,    .ns-view-panel-box +.ns-view-ads{display:none!important;}
   /*rabota*/ .promo__inner, .content-top .promo{display:none!important;}
+  /*tv*/ .adv-manager{display:none!important; height:0!important; opacity:0!important;}
+  /*disk*/ .ns-view-layerModal .ns-view-dialogWelcome
+  ,.b-awaps__banner
+    {display:none!important;}
+	/*video*/ .serp-list [data-bem*="browser.yandex.ru/promo"]
+	,.serp-list [data-bem*="bannerid="]
+	,.serp-list [data-bem*="ad_format"]
+	  {display:none!important;}
 }
 /*news (in frame)*/
 @-moz-document url("javascript:name"){

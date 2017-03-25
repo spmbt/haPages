@@ -5,7 +5,7 @@
 // ==UserScript==
 // @id HabrAjax
 // @name HabrAjax
-// @version 168.2017.3.2
+// @version 169.2017.3.25
 // @namespace github.com/spmbt
 // @author spmbt0
 // @description Cumulative script with over 60 functions for Fx-Opera-Chrome
@@ -15,9 +15,9 @@
 // @include http://spmbt.github.io/haPages/userscript/habrAjax/*
 // @include http://habrastorage.org/
 // @include http://legacy.habrastorage.org/
+// @update 168 all 3 are compatible
 // @update 166 default-block in sidebar
 // @update 165 #comments-list in .c2;
-// @update 164 .wrss checking is hidden in this code;
 // @grant GM_registerMenuCommand
 // @resource meta habrAjax.meta.js
 // @grant none
@@ -2549,7 +2549,7 @@ if(!h.inZen)
 	strongCutImgMinH +=50;
 var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!important}'
 	+'#layout{height: auto!important}.posts_list .blog_title.small{font-size:14px!important}'
-	+'.post div.btnBack, .btnBack{position: relative; height: 12px; margin: 3px 1px 5px 0; padding:0 3px!important; border: 1px solid rgba(166, 194, 222, 0.56);border-radius:3px; font-size: 12px; background: rgba(200, 215, 229, 0.67);color:#f1e1ca;cursor:pointer}'
+	+'.post div.btnBack, .btnBack{position: relative; height: 12px; margin: 3px 1px 5px 0; padding:0 3px!important; border: 1px solid rgba(166, 194, 222, 0.56);border-radius:3px; font-size: 12px; background: rgba(200, 215, 229, 0.67); color: #81715a; cursor:pointer}'
 	+'.content+.btnBack.n2{margin-top:-5px!important}'
 	+'.comments.c2{clear: both; position: relative; display:none}'
 	+'.comments.c2:hover >.comment_item:not(:hover){margin-right:-2px!important;border-right: 2px solid #eee!important;background:#eee}'
@@ -2607,7 +2607,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.comments .comment_item .info .branch,#comments .comment_item .info .branch{Visibility: hidden; position: relative; top:-11px!important; text-decoration: none}'
 	+'.comments .comment_item .info:hover .branch,#comments .comment_item .info:hover .branch{Visibility: visible}'
 
-	+'.post div.btnBack.inln{display: inline-block; vertical-align: bottom; overflow: hidden; height: 14px; line-height: 14px!important; margin: 0 2px 3px}'
+	+'.post div.btnBack.inln{display: inline-block; vertical-align: bottom; overflow: hidden; height: 14px; line-height: 14px!important; margin: 0 2px}'
 	+'.post .btnBack:not(.inln):not(.n2){position: relative;z-index: 1}'
 	+'.post .content .percent,.post .btnBack .percent,.post .btnBack >i{display: inline-block;vertical-align:top; line-height:10px}'
 	+'.post .content .percent{font-size:12px;color:#8ac}'
@@ -2619,7 +2619,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.post .dblAuthor .published{float:none}'
 	+'.showComm.btnBack:not(.inln), .showComm.btnBack.n2{display: none; clear: both}'
 	+'.showComm.btnBack:not(.inln):not(.n2){margin-top: 22px}'
-	+'.showComm.btnBack.n2 .percent0{float:right} .showComm.btnBack.n2 .percent{vertical-align: top; border: 1px solid rgba(174, 205, 233, 0.42); margin: -1px 3px 0; padding: 0 13px 1px; line-height:11px; background: rgba(200, 215, 229, 0.67);color:#e7d7c1}'
+	+'.showComm.btnBack.n2 .percent0{float:right} .showComm.btnBack.n2 .percent{vertical-align: top; border: 1px solid rgba(180, 195, 209, 0.6; color: #978771); margin: -1px 3px 0; padding: 0 13px 1px; line-height:11px; background: rgba(200, 215, 229, 0.67);color:#e7d7c1}'
 	+'#poxupih a{color:#7ab}.gertuik{font-size: 16px!important;color:#eee}'
 	+'#header .main_menu a.date, #navbar .tab_menu .date{display:inline-block; text-align:center; text-decoration: none!important; font: 11px/8px Verdana,Tahoma,sans-serif!important;'+ (ZenNCh?'margin: 11px 6px 0 -1px!important; color:#479!important':'')+'}'
 	+'#header .search form input[type="text"]{margin-right: 21px;}'
@@ -2665,7 +2665,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.content.powerCut img{clear:right; max-width: '+(strongCutImgMinH*2)+'px;  max-height: '+strongCutImgMinH+'px; margin-top:2px!important}'
 	+'.powerCut img:not([align]){float:right; margin-left:6px!important}'
 	+'.powerCut img[align="center"], .powerCut img[align="middle"]{float:left; clear:left; padding-right:6px!important; padding-left:6px!important; border-left: 1px dotted #aaa!important}'
-	+'.strongCutImgPlace{border:1px solid #99e; min-width:14px; float: right; margin: -4px -1px -1px 2px; padding: 0 1px 0 3px; background: #ee6; opacity: 0.3}#layout img.youtub,#wrapper img.youtub{border-left: 3px dotted #833!important}'
+	+'.strongCutImgPlace{border:1px solid #99e; min-width:14px; float: right; margin: -4px -1px -1px 2px; padding: 0 1px 0 3px; background: background: rgba(230, 230, 96, 0.5); opacity: 0.3}#layout img.youtub,#wrapper img.youtub{border-left: 3px dotted #833!important}'
 	+'.powerCut +.tags{max-height: 1.5em; overflow:hidden}.powerCut +.tags:hover{overflow:inherit}.powerCut +.tags li{position:relative; z-index:2}'
 	+'textarea{font: 12px/15px Verdana,Arial,Helvetica,sans-serif!important;resize:vertical!important}'
 	//нотификатор, панель цитат
@@ -2738,6 +2738,7 @@ var css='body{text-align: inherit!important; font-family: Verdana,sans-serif!imp
 	+'.content_left .post h1.title .post_title, .content_left .post__title{display: inline-block;margin: -1px -3px!important; padding: 0 2px 1px 3px!important; border-radius: 2px;background-image: none!important}h1{letter-spacing:0!important}'
 	+'.post h1.title a, .post__title_link{letter-spacing: 0}'
 	+'.content_left table.menu .profile a{position:relative; z-index:2; opacity:0.4}'
+	+'.post__time_published{color: rgba(180,220,130,.6)}'
 	+'.content_left table.menu .profile a:hover{opacity:0.9}'
 	+'.content_left .post{margin: 12px 0 32px !important;overflow: inherit !important}'
 	+'.content_left .company_post .post{margin-bottom: -5px!important}'
@@ -3685,16 +3686,16 @@ document.addEventListener("DOMContentLoaded", readyLoad = function(){ //обра
 			if(hS.colorTopic.val && topicTitle){
 				for(var j in hubs){
 					if(hubs[j].innerHTML =='Переводы')
-					topicTitle.style.backgroundColor ='#f0f4fa'; //топик-перевод (светло-синий)
+					topicTitle.style.backgroundColor ='rgba(215, 219, 225, 0.31)'; //топик-перевод (светло-синий)
 					if(hubs[j].innerHTML =='Смартфоны и коммуникаторы')
-						topicTitle.style.backgroundColor ='#e8f6f0'; //о смартфонах (зелёный)
+						topicTitle.style.backgroundColor ='rgba(194, 217, 195, 0.33)'; //о смартфонах (зелёный)
 				}
 				if(/ translation/.test(topic.className) && topicTitle)
-					topicTitle.style.backgroundColor ='#f0f4fa'; //топик-перевод (светло-синий)
+					topicTitle.style.backgroundColor ='rgba(220, 224, 230, 0.33)'; //топик-перевод (светло-синий)
 				var lNAV = hS.listNewsAuthors.val
 					,flagNews = $q('.flag_news', parents('^title$', topicTitle));
 				for(var j in lNAV) if(autName == lNAV[j] || !topicHaCut){
-					topicTitle.style.backgroundColor ='rgba(250,253,242,.5)'; //новость (жёлтый)#f2f6e8
+					topicTitle.style.backgroundColor ='rgba(250,253,242,.33)'; //новость (жёлтый)#f2f6e8
 					news = content; //для свёртки
 					$e({cl:'recov1'
 						,cs:{marginLeft:'8px'}

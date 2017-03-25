@@ -1,4 +1,4 @@
-/** HabraDarkAge v445.2017.3.20, Fx30+, Opera15+, Chrome35+, Safari 6+
+/** HabraDarkAge v445.2017.3.25, Fx30+, Opera15+, Chrome35+, Safari 6+
  * http://userstyles.org/styles/101697/, license CC-BY-NC v.4.0
  * Author: github.com/WaveCutz, github.com/spmbt
  * LastUpdatesDescription: body.nl .layout, footer;
@@ -458,6 +458,7 @@ head[prefix] +body:after{position: static;}
 .megapost-cover .megapost-head h1 a,
 .post h1.title{font-size: 20px!important; line-height: 20px!important; letter-spacing:0!important}
 .post h2.post__title a.post__title_link:hover{color: #9fa9b6!important}
+.post__flow, .post__title_link, .post__title{line-height: 20px; font-size: 20px}
 .post h1.title .flag{opacity: 0.6}
 .post h1.title .edit{
 	display: inline-block;
@@ -861,13 +862,12 @@ body.company .comments_list h2.comments-header,
 .infopanel_wrapper .postinfo-panel,
 .article__infopanel .postinfo-panel{
 	max-width: 1200px;
-	margin:-17px 1px 5px -6px!important;
-	padding: 5px 0 7px 13px !important;
+	margin:-6px 1px 5px -6px!important;
+	padding: 0 0 3px 2px !important;
 	border-width: 1px!important; border-style: solid!important; border-radius:8px;
 	border-color: #9c9fa2 #6c7076 #5c6066!important;
 	background-image: linear-gradient(#767b82 20%, #4c5056 90%);
 	color: #9aa!important}
-.post .infopanel_wrapper .postinfo-panel{padding:0!important;}
 .company_order .meta .replies .total, #preview_placeholder .meta .replies .total,
 .company_order .responses .responses_head .title, #preview_placeholder .responses .responses_head .title,
 .comments_list h2.title2,
@@ -938,7 +938,7 @@ h2.title .subscribe_comments label input{opacity: 0.6}
 .post-author:hover .post-author__pic:not([src*="stub-user-middle"]){margin: -12px -0px -12px -14px;}
 .comments_list .comment_item .info a.avatar{overflow: inherit!important}
 .comments_list .comment_item .info.is_new,
-.conversation_page .messages .message.new .info{background: #404046}
+.conversation_page .messages .message.new .info{background: rgba(160, 160, 190, 0.2)}
 .conversation_page .messages .message .info,
 .comments_list .comment_item .info.is_topic_starter{background: #384038}
 .comments_list .comment_item .info.is_topic_starter.is_new{background: #384040}
@@ -1413,8 +1413,6 @@ body.nl .layout__cell, .footer-block__content{padding:0 4px 0 8px}
 body.nl .layout__row{width: auto}
 .layout__row_footer .footer{height: 27px}
 
-.test.y{border: 1px solid rgba(190, 190, 195, 0.45); background: rgba(223, 226, 226, 0.4); rgba(214, 217, 214, 0.48);color: #e7d7c1;}
-
 body.nl .layout__row_footer-links{width: auto; min-width: 314px!important; margin: 0; padding: 7px 0 0}
 .layout__row_footer-links:before{position:relative; display:block; float:right; height:0; top:-5px; right:2px; white-space:nowrap; margin-top:-4px!important; font-size: 9px; color:#888; content:"ZenComment by spmbt"}
 .layout__row_footer-links:after{content:''; display: block; clear:both}
@@ -1836,5 +1834,5 @@ iframe[src*="facebook"],.footer_logos,
 
 #layout >.layout__row_footer-links .copyright{border-top: 1px solid #666}
 
+	.aa{color: rgba(194, 217, 195, 0.33)  ;}
 }
-

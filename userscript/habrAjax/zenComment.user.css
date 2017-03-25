@@ -1,4 +1,4 @@
-/** Habr ZenComment v457.2017.3.19, FF3.6+, Opera11+, Safari5, Chrome, IE9
+/** Habr ZenComment v457.2017.3.25, FF3.6+, Opera11+, Safari5, Chrome, IE9
  * http://userstyles.org/styles/36690/, license CC-BY-NC v.4.0
  * Author: github.com/spmbt
  * LastUpdatesDescription: footer, header, width;
@@ -438,7 +438,7 @@ h1{letter-spacing:0!important}
 .content_left .post h1.title .post_title, .content_left .post__title{
 	margin: 3px 0 -3px!important;
 	padding-left: 25px!important;
-	font: 16px/118% normal Verdana,Tahoma,sans-serif!important}
+	font: 18px/118% normal Verdana,Tahoma,sans-serif!important}
 .post h1.title a,.post__title a{letter-spacing: 0}
 .post__flow{display: inline-block;
 	overflow: hidden;
@@ -448,7 +448,7 @@ h1{letter-spacing:0!important}
 	font-size: 16px;}
 .post__flow[href*="/misc/"]{width: auto}
 .post__flow[href*="/mark"]{width: 1.9em}
-.post__title_link{font-size: inherit; line-height: 18px;}
+.post__title_link{font-size: 18px; line-height: 18px;}
 .content_left .post h1.title .post_title, .post__title{
 	line-height: 16px;
 	font-size: 16px;
@@ -610,8 +610,8 @@ ul.tags li a{text-decoration:none!important}
 .i-am-your-father-luke .post .infopanel{width: 94%; margin:3px 0 0 4px!important;border: 1px solid #ddc;border-radius: 5px;font-size:11px;line-height:1.7}
 .company_post .post .infopanel{min-width:0%; margin-top:11px!important}
 .post__body{padding: 11px 0 4px}
-.post__body .buttons{padding: 4px 0 0 3px!important}
-.post__body .buttons{position: relative; z-index: 1}
+.post__body .buttons{padding: 1px 0 0 3px!important}
+.post__body .buttons{position: relative; z-index: 1; top:-4px;}
 .post .infopanel >div{
 	max-height:17px;
 	margin-top:0!important;margin-bottom:0!important;
