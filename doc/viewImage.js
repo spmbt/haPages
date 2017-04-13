@@ -170,19 +170,21 @@ var win = window
 			,on: isFx ? {DOMMouseScroll: resizeImg}:{mousewheel: resizeImg}
 		});
 		!isA && full.addEventListener('click',function(ev){
-			$pd(ev);
-			if(full.moved)
-				full.moved = false;
-			else{
+			if(full.moved){
+                if(full.parentNode && full.parentNode.tagName == 'A' && !RegExp('\\.' + extS.join('|')).test(full.parentNode.href))
+                    $pd(ev);
+                full.moved = false;
+            }else{
 				$dispTogl(full);
 				setTimeout(function(){full.parentNode && full.parentNode.removeChild(full);},1);
 			}
 		},!1);
 		(function(el){ //makeMoveable --перетаскивание
 			var elMove = function(ev){
-					el.style.left = ev.clientX - el.curX +'px';
-					el.style.top = ev.clientY - el.curY +'px';
-					el.moved = true;
+					var dx,dy;
+					el.style.left = (dx = ev.clientX - el.curX) +'px';
+					el.style.top = (dy = ev.clientY - el.curY) +'px';
+					el.moved = dx + dy > 6 && ev.clientX - el.startX + ev.clientY - el.startY > 6;
 				},
 				elStop = function(ev){
 					var t = ev.target;
@@ -190,7 +192,8 @@ var win = window
 						,revent:{mousemove: elMove, mouseup: elStop}});
 					if(ev.ctrlKey && t.parentNode.tagName=='A')
 						t.parentNode.click(); //нативный клик вынесен под Ctrl+
-					if((Math.abs(ev.clientX - el.startX) + Math.abs(ev.clientY - el.startY) ||0) <5 && ev.which ==1){
+                    el.moved = (Math.abs(ev.clientX - el.startX) + Math.abs(ev.clientY - el.startY) ||0) > 6;
+                    if(!el.moved && ev.which ==1){
 						$dispTogl(t);
 						setTimeout(function(){t.parentNode.removeChild(t);},1);
 					}
