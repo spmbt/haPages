@@ -47,6 +47,7 @@ domain("yandex.ru"), domain("yandex.ua"), domain("yandex.by"), domain("yandex.kz
   .nav-by-rubrics >ul >li:first-child {display: none}
   .nav-by-rubrics >ul >li {min-width: 115px; white-space: nowrap}
   .nav-by-rubrics .tabs-menu {height: auto}
+  .news-navigation-menu{position: absolute}
   .navigation__item.navigation__item_service_yes {
     visibility: visible;
     height: auto;
